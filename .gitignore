@@ -1,0 +1,13 @@
+# General
+*~
+**/.DS_Store
+
+# Jetbrains
+**/.idea/*
+!**/.idea/runConfigurations/
+*.iml
+target/
+
+# PHP
+composer.lock
+vendor/
