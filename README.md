@@ -20,4 +20,3 @@ Additional Information
 ----------------------
 
 Visit [Rosette API site](https://developer.rosette.com)
-
