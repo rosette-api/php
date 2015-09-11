@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 }
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new NameMatchingParameters(new Name('Michael Jackson'), new Name('迈克尔·杰克逊'));
+$params = new NameMatchingParameters(new Name("Michael Jackson"), new Name("迈克尔·杰克逊"));
 
 try {
     $result = $api->matchedName($params);

@@ -11,8 +11,9 @@
  * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  **/
-
 namespace rosette\api;
+
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  * Mock the global function for this test.
@@ -269,6 +270,24 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             }
         } catch (RosetteException $exception) {
             $this->assertSame('unsupportedLanguage', $expected['code']);
+        }
+    }
+
+    public function testRetries()
+    {
+        // Set user key as file name because a real user key is unnecessary for testing
+        $this->userKey = 'retry-fail';  // ex 'eng-sentence-language';
+        $api = $this->setUpApi($this->userKey);
+        $api->skipVersionCheck();  // need to set it so it do
+        $api->setNumRetries(5);
+        $params = new DocumentParameters();
+        $params->set('content', 'Testing this out.');
+        try {
+            $api->categories($params);
+            $this->assertFalse(true);
+        } catch (RosetteException $exception) {
+            $this->assertSame('A retryable network operation has not succeeded after 5 attempts [https://api.rosette.com/rest/v1/categories]',
+                $exception->getMessage());
         }
     }
 }
