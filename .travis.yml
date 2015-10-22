@@ -5,3 +5,4 @@ php:
 before_script:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+script: phpunit --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
