@@ -156,10 +156,10 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1')
+    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
-        $this->service_url = $service_url;
+        $this->service_url = $service_url[strlen($service_url) - 1] === '/' ? $service_url : $service_url . '/';
         $this->debug = false;
         $this->useMultiPart = false;
         $this->version_checked = false;
@@ -170,7 +170,8 @@ class Api
         $this->headers = array('user_key' => $user_key,
                           'Content-Type' => 'application/json',
                           'Accept' => 'application/json',
-                          'Accept-Encoding' => 'gzip', );
+                          'Accept-Encoding' => 'gzip',
+                          'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version, );
     }
 
     /**
@@ -314,7 +315,7 @@ class Api
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
-        $url = $this->service_url . '/' . $this->subUrl;
+        $url = $this->service_url . $this->subUrl;
         if ($this->debug) {
             $url .= '?debug=true';
         }
@@ -339,7 +340,7 @@ class Api
             if (!$versionToCheck) {
                 $versionToCheck = self::$binding_version;
             }
-            $resultObject = $this->postHttp($url . "/info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
+            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
             if ($resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
@@ -374,6 +375,7 @@ class Api
     {
         $response = null;
         $message = null;
+
         $code = 'unknownError';
         for ($range = 0; $range <= $this->numRetries; ++$range) {
             $http_response_header = null;
@@ -517,7 +519,7 @@ class Api
     public function ping()
     {
         $this->skipVersionCheck();
-        $url = $this->service_url . '/ping';
+        $url = $this->service_url . 'ping';
         $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
 
         return $this->finishResult($resultObject, 'ping');
@@ -533,7 +535,7 @@ class Api
     public function info()
     {
         $this->skipVersionCheck();
-        $url = $this->service_url . '/info';
+        $url = $this->service_url . 'info';
         $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
 
         return $this->finishResult($resultObject, 'info');
@@ -547,7 +549,7 @@ class Api
     public function languageInfo()
     {
         $this->skipVersionCheck();
-        $url = $this->service_url . '/language/info';
+        $url = $this->service_url . 'language/info';
         $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
 
         return $this->finishResult($resultObject, 'language-info');
@@ -693,7 +695,7 @@ class Api
     public function relationshipsInfo()
     {
         $this->skipVersionCheck();
-        $url = $this->service_url . '/relationships/info';
+        $url = $this->service_url . 'relationships/info';
         $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
 
         return $this->finishResult($resultObject, 'relationships-info');

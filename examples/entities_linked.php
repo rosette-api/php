@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = "President Obama urges the Congress and Speaker Boehner to pass the $50 billion spending bill based on Christian faith by July 1st or Washington will become totally dysfunctional, a terrible outcome for American people.";
+$content = "Last month director Paul Feig announced the movie will have an all-star female cast including Kristen Wiig, Melissa McCarthy, Leslie Jones and Kate McKinnon.";
 $params->set('content', $content);
 
 try {

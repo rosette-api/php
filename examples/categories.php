@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('contentUri', 'https://en.wikipedia.org/wiki/Basis_Technology_Corp.');
+$params->set('contentUri', 'Sony Pictures is planning to shoot a good portion of the new "Ghostbusters" in Boston as well.');
 
 try {
     $result = $api->categories($params);

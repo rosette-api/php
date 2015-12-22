@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new RelationshipsParameters();
-$params->set('content', 'Yesterday in Guatemala, the Supreme Court approved the attorney general's request to impeach President Otto Pérez Molina.');
+$params->set('content', 'Bill Murray is in the new Ghostbusters film!');
 $params->setOption('accuracyMode', 'RECALL');
 
 try {
