@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to get de-compounded words from a piece of text.
  **/
-require_once dirname(__FILE__) . '/../source/rosette/api/Api.php';
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\DocumentParameters;
 use rosette\api\RosetteConstants;

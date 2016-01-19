@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to translate a name from language to another.
  **/
-require_once dirname(__FILE__) . '/../source/rosette/api/Api.php';
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\NameTranslationParameters;
 use rosette\api\RosetteException;
