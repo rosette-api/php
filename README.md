@@ -6,7 +6,7 @@ PHP client binding for Rosette API
 Installation
 ------------
 
-`composer require "rosette/api: ~0.7.3"`
+`composer require "rosette/api: ~0.7.4"`
 
 Basic Usage
 -----------

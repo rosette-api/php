@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to get a document's (located at given URL) category.
  **/
-require_once dirname(__FILE__) . '/../source/rosette/api/Api.php';
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('contentUri', 'Sony Pictures is planning to shoot a good portion of the new "Ghostbusters" in Boston as well.');
+$params->set('contentUri', 'http://www.onlocationvacations.com/2015/03/05/the-new-ghostbusters-movie-begins-filming-in-boston-in-june/');
 
 try {
     $result = $api->categories($params);

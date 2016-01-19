@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to get a document's (located at given URL) relationships.
  **/
-require_once dirname(__FILE__) . '/../source/rosette/api/Api.php';
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\RelationshipsParameters;
 use rosette\api\RosetteException;
