@@ -15,10 +15,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$morphology_complete_data = "The quick brown fox jumped over the lazy dog. Yes he did.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('content', 'The quick brown fox jumped over the lazy dog. Yes he did.');
+$params->set('content', $morphology_complete_data);
 
 try {
     $result = $api->morphology($params, RosetteConstants::$MorphologyOutput['COMPLETE']);

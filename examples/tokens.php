@@ -14,10 +14,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$tokens_data = "北京大学生物系主任办公室内部会议";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('content', "北京大学生物系主任办公室内部会议");
+$params->set('content', $tokens_data);
 $params->set('unit', RosetteConstants::$InputUnit['SENTENCE']);
 
 try {
