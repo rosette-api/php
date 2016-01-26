@@ -17,11 +17,11 @@ if (!isset($options['key'])) {
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS ";
+$entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS";
 // There are two ways to process a base65 encoded string
-$content = $params->loadDocumentString(base64_encode($content), RosetteConstants::$DataFormat['UNSPECIFIED']);
+$content = $params->loadDocumentString(base64_encode($entities_text_data), RosetteConstants::$DataFormat['UNSPECIFIED']);
 // or
-// $params->set('content', $content);
+// $params->set('content', $entities_text_data);
 // $params->contentType = RosetteConstants::$DataFormat['UNSPECIFIED'];
 
 try {

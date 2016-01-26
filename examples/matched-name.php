@@ -14,9 +14,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$matched_name_data1 = "Michael Jackson";
+$matched_name_data2 = "迈克尔·杰克逊";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new NameMatchingParameters(new Name("Michael Jackson"), new Name("迈克尔·杰克逊"));
+$params = new NameMatchingParameters(new Name($matched_name_data1), new Name($matched_name_data2));
 
 try {
     $result = $api->matchedName($params);

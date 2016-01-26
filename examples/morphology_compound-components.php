@@ -14,10 +14,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$morphology_compound_components_data = "Rechtsschutzversicherungsgesellschaften";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('content', 'Rechtsschutzversicherungsgesellschaften');
+$params->set('content', $morphology_compound_components_data);
 
 try {
     $result = $api->morphology($params, RosetteConstants::$MorphologyOutput['COMPOUND_COMPONENTS']);

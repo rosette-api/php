@@ -13,10 +13,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$language_data = "Por favor Señorita, says the man.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = "Por favor Señorita, says the man.";
+$content = $language_data;
 $params->set('content', $content);
 
 try {

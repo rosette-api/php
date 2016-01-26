@@ -13,10 +13,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-
+$translated_name_data = "معمر محمد أبو منيار القذاف";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new NameTranslationParameters();
-$params->set('name', "معمر محمد أبو منيار القذاف");
+$params->set('name', $translated_name_data);
 $params->set('targetLanguage', 'eng');
 
 try {
