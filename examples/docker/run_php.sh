@@ -47,12 +47,12 @@ if [ ! -z ${API_KEY} ]; then
     checkAPI
 	if [ ! -z ${FILENAME} ]; then
 	    if [ ! -z ${ALT_URL} ]; then
-	        php ${FILENAME} --key ${API_KEY} --url ${ALT_URL} 
+	        php ${FILENAME} --key ${API_KEY} --url=${ALT_URL} 
 	    else
 		php ${FILENAME} --key ${API_KEY} 
    	    fi
 	elif [ ! -z ${ALT_URL} ]; then
-    	    find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} --url ${ALT_URL} \;
+    	    find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} --url=${ALT_URL} \;
 	else
 	    find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} \;
     fi
