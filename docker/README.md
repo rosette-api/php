@@ -2,7 +2,7 @@
 # Docker Image for PHP Examples
 ---
 ### Summary
-To simplify the running of the PHP examples, the Dockerfile will build an image and install the rosette-api library from the local development source.
+To simplify the running of the PHP examples, the Dockerfile will build an image and install the rosette-api library from the *local development source*.
 
 ### Basic Usage
 Build the docker image, e.g. `docker build -t basistech/php:1.1 .`
