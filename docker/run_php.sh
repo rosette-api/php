@@ -6,7 +6,7 @@ function HELP {
     echo "  API_KEY      - Rosette API key (required)"
     echo "  FILENAME     - PHP source file (optional)"
     echo "  ALT_URL      - Alternate service URL (optional)"
-    echo "Compiles and runs the source file(s) using the published rosette-api"
+    echo "Compiles and runs the source file(s) using the local development source."
     exit 1
 }
 
@@ -36,11 +36,6 @@ function checkAPI {
         exit 1
     fi  
 }
-
-#Copy the mounted content in /source to current WORKDIR
-cp /source/*.* .
-
-composer install
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
