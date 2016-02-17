@@ -3,9 +3,11 @@
 #Gets called when the user doesn't provide any args
 function HELP {
     echo -e "\nusage: source_file.php --key API_KEY [--url ALT_URL]"
-    echo "  API_KEY      - Rosette API key (required)"
-    echo "  FILENAME     - PHP source file (optional)"
-    echo "  ALT_URL      - Alternate service URL (optional)"
+    echo "  API_KEY       - Rosette API key (required)"
+    echo "  FILENAME      - PHP source file (optional)"
+    echo "  ALT_URL       - Alternate service URL (optional)"
+    echo "  GIT_USERNAME  - Git username where you would like to push regenerated gh-pages (optional)"
+    echo "  VERSION       - Build version (optional)"
     echo "Compiles and runs the source file(s) using the local development source."
     exit 1
 }
@@ -25,6 +27,14 @@ while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
             FILENAME=${OPTARG}
             usage
             ;;
+        GIT_USERNAME)
+            GIT_USERNAME=${OPTARG}
+            usage
+            ;;
+        VERSION)
+            VERSION={OPTARG}
+            usage
+            ;;
     esac
 done
 
@@ -37,9 +47,13 @@ function checkAPI {
     fi  
 }
 
+#Copy the mounted content in /source to current WORKDIR
+cp -r -n /source/* .
+
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
     checkAPI
+    cd /php-dev/examples
 	if [ ! -z ${FILENAME} ]; then
 	    if [ ! -z ${ALT_URL} ]; then
 	        php ${FILENAME} --key ${API_KEY} --url=${ALT_URL} 
@@ -53,4 +67,24 @@ if [ ! -z ${API_KEY} ]; then
     fi
 else 
     HELP
+fi
+
+#Run unit tests
+cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
+
+#Generate gh-pages and push them to git account (if git username is provided)
+if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
+    #clone php git repo to the root dir
+    cd /
+    git clone git@github.com:${GIT_USERNAME}/php.git
+    cd php
+    git checkout origin/gh-pages -b gh-pages
+    git branch -d develop
+    #generate gh-pages from development source and copy contents over to php repo
+    cd /php-dev
+    ./vendor/bin/phpdoc -t /php
+    cd /php
+    git add .
+    git commit -a -m "publish php apidocs ${VERSION}"
+    git push
 fi
