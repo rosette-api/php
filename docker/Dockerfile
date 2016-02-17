@@ -1,8 +1,9 @@
 FROM php:5.5-cli
 MAINTAINER Fiona Hasanaj
+ENV TZ=America/New_York
 
 # install necessary software
-RUN apt-get -y update && apt-get install -y vim  && apt-get install -y git
+RUN apt-get -y update && apt-get install -y vim  && apt-get install -y git && apt-get install -y libxslt1-dev
 
 # copy over the necessary files
 COPY composer.json /php-dev/examples/composer.json

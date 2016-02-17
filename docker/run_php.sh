@@ -12,7 +12,7 @@ function HELP {
     exit 1
 }
 
-#Gets API_KEY, FILENAME and ALT_URL if present
+#Gets API_KEY, FILENAME, ALT_URL, GIT_USERNAME and VERSION if present
 while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
     case "${arg}" in
         API_KEY)
@@ -72,6 +72,9 @@ fi
 #Run unit tests
 cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
 
+#Add xsl in PHP containers image
+docker-php-ext-install xsl
+
 #Generate gh-pages and push them to git account (if git username is provided)
 if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
     #clone php git repo to the root dir
@@ -80,10 +83,11 @@ if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
     cd php
     git checkout origin/gh-pages -b gh-pages
     git branch -d develop
-    #generate gh-pages from development source and copy contents over to php repo
+    #generate gh-pages from development source and output the contents to php repo
     cd /php-dev
-    ./vendor/bin/phpdoc -t /php
+    ./vendor/bin/phpdoc -d ./source/rosette/api -t /php
     cd /php
+    find -name 'phpdoc-cache-*' -exec rm -rf {} \;
     git add .
     git commit -a -m "publish php apidocs ${VERSION}"
     git push
