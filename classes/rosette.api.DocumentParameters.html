@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">2</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -64,11 +64,11 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
-<li class="method public inherited"><a href="#method_get" title="get() :: Custom getter for the key/value parameter pair."><span class="description">Custom getter for the key/value parameter pair.</span><pre>get()</pre></a></li>
+<li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
 <li class="method public "><a href="#method_loadDocumentFile" title="loadDocumentFile() :: Loads a file into the object."><span class="description">Loads a file into the object.</span><pre>loadDocumentFile()</pre></a></li>
 <li class="method public "><a href="#method_loadDocumentString" title="loadDocumentString() :: Loads a string into the object."><span class="description">Loads a string into the object.</span><pre>loadDocumentString()</pre></a></li>
 <li class="method public inherited"><a href="#method_serialize" title="serialize() :: Serialize into a json string."><span class="description">Serialize into a json string.</span><pre>serialize()</pre></a></li>
-<li class="method public inherited"><a href="#method_set" title="set() :: Custom setter for the key/value parameter pair."><span class="description">Custom setter for the key/value parameter pair.</span><pre>set()</pre></a></li>
+<li class="method public inherited"><a href="#method_set" title="set() :: Sets a property based on the name."><span class="description">Sets a property based on the name.</span><pre>set()</pre></a></li>
 <li class="method public "><a href="#method_validate" title="validate() :: Validates parameters."><span class="description">Validates parameters.</span><pre>validate()</pre></a></li>
 <li class="method public inherited"><a href="#method_validate" title="validate() :: Validates parameters before serializing them."><span class="description">Validates parameters before serializing them.</span><pre>validate()</pre></a></li>
 </ul>
@@ -76,12 +76,18 @@
 <li class="nav-header protected">» Protected
                     <ul><li class="method protected inherited"><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li></ul>
 </li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private inherited"><a href="#method_removeEmptyProperties" title="removeEmptyProperties() :: Recursively removes empty properties to facilitate json encoding."><span class="description">Recursively removes empty properties to facilitate json encoding.</span><pre>removeEmptyProperties()</pre></a></li></ul>
+</li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
-                    <ul></ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul><li class="property protected "><a href="#property_params" title="$params() :: Internal params array."><span class="description"></span><pre>$params</pre></a></li></ul>
+                    <ul>
+<li class="property public "><a href="#property_content" title="$content() :: "><span class="description">ontent is the text to be analyzed (required if no contentUri)</span><pre>$content</pre></a></li>
+<li class="property public "><a href="#property_contentType" title="$contentType() :: "><span class="description">contentType is the type of content RosetteConstants::$DataFormat (optional)</span><pre>$contentType</pre></a></li>
+<li class="property public "><a href="#property_contentUri" title="$contentUri() :: "><span class="description">contentUri is a URL to content that will be analyzed (required if no content)</span><pre>$contentUri</pre></a></li>
+<li class="property public "><a href="#property_language" title="$language() :: "><span class="description">language is the language of the content (optional)</span><pre>$language</pre></a></li>
+<li class="property public "><a href="#property_unit" title="$unit() :: "><span class="description">unit is the RosetteConstants::$InputUnit (optional)</span><pre>$unit</pre></a></li>
+</ul>
 </li>
 </ul>
 </div>
@@ -132,20 +138,23 @@
 </div></div>
 </div>
 <a id="method_get"></a><div class="element clickable method public method_get inherited" data-toggle="collapse" data-target=".method_get .collapse" title="public">
-<h2>Custom getter for the key/value parameter pair.</h2>
-<pre>get($key) : mixed</pre>
+<h2>Gets a property value based on the property name.</h2>
+<pre>get(string $propertyName) : mixed</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$key</h4></div>
+<div class="subelement argument">
+<h4>$propertyName</h4>
+<code>string</code><p>the name of the property</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
-<td></td>
+<td>if property name not found</td>
 </tr></table>
 <h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
+<div class="subelement response">
+<code>mixed</code>property value</div>
 </div></div>
 </div>
 <a id="method_loadDocumentFile"></a><div class="element clickable method public method_loadDocumentFile " data-toggle="collapse" data-target=".method_loadDocumentFile .collapse" title="public">
@@ -191,32 +200,27 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 </div>
 <a id="method_serialize"></a><div class="element clickable method public method_serialize inherited" data-toggle="collapse" data-target=".method_serialize .collapse" title="public">
 <h2>Serialize into a json string.</h2>
-<pre>serialize(boolean $skip_null<code> = true</code>) : string</pre>
+<pre>serialize() : string</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$skip_null</h4>
-<code>boolean</code><p>if null values should be skipped</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
 <a id="method_set"></a><div class="element clickable method public method_set inherited" data-toggle="collapse" data-target=".method_set .collapse" title="public">
-<h2>Custom setter for the key/value parameter pair.</h2>
-<pre>set($key, $val) </pre>
+<h2>Sets a property based on the name.</h2>
+<pre>set(string $propertyName, mixed $value) </pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$key</h4></div>
-<div class="subelement argument"><h4>$val</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
+<div class="subelement argument">
+<h4>$propertyName</h4>
+<code>string</code><p>the name of the property</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>the value to set</p></div>
 </div></div>
 </div>
 <a id="method_validate"></a><div class="element clickable method public method_validate " data-toggle="collapse" data-target=".method_validate .collapse" title="public">
@@ -253,22 +257,71 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 </div>
 <a id="method___construct"></a><div class="element clickable method protected method___construct inherited" data-toggle="collapse" data-target=".method___construct .collapse" title="protected">
 <h2>Constructor.</h2>
-<pre>__construct($repertoire) </pre>
+<pre>__construct() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_removeEmptyProperties"></a><div class="element clickable method private method_removeEmptyProperties inherited" data-toggle="collapse" data-target=".method_removeEmptyProperties .collapse" title="private">
+<h2>Recursively removes empty properties to facilitate json encoding.</h2>
+<pre>removeEmptyProperties($obj) : mixed</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$repertoire</h4></div>
+<div class="subelement argument">
+<h4>$obj</h4><p>Object to clean</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_params"> </a><div class="element clickable property protected property_params" data-toggle="collapse" data-target=".property_params .collapse" title="protected">
-<h2>Internal params array.</h2>
-<pre>$params : array</pre>
+<a id="property_content"> </a><div class="element clickable property public property_content" data-toggle="collapse" data-target=".property_content .collapse" title="public">
+<h2>ontent is the text to be analyzed (required if no contentUri)</h2>
+<pre>$content : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>array()</code></div>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_contentType"> </a><div class="element clickable property public property_contentType" data-toggle="collapse" data-target=".property_contentType .collapse" title="public">
+<h2>contentType is the type of content RosetteConstants::$DataFormat (optional)</h2>
+<pre>$contentType : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_contentUri"> </a><div class="element clickable property public property_contentUri" data-toggle="collapse" data-target=".property_contentUri .collapse" title="public">
+<h2>contentUri is a URL to content that will be analyzed (required if no content)</h2>
+<pre>$contentUri : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_language"> </a><div class="element clickable property public property_language" data-toggle="collapse" data-target=".property_language .collapse" title="public">
+<h2>language is the language of the content (optional)</h2>
+<pre>$language : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_unit"> </a><div class="element clickable property public property_unit" data-toggle="collapse" data-target=".property_unit .collapse" title="public">
+<h2>unit is the RosetteConstants::$InputUnit (optional)</h2>
+<pre>$unit : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
 </div></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -280,7 +333,7 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2015-09-11T09:46:24-04:00.<br></footer></div>
+            generated on 2016-02-17T20:22:14Z.<br></footer></div>
 </div>
 </body>
 </html>

@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">2</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -81,6 +81,8 @@ it is in the first array element. This method extracts that code.</span><pre>get
 <li class="method public "><a href="#method_matchedName" title="matchedName() :: Calls the name matching endpoint."><span class="description">Calls the name matching endpoint.</span><pre>matchedName()</pre></a></li>
 <li class="method public "><a href="#method_morphology" title="morphology() :: Calls the morphology endpoint."><span class="description">Calls the morphology endpoint.</span><pre>morphology()</pre></a></li>
 <li class="method public "><a href="#method_ping" title="ping() :: Calls the Ping endpoint."><span class="description">Calls the Ping endpoint.</span><pre>ping()</pre></a></li>
+<li class="method public "><a href="#method_relationships" title="relationships() :: Calls the relationships endpoint."><span class="description">Calls the relationships endpoint.</span><pre>relationships()</pre></a></li>
+<li class="method public "><a href="#method_relationshipsInfo" title="relationshipsInfo() :: Calls the relationships/info endpoint."><span class="description">Calls the relationships/info endpoint.</span><pre>relationshipsInfo()</pre></a></li>
 <li class="method public "><a href="#method_sentences" title="sentences() :: Calls the sentences endpoint."><span class="description">Calls the sentences endpoint.</span><pre>sentences()</pre></a></li>
 <li class="method public "><a href="#method_sentiment" title="sentiment() :: Calls the sentiment endpoint."><span class="description">Calls the sentiment endpoint.</span><pre>sentiment()</pre></a></li>
 <li class="method public "><a href="#method_setDebug" title="setDebug() :: Enables debug (more verbose output)."><span class="description">Enables debug (more verbose output).</span><pre>setDebug()</pre></a></li>
@@ -108,7 +110,7 @@ it is in the first array element. This method extracts that code.</span><pre>get
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_compatible_version" title="$compatible_version() :: Compatible server version."><span class="description"></span><pre>$compatible_version</pre></a></li>
+<li class="property private "><a href="#property_binding_version" title="$binding_version() :: Compatible server version."><span class="description"></span><pre>$binding_version</pre></a></li>
 <li class="property private "><a href="#property_headers" title="$headers() :: HTTP headers for Rosette API."><span class="description"></span><pre>$headers</pre></a></li>
 <li class="property private "><a href="#property_numRetries" title="$numRetries() :: Max retries before failing."><span class="description"></span><pre>$numRetries</pre></a></li>
 <li class="property private "><a href="#property_response_code" title="$response_code() :: Last response code."><span class="description"></span><pre>$response_code</pre></a></li>
@@ -159,7 +161,7 @@ provide the content data that will be processed by the service.</p>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Create an L{API} object.</h2>
-<pre>__construct(string $user_key, string $service_url<code> = 'https://api.rosette.com/rest/v1'</code>) </pre>
+<pre>__construct(string $user_key, string $service_url<code> = 'https://api.rosette.com/rest/v1/'</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -192,11 +194,12 @@ provide the content data that will be processed by the service.</p>
 </div>
 <a id="method_checkVersion"></a><div class="element clickable method public method_checkVersion " data-toggle="collapse" data-target=".method_checkVersion .collapse" title="public">
 <h2>Checks the server version against the api (or provided )version.</h2>
-<pre>checkVersion($versionToCheck<code> = null</code>) : boolean</pre>
+<pre>checkVersion($url, $versionToCheck<code> = null</code>) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
+<div class="subelement argument"><h4>$url</h4></div>
 <div class="subelement argument"><h4>$versionToCheck</h4></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
@@ -390,6 +393,33 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_relationships"></a><div class="element clickable method public method_relationships " data-toggle="collapse" data-target=".method_relationships .collapse" title="public">
+<h2>Calls the relationships endpoint.</h2>
+<pre>relationships($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_relationshipsInfo"></a><div class="element clickable method public method_relationshipsInfo " data-toggle="collapse" data-target=".method_relationshipsInfo .collapse" title="public">
+<h2>Calls the relationships/info endpoint.</h2>
+<pre>relationshipsInfo() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
 <a id="method_sentences"></a><div class="element clickable method public method_sentences " data-toggle="collapse" data-target=".method_sentences .collapse" title="public">
 <h2>Calls the sentences endpoint.</h2>
 <pre>sentences($params) : mixed</pre>
@@ -444,7 +474,8 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$numRetries</h4></div>
+<div class="subelement argument">
+<h4>$numRetries</h4><p>int</p></div>
 </div></div>
 </div>
 <a id="method_setResponseCode"></a><div class="element clickable method public method_setResponseCode " data-toggle="collapse" data-target=".method_setResponseCode .collapse" title="public">
@@ -595,12 +626,12 @@ it is in the first array element. This method extracts that code.</h2>
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_compatible_version"> </a><div class="element clickable property private property_compatible_version" data-toggle="collapse" data-target=".property_compatible_version .collapse" title="private">
+<a id="property_binding_version"> </a><div class="element clickable property private property_binding_version" data-toggle="collapse" data-target=".property_binding_version .collapse" title="private">
 <h2>Compatible server version.</h2>
-<pre>$compatible_version : string</pre>
+<pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'0.5'</code></div>
+<div class="subelement argument"><code>'0.7'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -702,7 +733,7 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2015-09-11T09:46:24-04:00.<br></footer></div>
+            generated on 2016-02-17T20:22:14Z.<br></footer></div>
 </div>
 </body>
 </html>

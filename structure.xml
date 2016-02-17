@@ -1,7 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="API Documentation" version="2.8.5">
   <partials/>
-  <file path="RosetteException.php" generated-path="RosetteException.html" hash="96e840165a26788821301fe2da03632a" package="Default">
+  <file path="RosetteParamsSetBase.php" generated-path="RosetteParamsSetBase.html" hash="e955b01b033a61c8839c63691d484ecf" package="Default">
+    <docblock line="0">
+      <description>abstract class RosetteParamsSetBase.</description>
+      <long-description>The base class for the parameter classes that are used for Rosette API operations.</long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="rosette\api" line="23" package="Default">
+      <extends/>
+      <name>RosetteParamsSetBase</name>
+      <full_name>\rosette\api\RosetteParamsSetBase</full_name>
+      <docblock line="23">
+        <description>Class RosetteParamsSetBase.</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="82" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="82">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="82" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="113" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="113">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="return" line="113" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJytVm1PKjkU/m7ifzgxJoJBcG/2ftHFvVxldyfrBQJcb0w2IaUcoGaYzrYdkL3xv+9pOzMwMKgfbIza9rw85zkvnd9+j+fx8dHxUeP8/PgIzoGNtVGMG+Ah0xr6UqMx2GOKLfQAzVemsW4FnfBwjjCmk1R4KhUYOoqtNBpU/hw1nTIDTCEkGidOLjUMrV4AMkbFjJCR3pj+wmW8VmI2N/Dp8pdfL+jXZyDvQsMQ+TySoZyt4VaqWHrdjeq94BhZP0k0QY+oFTNOf9KbGjyg0qQDn+qXULECJ+nVSfUa1jKBBVtDJI3FSwbI6VSECPjMMTYgIuByEYeCRRydy5Uwc+coNVOHx9SIHBtG8gxsPCCn21LAjI81TPdzY+KrRmO1WtWZQ1yXatZIb3XjPrhtdwbtC0KdB/s9CpGoV/hvIhTFPF4DiwkaZ2MCHLIVENlsppDujLTQV0oYEc1qoOXUrGxSJoJyLsaJKXCWgRTaOdoWIuZYBCetAQSDE/jaGgSDGvwIhn91vw/hR6vfb3WGQXsA3T7cdjt3wTDodmj3B7Q6j/B30LmrARJj5AifY2XxE0hhGcWJyyMMEAsgstLSMXIxFZwii2YJmyHM5BJVRAEBVdFCaJtXTfAmEIqFML6u9sNybs4bx0cRlaomshGUL8l/WCyut1vi9vVOIBvvaJrjo58kTMtbtYssEzSjEm6kqmeHDf9PrKRBbsmeJhG3QcBoxDP5StVLpTZfLNxd4+SYeLCGiBizdo3qUmdZsFHnLnOVL65zwSaa+DzNVDsknGtlNZxd7iovxDO5gdMlCxOEdFkFf0A1SOTsBpuMqWI3kZJEpeC9ltorhm2XmEIlkxzhMxWprpzajq0V8Ver21p2OamLm58FsRdopq6uN9Ivr7D85w7LPsoC1/ndx5O+MaLQJCpK2S+i2Rc2cyVXeZ223VSzvBOZBbBuBE4lNc8bCZvtJuwjE5WGVp6v7TQBhjQqdrRdrBDhai/cSlHQrrNeefhntX3ZXXNXV6dB56F1H9yNev1ur90fPo46rW/tomb1nXX1wEIxYYbezvw11TBGmoM0BFEJuv7P1gtVxaKkprbL4d3530lyPtV2s71MsVWq12XQ+8gTel6XGK4pdwuazxpwEROpaeaE/SKQMGVchHZCIzxpMosRlxOK6WCLnMrxE3THTzQXrT4PkUXvCz0fqmJp3eWReHhtC66XY6tYP/sFbE8fGGWhact9JB2O0ZJOvELOhV222jlVjqlkalW4gcu92rb5pIcecjFg2veD6//mjd9QNeypZm4IjFnHWNkINptNOPP4zkrVXDicmLTTzrfVASYym9flRqz/1BD5jJKwHGa2kshNdoJ2cZMHech2eTsXQigassFYLIfs7R+/7sIG5+p2Q8MHRleCpni0tS3H6Qu9OE82m2xqypyQA18JfpbQd15EPcV8K/rH6PBc8fdvvuKp6UpJM/mqK5kk7tZ9R6Wd/laJ2suiegrSRjJyQwU3UikR9PM/RwKljg==</source>
+  </file>
+  <file path="NameMatchingParameters.php" generated-path="NameMatchingParameters.html" hash="8790ade91d34497270f7b35e5b2c4c91" package="Default">
+    <docblock line="0">
+      <description>class NameMatchingParameters.</description>
+      <long-description>Parameters that are necessary for name translation operations.</long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
+      <extends>\rosette\api\RosetteParamsSetBase</extends>
+      <name>NameMatchingParameters</name>
+      <full_name>\rosette\api\NameMatchingParameters</full_name>
+      <docblock line="23">
+        <description>Class NameMatchingParameters.</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$name1</name>
+        <full_name>\rosette\api\NameMatchingParameters::name1</full_name>
+        <default></default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;sourceName source name&lt;/p&gt;" type="\rosette\api\Name" variable="">
+            <type>\rosette\api\Name</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="32" package="Default">
+        <name>$name2</name>
+        <full_name>\rosette\api\NameMatchingParameters::name2</full_name>
+        <default></default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="32" description="&lt;p&gt;targetName target name&lt;/p&gt;" type="\rosette\api\Name" variable="">
+            <type>\rosette\api\Name</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="39" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\NameMatchingParameters::__construct()</full_name>
+        <docblock line="39">
+          <description>constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="39" description="&lt;ul&gt;&#10;&lt;li&gt;sourceName source name to be matched&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Name" variable="">
+            <type>\rosette\api\Name</type>
+          </tag>
+          <tag name="param" line="39" description="&lt;ul&gt;&#10;&lt;li&gt;targetName target name to be matched&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Name" variable="">
+            <type>\rosette\api\Name</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$sourceName</name>
+          <default></default>
+          <type>\rosette\api\Name</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$targetName</name>
+          <default></default>
+          <type>\rosette\api\Name</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="50" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\NameMatchingParameters::validate()</full_name>
+        <docblock line="50">
+          <description>Validates parameters.</description>
+          <long-description></long-description>
+          <tag name="throws" line="50" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="82" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="82">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="82" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="113" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="113">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="return" line="113" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+    </class>
+    <source>eJzFVO9P2zAQ/Y7E/3BClWhRaVm1fYH9KlC0atBuTQEhTUKue00spbZnO4Rq4n/f2UlpCgU+TbOqxonP9967e/bHLzrR21vbW+29ve0t2AOeMmthwOZ4wRxPhIx/MENvDo1t+YgQtfoGLmEOmEGQyNFaZhYwUwYkrYMzTNqUOaEkKI0mzCppvnKlF0bEiYPOwbv3+/T3AY6ZFRbGyBOpUhUv4EQZrYq9q63ngqO0OIVMTtEQC4SuZpwe5UoTroieR+60DqDuA3bKpZ3GESxUBnO2AKkcZJaoJgQ6EykC3nPUDoQEruY6FUxyDJC5cEkAKtO04KZMoiaOUTwDrwfUrBoFzBVa0/I9cU4fttt5nrdYYNxSJm6Xq7Z93j/pDaLePrF+FHspUyotGPydCUOaJwtgmqhxNiHCKcuBKs5ig7TmlKeeG+God02wauZy356psM6ISebWarYkKWwAqgZR5ZiEnW4E/WgHjrtRP2rCdX/8bXg5huvuaNQdjPu9CIYjOBkOTvvj/nBAb2fQHdzA9/7gtAlIFSMgvNfG8yeSwlcUp6GPECGukfC+8e9WIxczwUmZjDMWI8TqDo0kQUAumgvr+2qJ3hRSMReu8NVzWQFmr7295d1oqdgIRll0Dn8xLY6qvj95y/eU5bWzQSIdyqmFUQEQVmyEjuxM9vlDKWgUaH6QIe6YCcmoR5nhWJmG07MMbBcTnU2o4VDzS++OXkvnmInRVaZvpetsSMepoM5k3CnTWn5cYWmvrkDbf4G+N+IE6XhQpXD6wtbNVDdvXSc+yyQP98rt7SPVekhUW/FpFji1FUyjSFK2w4+aP/n7n0NZ4VN199HGoI4PWiUsgx68l57W8IqlYsocWtBrXnpSTJcYlT8apxeuH1L2hu67Mnn9uSQxgzrOtVvUq+IajWqMHwGY7u38GXZ9PdAPq42QblbfHS1vodCqeXkSVhLDlWozHQ76YcUdu43m87RPkQ8Pa8fd09tR7+dlLxrfng1HF93x+rZGpTEPb6ju/CfVK4P8Q9X0oN9f88dPsA==</source>
+  </file>
+  <file path="RosetteException.php" generated-path="RosetteException.html" hash="7abdf815f87f2088320b1b3a321132cb" package="Default">
     <docblock line="0">
       <description>class RosetteException.</description>
       <long-description>Encapsulates the common exceptions that could occur.</long-description>
@@ -51,6 +351,18 @@
           <description>Internal error that throws if the Rosette API server version does not match the Api version.</description>
           <long-description></long-description>
           <tag name="var" line="42" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" namespace="rosette\api" line="48" package="Default">
+        <name>$INVALID_PROPERTY_NAME</name>
+        <full_name>\rosette\api\RosetteException::INVALID_PROPERTY_NAME</full_name>
+        <default>-7</default>
+        <docblock line="48">
+          <description>Internal error indicating that the requested property does not exist.</description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="" type="integer" variable="">
             <type>integer</type>
           </tag>
         </docblock>
@@ -137,226 +449,193 @@
         <inherited_from>\rosette\api\CustomException</inherited_from>
       </method>
     </class>
-    <source>eJydlFFv0zAQx9/7KU4VD1vVNWUMHhiIpW0mIrp2NNmmSUiV61wTS4kdbKdZQXx3zmk6dQMktDwkcu5y9/v/fc6HT2VWdjper9eBHvCcGQMLZdBaDB44llYoOaCQiwaSs9JUObNowGYIXBWFkoD7RPeWWXpd5Qkoziu9//SCq3KrRZpZOB2+Pjuh21sYMSMMxMgzqXKVbmGsdKk0O+w5FRylwQQqmaBuuvol4/RoI324RW3oCzgdDOHIJXTbUPf4HLaqgoJtQSoLlUEqQC3XIseWGoR0MspcMMnRdayFzZo+bZUB3Lc11MoySmfgxIBaH2YBs43OvF1m1pbvPa+u6wFreAdKp14bNd40HAezKDgh5lbojcyRvNf4vRKa9K62wErC4mxFsDmrQWlgqUaKWeWway2skGkfjFrbmmmERBirxaqyT/zaEwrj+hzmkGlMQtePIIy6MPKjMOrDXRh/nt/EcOcvFv4sDoMI5gsYz2eTMA7nM1pdgj+7hy/hbNIHJLeoDz6U2uETo3BmYuI2ECLEJwhrtUMyJXKxFpx0ybRiKUKqNqglyYESdSGMacaJyQRyUQjLduP1hyjXped1JCvQkM0Ieje731gpzh/HevzPsfY6fx95EmRRJgbGlbGqeHzf+dkBupq67upBTDApStQsB9SaBGq0lZZk71qrYl8Z/OuwT7uW0Ia6XSMpGrlKpfjhMpUumB20NfelLzaM7JS2XXvNs6xWNBRgnCUcXo38yXIRfL0Jonh5OV9c+TF8hLPh8Bw8Dwzqjdsch/WcO5SWDH+EPiLDIMcN5se7Q9yiotsEWnCliddCwqjxtsSXsIazW38aTpYTP/bj++uASE/eNKCu+f9QNmQ206o2IHbn78Dfvd5N+0NIFNG7g0/e8qz9d4h9+GUKxvOraz8OR9NgeRssIjoQTsW7Zyp+dX4D33yytQ==</source>
+    <source>eJylVG1v0zAQ/l6p/+E08WGrumaMN4mBWNYGEbG1JcmGJiFVrnNNLSW2sZ12BfHfOafp6ARIvORDEvvOd8/z3J1fvdFL3e10O0Gv1+1AD3jJrIVEWXQOozuO2gklB97W2CPJmbZ1yRxacEsErqpKScCdq99ljrbrMgfFeW1+HD7nSm+MKJYOTk8ePz2m1zO4YFZYyJAvpSpVsYGhMloZ9jDvpeAoLeZQyxxNkznUjNOntfThBo2lM3A6OIFD73DQmg6OzmCjaqjYBqRyUFukAJR0IUpskYOQnoouBZMcm5Rr4ZZNojbMAG7bIGruGPkz8HxALfa9gLkt17JdL53TL4NgvV4PWIN4oEwRtFYbXMbDaJxGx4T6nuy1LJGqYPBzLQxxnm+AaYLG2ZwAl2wNygArDJLNKQ99bYQTsuiDVQu3ZgYhF9YZMa/dA812IIVtEu07kXJMwkGYQpwewEWYxmkfPsbZu8l1Bh/DJAnHWRylMElgOBmP4iyejGn1FsLxLbyPx6M+IClGifBOG4+fQAqvKOZNHSFFfABiobagrEYuFoITM1nUrEAo1AqNJEKg0VTC2qaxmMyhFJVwbNtoP9Fq0vSCbkeyCi2JjWC2nfyJaXG23+fD3/c5nf/1FBAxhzK3MKytU9X9frfzlc7Rsw3unx5kBKtAiYaVgMYQVYOuNpKUXhhV7YJDOI37VMGciusrSKQMclVI8cV7KlMxN9gFvQ9+vmKkrXS7jWD7o+s5NQlYLxCHRxfhaJZEH66jNJu9nSRXYQav4enJyRkEAVg0K18rD+1n9LF0VIB76IckH5S4wvJoO94tYPRFoQVXhlA7yBml3mj8V8Tx+Ca8jEezUZiF2e00IrzHTxq4HsCfYW3wuaVRawtiO5p7Wu94r9rLIlfEwV8KpDNftveK2Jn/ncdwcjUNs/jiMprdRElKs+K5PP9LLnt90dLC5lZA6ydWG0Xj4TY/SOAdDfT/ij9NJtMoyW5n4/CqqcALmpxv3c53P5Hkrw==</source>
   </file>
-  <file path="RosetteConstants.php" generated-path="RosetteConstants.html" hash="a0a65568f334aa12126be4397ebdb170" package="Default">
+  <file path="RelationshipsParameters.php" generated-path="RelationshipsParameters.html" hash="addd2b329fa18750e3eeb16fed2e693f" package="Default">
     <docblock line="0">
-      <description>Container for the Rosette Constants.</description>
-      <long-description></long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
-      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="21" package="Default">
-      <extends/>
-      <name>RosetteConstants</name>
-      <full_name>\rosette\api\RosetteConstants</full_name>
-      <docblock line="21">
-        <description>Class RosetteConstants.</description>
-        <long-description></long-description>
-        <tag name="package" line="21" description="Default"/>
-      </docblock>
-      <property static="true" visibility="public" namespace="rosette\api" line="28" package="Default">
-        <name>$DataFormat</name>
-        <full_name>\rosette\api\RosetteConstants::DataFormat</full_name>
-        <default>array('SIMPLE' =&gt; '', 'JSON' =&gt; 'application/json', 'HTML' =&gt; 'text/html', 'XHTML' =&gt; 'application/xhtml+xml', 'UNSPECIFIED' =&gt; 'application/octet-stream')</default>
-        <docblock line="28">
-          <description>Accepted data formats.</description>
-          <long-description></long-description>
-          <tag name="var" line="28" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="true" visibility="public" namespace="rosette\api" line="41" package="Default">
-        <name>$InputUnit</name>
-        <full_name>\rosette\api\RosetteConstants::InputUnit</full_name>
-        <default>array('DOC' =&gt; 'doc', 'SENTENCE' =&gt; 'sentence')</default>
-        <docblock line="41">
-          <description>Accepted Input Units.</description>
-          <long-description></long-description>
-          <tag name="var" line="41" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="true" visibility="public" namespace="rosette\api" line="51" package="Default">
-        <name>$MorphologyOutput</name>
-        <full_name>\rosette\api\RosetteConstants::MorphologyOutput</full_name>
-        <default>array('LEMMAS' =&gt; 'lemmas', 'PARTS_OF_SPEECH' =&gt; 'parts-of-speech', 'COMPOUND_COMPONENTS' =&gt; 'compound-components', 'HAN_READINGS' =&gt; 'han-readings', 'COMPLETE' =&gt; 'complete')</default>
-        <docblock line="51">
-          <description>Accepted Morphology Output types.</description>
-          <long-description></long-description>
-          <tag name="var" line="51" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-    </class>
-    <source>eJydVO9v0zAQ/d6/4jQhbZS2AQRfGANCm7FAm0xNxkBCmtz02hgltrEd2grxv3NOMjVlQ0LLh/y6d3fvPZ/9+q3KVa/n9fs96MNYCsu4QA0rqcHmCHNp0Fp0EWOZsGZEOAd9l0m103ydW3j+9NmLId1ewntmuIEUs1zIQq53lKaV1MxyKW4TpzxDYXAJlVhi08RXLKNHGxnAZ9SGMuD56CmcOMBRGzp6fAo7WUHJdiCkhcogFaCWK14g4DZDZYELyGSpCs5Ehq7jhtu87tNWGcHXtoZcOLnAwIkBueqigNlaZ9F+5taqV5632WxGrOY7knrttVHjTcNxECXBkDi3Qq9EgcaAxh8V16R3sQOmiFbGFkS2YBsgj9laI8WsdLQ3mlsu1gMwcmU3TCMsubGaLyp74NctQ25cny6GTGMCjvwEwuQI3vtJmAzgOkwv4qsUrv353I/SMEggnsM4jiZhGsYRfZ2DH32FT2E0GQCSW9QHt0o7+sSROzNx6RYQEsQDCrdzYhRmfMUz0iXWFVsjrOVP1ILkgEJdcuNW1BC7JRS85LaeCXNXlOvS93qClWjIZgTdTOA3pvjpflALRtza4TyYTa+X3Rvr/eoBXXW+u/rgZ25cyLQls8wJKVldoo7egt79ZLRIWrNd+8ern6pa0EKCcTIyeDShCud1AThr0CcNnK7jJJxdToNjOHsDx8eD/f+PSRw1f9uxcI54340UXdRFOps2KItb6+W2LLrhL/t4t8rW4Z5sD7FXUXIZjMPzMJjczZCZRTukSUJWtkmPye9/eRYKVVkacf5Qy+oCLv8exybxuCG4lFlXQBJEaRCNWy8NCou0xf+D7YyOobw5keLKOuZ2p/CBzPfF2lp3BUyD2cxPGpoFliUzXRmX/jxNbuLzG1qOYHzRwBTT1gzlakg7ic7PLn4czy7jq2hyU79EZEJb2h1zknbQsH4R5MdBnws/upkH/iSMPrQJORNDWuAl7Urzd4dpkAb7sgXajrG/e38A8jXQgw==</source>
-  </file>
-  <file path="Name.php" generated-path="Name.html" hash="f79a2ff4502594ca52c174a4aa72e9c1" package="Default">
-    <docblock line="0">
-      <description>Name represents an entity name in Rosette API.</description>
-      <long-description></long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
-      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="21" package="Default">
-      <extends/>
-      <name>Name</name>
-      <full_name>\rosette\api\Name</full_name>
-      <docblock line="21">
-        <description>Class that represents a Name.</description>
-        <long-description></long-description>
-        <tag name="package" line="21" description="Default"/>
-      </docblock>
-      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
-        <name>$text</name>
-        <full_name>\rosette\api\Name::text</full_name>
-        <default></default>
-        <docblock line="28">
-          <description>Textual form of the name.</description>
-          <long-description></long-description>
-          <tag name="var" line="28" description="" type="" variable=""/>
-        </docblock>
-      </property>
-      <property static="false" visibility="public" namespace="rosette\api" line="34" package="Default">
-        <name>$entityType</name>
-        <full_name>\rosette\api\Name::entityType</full_name>
-        <default></default>
-        <docblock line="34">
-          <description>Entity type of the name.</description>
-          <long-description></long-description>
-          <tag name="var" line="34" description="" type="" variable=""/>
-        </docblock>
-      </property>
-      <property static="false" visibility="public" namespace="rosette\api" line="40" package="Default">
-        <name>$language</name>
-        <full_name>\rosette\api\Name::language</full_name>
-        <default></default>
-        <docblock line="40">
-          <description>Language of the name.</description>
-          <long-description></long-description>
-          <tag name="var" line="40" description="" type="" variable=""/>
-        </docblock>
-      </property>
-      <property static="false" visibility="public" namespace="rosette\api" line="47" package="Default">
-        <name>$script</name>
-        <full_name>\rosette\api\Name::script</full_name>
-        <default></default>
-        <docblock line="47">
-          <description>Script in which the name is written.</description>
-          <long-description></long-description>
-          <tag name="var" line="47" description="" type="" variable=""/>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="59" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\Name::__construct()</full_name>
-        <docblock line="59">
-          <description>Constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="59" description="" type="" variable="$text"/>
-          <tag name="param" line="59" description="" type="" variable="$entityType"/>
-          <tag name="param" line="59" description="" type="" variable="$language"/>
-          <tag name="param" line="59" description="" type="" variable="$script"/>
-          <tag name="throws" line="59" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$text</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$entityType</name>
-          <default>null</default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$language</name>
-          <default>null</default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$script</name>
-          <default>null</default>
-          <type/>
-        </argument>
-      </method>
-    </class>
-    <source>eJydVN9P2zAQfs9fcUJItFVpGNpe6NgIpWjRWLs1YQhpUuWmTmIptT3bIVQT//vO+VHSdA8Tfkji3N1339199sfPMpWO4w4GDgxgRjYUFJWKasqNBsIB38xsgVsL47AQmhpDwfvujzDCBl1FQm4VS1ID52fv3p/i4wNcE800hDRKuchEsoWJUFIoYpjgTeAdiyjXdA05X1MFJkVYSSJ81ZYh/KRKYwScj86gZx2OatNRfwxbkcOGIDdhINcUATBlzDIK9Dmi0li+kdjIjBEeUZuxYCYt89QoI3isMcTKEHQnYIsBEbe9gJiyzqzepsbIC9ctimJESr4joRK3tmr3zp9MZ8H0FDnXhd7zjGqNjf2dM4X1rrZAJNKKyArJZqQAoYAkiqLNCEu7UMwwngxBi9gURFFYM20UW+Vmr18NQ6ZtnrYPNg2nd+QF4AdHcO0FfjCEBz/8Mr8P4cFbLLxZ6E8DmC9gMp/d+KE/n+HuFrzZI3z1ZzdDoNgtzEOfrR605chsM+naDhACSvcoxKKipCWNWMwirIsnOUkoJOKJKo7lgKRqw7SdqNXWGjK2YabUhD4symYZuI5VnsY2ozAr7f0iko13kp1kBLmZlJg94ZZStgiuE5Uedu/8cQBXGWnXAAX6bHKSWfKbZuq8iiwdGr+rJ6Lqb7d8y3yF84NjgwDjLuq0OjNmK+mbQKszF2L4AfRd09S34DYTwe51YINIserAFCmL0h00CqvUoqH8v7PoEuswxwSnbFQeGaEOsCRRZFN1s/vvtRldS1NO939FoJvCpEoUurnApuUNgcL7VwlxziNrg+Uyakj3SnLDNh+4BJ5n2fCVyeufikO975fglfjsYjFUcHB5WXu0rHaVZIHT4oBvb8/PLi0V4ybunYQ4tBIVtUF242tunZP+8CC0C35xcXzt3SwX0x/30yBc3s4X37xwL6o/3m1fdl/H9uY9/VRV1D4TLeNe2w4U3nJs9bIl2I7Trr07tVWMXpy/R9EA3g==</source>
-  </file>
-  <file path="DocumentParameters.php" generated-path="DocumentParameters.html" hash="c9a44c70c59b719e79ea6ca8c96d96d4" package="Default">
-    <docblock line="0">
-      <description>class DocumentParameters.</description>
+      <description>class RelationshipsParameters.</description>
       <long-description>Parameter class for the standard Rosette API endpoints.  Does not include Name Translation</long-description>
       <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
       <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
-      <extends>\rosette\api\RosetteParamsSetBase</extends>
-      <name>DocumentParameters</name>
-      <full_name>\rosette\api\DocumentParameters</full_name>
-      <docblock line="23">
-        <description>Class DocumentParameters.</description>
+    <class final="false" abstract="false" namespace="rosette\api" line="22" package="Default">
+      <extends>\rosette\api\DocumentParameters</extends>
+      <name>RelationshipsParameters</name>
+      <full_name>\rosette\api\RelationshipsParameters</full_name>
+      <docblock line="22">
+        <description>Class RelationshipsParameters.</description>
         <long-description></long-description>
-        <tag name="package" line="23" description="Default"/>
-        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
+        <tag name="package" line="22" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\DocumentParameters" refers="\rosette\api\DocumentParameters" link="/classes/rosette.api.DocumentParameters.html"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="rosette\api" line="30" package="Default">
-        <name>$params</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::params</full_name>
-        <default>array()</default>
-        <docblock line="30">
-          <description>Internal params array.</description>
+      <property static="false" visibility="public" namespace="rosette\api" line="27" package="Default">
+        <name>$options</name>
+        <full_name>\rosette\api\RelationshipsParameters::options</full_name>
+        <default></default>
+        <docblock line="27">
+          <description></description>
           <long-description></long-description>
-          <tag name="var" line="30" description="" type="array" variable="">
+          <tag name="var" line="27" description="&lt;p&gt;options contains options specific to relationships&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="30" package="Default">
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$content</name>
+        <full_name>\rosette\api\DocumentParameters::content</full_name>
+        <default></default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;ontent is the text to be analyzed (required if no contentUri)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="33" package="Default">
+        <name>$contentUri</name>
+        <full_name>\rosette\api\DocumentParameters::contentUri</full_name>
+        <default></default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="&lt;p&gt;contentUri is a URL to content that will be analyzed (required if no content)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>$contentType</name>
+        <full_name>\rosette\api\DocumentParameters::contentType</full_name>
+        <default></default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="&lt;p&gt;contentType is the type of content RosetteConstants::$DataFormat (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="43" package="Default">
+        <name>$unit</name>
+        <full_name>\rosette\api\DocumentParameters::unit</full_name>
+        <default></default>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="43" description="&lt;p&gt;unit is the RosetteConstants::$InputUnit (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="48" package="Default">
+        <name>$language</name>
+        <full_name>\rosette\api\DocumentParameters::language</full_name>
+        <default></default>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="&lt;p&gt;language is the language of the content (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="32" package="Default">
         <name>__construct</name>
-        <full_name>\rosette\api\DocumentParameters::__construct()</full_name>
-        <docblock line="30">
+        <full_name>\rosette\api\RelationshipsParameters::__construct()</full_name>
+        <docblock line="32">
           <description>Constructor.</description>
           <long-description></long-description>
-          <tag name="throws" line="30" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
+          <tag name="inherited_from" description="\rosette\api\DocumentParameters::__construct()" refers="\rosette\api\DocumentParameters::__construct()" link="/classes/rosette.api.DocumentParameters.html#method___construct"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="41" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="43" package="Default">
         <name>validate</name>
-        <full_name>\rosette\api\DocumentParameters::validate()</full_name>
-        <docblock line="41">
-          <description>Validates parameters.</description>
+        <full_name>\rosette\api\RelationshipsParameters::validate()</full_name>
+        <docblock line="43">
+          <description>Validation specific to relationships.</description>
           <long-description></long-description>
-          <tag name="throws" line="41" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="43" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
+          <tag name="inherited_from" description="\rosette\api\DocumentParameters::validate()" refers="\rosette\api\DocumentParameters::validate()" link="/classes/rosette.api.DocumentParameters.html#method_validate"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
+        <name>setOption</name>
+        <full_name>\rosette\api\RelationshipsParameters::setOption()</full_name>
+        <docblock line="52">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="52" description="&lt;p&gt;string options key name, e.g. accuracyMode&lt;/p&gt;" type="" variable="$key"/>
+          <tag name="param" line="52" description="&lt;p&gt;string options value, e.g. 'PRECISION', 'RECALL'&lt;/p&gt;" type="" variable="$value"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="62" package="Default">
+        <name>getOption</name>
+        <full_name>\rosette\api\RelationshipsParameters::getOption()</full_name>
+        <docblock line="62">
+          <description></description>
+          <long-description></long-description>
+          <tag name="param" line="62" description="&lt;p&gt;string options key name, e.g. accuracyMode&lt;/p&gt;" type="" variable="$key"/>
+          <tag name="return" line="62" description="option value if set or null" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$key</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="101" package="Default">
         <name>loadDocumentFile</name>
         <full_name>\rosette\api\DocumentParameters::loadDocumentFile()</full_name>
-        <docblock line="73">
+        <docblock line="101">
           <description>Loads a file into the object.</description>
           <long-description>The file will be read as bytes; the appropriate conversion will be determined by the server.
 The document unit size remains
 by default L{InputUnit.DOC}.</long-description>
-          <tag name="param" line="73" description="&lt;p&gt;: Pathname of a file acceptable to the C{open}&#10;function.&lt;/p&gt;" type="" variable="$path"/>
-          <tag name="param" line="73" description="" type="null" variable="$dataType">
+          <tag name="param" line="101" description="&lt;p&gt;: Pathname of a file acceptable to the C{open}&#10;function.&lt;/p&gt;" type="" variable="$path"/>
+          <tag name="param" line="101" description="" type="null" variable="$dataType">
             <type>null</type>
           </tag>
-          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="101" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
@@ -370,18 +649,19 @@ by default L{InputUnit.DOC}.</long-description>
           <default>null</default>
           <type>null</type>
         </argument>
+        <inherited_from>\rosette\api\DocumentParameters</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="93" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="121" package="Default">
         <name>loadDocumentString</name>
         <full_name>\rosette\api\DocumentParameters::loadDocumentString()</full_name>
-        <docblock line="93">
+        <docblock line="121">
           <description>Loads a string into the object.</description>
           <long-description>The string will be taken as bytes or as Unicode dependent upon its native type and the data type asked for;
 if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.
 The document unit size remains (by default) L{InputUnit.DOC}.</long-description>
-          <tag name="param" line="93" description="" type="" variable="$stringData"/>
-          <tag name="param" line="93" description="" type="" variable="$dataType"/>
-          <tag name="throws" line="93" description="" type="\rosette\api\RosetteException">
+          <tag name="param" line="121" description="" type="" variable="$stringData"/>
+          <tag name="param" line="121" description="" type="" variable="$dataType"/>
+          <tag name="throws" line="121" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
@@ -395,259 +675,98 @@ The document unit size remains (by default) L{InputUnit.DOC}.</long-description>
           <default></default>
           <type/>
         </argument>
+        <inherited_from>\rosette\api\DocumentParameters</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="37" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
-        <docblock line="37">
-          <description>Constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="37" description="" type="" variable="$repertoire"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$repertoire</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
         <name>set</name>
         <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
-        <docblock line="52">
-          <description>Custom setter for the key/value parameter pair.</description>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
           <long-description></long-description>
-          <tag name="param" line="52" description="" type="" variable="$key"/>
-          <tag name="param" line="52" description="" type="" variable="$val"/>
-          <tag name="throws" line="52" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
-          <name>$key</name>
+          <name>$propertyName</name>
           <default></default>
-          <type/>
+          <type>string</type>
         </argument>
         <argument line="0" by_reference="false">
-          <name>$val</name>
+          <name>$value</name>
           <default></default>
-          <type/>
+          <type>mixed</type>
         </argument>
         <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="72" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
         <name>get</name>
         <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
-        <docblock line="72">
-          <description>Custom getter for the key/value parameter pair.</description>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
           <long-description></long-description>
-          <tag name="param" line="72" description="" type="" variable="$key"/>
-          <tag name="return" line="72" description="" type="mixed">
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="throws" line="72" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
-          <name>$key</name>
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="82" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="82">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="82" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
           <default></default>
           <type/>
         </argument>
         <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
       </method>
-      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="91" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
-        <docblock line="91">
-          <description>Validates parameters before serializing them.</description>
-          <long-description></long-description>
-          <tag name="return" line="91" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="91" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="100" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="113" package="Default">
         <name>serialize</name>
         <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
-        <docblock line="100">
+        <docblock line="113">
           <description>Serialize into a json string.</description>
           <long-description></long-description>
-          <tag name="param" line="100" description="&lt;p&gt;if null values should be skipped&lt;/p&gt;" type="boolean" variable="$skip_null">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="100" description="" type="string">
+          <tag name="return" line="113" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
-        <argument line="0" by_reference="false">
-          <name>$skip_null</name>
-          <default>true</default>
-          <type>boolean</type>
-        </argument>
         <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
       </method>
     </class>
-    <source>eJy9Vm1vGkcQ/s6vmFiWOCwMaZT2A/QlBLByKgHLYKdWG6HlboBtjt3N7p4JtfzfO7vs4TPYldW0uQ82d/P2zOwzM/vjL2qpKpXmyUkFTiDJmDHQk0m+QmHPmWYrtKhNg4ROvvsSNOdSg10iGMtEynQKF9KgtQid8xhQpEpyYU0DyCUaENICF0mWpwhD8gMTzYTJmOVShABvEqk2mi+WFl69/O71Kf35Ht4yww1MMFkKmcnFBrpSK6m9XYFswBMUBlPIRYpbUB3FEvoXJHW4okTIAl41XkLkFI6C6KjWho3MYcU2HmNukBxQyDnPEPBLgsoBh0SuVMaZSNBFXHO79HGClwZcBx9yZhmpM3DJgJyXtYBZn2cWXpfWqlazuV6vG8zjbUi9aAapaQ7ibn847p8S5pDopciQKq/xc8415TvbAFMEK2EzApuxNdCZsIVGklnpYK81t1ws6mDk3K6ZRki5sZrPcvugXgVCblycsg4VjQk46owhHh/B2844HtfhQzx5N7qcwIfOxUVnOIn7YxhdQHc07MWTeDSktzPoDK/h13jYqwNStSgOflHawSeM3BUTU3eAMEZ8AGHHK4UJn/OE8hKLnC0QFvIGtaB0QKFeceNO1BC6FDK+4tZzwhwm5aKcNCuCWGeozAh6S9Q/mOLtHf27/0D/ZuWp5qCkLHHdFOT3EjNGS7zFym0F6PEB3ENBCKDVeWKlboRvheiNXWq53jnqe+b55vDypv+v8hmdNsxzkTgZTKdJ4TGqeY1tSK9Lpy1sq1XWYVqzTVSlD4TaVutQ/LzUvPQ22Sh0r7ngXqk4gWqt1t75P3ZtcvozoY0KxYDdZ8mo+Vut41io3F6S+Pdqb9StfgwO7ir7pbliGU+ZpVGhyrX/+hrdBMcHBeJziHCl7CYisq+ikM/C5VMUqEZPyeJ5Vq6Wjxi6x+MHgeuDFKIDXfdU3+fGgsmpyWmYCHQDpbuN4tqoWzq8R+33o7gDGV51BnFv2utMOpPr8/6BXemItye1+wWYUX8eluPFt6tHlwk3pUNFZpLGcFEPNwe+cUGeoPJAMpoIbLtCaAlKP43k7E9M7D6lJyTxemueZTCj4YQsBWZotlMvtL0lzXgtleZEYlor4ibsssIidb2y4mK7EPzoRE1KjXKMNIwucK0Khv/lIq1oVZlCi2xTnLM8szC43bVtg7r27qAPfYvCsWJU/xbdDOzSTVfHzpA1S1yB/VoK6XdvpUJxV7go2rOx51PklNQx9StzQ+i/6P+MTqMY3GeELfKw6/dB4Ccf9bHx8GKntM/esvUjY69H0jOpV4zm3uVwfN7vxmdxv1f92N5jj/e17Zky0DE1k1hEM9oiP7yeokhkipGr7JQ6axoay2xTqdVKyTw5XwtSGu/5ObQMmgXNLPuEYsdMf9MwdCPhDhoxhw439fxSVHNu6cZH+/iGzFyNXG+6YA5l+GI+EV9p17eLkHx7V/JSun+9m7wfuCC/uR/1ENRdYOgaQYAxrXt1XxoHk9L5+l6A6L4Las9ug22h3JHvS/4vHgd6lCKXKbBH5PKivt/8JdsnlvrDy8A+w/a1/8UV4K7yN47ezJM=</source>
+    <parse_markers>
+      <error line="52" code="PPC:ERR-50008">No summary for method setOption()</error>
+      <error line="62" code="PPC:ERR-50008">No summary for method getOption()</error>
+    </parse_markers>
+    <source>eJyVVG1v2jAQ/o7EfzhVlWgrGrZq+0LXdYwyLVoHFbBW1VZVxjmCtWB7tlOKpv33nZ2El7VrN4Qgsc/3vNyd35zqma7XWgcH9RocAM+YtTDEjDmhpJ0JbS+YYXN0aGzkQ0LYaq08MFUG3AzBOiYTZhIYKovOIXQuYkCZaCWksxHAmUILUjkQkmd5gtCnPDA2TNoCcgXxjiu9NCKdOTh68fLVIf28hvfMCgtj5DOpMpUuoauMViacXLM7FxylxQRymWBBrKMZp79ypwmXJIfOwFH0AvZ8wE65tbN/DEuVw5wtA8/cIiUg0KnIEPCeo/bkgau5zgSTHAPkQrhZACrTRHBdJlETxyiegdcDaroZBcwVWrPyfeacbrdai8UiYoFxpEzaKndt6zzu9vqj3iGxXon9IjOkChj8kQtDmidLYJqocTYhwhlbANWGpQZpzylPfWGEEzJtglVTt2AGIRHWGTHJ3ZZnFUlhA9BmEDnHJOx0RhCPduB9ZxSPmnAVjz8OvozhqjMcdvrjuDeCwRC6g/5ZPI4HfXr7AJ3+NXyK+2dNQHKMgPBeG8+fSArvKCahjjBC3CKx6jCNXEwFJ2UyzVmKkKo7NJIEgUYzF9bX1RK9BDIxF65o5IeyAsxBq16T1IGWzEYwRdN+Y1oc12vroeg+OxSU5snJIZmOxsBS//N8jtKtt+q1n5SBPgWa/1BD3DEqmjG+f3QhgCvpG8muFlZOUFXNJmyVpVU86HxC3QC75bmg7E+8Lm04k3OnTPT48WkuuT8Pt7e8Ct7bL0JKASGa2km6dnsr6ni9v+tn6fBtpeGkELnXYJznhvHlZ5VgA07eVhdIIMbo7mi3dze9HRQJvjYuhr1uPKL2atxUOL8eU3jJMpGE4383biV9XQc3M2phKza9MP7FLfWUR3cFGD5h0DrkKdbvtO8T2P2OS3r380dtXpnnF33z0ixFaQSbFj5IQHA5/pkgLJanN4xsQoOeO+fnjWdkkidFHfY8wWaJ8lDzdtG/+uAbKn0R/q/y/1/8Oo1BlxsJc3Hv7y5d1YgcEVOvwt8+Ms+yZ/SmW3of6ixhQkvfUsQt3tOdaSt3tlzYh9PHfWkHJmtX6PsbiHZZgA==</source>
   </file>
-  <file path="NameTranslationParameters.php" generated-path="NameTranslationParameters.html" hash="8421111695e0c098df09ed1d1c7bce4d" package="Default">
-    <docblock line="0">
-      <description>class NameTranslationParameters.</description>
-      <long-description>Parameters that are necessary for name translation operations.</long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
-      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
-      <extends>\rosette\api\RosetteParamsSetBase</extends>
-      <name>NameTranslationParameters</name>
-      <full_name>\rosette\api\NameTranslationParameters</full_name>
-      <docblock line="23">
-        <description>Class NameTranslationParameters.</description>
-        <long-description></long-description>
-        <tag name="package" line="23" description="Default"/>
-        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
-      </docblock>
-      <property static="false" visibility="protected" namespace="rosette\api" line="30" package="Default">
-        <name>$params</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::params</full_name>
-        <default>array()</default>
-        <docblock line="30">
-          <description>Internal params array.</description>
-          <long-description></long-description>
-          <tag name="var" line="30" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\NameTranslationParameters::__construct()</full_name>
-        <docblock line="28">
-          <description>constructor.</description>
-          <long-description></long-description>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="39" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\NameTranslationParameters::validate()</full_name>
-        <docblock line="39">
-          <description>Validates parameters.</description>
-          <long-description></long-description>
-          <tag name="throws" line="39" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="37" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
-        <docblock line="37">
-          <description>Constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="37" description="" type="" variable="$repertoire"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$repertoire</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
-        <name>set</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
-        <docblock line="52">
-          <description>Custom setter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="52" description="" type="" variable="$key"/>
-          <tag name="param" line="52" description="" type="" variable="$val"/>
-          <tag name="throws" line="52" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$val</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="72" package="Default">
-        <name>get</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
-        <docblock line="72">
-          <description>Custom getter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="72" description="" type="" variable="$key"/>
-          <tag name="return" line="72" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="72" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="91" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
-        <docblock line="91">
-          <description>Validates parameters before serializing them.</description>
-          <long-description></long-description>
-          <tag name="return" line="91" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="91" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="100" package="Default">
-        <name>serialize</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
-        <docblock line="100">
-          <description>Serialize into a json string.</description>
-          <long-description></long-description>
-          <tag name="param" line="100" description="&lt;p&gt;if null values should be skipped&lt;/p&gt;" type="boolean" variable="$skip_null">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="100" description="" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$skip_null</name>
-          <default>true</default>
-          <type>boolean</type>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-    </class>
-    <source>eJyFVG1v2zgM/u5fQRQ9xCnSZBtuX9LDtrTNsOB6yRa7KwoMKBSHtoVzJE2i5xmH/vdRqpOmzWHlh8QS3x4+JPXXe1OaKBqdnERwAlklnIO52GBqhXKVIKnVZ2H5gtC6Idt4s8cboFIQCIugMEPnhG0h1xYU64EeY4A2aMPXLsiHTJvWyqIkePPq9Z+n/PMWzoWTDlLMSqUrXbRwoa3RD55bxyuZoXK4hlqt0TIChIkRGf91mgF8ZWg+65vhK4i9wVGnOuqfQatr2IgWlCaoHcMsOWUuKwT8maEhkAoyvTGVFCpDn7GRVIY8XZQh3HYx9IoEmwvwxYDO961AUKiz6o4lkRmPRk3TDEXAO9S2GHVaN7qaXUznyfSUMXeFXquKKQWL32tpud5VC8IwrEysGGwlGmCmRWGRdaQ97MZKkqoYgNM5Nb4ta+nIylVNT/jaIpTO59m3YdKEgqNJArPkCM4nySwZwM0s/bS4TuFmslxO5ulsmsBiCReL+eUsnS3mfPoIk/kt/D2bXw4AmS3Ogz+N9fAZo/Rk4to3EBLEJxD8tPizM5jJXGZclypqUSAU+gdaxeUAz85GOt9Rx+jWUMmNpIdpOizKZzkZRX4CHdOMYLVDIvwmjDzbTfrFy5M+il5YBy6RUK0dLB8yBI1LkHiKMfovApaQzgsvF8MlW2ek7bC7G4V/U6+4qZDXKgu7cne3M437weIhVrDlpioaj/dthLWijXu+4t4AeiRsgXTV0ehv2ENSm7YmnJyubYZb/SJf8BJK1Rvscng5sLp2e85JZqWhx2SH5xIDmH7/LIS9j56z8VVUci0InS/pkfWg3Np8oNLqZsfvNKwnM/Rb9n50gQ+o40lDXjt4ga8+CAfH/2Lb3/P1InOIcWOojXlbNvGxfzdO37FrHKxZnjl4CRXw49gcFBEf2HpxxkpFedxbbrf+4Cnd8RVeMFebsFxj+MNxNQHK4H9DPwcwHh+fTy7vltMv19Mkvfu4WP4zSQ88uwZu5T56+nUf3Ue/AOTj9QQ=</source>
-  </file>
-  <file path="Api.php" generated-path="Api.html" hash="153f373c55261aeecde561a9f9709a18" package="Default">
+  <file path="Api.php" generated-path="Api.html" hash="2aeef51894dd0c63be7fe8e74047d508" package="Default">
     <docblock line="0">
       <description>Api.</description>
       <long-description>Primary class for interfacing with the Rosette API</long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="copyright" line="0" description="2015-2016 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
       <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
@@ -669,9 +788,9 @@ usage example: $api = new API($service_url, $user_key)</long-description>
         <tag name="package" line="41" description="Default"/>
       </docblock>
       <property static="true" visibility="private" namespace="rosette\api" line="48" package="Default">
-        <name>$compatible_version</name>
-        <full_name>\rosette\api\Api::compatible_version</full_name>
-        <default>'0.5'</default>
+        <name>$binding_version</name>
+        <full_name>\rosette\api\Api::binding_version</full_name>
+        <default>'0.7'</default>
         <docblock line="48">
           <description>Compatible server version.</description>
           <long-description></long-description>
@@ -866,25 +985,25 @@ usage example: $api = new API($service_url, $user_key)</long-description>
         </argument>
         <argument line="0" by_reference="false">
           <name>$service_url</name>
-          <default>'https://api.rosette.com/rest/v1'</default>
+          <default>'https://api.rosette.com/rest/v1/'</default>
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="179" package="Default">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="180" package="Default">
         <name>getOptions</name>
         <full_name>\rosette\api\Api::getOptions()</full_name>
-        <docblock line="179">
+        <docblock line="180">
           <description>Creates the Request option based on current settings.</description>
           <long-description></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="191" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="192" package="Default">
         <name>setVersionChecked</name>
         <full_name>\rosette\api\Api::setVersionChecked()</full_name>
-        <docblock line="191">
+        <docblock line="192">
           <description>Setter to set version_checked.</description>
           <long-description></long-description>
-          <tag name="param" line="191" description="" type="boolean" variable="$version_checked">
+          <tag name="param" line="192" description="" type="boolean" variable="$version_checked">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -894,13 +1013,13 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="201" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="202" package="Default">
         <name>setDebug</name>
         <full_name>\rosette\api\Api::setDebug()</full_name>
-        <docblock line="201">
+        <docblock line="202">
           <description>Enables debug (more verbose output).</description>
           <long-description></long-description>
-          <tag name="param" line="201" description="" type="boolean" variable="$debug">
+          <tag name="param" line="202" description="" type="boolean" variable="$debug">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -910,47 +1029,47 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="211" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="212" package="Default">
         <name>getUserKey</name>
         <full_name>\rosette\api\Api::getUserKey()</full_name>
-        <docblock line="211">
+        <docblock line="212">
           <description>Getter for the user_key.</description>
           <long-description></long-description>
-          <tag name="return" line="211" description="" type="null|string">
+          <tag name="return" line="212" description="" type="null|string">
             <type>null</type>
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="221" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="222" package="Default">
         <name>getServiceUrl</name>
         <full_name>\rosette\api\Api::getServiceUrl()</full_name>
-        <docblock line="221">
+        <docblock line="222">
           <description>Getter for the service_url.</description>
           <long-description></long-description>
-          <tag name="return" line="221" description="" type="string">
+          <tag name="return" line="222" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="231" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="232" package="Default">
         <name>isUseMultiPart</name>
         <full_name>\rosette\api\Api::isUseMultiPart()</full_name>
-        <docblock line="231">
+        <docblock line="232">
           <description>Getter for MultiPart.</description>
           <long-description></long-description>
-          <tag name="return" line="231" description="" type="boolean">
+          <tag name="return" line="232" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="241" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="242" package="Default">
         <name>setUseMultiPart</name>
         <full_name>\rosette\api\Api::setUseMultiPart()</full_name>
-        <docblock line="241">
+        <docblock line="242">
           <description>Setter for MultiPart.</description>
           <long-description></long-description>
-          <tag name="param" line="241" description="" type="boolean" variable="$useMultiPart">
+          <tag name="param" line="242" description="" type="boolean" variable="$useMultiPart">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -960,15 +1079,13 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="251" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="252" package="Default">
         <name>setNumRetries</name>
         <full_name>\rosette\api\Api::setNumRetries()</full_name>
-        <docblock line="251">
+        <docblock line="252">
           <description>Setter for numRetries.</description>
           <long-description></long-description>
-          <tag name="param" line="251" description="&lt;p&gt;numRetries&lt;/p&gt;" type="integer" variable="">
-            <type>integer</type>
-          </tag>
+          <tag name="param" line="252" description="&lt;p&gt;int&lt;/p&gt;" type="" variable="$numRetries"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$numRetries</name>
@@ -976,18 +1093,18 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="266" package="Default">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="267" package="Default">
         <name>finishResult</name>
         <full_name>\rosette\api\Api::finishResult()</full_name>
-        <docblock line="266">
+        <docblock line="267">
           <description>Processes the response, returning either the decoded Json or throwing an exception.</description>
           <long-description></long-description>
-          <tag name="param" line="266" description="" type="" variable="$resultObject"/>
-          <tag name="param" line="266" description="" type="" variable="$action"/>
-          <tag name="return" line="266" description="" type="mixed">
+          <tag name="param" line="267" description="" type="" variable="$resultObject"/>
+          <tag name="param" line="267" description="" type="" variable="$action"/>
+          <tag name="return" line="267" description="" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="throws" line="266" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="267" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
@@ -1002,18 +1119,18 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="307" package="Default">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="308" package="Default">
         <name>callEndpoint</name>
         <full_name>\rosette\api\Api::callEndpoint()</full_name>
-        <docblock line="307">
+        <docblock line="308">
           <description>Internal operations processor for most of the endpoints.</description>
           <long-description></long-description>
-          <tag name="param" line="307" description="" type="" variable="$parameters"/>
-          <tag name="param" line="307" description="" type="" variable="$subUrl"/>
-          <tag name="return" line="307" description="" type="mixed">
+          <tag name="param" line="308" description="" type="" variable="$parameters"/>
+          <tag name="param" line="308" description="" type="" variable="$subUrl"/>
+          <tag name="return" line="308" description="" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="throws" line="307" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="308" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
@@ -1028,20 +1145,26 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="335" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="337" package="Default">
         <name>checkVersion</name>
         <full_name>\rosette\api\Api::checkVersion()</full_name>
-        <docblock line="335">
+        <docblock line="337">
           <description>Checks the server version against the api (or provided )version.</description>
           <long-description></long-description>
-          <tag name="param" line="335" description="" type="" variable="$versionToCheck"/>
-          <tag name="return" line="335" description="" type="boolean">
+          <tag name="param" line="337" description="" type="" variable="$url"/>
+          <tag name="param" line="337" description="" type="" variable="$versionToCheck"/>
+          <tag name="return" line="337" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="335" description="" type="\rosette\api\RosetteException">
+          <tag name="throws" line="337" description="" type="\rosette\api\RosetteException">
             <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
+        <argument line="0" by_reference="false">
+          <name>$url</name>
+          <default></default>
+          <type/>
+        </argument>
         <argument line="0" by_reference="false">
           <name>$versionToCheck</name>
           <default>null</default>
@@ -1319,10 +1442,641 @@ it is in the first array element. This method extracts that code.</description>
           <type/>
         </argument>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="695" package="Default">
+        <name>relationshipsInfo</name>
+        <full_name>\rosette\api\Api::relationshipsInfo()</full_name>
+        <docblock line="695">
+          <description>Calls the relationships/info endpoint.</description>
+          <long-description></long-description>
+          <tag name="return" line="695" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="713" package="Default">
+        <name>relationships</name>
+        <full_name>\rosette\api\Api::relationships()</full_name>
+        <docblock line="713">
+          <description>Calls the relationships endpoint.</description>
+          <long-description></long-description>
+          <tag name="param" line="713" description="" type="" variable="$params"/>
+          <tag name="return" line="713" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="713" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
     </class>
-    <source>eJzdG2tz4kbyu3/FxHGC2MVgb26rcnachLVJlsSvM2xSKdtHDWIAxULSzQg/ktv/ft3zkEZPIOu92gpXlzVST3dPv7tn+Oa7aB5tbXVevNgiL0g38trwL/55yb0F5U/E9akQZBpy4gUx41PqesGMPHjxnMRzRq5CweKYke5lXy/83g2jJ+7N5jF5tbf/j134z2vyhgpPkCFz50Hoh7MnchzyKOQ09sLAUDz1XBYINiHLYMK4xN6NqAv/6Dct8gvjAlaQV+094iDAtn613TwkT+GSLOgTCcKYLAUDBEBy6vmMsEeXRTFsgLjhIvI9GrgMKSa70Fja5DeNIxzHFMApwc2QcGpDERrLffr66zyOo4NO5+HhoU0lv+2Qzzr6reic9o9754PeLvCsN/ou8BnIlLP/LD0O+x0/ERoBWy4dA7M+fSAgbTrjDN7FIbL9wL0YxN4iIpzGD5QzMvFEzL3xMs7Iy3DoCaRjw4DQaEC2uwPSH2yTN91Bf9Aiv/aHby/eDcmv3aur7vmw3xuQiytyfHF+0h/2L87h2w+ke/4b+bl/ftIiDKQFdNhjxJF9tAgUJpugAsmAsQwLaDH4XUTM9aaeC/sKZks6Y2QW3jMeoBVFjC88gRoVwN2E+N7Ci6VNiOKmkMqLzlZAF0yAmBnhyvRuaOQdggV3CF3GYFx0omyWCZQcIgDoOyC8BeAjL3D95YSNIhrPnVn+QZO0yWV3+HY06F12r7pDkEYbxMiRqDManfSvRqNm83BLRP7IUBtxNgNBM+5Ml4GLzBNnR3LQJH9uEfiob+SIgOBmAB75wL7T6LRf3sCn02iRBvxfrzmUS7RtjEKwVLO+TRptcNbG4db75mHissfyHbifcSPwYXL5FM+Bj2PQThCTN14wQXED0CFgRvXBYylnNG0qlwjGQS1SlcfU90F2IkY/IQsGuCagkCgMlE+F49+ZG6NpgjstlgEYLkQA6UwR5bHnLn3KDSsKL2HBJAohgghJoSu8CZgIDxckAs5A7qh+L5iGTrNFFqGIjc8Z6log8pkL9hHzpZQ1YgNQbZuUnITucgG7u6QcdAZaSdhFnwrIOTwdchoIX+6/ANYmZDgH+SDeiIf3yKemGaMsJzSm8IDGsF+Q0pghlAv+oPxYWjzsGEzW6GMp0OjZIwVnYQdkB8wVTCFgD6gPZ0dDj5bcBxuAuMVHd+ypaYKpALcaJRt28HlnS9kDSHdLGZg0BfyA7iDAwc4wkGjJ36uY2dYQBvD7e8oJxodgph915L8R9+5RnQINxAXbSxCONCbgvrHXft04zNN+BxQJME+cJLRhFLBSRLOUi2Dp+/+tYSWRSpHi1akxFIsKcTD2MDAiJYJyqnUELaUUaL4dDi/JnNEJGk1uf6WEKOf0qZyORlOgcbb0Yw9sM5ZqWIpSvOMw9CvllWAo4B7yJSQIJTSj0TmFAOxz4OYJTJpBnpwz9w4iOyEDeg+RlIcQjwlILNqUF01ipDEW2OnpwJAkjBCygqkL/oKtiOX4XYnWzugjib0FC5cxcQQDj5qIUrsox6qXlqLlDNgBGY0ZbAGiGvV84G593MFycaVQFNCfUjBiCNcQegXGoAlbH61ZNsJlkC9yqIHkkgdiBXYuocjCe2STLJnlGAoWkqQ8SKVXGtMxIMJABR8VnvCjEe1gAtn9NscbArwvcDhgsZAWUc9ihCFccZjbdC3DIsdwdmme/TK+IQ7mhVy+ESNqmc8sO7ynPrhitTVuIvyhwrlC7hkzrpH4Jlxm5K8XrZK84dbAV4jbsHCUc8ASzu8gMiXhTMYaVZCoDNCSTQFnWK9AJSJL1joOAZtuNY4RVUGqmr9cbAM+IUtXmsExxFdwTChCTv+EXPHeVBzlAlUxLpOK7HSHpZXsuUoXmYSJL7sBFsZzKF6wTpPbU1BQv42xSoDYC+E/WYJiM2hrPlgjYpqHNCvqpTmy6peEs1Z2Z1BSYBsloI+C+qitS/s26KsDLhZ37vcbFTpI+D7K1wkWUJZUMb1boBM2Xs4AaEp9wQpv7cxaCVQ0i3I4laqwGISkVnibGv9Xe3uFt2nSAIB9Hd6t96ZAOVLlh9MwsmmQo29TSbWSdcVP41jVvLvDp4jJZQ3dpqJaO7+LMGjUru+62Hb/9ZW7vQDCKpiqQjH7w4ugT2rW+5cKYFfKMqGYkCY4pkL1wO6SczR4NC9AnLdcnTvtwHohMYhiCFCoLQlrhSkBZ3TYtPRjArJeXhOKY+x/Q2SV5CyqImRgEVYouFaFYjvOsYmTX7525Csv9Iob6wU45RBE+ZmzwJIJlo7B4wmIKgJp1W5Prlu1qRMEchRsxQ6MnyugKm5/VGowtalxm6pUXVmdFhM2Nks/s6cVCTsb0VbyZwW2KhbX426gEEF4WsFgIZTW8pjEziruin1EjjdPvLNC8Grp5fqgSker5842QBvpKjvM8JpZWZ3N7PxS0snV7iDNChVbwEYrBVrF/nkC6VhdSgXrmYxUaGqKbF/quUm2xm9pFWKBooc6+HrCsMCekJ8EzqzwGQ8fEAaqKTXdLWsY1Z6xSAcZXshqK/+O6ilSqTXalXfyTpIWpuvvGeL1iWTqBZ6YX0lGnAxDLcNDQawLMUtqg+QpNO6OFnih5SJHR0fk1d5e08JiO4VNNi0o3hMGxUluCZKRaQ2Dz4g9elDlOY0F6IvOGA4rbVzNPEGL/QzgdYLh9jCz4H3mm5w5+RRs1RRs2XrpSEmFfEcawzAiPrtnvhweNsiBkSZOS+F/7ezawzU2iYa23g5Vb3GctoLWRiWW3C4T/UnR6F2UYbbllxIpIsuKrVSRRUbzhntwsPOmezK66v3rXW8wHP1wcXXWHX44441lcBeED+CenIe8sZL5rcxX6WRySJpn1yluL2suoPgCyIGcyqjjlMLMGlqpA2UqwHmxLPXECIIZ457rWIJsgvXZcj1YT64Z7E3LCSuCZB/P3ALqp1MxYQbOoQr59rDcHrLL9floFyXj7vwb5R8fPQ660DaaiZ+jl8oZvIAs9gaqdJvHlmGrIuMk/dNO3rs1gCxFdYHrWNK2gmgm4X75pU0enVg2QLL/uSWfHSXOcxzK05FYgJJPaEx/CPmCgtcP+meXp73Gbd43NjFnAUIL4qnTSPnS43RBLIaIonVAvhAYrSrZbhYt+hksVQo5G5ytFhtcsFMTey3xqwo9Jy2JuA0h5Dv5+giHKo1SDuyYm7ISgUu8jePI2VGHKpmOuJWzsCSXJo1eWbemoOqyeMM27UZ1k4omKZJiPT2fIXRG8cxNvsIzIjzE0CdQE9KsOsXR7qtfD0OJf3VxvZkX5yrDjFvlSOuKJe+xqPLPynvHvPYVaBZrafotEBbMn4ItF0+saosNpcbUetQpZHZJp0MMVs/34id7tkjkWaYnCI0hUAZhqlFVmEBsFmwBzzIY5VEwxAx37jQ6zr+v93b/efvypq3+bXbSAuS6odE1buGZXMFEjj0jCtyEhrjevy0WOwkchrI1RLxJ2MJPY1g0axAMzl4xHEDreU/9vMWUBCj8lASp/vnxxdlld9h/c9ob/dK7GvQvzgtrc6KpLopWj3ATHFboqYgMaw4/EhfCM6Mn6F/0nCrv1r3ApRFoP5ln/dgbdi4vBkN5Tm4OnM4hZA+v+r1BRVBYJgk9eSRTw2OcX1A2G1gzRCRgnilVNCmozA/SsqUSDGP9AYkphxCMA+5KQDPRPNCHr/IovgpaHtPrGRtFApCD9FUTe11FlZLTjskjWniFaiQ5nypMcnW7U3yhz49MkdzL1chY2EGCoYFcu3dI9N/fHBW77UPy8qV6XcijOFIfJUdUWmx5XvJbwBtTI7wZo8sIobcvZ9iWFCowjNSJdRpPrTZ1IF+p47Yy3vI4TWVRdVKnSDWLgQ4M2WdBCtkk35KvsLxbjGERhwIhfdci2zeP+9NtCFDwx9dj/cfe19stsqd66kJHjR+8cERwJh1B2NBHKsAQj4XKDv2TfQcRN+GvVw5ibpLjMwcxN8uQWdfIEKu8RPaH7407fOruyifzeOF/vmCLMeO7U1lxFqOapUhYE0wxhDhg/MCgveX9vRbZ/bqZD5bFjFE1aviGvC4OGvCjQwnO+EdqamPTxeC6mmiyic9qek1w0aoOFImDANbnwaZeO/ZAlKXDgIR26vISuHLkUb79ekbMaGI1F+Z8WrFQNYwop/8eujSoIYhzk8R6slMILuYDlhtRIVa298W/pKoVo0f5UFgIZalYk/6oq+K0vDQZsPgh5HdpvpFXWrDwEEvXZQxraDrFMekX8AeksUUUy74pH01LO52aOihhDOdN17Lp0R3QrbzTh6OCqmpgaN9t0NFZXi3zhHYjdamsPI5PQqZ2iAFZXlbFUSiesnmx8cL0VgKQ8yRifSdy6nHoNaSJQYXE8MpcGxgCAHXjDlDFnLryPgCN625e6MSMcbWirAB1PUfbUZVIEvL5xAymmW7V9wKmbjvKC1yJ3EG+eEUVRSObMpW9JLTcuR+Gd/j9jh3YiPGDiDr77X2cuZKLn+3Xvy+BZKAv8EKpzx7xcMumkF5QQfNWD0eSrD5QHIm5N40z+8u20HYL8fm/FTOmg7gRL53r/d3Xt/Kr/E8Tnn2ONmnRgm94PCkdcL9ibAzak1U7AEJTYftHWWld4yqNfgCIvElOAZbE9RjOYnCNEZl97Ktdw1xw0L5E5WmyjBOgjUJ9U2/XosKoa+6gJRarMXTFQAIbXRZOUIykF5GPJp0R6PYNvwm2sz2Sso8FjYptmHUH+Q60e18VtjXJ7Z27A4DaLhnPFtuyJCGJdCdVUPLWkMjt2HzSb5WxETw8mFA+wc4H5OhH8m6yfLdGm5NVXfJYn7nXahR6hZ8GF+fP2ws9S5NTfUfBHnalYy6927KLC+JaXrdp3GJ5guG+cYvdCMjaakJygAqxBMxO1IrmXYEjiWwLBoJwMu8sfjNtkuw1MOvH4OaLkX4wcqXTKxT2vM6uf5M7e7XNXMmwz+BYaZuyI38u48y0s38Lgy1Cy7Z8w2Y8P81NDRzX/iU7R719TENPRvAKCfIpB+QepL8/mPN39w/8/YjKx5fyGF8Pxde535q32xttuDfdyLvZqFpUvyvJ24SeKBTud1oyrT3VQKy25ZQfQORCcv784dmOHCQ31UcNiRpwpP1BathI8mqA/tySl+f7n4zkJTdrSN786K2zsQrKZWvw9T+KjDPcfjrCNmztbir1aoHb5+FV6fXZHMKw42h69ZfWMkfkeoUlhHX2j3e6WeBCU/RpCCDh54MkkGBZRwRxeMeCT2X/ipkP2rxCsc7OFyGP5upH1hvt3jyVV6t2ptRlVcdEzyaXlNV0p4py7TGyhChMCM26kisaZwmdC3nD+LqBB4mnvWHPnopWHu5VqCTlXl12UGytVhD+EiP2NnXO5KnvBXdF8T+3agyTlmIUYfNrhior1lDfrRCewd9R8I0mXt1ba8U6PoCXu2Yh31jIH02cKUMfFAVSNOumAQ8nu5+IEBJ+PjgNSCzriAB/uE/i9PfeKyURlPw+/OPnB02QTfDn6U45E5sIqxQBZpGE0C6CrC1BOWWu7eUs8Z1p4P+P7NR9F0twWfKbSi27GqO8wp+T1/ut/wHU/Nt9</source>
+    <source>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</source>
   </file>
-  <file path="IException.php" generated-path="IException.html" hash="b07b2f70de3043392f2c526baa6720c6" package="Default">
+  <file path="NameTranslationParameters.php" generated-path="NameTranslationParameters.html" hash="ba2917d359ed85323566550486a35901" package="Default">
+    <docblock line="0">
+      <description>class NameTranslationParameters.</description>
+      <long-description>Parameters that are necessary for name translation operations.</long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
+      <extends>\rosette\api\RosetteParamsSetBase</extends>
+      <name>NameTranslationParameters</name>
+      <full_name>\rosette\api\NameTranslationParameters</full_name>
+      <docblock line="23">
+        <description>Class NameTranslationParameters.</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$name</name>
+        <full_name>\rosette\api\NameTranslationParameters::name</full_name>
+        <default></default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;name to translate&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="32" package="Default">
+        <name>$targetLanguage</name>
+        <full_name>\rosette\api\NameTranslationParameters::targetLanguage</full_name>
+        <default></default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="32" description="&lt;p&gt;targetLanguage ISO 639-3 code for the translation language&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="36" package="Default">
+        <name>$entityType</name>
+        <full_name>\rosette\api\NameTranslationParameters::entityType</full_name>
+        <default></default>
+        <docblock line="36">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="36" description="&lt;p&gt;entityType type of entity, e.g. PERSON, LOCATION, ORGANIZATION (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="40" package="Default">
+        <name>$sourceLanguageOfOrigin</name>
+        <full_name>\rosette\api\NameTranslationParameters::sourceLanguageOfOrigin</full_name>
+        <default></default>
+        <docblock line="40">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="40" description="&lt;p&gt;sourceLanguageOfOrigin ISO 693-3 code for name's language of origin (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="44" package="Default">
+        <name>$sourceLanguageOfUse</name>
+        <full_name>\rosette\api\NameTranslationParameters::sourceLanguageOfUse</full_name>
+        <default></default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="&lt;p&gt;sourceLanguageOfUse ISO 693-3 code for name's language of use (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="48" package="Default">
+        <name>$sourceScript</name>
+        <full_name>\rosette\api\NameTranslationParameters::sourceScript</full_name>
+        <default></default>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="&lt;p&gt;sourceScript ISO 15924 code for name's script (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
+        <name>$targetScript</name>
+        <full_name>\rosette\api\NameTranslationParameters::targetScript</full_name>
+        <default></default>
+        <docblock line="52">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="52" description="&lt;p&gt;targetScript ISO 15924 code for name's script (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="56" package="Default">
+        <name>$targetScheme</name>
+        <full_name>\rosette\api\NameTranslationParameters::targetScheme</full_name>
+        <default></default>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="56" description="&lt;p&gt;targetScheme transliteration scheme for the translation (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="60" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\NameTranslationParameters::__construct()</full_name>
+        <docblock line="60">
+          <description>constructor.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="69" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\NameTranslationParameters::validate()</full_name>
+        <docblock line="69">
+          <description>Validates parameters.</description>
+          <long-description></long-description>
+          <tag name="throws" line="69" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="82" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="82">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="82" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="113" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="113">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="return" line="113" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+    </class>
+    <source>eJzFVn9v2zYQ/T9AvsMhCFA7cOw2aQskGbYpjrsKTaXOUlp0GBDQ8kkmIIscSUUVhn73HSn5V5zWLrBhhCCJ5Om9d8fjUT/9Imfy8ODwYHBycngAJ5DkTGsI2BxjxQqdM8NF8YEpGjCodN8aOcPVGJgZM8AUQoEJas1UDalQUNA8mBUKCInKva3B/JoIWSuezQycPX/x8pRur+Caaa4hxmRWiFxkNQyFkqL5dvXpLU+w0DiFspiiIhUInmQJPdqZHnwkeZb5rP8cOtbgqJ066l5BLUqYsxoKYaDUJHVGpCnPEfBLgtIALyARc5lzViToKCtuZo6ohenD5xZETAwjewbWHxDpuhUw0/iat/2ZMfJyMKiqqs+c4r5Q2aCd1YNbfzgKotEpqV46e1fkFFpQ+FfJFfk8qYFJkpawCQnOWQUUcZYppDkjrPRKccOLrAdapKayyzPl2ig+Kc1GzBYiuXZE60YUOVbAkReBHx3BtRf5UQ8++fHb8C6GT9547AWxP4ogHMMwDG782A8D6r0BL/gM7/zgpgdIESMi/CKV1U8iuY0oTt06QoS4IcLmje1riQlPeUKeFVnJMoRMPKAqyCGgLJpzbddVk7wp5HzOTZNX2245mpPB4YHNRk3BRlBCozH4J5P8aj31h3ukPgHt2CHkqsFiqmHc0LgZHaGhpKYk+ptQqDWctlFaPDAFNujkW7NnxHLb4MJq0LzIckJrDsfW7ur7UIapDM3tIn5+FMLr84vTc8rQ6SrQ6/tzEetvcG4C7mDHwnBTx7UkCnujHdEMUUr0sz58GI2jMOjBbTj0bNr0KIl+8wL/D9eDjpBWEsu73xCzwt8hRItSJbhQHaYhFRvaHS4cF+fr4bAxfaZXGUeSRWO8U83TJD+o7E7jnrJstfphTQS/l6AoUZyKn1Xy4tXF2cstJbox2FNAA7dXrv5rzOtwezLPcHlYcdMeU8Tnhp/aK3trsAhPaEioWhlVJkao/tMIaVkkjur+fmncadnaKvLVlq/HyB9ZzqdUOTTIjdrlZlcxMDMlqmWVGrkTj9h2aHlowR8JsY2n0MG5NHXn2J6kpz/bRet2101sc7z0p1BtUXc2DW3TkhbJpJ1n48W5t/VTsXTSneO6lO50uWxSptvbxnxMe3l5fO3d3I9Hv9+Novj+TTh+78Wbn3WvVv2v3/F4s0L+f75v6vgPo0APuv4BjsAU/A==</source>
+  </file>
+  <file path="CustomException.php" generated-path="CustomException.html" hash="f3418e7ba4484053a98a4d9a7de83897" package="Default">
+    <docblock line="0">
+      <description>CustomException class provides the implementation of IException and the base for RosetteException and any future
+exception classes.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="22" package="Default">
+      <extends>\Exception</extends>
+      <implements>\rosette\api\IException</implements>
+      <name>CustomException</name>
+      <full_name>\rosette\api\CustomException</full_name>
+      <docblock line="22">
+        <description>Class CustomException.</description>
+        <long-description></long-description>
+        <tag name="package" line="22" description="Default"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="rosette\api" line="29" package="Default">
+        <name>$message</name>
+        <full_name>\rosette\api\CustomException::message</full_name>
+        <default>'Unknown exception'</default>
+        <docblock line="29">
+          <description>Exception message.</description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="rosette\api" line="35" package="Default">
+        <name>$code</name>
+        <full_name>\rosette\api\CustomException::code</full_name>
+        <default>0</default>
+        <docblock line="35">
+          <description>User-defined exception code.</description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="rosette\api" line="41" package="Default">
+        <name>$file</name>
+        <full_name>\rosette\api\CustomException::file</full_name>
+        <default></default>
+        <docblock line="41">
+          <description>Source filename of exception.</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="" variable=""/>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="rosette\api" line="47" package="Default">
+        <name>$line</name>
+        <full_name>\rosette\api\CustomException::line</full_name>
+        <default></default>
+        <docblock line="47">
+          <description>Source line of exception.</description>
+          <long-description></long-description>
+          <tag name="var" line="47" description="" type="" variable=""/>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="55" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\CustomException::__construct()</full_name>
+        <docblock line="55">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="55" description="" type="null" variable="$message">
+            <type>null</type>
+          </tag>
+          <tag name="param" line="55" description="" type="integer" variable="$code">
+            <type>integer</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$message</name>
+          <default>null</default>
+          <type>null</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$code</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="69" package="Default">
+        <name>__toString</name>
+        <full_name>\rosette\api\CustomException::__toString()</full_name>
+        <docblock line="69">
+          <description>Magic method to return the stringized form of CustomException.</description>
+          <long-description></long-description>
+          <tag name="return" line="69" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <source>eJylVdtu00AQfY+UfxiiSrkoTUoFLy1QQijCAlKpTkFIlaqNPbFX2Ltmd103oPw7s2s7zq1PWFHi3bmcmTOXvLnK4qzdarfGg0G7BQOY5trI9PopwMxwKSBImNaQKfnIQ9RgYgSeZgmmKAxzGnIJXqPPROiUFkwjLKWCW6nRGNzVYGIFy9zkCh0o7sKhHtlrJ3ofyGyleBQbOD97+eqUvl7DB6a5hjkGsZCJjFYwlSqTysXTmH7lAQqNIeQiROWimmQsoJ9KMoTvqLSFPR+dQc8qdCpRp38JK5lDylYgpIGcsjExgS55glW8wCleSWRwJoIykYKb2AFVbkbws3IiF4aRPgObj+VsSwuYKXNNqnNsTHYxHhdFMWIu4pFU0biS6vFXb3o9869PKepNsnciQSqUwt85V5TzYgUso9ACtqCAE1YA1YJFCklmpA29UNxwEQ1By6UpmEIIuTaKL3Kzw1kdJNcOaFvJVRM6Ex88vwMfJr7nD+GHN/98czeHH5Pb28ls7l37cHML05vZR2/u3czo9Akms5/wxZt9HAISYwSET5my8VOQtr04hq6O4CPuBGE7yp51hgFf8oAyE1HOIoRIPqISlBBkqFKubV21a7aEp7zsVX2YloMZjNstwVLURDaCKjv2nmX8cmc03CjsDYizJ/PgmJDSMihCDffN1WZ69NbYtFt/yQ89JZZ9BtDYUGSachzVoo3K+0emwNZDRPXduHyhiTUY2CKdVNbwFrp34peQhWgGrnt5iHunUZ2GuOSCrLdGU4bPRcCFeR7e2hH22REkX+aKCLczZem3Y4HbxB5CPQ9jnTwPkVAy/+XeOnDdsA8wpbYyKg+MVEd8ZkyxFESeJJs67AuJPChZ2kfPFzS/tCdF4Arw8BDUWL2tolrnw4bmfmlc9ZN9+BJ6L2qD/rbEPiZWsgCBBZzYBdfb9EgXRhCheXCd3XPCfv+yMV43rzU41w8iT1HxoOeu+nBVyS429XeZ0bYR5uLiWEZVKjXS+hjn31hExKRoYum2mUL6KxHlYnDDwP9QzWhXpLbmRyZ2r0qV/fFBOqiCkb5T7B1SXTnap42Y7ED3rzucvqsSXXftFq4vbfuue/XJdtu6fy86jWtyUUvJ/VzRpproOpB1p6GLPv8AHupPig==</source>
+  </file>
+  <file path="DocumentParameters.php" generated-path="DocumentParameters.html" hash="0fe5e1df3ef54c6b5d93d7d284dbc002" package="Default">
+    <docblock line="0">
+      <description>class DocumentParameters.</description>
+      <long-description>Parameter class for the standard Rosette API endpoints.  Does not include Name Translation</long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
+      <extends>\rosette\api\RosetteParamsSetBase</extends>
+      <name>DocumentParameters</name>
+      <full_name>\rosette\api\DocumentParameters</full_name>
+      <docblock line="23">
+        <description>Class DocumentParameters.</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$content</name>
+        <full_name>\rosette\api\DocumentParameters::content</full_name>
+        <default></default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;ontent is the text to be analyzed (required if no contentUri)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="33" package="Default">
+        <name>$contentUri</name>
+        <full_name>\rosette\api\DocumentParameters::contentUri</full_name>
+        <default></default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="&lt;p&gt;contentUri is a URL to content that will be analyzed (required if no content)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>$contentType</name>
+        <full_name>\rosette\api\DocumentParameters::contentType</full_name>
+        <default></default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="&lt;p&gt;contentType is the type of content RosetteConstants::$DataFormat (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="43" package="Default">
+        <name>$unit</name>
+        <full_name>\rosette\api\DocumentParameters::unit</full_name>
+        <default></default>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="43" description="&lt;p&gt;unit is the RosetteConstants::$InputUnit (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="48" package="Default">
+        <name>$language</name>
+        <full_name>\rosette\api\DocumentParameters::language</full_name>
+        <default></default>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="&lt;p&gt;language is the language of the content (optional)&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="55" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\DocumentParameters::__construct()</full_name>
+        <docblock line="55">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="throws" line="55" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="69" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\DocumentParameters::validate()</full_name>
+        <docblock line="69">
+          <description>Validates parameters.</description>
+          <long-description></long-description>
+          <tag name="throws" line="69" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="101" package="Default">
+        <name>loadDocumentFile</name>
+        <full_name>\rosette\api\DocumentParameters::loadDocumentFile()</full_name>
+        <docblock line="101">
+          <description>Loads a file into the object.</description>
+          <long-description>The file will be read as bytes; the appropriate conversion will be determined by the server.
+The document unit size remains
+by default L{InputUnit.DOC}.</long-description>
+          <tag name="param" line="101" description="&lt;p&gt;: Pathname of a file acceptable to the C{open}&#10;function.&lt;/p&gt;" type="" variable="$path"/>
+          <tag name="param" line="101" description="" type="null" variable="$dataType">
+            <type>null</type>
+          </tag>
+          <tag name="throws" line="101" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$path</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$dataType</name>
+          <default>null</default>
+          <type>null</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="121" package="Default">
+        <name>loadDocumentString</name>
+        <full_name>\rosette\api\DocumentParameters::loadDocumentString()</full_name>
+        <docblock line="121">
+          <description>Loads a string into the object.</description>
+          <long-description>The string will be taken as bytes or as Unicode dependent upon its native type and the data type asked for;
+if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.
+The document unit size remains (by default) L{InputUnit.DOC}.</long-description>
+          <tag name="param" line="121" description="" type="" variable="$stringData"/>
+          <tag name="param" line="121" description="" type="" variable="$dataType"/>
+          <tag name="throws" line="121" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$stringData</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$dataType</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="82" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="82">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="82" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="82" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="113" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="113">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="return" line="113" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+    </class>
+    <source>eJzFV2FvGkcQ/W7J/2FiWeKwCCRR2g+maUsAK6cSbBlwaqUVWu4W2OZud7u7Z0Is//fOLnvHEQi4qtueLBtuZ+e9nXkzO/7hJzmXx0fHR42zs+MjOIMoIVpDR0RZSrm5Ioqk1FCl63bVWRTvvO1UKDBzCtoQHhMVw7XQ1BgKrasQKI+lYNzoOqBTqoELA4xHSRZT6KMfGCrCdUIME7yA+DkScqnYbG7g1YuXr5/jr+/gLdFMw5BGcy4SMVtCWygplNu5ZtdjEeWaxpDxmK6ItSSJ8I9fqcENHgf3wKv6CwiswYlfOqk2YSkySMnS8cw0RQcIOmUJBfo5otKSh0ikMmGER9RBLpiZOyDvpg633omYGIL2BOx5QEzLVkDM6qyJ/z43Rp43GovFok4c47pQs4Zf1Y1e2O72B93nyLo47IgnFDOg6J8ZU3jmyRKIRGoRmSDhhCwAc0NmiuKaEZb6QjHD+KwGWkzNgigKMdNGsUlmNmKWk2TaAZWNMHKEw0lrAOHgBN62BuGgBh/C4bvL0RA+tK6vW/1h2B3A5TW0L/udcBhe9vHbBbT6t/BL2O/UgGLEEIh+lsryR5LMRpTGLo8woHSDRKEwSSM2ZRGejM8yMqMwE3dUcTwQSKpSpm1eNdKLIWEpM04bevtYDuascXzEUYEag01BrUT7G5GsWa6H9r56QA/fqhc8nEHx67wa3IoeUIMyRtnc43Z8Vij2QSHcEQU2zHgawXEzak071gZ92fxNUDScJMsvmIWgSDqbolhRYW7LSLFq7rGx+iCzCSoCTr2FO90+7LUni09gdN2z4P41EiIGJZ8kj6FzgAtiPJbOcClpEQ/7Gaspp+RD3MZcYw8y+vz8tEMMuRAqRa6BkFYGJDlAxiIcZJNxVqRlB2zIZWZG1uYgqvV0EK4QuocsvvtekkfgIFq+cSeiO4HKIiNUPX+5pmPmSiwKHXddF1w16x1A04xHdhXG4yj3GnhSXvP2ObVt9fmPOf03UKk0v7VqhbjXwEljt4VL15u9mfpY6Vy2K79v7y1iXXL9sCt8NyRhMTF4ucmN9vAkcbzzzncEESstoKk0ywDFkgabQalWq2Xbg/a2cWxvsY/jDZwutqgH28b2qbzPtAGd4U2Elx53Ym37TGMnbxeAldpuB1/j2HT1b1q9sDPutIat4e1Vd3tjtbn57mH99QFogtfIjnA8+0/i0SbcjhM+IhOB40IeD3tV/Q8B2aPmniCxbftu5sHJTbhGIyZ/0Mhsq3qIa84yvxEUJTEQjaMIFkTT7cWRRAmpGKrYNqw7P37lO2JbMCnjq/nF3fNUoVF9AyT2N+yqA2v2xUKlOF3pwgx3x3RKssRA776o7zqW98OOcnS1CqeSYDbOcag1czsMWK36s5PIRttNUj4I7XshKX8ofORFWv/aK8/waKdYtsT2pqdqBQlmJh80LpBh4MjX1kDYqSzy7k7xrDDbUnXZwd679GNl1B9cddvhRdjtbPTMkrjy9lliO3C3WTDB0ef712PKIxHTwAZ5PKNm7CtOr85TrZZOVN3Xd3Ol+rvyUVr1trn2DPlEeSFXNy1rnKqZJYhiwmzHTnMSw88M/veCE+WdH0Bs6Vo4y9W/0Z9QxDitNgtMNl1PLHiHvxu+71mUX+2Hmke1UziOwsiZxjVn7iJkea6Gvn9aIRCsS6P6N2pjFSyb/q2lf1PbXi0l+LIiDs8SpY2HZobC7ROMDqhR/PkLBN6CsA==</source>
+  </file>
+  <file path="IException.php" generated-path="IException.html" hash="2769318f1e454d0f9a9c640cf0f7a5e6" package="Default">
     <docblock line="0">
       <description>interface IException.</description>
       <long-description>Provides a base exception for the RosetteException and any future exceptions.</long-description>
@@ -1440,395 +2194,170 @@ it is in the first array element. This method extracts that code.</description>
         </argument>
       </method>
     </interface>
-    <source>eJy1lW1v0zAQx9/nU5wmXoyqa8YEbxiIlbKJiNGipgMhIU2uc0ksEtvYDl2F+O6cnaR0T0UCFqmNEvvu/7vz3eXFK13qKIoHgwgGIKRDkzOOkJxecdROKDmiBb/2wajvIkMLDJbMImC/AXJlwJUIc2XROdxYApMZ/daQN64xWxa293nClV4bUZQOjg6fPD2gv2fwmllhYYG8lKpSxRomymhl2DbMueAoLWbQyAxb9bFmnG7dyhA+orEe4mh0CPt+w163tPf4GNaqgZqtQSoHDQXjSpLMRdVDUiaAq1pXgkmOXnElXBl0Oi8j+Nz5UEvHaDsDHwyofHsXMBfirLrH0jn9PI5Xq9WIBd6RMkXcrdr4PJmcTtPTA2LuAr2QFVoLBr81wlC8yzUwTVicLQm2Yiug5LPCIK055bFXRjghiyFYlbsVo7xnwjojlo27lq+eUFivs70nnBzsjVNI0j14PU6TdAifksXb2cUCPo3n8/F0kZymMJvDZDZ9kyyS2ZSezmA8/QzvkumbISBli3TwShuPT4zCJxMzf4CQIl5D6AvIauQiF5zikkXDCoRCfUcjKRzQaGph/YnaUFeVqIULNWFvB+VVBnEkWY1W+3I2bWl+YVocb6o9uafa4+iuPoh+REBXHDrBIfeZqtGVKrOUdopW+De5UTX87gBeMQqfPLamg3An6TlSRxC5ZyZG62OlnYoL5r1sig23uIJl7+DEBA9QiyvMupetim6WVB7Uc5IHhALd+1Zhnwr/5hXHW7QdSbSLlqvsIVEn5P4uzhb1wqI5yDAXkpS3skxGO6FDZ/veKAW/QQuK88aYUJl/j31GAvdjp6oxvKXwJbkTtaLYaGo8HOo5CfwR1VPci8nAGd8b3aj7Pwe/8C7v5iKsMY0kY9hmvC4Z/+pai53ZbEHp5P10oylCk6Zm7t9BxzYNDq8DE+hZEPCN0Sl6YG9xC3NGk83QB5U46bjNFnRnadAPT5TtlPuP2b68dOou/E0Q+c0g/ICmL4Su2PpWHBOawM403ClzC0kzw2qQTVXBo364XF+jSQvwKDTwbmTey+z3nuBl8Dxszenp8PFx9DP6BTvOp6s=</source>
+    <source>eJy1ld9v2zYQx98N+H84BH1IDcfKivVl3bC6boIJy+zBclYUGFDQ1EkiJpHckapjDP3fd6Rk187c+mGpAP+QyLv7fI93px9/tpUdDoaDZDQaDmAESnukQkiE9OZBovXK6ElYiau/k/mocnQgYC0cAu62QGEIfIWwNA69x70tCJ3zZwtF61s6sHCfvb6Wxm5JlZWHF9fffX/FXy/hjXDKwQplpU1tyi3MDFlD4hjoTknUDnNodY4dwdQKyT/9yhj+QHIB5MXkGi7Dhot+6eL5K9iaFhqxBW08tCzIVxy0UPUOlPMB0jS2VkJLjCE3ylcxUO9mAu97J2btBe8XEPSAKQ53gfCd1rq/r7y3PyTJZrOZiEg8MVQm/apL7tLZzTy7uWLqvdh7XaNzQPh3q4g1r7cgLKNJsWbgWmyAD0GUhLzmTUDfkPJKl2NwpvAbwfnPlfOk1q0/ytkOUrkY6HBTPEK4mGaQZhfwZpql2RjepatfFvcreDddLqfzVXqTwWIJs8X8bbpKF3O+u4Xp/D38ms7fjgE5YxwIHywFfoZUIaOYx3OEDPEIYldKzqJUhZKsTJetKBFK8xFJsyCwSI1y4VxdrLBaNcrH2nD/lRXDjJLhQIsGnQ3FTV2Z/imsenVY/umXyp+tT7XGcPAPr/KVxObwKEPOGvSVyR2fAOtW4UlBpoHPTSFrwYkITjvbUfeHAZbIbcIiAj7DuiCb9xqpRPCzLz48pIumexevKfqARj1gvnvah7LtmuuFm1HLCFKi/62Lcsnd8PhKkgPmniZk62vQ0uTfmnjGIU7hdsT3Dukqx0Jpjn6QcjY6xx4bP7RNpeQjaDBStkRdzf4v+lsO8mX6zLQkO5JQreeIa1bJo+XbEt9xkLPEgeRrtAI8hd7px+LTVcMquD2Nx3RTHl9EYj+O10L+5TuLc7nteLkcwjDkmcNzqRH+aXinLotOj7mZ9zYGCY3TRw3cweIU7YLHIfH7mHG5BuiAvTcmDCMXdTcanzj3Hz54c0rFXkvxWEuY7PxusbXYnpIz4+ntqZXe0AkyK0g0oNu6hmf7WXS8yBMa4FnX6WfQ5S7W5c4Z/BSdjzsHfHf9nF8Nn4aDfwEcXKvV</source>
   </file>
-  <file path="RosetteParamsSetBase.php" generated-path="RosetteParamsSetBase.html" hash="674f17762c57beb8314706e330959d90" package="Default">
+  <file path="Name.php" generated-path="Name.html" hash="be740848277f8aec1518c824546a59d2" package="Default">
     <docblock line="0">
-      <description>abstract class RosetteParamsSetBase.</description>
-      <long-description>The base class for the parameter classes that are used for Rosette API operations.</long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
-      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="true" namespace="rosette\api" line="23" package="Default">
-      <extends/>
-      <name>RosetteParamsSetBase</name>
-      <full_name>\rosette\api\RosetteParamsSetBase</full_name>
-      <docblock line="23">
-        <description>Class RosetteParamsSetBase.</description>
-        <long-description></long-description>
-        <tag name="package" line="23" description="Default"/>
-      </docblock>
-      <property static="false" visibility="protected" namespace="rosette\api" line="30" package="Default">
-        <name>$params</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::params</full_name>
-        <default>array()</default>
-        <docblock line="30">
-          <description>Internal params array.</description>
-          <long-description></long-description>
-          <tag name="var" line="30" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="37" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
-        <docblock line="37">
-          <description>Constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="37" description="" type="" variable="$repertoire"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$repertoire</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
-        <name>set</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
-        <docblock line="52">
-          <description>Custom setter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="52" description="" type="" variable="$key"/>
-          <tag name="param" line="52" description="" type="" variable="$val"/>
-          <tag name="throws" line="52" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$val</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="72" package="Default">
-        <name>get</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
-        <docblock line="72">
-          <description>Custom getter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="72" description="" type="" variable="$key"/>
-          <tag name="return" line="72" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="72" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="91" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
-        <docblock line="91">
-          <description>Validates parameters before serializing them.</description>
-          <long-description></long-description>
-          <tag name="return" line="91" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="91" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="100" package="Default">
-        <name>serialize</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
-        <docblock line="100">
-          <description>Serialize into a json string.</description>
-          <long-description></long-description>
-          <tag name="param" line="100" description="&lt;p&gt;if null values should be skipped&lt;/p&gt;" type="boolean" variable="$skip_null">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="100" description="" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$skip_null</name>
-          <default>true</default>
-          <type>boolean</type>
-        </argument>
-      </method>
-    </class>
-    <source>eJzlVlGT2jYQfudXbG/oHDAcpJn05a5pwnFk6kkCCeaSybQdj2wWo56RFEk+H+3kv3dlC2JMSDvTvFUPNpY+7X67367ET8/UWrVaw16vBT1gsbGaJRaSjBkDc2nQWnzDNNuYEO01MzggnIMu1ggxfXvoSmqwNKUcFi3qah4NzTILTCPkBpclzpuF0ZsApELNLJfC7Aw/T6Taap6uLTx+9MOTC3r8COSZG1hgshYyk+kWxlIrWe3cbXzFExTORy6WWLEZKZbQy6/04R1qQzvg8eARdBzgzC+dda9gK3PYsC0IaR1XMkAuVzxDwIcElQUuIJEblXEmEnQeC27XpR9vZQAfvA0ZW0ZwBi4YkKs6Cpgt48z859padTkcFkUxYCXfgdTp0K+a4atgPJmGkwvi7AO9FRlSyjV+zLmmeOMtMEW0EhYT2YwVQElmqUZas9LRLjS3XKR9MHJlCyfGkpPSPM7tQb52DLlxfuoYShoTcDYKIQjP4HoUBmEf3geLX2a3C3g/ms9H00UwCWE2h/FsehMsgtmUvl7AaPoBXgbTmz4gZYv84IPSjj5x5C6ZuHQCQoh4QGFXUEZhwlc8obhEmrMUIZX3qAWFA1Q7G26coobYLSHjG26rajoOynnpDVuCytNQmhF0VYa/McWv9h0w/mrhD1v/okNaf7WARmnQjR4EghpCsKzqDuKqNdsO/OoO9Pye6WrFzwzLt9LSYuIkaPvdTytUp0usG47GFLnVeWKlPjJf7oa2RsqalVQ4J9yscpG4FEIUJTtzndq2bomvYnSDhEKqWqhjgBlo3+G2W8O50XY9dfFzFcivDvE7hXN+frVHfWpVz6PIcmPlBsps631xkIHhPcvy+rmjGD8ZPOGbU7S9CbZrLYu9tpOy+Skhh/nKY2q4z8kiaMeZ75cWmzniK+h8V6oWESbCB+oss8PXc9JtZqzkAgKLIzqdA5wbRmku7KpzfivuhCwEHX+8lhjyBt+b836lTP9oe9PB5WX7enQTzSdvbyfhInoxm78eLQ52dZu6ndbYZeXq69qm30rb/YpGm2sBG/6Ay28hcupF/j/Ku//pk/oFmU/p+45lfMks/RfYszUQozs4qG80p+U/3XFOqm+O1P2vGu4P7KaY957Vl87R0LOim1DQDcrgD+N6nG5DkZ6ov1jKDNrmjqtI5FnmaqJ8lyVswKxlntFVTRETRB3H4uOsfPzDUePJdWrungId1EdnsxfpKNSaji6yCEUilwf2nlWXTET/f0iuzmEVw2WjrHfKf2r9DbR1EUQ=</source>
-  </file>
-  <file path="NameMatchingParameters.php" generated-path="NameMatchingParameters.html" hash="d9987948f57da8ab0238861cea752b7d" package="Default">
-    <docblock line="0">
-      <description>class NameMatchingParameters.</description>
-      <long-description>Parameters that are necessary for name translation operations.</long-description>
-      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
-      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
-      <tag name="package" line="0" description="Default"/>
-    </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
-      <extends>\rosette\api\RosetteParamsSetBase</extends>
-      <name>NameMatchingParameters</name>
-      <full_name>\rosette\api\NameMatchingParameters</full_name>
-      <docblock line="23">
-        <description>Class NameMatchingParameters.</description>
-        <long-description></long-description>
-        <tag name="package" line="23" description="Default"/>
-        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="/classes/rosette.api.RosetteParamsSetBase.html"/>
-      </docblock>
-      <property static="false" visibility="protected" namespace="rosette\api" line="30" package="Default">
-        <name>$params</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::params</full_name>
-        <default>array()</default>
-        <docblock line="30">
-          <description>Internal params array.</description>
-          <long-description></long-description>
-          <tag name="var" line="30" description="" type="array" variable="">
-            <type>array</type>
-          </tag>
-        </docblock>
-      </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="31" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\NameMatchingParameters::__construct()</full_name>
-        <docblock line="31">
-          <description>constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="31" description="&lt;ul&gt;&#10;&lt;li&gt;name1 source name to be matched&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Name" variable="">
-            <type>\rosette\api\Name</type>
-          </tag>
-          <tag name="param" line="31" description="&lt;ul&gt;&#10;&lt;li&gt;name2 target name to be matched&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Name" variable="">
-            <type>\rosette\api\Name</type>
-          </tag>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="/classes/rosette.api.RosetteParamsSetBase.html#method___construct"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$name1</name>
-          <default></default>
-          <type>\rosette\api\Name</type>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$name2</name>
-          <default></default>
-          <type>\rosette\api\Name</type>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="43" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\NameMatchingParameters::validate()</full_name>
-        <docblock line="43">
-          <description>Validates parameters.</description>
-          <long-description></long-description>
-          <tag name="throws" line="43" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="/classes/rosette.api.RosetteParamsSetBase.html#method_validate"/>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="37" package="Default">
-        <name>__construct</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
-        <docblock line="37">
-          <description>Constructor.</description>
-          <long-description></long-description>
-          <tag name="param" line="37" description="" type="" variable="$repertoire"/>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$repertoire</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="52" package="Default">
-        <name>set</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
-        <docblock line="52">
-          <description>Custom setter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="52" description="" type="" variable="$key"/>
-          <tag name="param" line="52" description="" type="" variable="$val"/>
-          <tag name="throws" line="52" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="0" by_reference="false">
-          <name>$val</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="72" package="Default">
-        <name>get</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
-        <docblock line="72">
-          <description>Custom getter for the key/value parameter pair.</description>
-          <long-description></long-description>
-          <tag name="param" line="72" description="" type="" variable="$key"/>
-          <tag name="return" line="72" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="72" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$key</name>
-          <default></default>
-          <type/>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="91" package="Default">
-        <name>validate</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
-        <docblock line="91">
-          <description>Validates parameters before serializing them.</description>
-          <long-description></long-description>
-          <tag name="return" line="91" description="" type="mixed">
-            <type>mixed</type>
-          </tag>
-          <tag name="throws" line="91" description="" type="\rosette\api\RosetteException">
-            <type>\rosette\api\RosetteException</type>
-          </tag>
-        </docblock>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="100" package="Default">
-        <name>serialize</name>
-        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
-        <docblock line="100">
-          <description>Serialize into a json string.</description>
-          <long-description></long-description>
-          <tag name="param" line="100" description="&lt;p&gt;if null values should be skipped&lt;/p&gt;" type="boolean" variable="$skip_null">
-            <type>boolean</type>
-          </tag>
-          <tag name="return" line="100" description="" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
-        <argument line="0" by_reference="false">
-          <name>$skip_null</name>
-          <default>true</default>
-          <type>boolean</type>
-        </argument>
-        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
-      </method>
-    </class>
-    <source>eJyFVG1v00AM/p5fYU1DS6euhQq+dLx1WxEVo4WmG0KApmvqJifSu+POIYvQ/ju+a9Z1Gxv3oc3Fj+3H9uO8fGNyE0Xd/f0I9iEthHMwFiv8KCjNpco+Ccs3Qus6DPCYmzdAuSAQFkFhis4JW8NSW1BsB7JCuUKQ1Aq0QRueNkHeptrUVmY5Qe/ps+cH/PMCjoSTDmaY5koXOqvhWFuj157XjqcyReVwAaVaoGUGCAMjUv5rLG04Z2o+a6/zFGIP2GlMO61DqHUJK1GD0gSlY5o5p1zKAgEvUzQEUkGqV6aQQqXoM1aS8pCnidKBr00MPSfBcAG+GNDLbRQICnUWzTUnMv1ut6qqjgh8O9pm3cbquqej4+E4GR4w56bQM1VwS8Hir1JarndegzBMKxVzJluICrjTIrPINtKedmUl8cTa4PSSKj+WhXRk5bykW/26Ziidz7ON4aYJBTuDBEbJDhwNklHShi+j2fvJ2Qy+DKbTwXg2GiYwmcLxZHwymo0mY769g8H4K3wYjU/agNwtzoOXxnr6zFH6ZuLCDxASxFsUvFr83RlM5VKmXJfKSpEhZPo3WsXlAGtnJZ2fqGN2CyjkStJaTfeL8ln2u5FXoOM2I1jtkAi/CyMPNzI//o/Mu9Fji8DFEaqFg+k6drC4BIn1i9GfCPiERP7wTjFRsmVK2naad9emt8a7hjRwENbmGQ+vtMx7vUMa5shSYwa4eNipByRshvSwUzf8m3LO+oFlqdKwlhcXG25xCLcbKLTh5tJrBc91USEG60pRv7/tK6wVdbwXnPfaEB56e63W4cZr16/ZwevA3H1rkD/gVZPxUWDvBthbA6+iuz0+F4VcCEIHZnuQt5tNudXVZmrDsO7chkdb9LsJHN/tAysXeY3hoeJBONj9iXVry8cfuYQYV4bquCmV5xYHYOsu1J/AmT+v1T3a8T2sP85YqWgZ702vvxtBE6tGxDftCR9AV5qwm3144ph7oNH+Z9y72fv93aPBycV0+PlsmMwu3k2mHweze55bCljP7fbTVXQV/QUCwv0t</source>
-  </file>
-  <file path="CustomException.php" generated-path="CustomException.html" hash="dbdaf75f98f37e81befe31a2a573a1fe" package="Default">
-    <docblock line="0">
-      <description>CustomException class provides the implementation of IException and the base for RosetteException and any future
-exception classes.</description>
+      <description>Name represents an entity name in Rosette API.</description>
       <long-description></long-description>
       <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
       <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
-    <class final="false" abstract="false" namespace="rosette\api" line="22" package="Default">
-      <extends>\Exception</extends>
-      <implements>\rosette\api\IException</implements>
-      <name>CustomException</name>
-      <full_name>\rosette\api\CustomException</full_name>
-      <docblock line="22">
-        <description>Class CustomException.</description>
+    <class final="false" abstract="false" namespace="rosette\api" line="21" package="Default">
+      <extends/>
+      <name>Name</name>
+      <full_name>\rosette\api\Name</full_name>
+      <docblock line="21">
+        <description>Class that represents a Name.</description>
         <long-description></long-description>
-        <tag name="package" line="22" description="Default"/>
+        <tag name="package" line="21" description="Default"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="rosette\api" line="29" package="Default">
-        <name>$message</name>
-        <full_name>\rosette\api\CustomException::message</full_name>
-        <default>'Unknown exception'</default>
-        <docblock line="29">
-          <description>Exception message.</description>
-          <long-description></long-description>
-          <tag name="var" line="29" description="" type="string" variable="">
-            <type>string</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="false" visibility="protected" namespace="rosette\api" line="35" package="Default">
-        <name>$code</name>
-        <full_name>\rosette\api\CustomException::code</full_name>
-        <default>0</default>
-        <docblock line="35">
-          <description>User-defined exception code.</description>
-          <long-description></long-description>
-          <tag name="var" line="35" description="" type="integer" variable="">
-            <type>integer</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="false" visibility="protected" namespace="rosette\api" line="41" package="Default">
-        <name>$file</name>
-        <full_name>\rosette\api\CustomException::file</full_name>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$text</name>
+        <full_name>\rosette\api\Name::text</full_name>
         <default></default>
-        <docblock line="41">
-          <description>Source filename of exception.</description>
+        <docblock line="28">
+          <description>Textual form of the name.</description>
           <long-description></long-description>
-          <tag name="var" line="41" description="" type="" variable=""/>
+          <tag name="var" line="28" description="" type="" variable=""/>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="rosette\api" line="47" package="Default">
-        <name>$line</name>
-        <full_name>\rosette\api\CustomException::line</full_name>
+      <property static="false" visibility="public" namespace="rosette\api" line="34" package="Default">
+        <name>$entityType</name>
+        <full_name>\rosette\api\Name::entityType</full_name>
+        <default></default>
+        <docblock line="34">
+          <description>Entity type of the name.</description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="" type="" variable=""/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="40" package="Default">
+        <name>$language</name>
+        <full_name>\rosette\api\Name::language</full_name>
+        <default></default>
+        <docblock line="40">
+          <description>Language of the name.</description>
+          <long-description></long-description>
+          <tag name="var" line="40" description="" type="" variable=""/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="47" package="Default">
+        <name>$script</name>
+        <full_name>\rosette\api\Name::script</full_name>
         <default></default>
         <docblock line="47">
-          <description>Source line of exception.</description>
+          <description>Script in which the name is written.</description>
           <long-description></long-description>
           <tag name="var" line="47" description="" type="" variable=""/>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="55" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="59" package="Default">
         <name>__construct</name>
-        <full_name>\rosette\api\CustomException::__construct()</full_name>
-        <docblock line="55">
+        <full_name>\rosette\api\Name::__construct()</full_name>
+        <docblock line="59">
           <description>Constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="55" description="" type="null" variable="$message">
-            <type>null</type>
-          </tag>
-          <tag name="param" line="55" description="" type="integer" variable="$code">
-            <type>integer</type>
+          <tag name="param" line="59" description="" type="" variable="$text"/>
+          <tag name="param" line="59" description="" type="" variable="$entityType"/>
+          <tag name="param" line="59" description="" type="" variable="$language"/>
+          <tag name="param" line="59" description="" type="" variable="$script"/>
+          <tag name="throws" line="59" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
-          <name>$message</name>
+          <name>$text</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entityType</name>
           <default>null</default>
-          <type>null</type>
+          <type/>
         </argument>
         <argument line="0" by_reference="false">
-          <name>$code</name>
-          <default>0</default>
-          <type>integer</type>
+          <name>$language</name>
+          <default>null</default>
+          <type/>
         </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="69" package="Default">
-        <name>__toString</name>
-        <full_name>\rosette\api\CustomException::__toString()</full_name>
-        <docblock line="69">
-          <description>Magic method to return the stringized form of CustomException.</description>
-          <long-description></long-description>
-          <tag name="return" line="69" description="" type="string">
-            <type>string</type>
-          </tag>
-        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$script</name>
+          <default>null</default>
+          <type/>
+        </argument>
       </method>
     </class>
-    <source>eJydVdtu20YQfddXTIUAukCW3KB9sdMkiuIiRFMZMOUEAQwYK3JELkLusrtLM2qgf+/Maqmr/VI+SFrO5cw5M7N6867Kq05nMhx2YAiz2jpd3vxIsHJSK0gKYS1URj/JFC24HEGWVYElKie8h15BtPcXKvVOS2ERVtrAnbboHB57CLWGVe1qg4yJx2hox/SWDe8TXa2NzHIHry9//e2CPn6HD8JKCwtMcqULna1hpk2ljS+mDfwsE1QWU6hVisYXNK1EQl/BMoIvaCxDvh5fQp8dusHUHVzDWtdQijUo7aAmIi4nyJUsMNQKkmrVpIMUKvEcGulyjxOyjOFbyKGXTpC7ACbDah14gXCeZxGOuXPV1WTSNM1Y+HrH2mSTYLWTz9HsZh7fXFDNgei9KpD6Y/CfWhriu1yDqKisRCyp2EI0QC0QmUGyOc1lN0Y6qbIRWL1yjTAIqbTOyGXtjvRqK5SWcQ59fA+hO40hirvwYRpH8Qi+RotPt/cL+Dq9u5vOF9FNDLd3MLudf4wW0e2cTn/CdP4N/ormH0eApBbh4I/KcPlUIw+VxJQbCDHiUQk8Rny2FSZyJRPipbJaZAiZfkKjiA5UaEppuaPWT1ghS7kdUHtOilGGk44SJVqSGcFsh/RBVPJ6vwp+9E8WgkMnneQ5E9FxqFILD/tXu12xB0vS+dkBejwMP0PYB1BFlpiNg6V1eP8kDHALVBZeTfw3LabDhLvyKkTCH9C7V9+VbtR+sXrXp4j3Fs1FiiupKPZgAXX6PLZU7iVgjiHUyzOMWNeGxOW9Yal59vFAxzOQlwA4wUvJCyLwvxNzMPX7JPOMZsaZOnHanCWrhBElqLoodoKf2Ego2GpyjFovaSvp0lOJF/rxMWlh+get48yjvaQDH7sdF37kCvq/tO6DAwM/Lje6AYUNvOL7qr8bgx6MIUP36Ke2742DwfUudrP71eJK+6jqEo1M+v7VAN4F21XbZs+Jbg/lrq6e4xJIBJjNmch/i4zkKNHl2t9MBunfQG3X3I+5/Jc6RJtfcnfPl/C4LSH6uQU5093p2Lv1T8UNSU6VIvG60PvpDxdvA71Nj+/S9iUP6KbfnniqNoMH1d1lpgytkbIvDF05U9tWsem2Gm06/wG5y0vI</source>
+    <source>eJydVFFv2jAQfkfiP5xQpQKi0FXbS1m3ppRq0TrYSLqq0iRkgiGWgu3ZTlM07b/v7CQQGl5WC5E4d/fdd3ef/fGzjGWz0WwMut1mA7owIRsKikpFNeVGA+GAT2a2wK2FcZgJTY2h4H33+zbEhV1HQm4VW8cGLs7fvT/Dvw9wQzTTENIo5iIR6y2MhJJCEcME34fes4hyTZeQ8iVVYGKEliTCR2HpwU+qNMbARf8c2tahVZhanSFsRQobgvyEgVRTBMCkK5ZQoC8RlcZyjsRGJozwiLqUGTOxS1TA9OGpABELQ9CfgK0HxKrqBcTktSbFPjZGXg4GWZb1iWPcF2o9KKx6cO+PxpNgfIasd8U+8IRqjQ3+nTKFNS+2QCRSi8gCCSckA6GArBVFmxGWeqaYYXzdAy1WJiOKwpJpo9giNQc9K0ky7RJVnbBzOMaWF4AftODGC/ygB49++GX6EMKjN5t5k9AfBzCdwWg6ufVDfzrB3R14kyf46k9ue0CxY5iIvlhhaEuS2Y7SpZsjBJQekFiJnJSWNGIrFmFlfJ2SNYW1eKaKY0EgqdowbedqVbaEhG2YcdrQ9bJcmu6g2bAq1NhsFGmuw19EsmFVwaOEIEMTE3OgY6dsB4MokfOxX5qNP/gNVx5uVxcl+2JSktgyNqUIeBHuPHae189ElZtB/iLTBc4TTgyCDOvY4/w0ma2kb4bOT2SIEEcS3Jetfit6OSvX1dfoQaRYfqaymEXxLgPqzknVUP5fybTDO5pqhEowKo2MUEcgJVFkk3e59nHfn5qpLK5myInU85hYiUyXt97YXSmo0ePlrFIeWSvM51HJvu049qqs4Ap4miS9PZ39l5xHse/k6IVE7WIryAHh6qrwqZrtcoyB06xGun3oaJeWinGzap+GOEiHi7Ihu5GWF9Vpp1ePfQ1/eXly493OZ+MfD+MgnN9NZ9+88DCsM9zv/+5fT+ylffYpr+vg6FSsB/2rn4GKZ6WrVTW/8tp1ei/Cghb+/gG5PgSG</source>
+  </file>
+  <file path="RosetteConstants.php" generated-path="RosetteConstants.html" hash="7f96c58b4491f5d88cf0afc43ab00aa8" package="Default">
+    <docblock line="0">
+      <description>Container for the Rosette Constants.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="21" package="Default">
+      <extends/>
+      <name>RosetteConstants</name>
+      <full_name>\rosette\api\RosetteConstants</full_name>
+      <docblock line="21">
+        <description>Class RosetteConstants.</description>
+        <long-description></long-description>
+        <tag name="package" line="21" description="Default"/>
+      </docblock>
+      <property static="true" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$DataFormat</name>
+        <full_name>\rosette\api\RosetteConstants::DataFormat</full_name>
+        <default>array('SIMPLE' =&gt; '', 'JSON' =&gt; 'application/json', 'HTML' =&gt; 'text/html', 'XHTML' =&gt; 'application/xhtml+xml', 'UNSPECIFIED' =&gt; 'application/octet-stream')</default>
+        <docblock line="28">
+          <description>Accepted data formats.</description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" namespace="rosette\api" line="41" package="Default">
+        <name>$InputUnit</name>
+        <full_name>\rosette\api\RosetteConstants::InputUnit</full_name>
+        <default>array('DOC' =&gt; 'doc', 'SENTENCE' =&gt; 'sentence')</default>
+        <docblock line="41">
+          <description>Accepted Input Units.</description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" namespace="rosette\api" line="51" package="Default">
+        <name>$MorphologyOutput</name>
+        <full_name>\rosette\api\RosetteConstants::MorphologyOutput</full_name>
+        <default>array('LEMMAS' =&gt; 'lemmas', 'PARTS_OF_SPEECH' =&gt; 'parts-of-speech', 'COMPOUND_COMPONENTS' =&gt; 'compound-components', 'HAN_READINGS' =&gt; 'han-readings', 'COMPLETE' =&gt; 'complete')</default>
+        <docblock line="51">
+          <description>Accepted Morphology Output types.</description>
+          <long-description></long-description>
+          <tag name="var" line="51" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="public" namespace="rosette\api" line="64" package="Default">
+        <name>$RelationshipOptions</name>
+        <full_name>\rosette\api\RosetteConstants::RelationshipOptions</full_name>
+        <default>array('PRECISION' =&gt; 'PRECISION', 'RECALL' =&gt; 'RECALL')</default>
+        <docblock line="64">
+          <description>Valid relationship options.</description>
+          <long-description></long-description>
+          <tag name="var" line="64" description="" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+    </class>
+    <source>eJylVF2P2zYQfDfg/7A4BLjEta00aF+apo1i63pqbcmwdPkAChxoaW2xkEiWpGIbRf97l5IcW70rGiR6sCnt7uzMcMkff1aFGg6GA280Gg5gBDMpLOMCNWylBlsgrKVBa9FFjGXCmqlLbJJfZ1IdNd8VFl48//a7Cf18D2+Y4QZSzAohS7k7UqFWUjPLpTiXLniGwmAOtcixbeQrltFfFxnDW9SGauDF9Dk8dQlXXejq2Us4yhoqdgQhLdQGCYCabnmJgIcMlQUuIJOVKjkTGTYt99wWTaMOZgofOhC5cZqBgdMDcnuZBcy2WsvuvbBW/eB5+/1+yhrGU6l3Xhc13iKcBVESTIj1J7F3okRjQOOfNdekeXMEpohaxjZEuGR7IK/ZTiPFrHTU95pbLnZjMHJr90wj5NxYzTe17Xl2IslN0+gyiZxjAq78BMLkCt74SZiM4V2Y3sZ3Kbzz12s/SsMggXgNsziah2kYR/R2A370AX4Lo/kYkByjRnhQ2vEnktw5inmzj5Ag9kicJsYozPiWZ6RM7Gq2Q9jJj6gFCQKFuuLG7ashejmUvOK2mQ3zUFbTZuQNB4JVaMhsBN1O4+9M8Ze9uS0ZMexmtT+qVJ89Gh0O/qI4PS2Ie0bgZ258yL+cWeYkVazFacKf0l5/ZLRlWrPj6ZPXLlS9oY0F40Rl8GROKDcNCLxq8592BfRcJ+FytQiu4dVPcH09vgj8msRR+7kbFOeQ94eRopd2my4XbZrFg/UKW5W9+PtzwiXOwSV+c/hX8l2UrIJZeBMG84clMrNoJzRdyKpT1bNmB/7TwFCo2tLs86/xrwFxGI/ZN49nLdNcZj0pSRClQTTrnDUoLNIt8Jm8l3RfFe3VFdfWabBHhV+h4QzY4T0iZREsl37S8i2xqpjpCVr56zS5j2/uaYuC2W2bp5i2ZiK3EzpwdN32CmbxchXfRfP7ZhGRHx24uxQlnbRJsxBkTb/TrR/drwN/Hka/dBUFExPa9pyOr3nQYxGkwRm4RPs/Lr9lJc/pJizbM19wBVI1yy/3d32BFrdgj1m8WtN0J+HpYJ1fLzXRR3/RHZlufaHn7+HgH0ScBn0=</source>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="global" full_name="global"/>
