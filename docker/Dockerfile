@@ -13,6 +13,9 @@ WORKDIR /php-dev
 # install mbstring
 RUN docker-php-ext-install mbstring
 
+#Add xsl in PHP containers image
+RUN docker-php-ext-install xsl
+
 # install composer.phar
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 RUN composer install && cp -r vendor /php-dev/examples

@@ -72,8 +72,8 @@ fi
 #Run unit tests
 cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
 
-#Add xsl in PHP containers image
-docker-php-ext-install xsl
+#Run php-cs-fixer
+./vendor/bin/php-cs-fixer fix . --dry-run --diff
 
 #Generate gh-pages and push them to git account (if git username is provided)
 if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
