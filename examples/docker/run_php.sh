@@ -17,12 +17,12 @@ while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
             API_KEY=${OPTARG}
             usage
             ;;
-        ALT_URL)
-            ALT_URL=${OPTARG}
-            usage
-            ;;
         FILENAME)
             FILENAME=${OPTARG}
+            usage
+            ;;
+        ALT_URL)
+            ALT_URL=${OPTARG}
             usage
             ;;
     esac
@@ -37,10 +37,8 @@ function checkAPI {
     fi  
 }
 
-#Copy the mounted content in /source to current WORKDIR
-cp /source/*.* .
-
-composer install
+#Copy the examples from the mounted content in /source to current WORKDIR
+cp /source/examples/*.* .
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
