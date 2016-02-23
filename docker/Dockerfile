@@ -6,7 +6,6 @@ ENV TZ=America/New_York
 RUN apt-get -y update && apt-get install -y vim  && apt-get install -y git && apt-get install -y libxslt1-dev
 
 # copy over the necessary files
-COPY composer.json /php-dev/examples/composer.json
 COPY composer.json /php-dev/composer.json
 WORKDIR /php-dev
 
