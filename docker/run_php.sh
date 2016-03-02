@@ -49,6 +49,7 @@ function checkAPI {
 
 #Copy the mounted content in /source to current WORKDIR
 cp -r -n /source/* .
+cp -r vendor /php-dev/examples
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
