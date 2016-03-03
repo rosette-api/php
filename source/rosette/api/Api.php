@@ -654,23 +654,23 @@ class Api
      *
      * @throws RosetteException
      */
-    public function translatedName($nameTranslationParams)
+    public function nameTranslation($nameTranslationParams)
     {
-        return $this->callEndpoint($nameTranslationParams, 'translated-name');
+        return $this->callEndpoint($nameTranslationParams, 'name-translation');
     }
 
     /**
-     * Calls the name matching endpoint.
+     * Calls the name similarity endpoint.
      *
-     * @param $nameMatchingParams
+     * @param $nameSimilarityParams
      *
      * @return mixed
      *
      * @throws RosetteException
      */
-    public function matchedName($nameMatchingParams)
+    public function nameSimilarity($nameSimilarityParams)
     {
-        return $this->callEndpoint($nameMatchingParams, 'matched-name');
+        return $this->callEndpoint($nameSimilarityParams, 'name-similarity');
     }
 
     /**

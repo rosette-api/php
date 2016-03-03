@@ -1,7 +1,7 @@
 <?php
 
 /**
- * class NameMatchingParameters.
+ * class NameSimilarityParameters.
  *
  * Parameters that are necessary for name translation operations.
  *
@@ -18,9 +18,9 @@
 namespace rosette\api;
 
 /**
- * Class NameMatchingParameters.
+ * Class NameSimilarityParameters.
  */
-class NameMatchingParameters extends RosetteParamsSetBase
+class NameSimilarityParameters extends RosetteParamsSetBase
 {
     /**
      * @var Name sourceName source name
@@ -33,8 +33,8 @@ class NameMatchingParameters extends RosetteParamsSetBase
     /**
      * constructor.
      *
-     * @param Name - sourceName source name to be matched
-     * @param Name - targetName target name to be matched
+     * @param Name - sourceName source name to be compared
+     * @param Name - targetName target name to be compared
      */
     public function __construct(Name $sourceName, Name $targetName)
     {
@@ -51,13 +51,13 @@ class NameMatchingParameters extends RosetteParamsSetBase
     {
         if (empty($this->name1)) {
             throw new RosetteException(
-                sprintf('Required name matching parameter not supplied: sourceName'),
+                sprintf('Required name similarity parameter not supplied: sourceName'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
         if (empty($this->name2)) {
             throw new RosetteException(
-                sprintf('Required name matching parameter not supplied: targetName'),
+                sprintf('Required name similarity parameter not supplied: targetName'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
