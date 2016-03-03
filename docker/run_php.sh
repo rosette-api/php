@@ -49,21 +49,22 @@ function checkAPI {
 
 #Copy the mounted content in /source to current WORKDIR
 cp -r -n /source/* .
+cp -r vendor /php-dev/examples
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
     checkAPI
     cd /php-dev/examples
-	if [ ! -z ${FILENAME} ]; then
-	    if [ ! -z ${ALT_URL} ]; then
-	        php ${FILENAME} --key ${API_KEY} --url=${ALT_URL} 
-	    else
-		php ${FILENAME} --key ${API_KEY} 
-   	    fi
-	elif [ ! -z ${ALT_URL} ]; then
-    	    find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} --url=${ALT_URL} \;
-	else
-	    find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} \;
+    if [ ! -z ${FILENAME} ]; then
+        if [ ! -z ${ALT_URL} ]; then
+            php ${FILENAME} --key ${API_KEY} --url=${ALT_URL} 
+        else
+        php ${FILENAME} --key ${API_KEY} 
+        fi
+    elif [ ! -z ${ALT_URL} ]; then
+            find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} --url=${ALT_URL} \;
+    else
+        find -maxdepth 1  -name '*.php' -print -exec php {} --key ${API_KEY} \;
     fi
 else 
     HELP

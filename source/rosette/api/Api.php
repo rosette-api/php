@@ -542,20 +542,6 @@ class Api
     }
 
     /**
-     * Calls the language/info endpoint.
-     *
-     * @return mixed
-     */
-    public function languageInfo()
-    {
-        $this->skipVersionCheck();
-        $url = $this->service_url . 'language/info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
-
-        return $this->finishResult($resultObject, 'language-info');
-    }
-
-    /**
      * Calls the language endpoint.
      *
      * @param $params
@@ -685,20 +671,6 @@ class Api
     public function matchedName($nameMatchingParams)
     {
         return $this->callEndpoint($nameMatchingParams, 'matched-name');
-    }
-
-    /**
-     * Calls the relationships/info endpoint.
-     *
-     * @return mixed
-     */
-    public function relationshipsInfo()
-    {
-        $this->skipVersionCheck();
-        $url = $this->service_url . 'relationships/info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
-
-        return $this->finishResult($resultObject, 'relationships-info');
     }
 
     /**

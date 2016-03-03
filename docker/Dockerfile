@@ -17,7 +17,7 @@ RUN docker-php-ext-install xsl
 
 # install composer.phar
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-RUN composer install && cp -r vendor /php-dev/examples
+RUN composer install 
 
 # copy over the necessary files
 COPY run_php.sh /php-dev/run_php.sh 

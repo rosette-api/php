@@ -38,11 +38,6 @@ class DocumentParameters extends RosetteParamsSetBase
     public $contentType;
 
     /**
-     * @var string unit is the RosetteConstants::$InputUnit (optional)
-     */
-    public $unit;
-
-    /**
      * @var string language is the language of the content (optional)
      */
     public $language;
@@ -57,7 +52,6 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->content = '';
         $this->contentUri = '';
         $this->contentType = '';
-        $this->unit = RosetteConstants::$InputUnit['DOC'];
         $this->language = '';
     }
 
@@ -89,8 +83,6 @@ class DocumentParameters extends RosetteParamsSetBase
      * Loads a file into the object.
      *
      * The file will be read as bytes; the appropriate conversion will be determined by the server.
-     * The document unit size remains
-     * by default L{InputUnit.DOC}.
      *
      * @param $path : Pathname of a file acceptable to the C{open}
      * function.
@@ -111,7 +103,6 @@ class DocumentParameters extends RosetteParamsSetBase
      *
      * The string will be taken as bytes or as Unicode dependent upon its native type and the data type asked for;
      * if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.
-     * The document unit size remains (by default) L{InputUnit.DOC}.
      *
      * @param $stringData
      * @param $dataType
@@ -122,6 +113,5 @@ class DocumentParameters extends RosetteParamsSetBase
     {
         $this->content = $stringData;
         $this->contentType = $dataType;
-        $this->unit = RosetteConstants::$InputUnit['DOC'];
     }
 }
