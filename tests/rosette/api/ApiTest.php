@@ -53,7 +53,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
     private $userKey = null;
-    private static $mockDir = '/../../mock-data';
+    private static $mockDir = '/../../../mock-data';
     public static $requestDir;
     public static $responseDir;
 
@@ -108,7 +108,6 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                     ->getMock();
         $api->method('getResponseStatusCode')
             ->willReturn($this->getMockedResponseCode($userKey));
-
         return $api;
     }
 
@@ -216,7 +215,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 $input['name2']['language'],
                 $input['name2']['script']
             );
-            $params = new NameMatchingParameters($sourceName, $targetName);
+            $params = new NameSimilarityParameters($sourceName, $targetName);
         } else {
             if ($endpoint === 'name-translation') {
                 $params = new NameTranslationParameters();
@@ -265,12 +264,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             if ($endpoint === 'relationships') {
                 $result = $api->relationships($params);
             }
-            if ($endpoint === 'relationships') {
-                return;
-            }
             // If there is a "code" key, it means an exception should be thrown
             if (!array_key_exists('code', $expected)) {
-                $this->assertSame(json_encode($expected), json_encode($result));
+
+                $this->assertEquals($expected, $result);
+
             }
         } catch (RosetteException $exception) {
             $this->assertSame('unsupportedLanguage', $expected['code']);

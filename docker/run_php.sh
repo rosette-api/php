@@ -70,6 +70,7 @@ else
     HELP
 fi
 
+
 #Run unit tests
 cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
 
