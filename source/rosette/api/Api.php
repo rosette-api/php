@@ -340,7 +340,7 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
-            $tempJSON = json_encode($resultObject[1]);
+            @$tempJSON = json_encode($resultObject[1]);
             $finalJSON = json_decode($tempJSON, true);
             //var_dump($tempJSON);
             if ($finalJSON['versionChecked'] === true) {
