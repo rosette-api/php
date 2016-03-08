@@ -53,7 +53,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
     private $userKey = null;
-    private static $mockDir = '/../../mock-data';
+    private static $mockDir = '/../../../mock-data';
     public static $requestDir;
     public static $responseDir;
 
@@ -108,7 +108,6 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                     ->getMock();
         $api->method('getResponseStatusCode')
             ->willReturn($this->getMockedResponseCode($userKey));
-
         return $api;
     }
 
@@ -203,7 +202,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $api->setDebug(true);
         $input = $this->getRequestData($this->userKey);
         $expected = $this->getMockedResponse($this->userKey);
-        if ($endpoint === 'matched-name') {
+        if ($endpoint === 'name-similarity') {
             $sourceName = new Name(
                 $input['name1']['text'],
                 $input['name1']['entityType'],
@@ -216,16 +215,16 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 $input['name2']['language'],
                 $input['name2']['script']
             );
-            $params = new NameMatchingParameters($sourceName, $targetName);
+            $params = new NameSimilarityParameters($sourceName, $targetName);
         } else {
-            if ($endpoint === 'translated-name') {
+            if ($endpoint === 'name-translation') {
                 $params = new NameTranslationParameters();
             } elseif ($endpoint === 'relationships') {
                 $params = new RelationshipsParameters();
             } else {
                 $params = new DocumentParameters();
             }
-            // Fill in parameters object with data if it is not matched-name (because those parameters are formatted
+            // Fill in parameters object with data if it is not name-similarity (because those parameters are formatted
             // differently and handled when the object is created.
             foreach (array_keys($input) as $key) {
                 $params->set($key, $input[$key]);
@@ -250,8 +249,8 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             if ($endpoint === 'language') {
                 $result = $api->language($params);
             }
-            if ($endpoint === 'matched-name') {
-                $result = $api->matchedName($params);
+            if ($endpoint === 'name-similarity') {
+                $result = $api->nameSimilarity($params);
             }
             if ($endpoint === 'morphology_complete') {
                 $result = $api->morphology($params);
@@ -259,18 +258,17 @@ class ApiTest extends \PHPUnit_Framework_TestCase
             if ($endpoint === 'sentiment') {
                 $result = $api->sentiment($params);
             }
-            if ($endpoint === 'translated-name') {
-                $result = $api->translatedName($params);
+            if ($endpoint === 'name-translation') {
+                $result = $api->nameTranslation($params);
             }
             if ($endpoint === 'relationships') {
                 $result = $api->relationships($params);
             }
-            if ($endpoint === 'relationships') {
-                return;
-            }
             // If there is a "code" key, it means an exception should be thrown
             if (!array_key_exists('code', $expected)) {
-                $this->assertSame(json_encode($expected), json_encode($result));
+
+                $this->assertEquals($expected, $result);
+
             }
         } catch (RosetteException $exception) {
             $this->assertSame('unsupportedLanguage', $expected['code']);

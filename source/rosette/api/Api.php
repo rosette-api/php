@@ -320,7 +320,6 @@ class Api
             $url .= '?debug=true';
         }
         $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
-
         return $this->finishResult($resultObject, 'callEndpoint');
     }
 
@@ -341,7 +340,10 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
-            if ($resultObject['versionChecked'] === true) {
+            @$tempJSON = json_encode($resultObject[1]);
+            $finalJSON = json_decode($tempJSON, true);
+            //var_dump($tempJSON);
+            if ($finalJSON['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
                 throw new RosetteException(
@@ -388,7 +390,12 @@ class Api
                 $response = gzinflate(substr($response, 10, -8));
             }
             if ($this->getResponseCode() < 500) {
-                return json_decode($response, true);
+                if($http_response_header != null){
+                    $response = array($http_response_header, json_decode($response, true));
+                } else {
+                    $response  = json_decode($response, true);
+                }
+                return $response;
             }
             if ($response !== null) {
                 try {
@@ -542,20 +549,6 @@ class Api
     }
 
     /**
-     * Calls the language/info endpoint.
-     *
-     * @return mixed
-     */
-    public function languageInfo()
-    {
-        $this->skipVersionCheck();
-        $url = $this->service_url . 'language/info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
-
-        return $this->finishResult($resultObject, 'language-info');
-    }
-
-    /**
      * Calls the language endpoint.
      *
      * @param $params
@@ -668,37 +661,23 @@ class Api
      *
      * @throws RosetteException
      */
-    public function translatedName($nameTranslationParams)
+    public function nameTranslation($nameTranslationParams)
     {
-        return $this->callEndpoint($nameTranslationParams, 'translated-name');
+        return $this->callEndpoint($nameTranslationParams, 'name-translation');
     }
 
     /**
-     * Calls the name matching endpoint.
+     * Calls the name similarity endpoint.
      *
-     * @param $nameMatchingParams
+     * @param $nameSimilarityParams
      *
      * @return mixed
      *
      * @throws RosetteException
      */
-    public function matchedName($nameMatchingParams)
+    public function nameSimilarity($nameSimilarityParams)
     {
-        return $this->callEndpoint($nameMatchingParams, 'matched-name');
-    }
-
-    /**
-     * Calls the relationships/info endpoint.
-     *
-     * @return mixed
-     */
-    public function relationshipsInfo()
-    {
-        $this->skipVersionCheck();
-        $url = $this->service_url . 'relationships/info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
-
-        return $this->finishResult($resultObject, 'relationships-info');
+        return $this->callEndpoint($nameSimilarityParams, 'name-similarity');
     }
 
     /**

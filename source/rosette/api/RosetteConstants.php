@@ -34,16 +34,6 @@ class RosetteConstants
     );
 
     /**
-     * Accepted Input Units.
-     *
-     * @var array
-     */
-    public static $InputUnit = array(
-        'DOC' => 'doc',
-        'SENTENCE' => 'sentence',
-    );
-
-    /**
      * Accepted Morphology Output types.
      *
      * @var array
