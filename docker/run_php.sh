@@ -57,12 +57,22 @@ if [ "${match}" = "" ]; then
     exit 1
 fi 
 
+#Checks if Rosette API key is valid
+function checkAPI {
+    match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "forbidden")
+    if [ ! -z $match ]; then
+        echo -e "\nInvalid Rosette API Key"
+        exit 1
+    fi  
+}
+
 #Copy the mounted content in /source to current WORKDIR
 cp -r -n /source/* .
 cp -r vendor /php-dev/examples
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
+    checkAPI
     cd /php-dev/examples
     if [ ! -z ${FILENAME} ]; then
         if [ ! -z ${ALT_URL} ]; then
