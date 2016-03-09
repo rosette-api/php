@@ -167,7 +167,7 @@ class Api
         $this->timeout = 300;
         $this->numRetries = 1;
 
-        $this->headers = array('user_key' => $user_key,
+        $this->headers = array('X-RosetteAPI-Key' => $user_key,
                           'Content-Type' => 'application/json',
                           'Accept' => 'application/json',
                           'Accept-Encoding' => 'gzip',
