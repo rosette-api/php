@@ -30,7 +30,7 @@ done
 
 #Checks if Rosette API key is valid
 function checkAPI {
-    match=$(curl "https://api.rosette.com/rest/v1/ping" -H "user_key: ${API_KEY}" |  grep -o "forbidden")
+    match=$(curl "https://api.rosette.com/rest/v1/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "forbidden")
     if [ ! -z $match ]; then
         echo -e "\nInvalid Rosette API Key"
         exit 1

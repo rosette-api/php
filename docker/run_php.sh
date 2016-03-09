@@ -51,7 +51,7 @@ if [ ! -z "${ALT_URL}" ]; then
 fi
 
 #Checks for valid url
-match=$(curl "${ping_url}/ping" -H "user_key: ${API_KEY}" |  grep -o "Rosette API")
+match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "Rosette API")
 if [ "${match}" = "" ]; then
     echo -e "\n${ping_url} server not responding\n"
     exit 1
@@ -63,7 +63,6 @@ cp -r vendor /php-dev/examples
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
-    checkAPI
     cd /php-dev/examples
     if [ ! -z ${FILENAME} ]; then
         if [ ! -z ${ALT_URL} ]; then
