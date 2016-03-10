@@ -30,7 +30,7 @@ function file_get_contents($filename, $flags = null, $context = null, $offset = 
 {
     $context = \stream_context_get_params($context);
     $header_str = $context['options']['http']['header'];
-    preg_match('/user_key:\s*(.+)\s*\r\n/', $header_str, $out);  // we borrow the user_key field for testing
+    preg_match('/X-RosetteAPI-Key:\s*(.+)\s*\r\n/', $header_str, $out);  // we borrow the user_key field for testing
     $test_file = $out[1];
 
     // prepare mocked response content
