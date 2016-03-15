@@ -95,7 +95,7 @@ class DocumentParameters extends RosetteParamsSetBase
         if (!$dataType) {
             $dataType = RosetteConstants::$DataFormat['UNSPECIFIED'];
         }
-        $this->loadDocumentString(base64_encode(file_get_contents($path)), $dataType);
+        $this->loadDocumentString(file_get_contents($path), $dataType);
     }
 
     /**
