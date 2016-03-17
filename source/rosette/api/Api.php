@@ -307,20 +307,49 @@ class Api
      */
     private function callEndpoint($parameters, $subUrl)
     {
+        var_dump($parameters);
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
-        if ($this->useMultiPart && $parameters->contentType !== RosetteConstants::$DataFormat['SIMPLE']) {
-            throw new RosetteException(
-                sprintf('MultiPart requires contentType SIMPLE: %s', $parameters['contentType']),
-                RosetteException::$BAD_REQUEST_FORMAT
-            );
+        $this->useMultiPart = $parameters->useMultiPart;
+        if($this->useMultiPart != NULL){
+            $clrf = "\r\n";
+            $multi = '';
+            $boundary = md5(time());
+            $multi .= '--' . $boundary . $clrf;
+            $multi .= 'Content-Type: "application/json"' . $crlf;
+            $multi .= 'Content-Disposition: form-data; name="request"' . $clrf;
+            $multi .= $parameters->content . $clrf .$clrf;
+            $multi .= $multi;
+            $multi .= 'Content-Type: text/plain';
+            $multi .= 'Content-Disposition: "multipart/form-data"; name="content"; filename=' + $parameters->fileName + '' . $clrf .$clrf;
+            $multi .= $parameters->content . $clrf .$clrf;
+            $multi .= $multi . '--';
+
+            $this->headers = array('X-RosetteAPI-Key' => $user_key,
+                          'Content-Type' => 'multipart/form-data',
+                          'Accept' => '*/*',
+                          'Accept-Encoding' => 'gzip',
+                          'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version, );
+
+            $url = $this->service_url . $this->subUrl;
+            if ($this->debug) {
+                $url .= '?debug=true';
+            }
+            $parameters->content = $multi;
+
+            $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
+            return $this->finishResult($resultObject, 'callEndpoint');
+
+        } else {
+            echo 'here';
+            $url = $this->service_url . $this->subUrl;
+            if ($this->debug) {
+                $url .= '?debug=true';
+            }
+            var_dump($parameters);
+            $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
+            return $this->finishResult($resultObject, 'callEndpoint');
         }
-        $url = $this->service_url . $this->subUrl;
-        if ($this->debug) {
-            $url .= '?debug=true';
-        }
-        $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
-        return $this->finishResult($resultObject, 'callEndpoint');
     }
 
     /**
@@ -373,7 +402,7 @@ class Api
      * @internal param $headers : header data
      * @internal param data $optional : submission data
      */
-    private function retryingRequest($url, $context)
+    private function retryingRequest($url, $headers, $context)
     {
         $response = null;
         $message = null;
@@ -381,7 +410,23 @@ class Api
         $code = 'unknownError';
         for ($range = 0; $range <= $this->numRetries; ++$range) {
             $http_response_header = null;
-            $response = file_get_contents($url, false, $context);
+            //$response = file_get_contents($url, false, $context);
+            $url = 'http://seuss.basistech.net:8181/rest/v1/language';
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $context); 
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            $response = curl_exec($ch);
+            if($response === false){
+                echo curl_errno($ch);
+                echo curl_error($ch);
+            }
+            curl_close($ch);
+           // echo 'hello';
+            
+             
             $response_status = $this->getResponseStatusCode($http_response_header);
             $this->setResponseCode($response_status);
             if (strlen($response) > 3 && mb_strpos($response, "\x1f" . "\x8b" . "\x08", 0) === 0) {
@@ -482,7 +527,8 @@ class Api
         $opts['http'] = array_merge($opts['http'], $options);
         $context = stream_context_create($opts);
 
-        $response = $this->retryingRequest($url, $context);
+        //$response = $this->retryingRequest($url, $context);
+        $response = $this->retryingRequest($url, $headers, $data);
 
         return $response;
     }
@@ -511,7 +557,7 @@ class Api
         $opts['http'] = array_merge($opts['http'], $options);
         $context = stream_context_create($opts);
 
-        $response = $this->retryingRequest($url, $context);
+        $response = $this->retryingRequest($url, $headers, $data);
 
         return $response;
     }
