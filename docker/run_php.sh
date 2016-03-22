@@ -57,6 +57,7 @@ if [ "${match}" = "" ]; then
     exit 1
 fi 
 
+
 #Checks if Rosette API key is valid
 function checkAPI {
     match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "forbidden")
@@ -89,7 +90,7 @@ else
     HELP
 fi
 
-
+: <<'COMMENT'
 #Run unit tests
 cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
 
@@ -113,3 +114,4 @@ if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
     git commit -a -m "publish php apidocs ${VERSION}"
     git push
 fi
+COMMENT

@@ -27,7 +27,7 @@ spl_autoload_register(function ($class) {
 /**
  * Class API.
  *
- * Api Python Client Binding API; representation of a Api server.
+ * Api php Client Binding API; representation of a Api server.
  * Call instance methods upon this object to communicate with particular
  * Api server endpoints.
  * Aside from ping() and info(), most of the methods require the construction
@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '0.7';
+    private static $binding_version = '1.0';
     /**
      * User key (required for Rosette API).
      *
@@ -84,18 +84,6 @@ class Api
     private $subUrl;
     /**
      * Max timeout (seconds).
-     *
-     * @var
-     */
-    private $timeout;
-    /**
-     * Max retries before failing.
-     *
-     * @var
-     */
-    private $numRetries;
-    /**
-     * Last response code.
      *
      * @var
      */
@@ -156,7 +144,7 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
         $this->service_url = $service_url[strlen($service_url) - 1] === '/' ? $service_url : $service_url . '/';
@@ -165,7 +153,6 @@ class Api
         $this->version_checked = false;
         $this->subUrl = null;
         $this->timeout = 300;
-        $this->numRetries = 1;
 
         $this->headers = array('X-RosetteAPI-Key' => $user_key,
                           'Content-Type' => 'application/json',
@@ -245,16 +232,6 @@ class Api
     }
 
     /**
-     * Setter for numRetries.
-     *
-     * @param $numRetries int
-     */
-    public function setNumRetries($numRetries)
-    {
-        $this->numRetries = $numRetries;
-    }
-
-    /**
      * Processes the response, returning either the decoded Json or throwing an exception.
      *
      * @param $resultObject
@@ -275,7 +252,7 @@ class Api
                 $msg = $resultObject['message'];
             }
             $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-            if (array_key_exists('code', $resultObject)) {
+             if (array_key_exists('code', $resultObject)) {
                 $serverCode = $resultObject['code'];
                 if ($msg === null) {
                     $msg = $serverCode;
@@ -292,6 +269,7 @@ class Api
                 : failed to communicate with Api: ' . $msg,
                 is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
             );
+
         }
     }
 
@@ -307,25 +285,24 @@ class Api
      */
     private function callEndpoint($parameters, $subUrl)
     {
-        var_dump($parameters);
-        $this->checkVersion($this->service_url);
+        //$this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
         $this->useMultiPart = $parameters->useMultiPart;
-        if($this->useMultiPart != NULL){
+        if($this->useMultiPart){
             $clrf = "\r\n";
             $multi = '';
             $boundary = md5(time());
             $multi .= '--' . $boundary . $clrf;
-            $multi .= 'Content-Type: "application/json"' . $crlf;
-            $multi .= 'Content-Disposition: form-data; name="request"' . $clrf;
-            $multi .= $parameters->content . $clrf .$clrf;
-            $multi .= $multi;
-            $multi .= 'Content-Type: text/plain';
-            $multi .= 'Content-Disposition: "multipart/form-data"; name="content"; filename=' + $parameters->fileName + '' . $clrf .$clrf;
-            $multi .= $parameters->content . $clrf .$clrf;
-            $multi .= $multi . '--';
+            $multi .= 'Content-Type: "application/json"' . "\r\n";
+            $multi .= 'Content-Disposition: form-data; name="request"' . "\r\n" . "\r\n";
+            //$multi .= $parameters . $clrf .$clrf;
+            $multi .= '--' . $boundary . "\r\n";
+            $multi .= 'Content-Type: text/plain' . "\r\n";
+            $multi .= 'Content-Disposition: "multipart/form-data"; name="content"; filename="' . $parameters->fileName . '"' . "\r\n" . "\r\n";
+            $multi .= $parameters->content . "\r\n" . "\r\n";
+            $multi .= '--' . $boundary . '--';
 
-            $this->headers = array('X-RosetteAPI-Key' => $user_key,
+            $this->headers = array('X-RosetteAPI-Key' => $this->user_key,
                           'Content-Type' => 'multipart/form-data',
                           'Accept' => '*/*',
                           'Accept-Encoding' => 'gzip',
@@ -341,12 +318,10 @@ class Api
             return $this->finishResult($resultObject, 'callEndpoint');
 
         } else {
-            echo 'here';
             $url = $this->service_url . $this->subUrl;
             if ($this->debug) {
                 $url .= '?debug=true';
             }
-            var_dump($parameters);
             $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
             return $this->finishResult($resultObject, 'callEndpoint');
         }
@@ -369,9 +344,11 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
+            var_dump(json_encode($resultObject[1]));
             @$tempJSON = json_encode($resultObject[1]);
             $finalJSON = json_decode($tempJSON, true);
-            //var_dump($tempJSON);
+            var_dump($finalJSON);
+
             if ($finalJSON['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
@@ -381,14 +358,14 @@ class Api
                 );
             }
         }
-
+        $this->versionChecked = true;
         return $this->version_checked;
     }
 
     /**
-     * function retryingRequest.
+     * function makeRequest.
      *
-     * Encapsulates the GET/POST and retries N_RETRIES
+     * Encapsulates the GET/POST
      *
      * @param $url
      * @param $context
@@ -402,32 +379,43 @@ class Api
      * @internal param $headers : header data
      * @internal param data $optional : submission data
      */
-    private function retryingRequest($url, $headers, $context)
+    private function makeRequest($url, $headers, $context, $method)
     {
         $response = null;
         $message = null;
+        $context =  array('content' => $context->content);
+        //$context = json_encode($context, JSON_FORCE_OBJECT);
 
         $code = 'unknownError';
-        for ($range = 0; $range <= $this->numRetries; ++$range) {
             $http_response_header = null;
             //$response = file_get_contents($url, false, $context);
-            $url = 'http://seuss.basistech.net:8181/rest/v1/language';
+            //$url = 'http://10.1.7.116:8181/rest/v1/language';
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $context); 
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            if($method === 'POST'){
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $context);
+            } else if($method === 'GET'){
+                curl_setopt($curl_handle, CURLOPT_HTTPGET, TRUE);
+            }
+
+            curl_setopt($ch, CURLOPT_HEADER, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
+            $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if($response === false){
                 echo curl_errno($ch);
                 echo curl_error($ch);
             }
             curl_close($ch);
-           // echo 'hello';
-            
-             
-            $response_status = $this->getResponseStatusCode($http_response_header);
+            $response = explode(PHP_EOL, $response);
+           //var_dump($response);
+           $this->setResponseCode($resCode);
+           return $response;
+
+            /*$response_status = $this->getResponseStatusCode($http_response_header);
             $this->setResponseCode($response_status);
             if (strlen($response) > 3 && mb_strpos($response, "\x1f" . "\x8b" . "\x08", 0) === 0) {
                 // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
@@ -441,8 +429,8 @@ class Api
                     $response  = json_decode($response, true);
                 }
                 return $response;
-            }
-            if ($response !== null) {
+            }*/
+            /*if ($response !== null) {
                 try {
                     $json = json_decode($response, true);
                     if (array_key_exists('message', $json)) {
@@ -454,12 +442,12 @@ class Api
                 } catch (\Exception $e) {
                     // pass
                 }
-            }
-        }
-        if ($code === 'unknownError') {
+            }*/
+
+        /*if ($code === 'unknownError') {
             $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
         }
-        throw new RosetteException($message . ' [' . $url . ']', $code);
+        throw new RosetteException($message . ' [' . $url . ']', $code);*/
     }
 
     /**
@@ -527,8 +515,9 @@ class Api
         $opts['http'] = array_merge($opts['http'], $options);
         $context = stream_context_create($opts);
 
-        //$response = $this->retryingRequest($url, $context);
-        $response = $this->retryingRequest($url, $headers, $data);
+        //$response = $this->makeRequest($url, $context);
+        $method = 'GET';
+        $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
     }
@@ -557,7 +546,8 @@ class Api
         $opts['http'] = array_merge($opts['http'], $options);
         $context = stream_context_create($opts);
 
-        $response = $this->retryingRequest($url, $headers, $data);
+        $method = 'POST';
+        $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
     }
