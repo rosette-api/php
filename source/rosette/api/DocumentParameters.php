@@ -102,32 +102,6 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->loadDocumentString(file_get_contents($path), $dataType);
         $this->useMultiPart = true;
         $this->fileName = $path;
-        /*$this->loadDocumentString(file_get_contents($path));
-        $headers = array('X-RosetteAPI-Key' => $this->user_key,
-                          'Content-Type' => 'multipart/form-data',
-                          'Accept' => '/*',
-                          'Accept-Encoding' => 'gzip',
-                          'User-Agent' => 'RosetteAPIPHP/0.8' );
-        $post = array('filedata' =>file_get_contents($path), 'filename' => realpath($path));
-        //$post['file'] = new \CurlFile(realpath($path), 'multipart/form-data', realpath($path));
-
-           $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://10.0.0.127:8181/rest/v1/sentiment');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-            //curl_setopt($ch, CURLOPT_VERBOSE, 1);
-            curl_setopt($ch, CURLOPT_HEADER, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            if($response === false){
-                echo curl_errno($ch);
-                echo curl_error($ch);
-            }
-            curl_close($ch);
-            $response = explode(PHP_EOL, $response);
-            var_dump($response);*/
     }
 
     /**

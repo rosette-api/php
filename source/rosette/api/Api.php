@@ -162,16 +162,6 @@ class Api
     }
 
     /**
-     * Creates the Request option based on current settings.
-     */
-    private function getOptions()
-    {
-        $options = array('timeout' => $this->timeout);
-
-        return $options;
-    }
-
-    /**
      * Setter to set version_checked.
      *
      * @param bool $version_checked
@@ -314,7 +304,7 @@ class Api
             }
             $parameters->content = $multi;
 
-            $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
+            $resultObject = $this->postHttp($url, $this->headers, $parameters);
             return $this->finishResult($resultObject, 'callEndpoint');
 
         } else {
@@ -322,7 +312,7 @@ class Api
             if ($this->debug) {
                 $url .= '?debug=true';
             }
-            $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
+            $resultObject = $this->postHttp($url, $this->headers, $parameters);
             return $this->finishResult($resultObject, 'callEndpoint');
         }
     }
@@ -343,7 +333,7 @@ class Api
             if (!$versionToCheck) {
                 $versionToCheck = self::$binding_version;
             }
-            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
+            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
             var_dump(json_encode($resultObject[1]));
             @$tempJSON = json_encode($resultObject[1]);
             $finalJSON = json_decode($tempJSON, true);
@@ -398,7 +388,7 @@ class Api
                 curl_setopt($ch, CURLOPT_POST, true);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $context);
             } else if($method === 'GET'){
-                curl_setopt($curl_handle, CURLOPT_HTTPGET, TRUE);
+                curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
             }
 
             curl_setopt($ch, CURLOPT_HEADER, 1);
@@ -508,14 +498,8 @@ class Api
      * @internal param $url : target URL
      * @internal param $headers : header data
      */
-    private function getHttp($url, $headers, $options)
+    private function getHttp($url, $headers)
     {
-        $opts['http']['method'] = 'GET';
-        $opts['http']['header'] = $this->headersAsString($headers);
-        $opts['http'] = array_merge($opts['http'], $options);
-        $context = stream_context_create($opts);
-
-        //$response = $this->makeRequest($url, $context);
         $method = 'GET';
         $response = $this->makeRequest($url, $headers, $data, $method);
 
@@ -538,14 +522,8 @@ class Api
      * @internal param $headers : header data
      * @internal param $data : submission data
      */
-    private function postHttp($url, $headers, $data, $options)
+    private function postHttp($url, $headers, $data)
     {
-        $opts['http']['method'] = 'POST';
-        $opts['http']['header'] = $this->headersAsString($headers);
-        $opts['http']['content'] = empty($data) ? '' :  $data->serialize();
-        $opts['http'] = array_merge($opts['http'], $options);
-        $context = stream_context_create($opts);
-
         $method = 'POST';
         $response = $this->makeRequest($url, $headers, $data, $method);
 
@@ -563,7 +541,7 @@ class Api
     {
         $this->skipVersionCheck();
         $url = $this->service_url . 'ping';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
+        $resultObject = $this->getHttp($url, $this->headers);
 
         return $this->finishResult($resultObject, 'ping');
     }
@@ -579,7 +557,7 @@ class Api
     {
         $this->skipVersionCheck();
         $url = $this->service_url . 'info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
+        $resultObject = $this->getHttp($url, $this->headers);
 
         return $this->finishResult($resultObject, 'info');
     }
