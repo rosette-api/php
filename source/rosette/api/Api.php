@@ -277,7 +277,7 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
-        $this->useMultiPart = $parameters->useMultiPart;
+        $this->useMultiPart = isset($parameters->useMultiPart) ? $parameters->useMultiPart : false;
 
         if ($this->useMultiPart) {
             $content = $parameters->content;
@@ -376,7 +376,7 @@ class Api
      * @internal param $data : submission data
      * @internal param $method : http method
      */
-    private function makeRequest($url, $headers, $data, $method)
+    private function makeRequest($url, $headers, $data = array(), $method = 'POST')
     {
         $response = null;
         $message = null;
@@ -430,7 +430,7 @@ class Api
         $response = explode(PHP_EOL, $response);
         $this->setResponseCode($resCode);
 
-        if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
+        if (array_key_exists(9, $response) && strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
             // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
             // http://www.gzip.org/zlib/rfc-gzip.html#member-format
             $response = gzinflate(substr($response, 10, -8));
@@ -518,7 +518,7 @@ class Api
     private function getHttp($url, $headers)
     {
         $method = 'GET';
-        $response = $this->makeRequest($url, $headers, $data, $method);
+        $response = $this->makeRequest($url, $headers);
 
         return $response;
     }
@@ -542,7 +542,7 @@ class Api
     private function postHttp($url, $headers, $data)
     {
         $method = 'POST';
-        $response = $this->makeRequest($url, $headers, $data, $method);
+        $response = $this->makeRequest($url, $headers, $data);
 
         return $response;
     }
