@@ -27,7 +27,7 @@ spl_autoload_register(function ($class) {
 /**
  * Class API.
  *
- * Api Python Client Binding API; representation of a Api server.
+ * Api php Client Binding API; representation of a Api server.
  * Call instance methods upon this object to communicate with particular
  * Api server endpoints.
  * Aside from ping() and info(), most of the methods require the construction
@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '0.10';
+    private static $binding_version = '1.0';
     /**
      * User key (required for Rosette API).
      *
@@ -84,18 +84,6 @@ class Api
     private $subUrl;
     /**
      * Max timeout (seconds).
-     *
-     * @var
-     */
-    private $timeout;
-    /**
-     * Max retries before failing.
-     *
-     * @var
-     */
-    private $numRetries;
-    /**
-     * Last response code.
      *
      * @var
      */
@@ -156,7 +144,7 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
         $this->service_url = $service_url[strlen($service_url) - 1] === '/' ? $service_url : $service_url . '/';
@@ -165,23 +153,12 @@ class Api
         $this->version_checked = false;
         $this->subUrl = null;
         $this->timeout = 300;
-        $this->numRetries = 1;
 
-        $this->headers = array('X-RosetteAPI-Key' => $user_key,
-                          'Content-Type' => 'application/json',
-                          'Accept' => 'application/json',
-                          'Accept-Encoding' => 'gzip',
-                          'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version, );
-    }
-
-    /**
-     * Creates the Request option based on current settings.
-     */
-    private function getOptions()
-    {
-        $options = array('timeout' => $this->timeout);
-
-        return $options;
+        $this->headers = array("X-RosetteAPI-Key: $user_key",
+                          "Content-Type: application/json",
+                          "Accept: application/json",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
     }
 
     /**
@@ -245,16 +222,6 @@ class Api
     }
 
     /**
-     * Setter for numRetries.
-     *
-     * @param $numRetries int
-     */
-    public function setNumRetries($numRetries)
-    {
-        $this->numRetries = $numRetries;
-    }
-
-    /**
      * Processes the response, returning either the decoded Json or throwing an exception.
      *
      * @param $resultObject
@@ -275,7 +242,7 @@ class Api
                 $msg = $resultObject['message'];
             }
             $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-            if (array_key_exists('code', $resultObject)) {
+             if (array_key_exists('code', $resultObject)) {
                 $serverCode = $resultObject['code'];
                 if ($msg === null) {
                     $msg = $serverCode;
@@ -292,6 +259,7 @@ class Api
                 : failed to communicate with Api: ' . $msg,
                 is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
             );
+
         }
     }
 
@@ -309,18 +277,53 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
-        if ($this->useMultiPart && $parameters->contentType !== RosetteConstants::$DataFormat['SIMPLE']) {
-            throw new RosetteException(
-                sprintf('MultiPart requires contentType SIMPLE: %s', $parameters['contentType']),
-                RosetteException::$BAD_REQUEST_FORMAT
-            );
+        $this->useMultiPart = $parameters->useMultiPart;
+
+        if($this->useMultiPart){
+            $content = $parameters->content;
+            $filename = $parameters->fileName;
+
+            $parameters = (array) $parameters;
+            json_encode($parameters);
+            json_encode($content, JSON_FORCE_OBJECT);
+
+            // create multipart
+            $clrf = "\r\n";
+            $multi = '';
+            $boundary = md5(time());
+            $multi .= '--' . $boundary . $clrf;
+            $multi .= 'Content-Type: application/json' . "\r\n";
+            $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
+            $multi .= "{\"language\": \"eng\"}" . "\r\n";
+            $multi .= $parametersTemp . $clrf .$clrf;
+            $multi .= '--' . $boundary . "\r\n";
+            $multi .= 'Content-Type: text/plain' . "\r\n";
+            $multi .= 'Content-Disposition: mixed; name="content"; filename="' . $filename . '"' . "\r\n" . "\r\n";
+            $multi .= $content . "\r\n";
+            $multi .= '--' . $boundary . '--';
+
+            $this->headers = array("X-RosetteAPI-Key: $this->user_key",
+                          "Content-Type: multipart/mixed",
+                          "Accept: */*",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+
+            $url = $this->service_url . $this->subUrl;
+            if ($this->debug) {
+                $url .= '?debug=true';
+            }
+
+            $resultObject = $this->postHttp($url, $this->headers, $multi);
+            return $this->finishResult($resultObject, 'callEndpoint');
+
+        } else {
+            $url = $this->service_url . $this->subUrl;
+            if ($this->debug) {
+                $url .= '?debug=true';
+            }
+            $resultObject = $this->postHttp($url, $this->headers, $parameters);
+            return $this->finishResult($resultObject, 'callEndpoint');
         }
-        $url = $this->service_url . $this->subUrl;
-        if ($this->debug) {
-            $url .= '?debug=true';
-        }
-        $resultObject = $this->postHttp($url, $this->headers, $parameters, $this->getOptions());
-        return $this->finishResult($resultObject, 'callEndpoint');
     }
 
     /**
@@ -339,11 +342,11 @@ class Api
             if (!$versionToCheck) {
                 $versionToCheck = self::$binding_version;
             }
-            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null, $this->getOptions());
-            @$tempJSON = json_encode($resultObject[1]);
-            $finalJSON = json_decode($tempJSON, true);
-            //var_dump($tempJSON);
-            if ($finalJSON['versionChecked'] === true) {
+            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
+            $resultObject = array_pop((array_slice($resultObject, -1)));
+            $resultObject = (array) json_decode($resultObject);
+
+            if ($resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
                 throw new RosetteException(
@@ -357,12 +360,12 @@ class Api
     }
 
     /**
-     * function retryingRequest.
+     * function makeRequest.
      *
-     * Encapsulates the GET/POST and retries N_RETRIES
+     * Encapsulates the GET/POST
      *
      * @param $url
-     * @param $context
+     * @param $data
      *
      * @return string
      *
@@ -371,35 +374,69 @@ class Api
      * @internal param $op : operation
      * @internal param $url : target URL
      * @internal param $headers : header data
-     * @internal param data $optional : submission data
+     * @internal param $data : submission data
+     * @internal param $method : http method
      */
-    private function retryingRequest($url, $context)
+    private function makeRequest($url, $headers, $data, $method)
     {
         $response = null;
         $message = null;
 
+        // check for multipart and set data accordingly
+        if($this->useMultiPart === NULL){
+            $data = (array) $data;
+
+            if($data['content'] === ""){
+                unset($data['content']);
+            }
+
+            if($data['contentUri'] === ""){
+                unset($data['contentUri']);
+            }
+
+            foreach($data as $v){
+                $data = array_filter($data, function($v){ if($v !== NULL || $v !== ""){return $v;}});
+            }
+            $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        }
+
         $code = 'unknownError';
-        for ($range = 0; $range <= $this->numRetries; ++$range) {
-            $http_response_header = null;
-            $response = file_get_contents($url, false, $context);
-            $response_status = $this->getResponseStatusCode($http_response_header);
-            $this->setResponseCode($response_status);
-            if (strlen($response) > 3 && mb_strpos($response, "\x1f" . "\x8b" . "\x08", 0) === 0) {
+        $http_response_header = null;
+
+        // create cURL request
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        if($method === 'POST'){
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        } else if($method === 'GET'){
+            curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
+        }
+
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if($response === false){
+            echo curl_errno($ch);
+            echo curl_error($ch);
+        }
+        curl_close($ch);
+        $response = explode(PHP_EOL, $response);
+        $this->setResponseCode($resCode);
+
+            if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
                 // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
                 // http://www.gzip.org/zlib/rfc-gzip.html#member-format
                 $response = gzinflate(substr($response, 10, -8));
             }
             if ($this->getResponseCode() < 500) {
-                if($http_response_header != null){
-                    $response = array($http_response_header, json_decode($response, true));
-                } else {
-                    $response  = json_decode($response, true);
-                }
                 return $response;
             }
             if ($response !== null) {
                 try {
-                    $json = json_decode($response, true);
                     if (array_key_exists('message', $json)) {
                         $message = $json['message'];
                     }
@@ -410,7 +447,7 @@ class Api
                     // pass
                 }
             }
-        }
+
         if ($code === 'unknownError') {
             $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
         }
@@ -475,14 +512,10 @@ class Api
      * @internal param $url : target URL
      * @internal param $headers : header data
      */
-    private function getHttp($url, $headers, $options)
+    private function getHttp($url, $headers)
     {
-        $opts['http']['method'] = 'GET';
-        $opts['http']['header'] = $this->headersAsString($headers);
-        $opts['http'] = array_merge($opts['http'], $options);
-        $context = stream_context_create($opts);
-
-        $response = $this->retryingRequest($url, $context);
+        $method = 'GET';
+        $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
     }
@@ -503,15 +536,10 @@ class Api
      * @internal param $headers : header data
      * @internal param $data : submission data
      */
-    private function postHttp($url, $headers, $data, $options)
+    private function postHttp($url, $headers, $data)
     {
-        $opts['http']['method'] = 'POST';
-        $opts['http']['header'] = $this->headersAsString($headers);
-        $opts['http']['content'] = empty($data) ? '' :  $data->serialize();
-        $opts['http'] = array_merge($opts['http'], $options);
-        $context = stream_context_create($opts);
-
-        $response = $this->retryingRequest($url, $context);
+        $method = 'POST';
+        $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
     }
@@ -527,7 +555,7 @@ class Api
     {
         $this->skipVersionCheck();
         $url = $this->service_url . 'ping';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
+        $resultObject = $this->getHttp($url, $this->headers);
 
         return $this->finishResult($resultObject, 'ping');
     }
@@ -543,7 +571,7 @@ class Api
     {
         $this->skipVersionCheck();
         $url = $this->service_url . 'info';
-        $resultObject = $this->getHttp($url, $this->headers, $this->getOptions());
+        $resultObject = $this->getHttp($url, $this->headers);
 
         return $this->finishResult($resultObject, 'info');
     }
