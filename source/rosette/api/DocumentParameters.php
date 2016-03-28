@@ -33,14 +33,19 @@ class DocumentParameters extends RosetteParamsSetBase
     public $contentUri;
 
     /**
-     * @var string contentType is the type of content RosetteConstants::$DataFormat (optional)
-     */
-    public $contentType;
-
-    /**
      * @var string language is the language of the content (optional)
      */
     public $language;
+
+    /**
+     * @var bool useMultiPart determines if the user wishes to upload a multipart
+     */
+    public $useMultiPart;
+
+    /**
+     * @var string fileName is the name of the file containing content to be analyzed
+     */
+    public $fileName;
 
     /**
      * Constructor.
@@ -51,7 +56,6 @@ class DocumentParameters extends RosetteParamsSetBase
     {
         $this->content = '';
         $this->contentUri = '';
-        $this->contentType = '';
         $this->language = '';
     }
 
@@ -96,6 +100,8 @@ class DocumentParameters extends RosetteParamsSetBase
             $dataType = RosetteConstants::$DataFormat['UNSPECIFIED'];
         }
         $this->loadDocumentString(file_get_contents($path), $dataType);
+        $this->useMultiPart = true;
+        $this->fileName = $path;
     }
 
     /**
@@ -109,9 +115,8 @@ class DocumentParameters extends RosetteParamsSetBase
      *
      * @throws RosetteException
      */
-    public function loadDocumentString($stringData, $dataType)
+    public function loadDocumentString($stringData)
     {
         $this->content = $stringData;
-        $this->contentType = $dataType;
     }
 }
