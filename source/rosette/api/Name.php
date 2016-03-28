@@ -18,7 +18,7 @@ namespace rosette\api;
 /**
  * Class that represents a Name.
  */
-class Name
+class Name extends RosetteParamsSetBase
 {
     /**
      * Textual form of the name.
@@ -68,5 +68,13 @@ class Name
         $this->entityType = $entityType;
         $this->language = $language;
         $this->script = $script;
+    }
+
+    /**
+     * required validate function
+     */
+    public function validate()
+    {
+        // nothing to validate
     }
 }
