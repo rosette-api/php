@@ -30,7 +30,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 function curl_exec($ch)
 {
     $data = array ('response'=>'{"content": "Mocked response content"}');
-   return '{"content": "Mocked response content"}';
+    return '{"content": "Mocked response content"}';
 }
 
 function curl_getinfo($ch)
@@ -232,43 +232,34 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         // If it does not throw an exception, check that it was not supposed to and if so check that it
         // returns the correct thing.
         // If it throws an exception, check that it was supposed to and if so pass otherwise fail test.
-        //try {
-            $result = '';
-            if ($endpoint === 'categories') {
-                $result = $api->categories($params);
-            }
-            if ($endpoint === 'entities') {
-                $result = $api->entities($params);
-            }
-            if ($endpoint === 'entities_linked') {
-                $result = $api->entities($params, true);
-            }
-            if ($endpoint === 'language') {
-                $result = $api->language($params);
-            }
-            if ($endpoint === 'name-similarity') {
-                $result = $api->nameSimilarity($params);
-            }
-            if ($endpoint === 'morphology_complete') {
-                $result = $api->morphology($params);
-            }
-            if ($endpoint === 'sentiment') {
-                $result = $api->sentiment($params);
-            }
-            if ($endpoint === 'name-translation') {
-                $result = $api->nameTranslation($params);
-            }
-            if ($endpoint === 'relationships') {
-                $result = $api->relationships($params);
-            }
-            // If there is a "code" key, it means an exception should be thrown
-            //if (!array_key_exists('code', $expected)) {
-                $this->assertEquals($expected, $result[0]);
-
-            //}
-        //} catch (RosetteException $exception) {
-           // $this->assertSame('unsupportedLanguage', $expected['code']);
-        //}
+        $result = '';
+        if ($endpoint === 'categories') {
+            $result = $api->categories($params);
+        }
+        if ($endpoint === 'entities') {
+            $result = $api->entities($params);
+        }
+        if ($endpoint === 'entities_linked') {
+            $result = $api->entities($params, true);
+        }
+        if ($endpoint === 'language') {
+            $result = $api->language($params);
+        }
+        if ($endpoint === 'name-similarity') {
+            $result = $api->nameSimilarity($params);
+        }
+        if ($endpoint === 'morphology_complete') {
+            $result = $api->morphology($params);
+        }
+        if ($endpoint === 'sentiment') {
+            $result = $api->sentiment($params);
+        }
+        if ($endpoint === 'name-translation') {
+            $result = $api->nameTranslation($params);
+        }
+        if ($endpoint === 'relationships') {
+            $result = $api->relationships($params);
+        }
+        $this->assertEquals($expected, $result[0]);
     }
-
 }
