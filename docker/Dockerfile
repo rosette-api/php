@@ -27,4 +27,4 @@ RUN chmod 755 /php-dev/run_php.sh
 VOLUME ["/source"]
 
 # allow interactive bash inside docker container
-CMD ./run_php.sh $API_KEY $FILENAME $ALT_URL $GIT_USERNAME $VERSION; /bin/bash
+CMD ./run_php.sh $API_KEY $FILENAME $ALT_URL $GIT_USERNAME $VERSION

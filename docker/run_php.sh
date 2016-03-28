@@ -90,7 +90,7 @@ else
     HELP
 fi
 
-: <<'COMMENT'
+
 #Run unit tests
 cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
 
@@ -114,4 +114,3 @@ if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
     git commit -a -m "publish php apidocs ${VERSION}"
     git push
 fi
-COMMENT

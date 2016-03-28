@@ -154,11 +154,11 @@ class Api
         $this->subUrl = null;
         $this->timeout = 300;
 
-        $this->headers = array('X-RosetteAPI-Key' => $user_key,
-                          'Content-Type' => 'application/json',
-                          'Accept' => 'application/json',
-                          'Accept-Encoding' => 'gzip',
-                          'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version, );
+        $this->headers = array("X-RosetteAPI-Key: $user_key",
+                          "Content-Type: application/json",
+                          "Accept: application/json",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
     }
 
     /**
@@ -275,36 +275,45 @@ class Api
      */
     private function callEndpoint($parameters, $subUrl)
     {
-        //$this->checkVersion($this->service_url);
+        $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
         $this->useMultiPart = $parameters->useMultiPart;
+
         if($this->useMultiPart){
+            $content = $parameters->content;
+            $filename = $parameters->fileName;
+
+            $parameters = (array) $parameters;
+            json_encode($parameters);
+            json_encode($content, JSON_FORCE_OBJECT);
+
+            // create multipart
             $clrf = "\r\n";
             $multi = '';
             $boundary = md5(time());
             $multi .= '--' . $boundary . $clrf;
-            $multi .= 'Content-Type: "application/json"' . "\r\n";
-            $multi .= 'Content-Disposition: form-data; name="request"' . "\r\n" . "\r\n";
-            //$multi .= $parameters . $clrf .$clrf;
+            $multi .= 'Content-Type: application/json' . "\r\n";
+            $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
+            $multi .= "{\"language\": \"eng\"}" . "\r\n";
+            $multi .= $parametersTemp . $clrf .$clrf;
             $multi .= '--' . $boundary . "\r\n";
             $multi .= 'Content-Type: text/plain' . "\r\n";
-            $multi .= 'Content-Disposition: "multipart/form-data"; name="content"; filename="' . $parameters->fileName . '"' . "\r\n" . "\r\n";
-            $multi .= $parameters->content . "\r\n" . "\r\n";
+            $multi .= 'Content-Disposition: mixed; name="content"; filename="' . $filename . '"' . "\r\n" . "\r\n";
+            $multi .= $content . "\r\n";
             $multi .= '--' . $boundary . '--';
 
-            $this->headers = array('X-RosetteAPI-Key' => $this->user_key,
-                          'Content-Type' => 'multipart/form-data',
-                          'Accept' => '*/*',
-                          'Accept-Encoding' => 'gzip',
-                          'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version, );
+            $this->headers = array("X-RosetteAPI-Key: $this->user_key",
+                          "Content-Type: multipart/mixed",
+                          "Accept: */*",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
 
             $url = $this->service_url . $this->subUrl;
             if ($this->debug) {
                 $url .= '?debug=true';
             }
-            $parameters->content = $multi;
 
-            $resultObject = $this->postHttp($url, $this->headers, $parameters);
+            $resultObject = $this->postHttp($url, $this->headers, $multi);
             return $this->finishResult($resultObject, 'callEndpoint');
 
         } else {
@@ -334,12 +343,10 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
-            var_dump(json_encode($resultObject[1]));
-            @$tempJSON = json_encode($resultObject[1]);
-            $finalJSON = json_decode($tempJSON, true);
-            var_dump($finalJSON);
+            $resultObject = array_pop((array_slice($resultObject, -1)));
+            $resultObject = (array) json_decode($resultObject);
 
-            if ($finalJSON['versionChecked'] === true) {
+            if ($resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
                 throw new RosetteException(
@@ -348,7 +355,7 @@ class Api
                 );
             }
         }
-        $this->versionChecked = true;
+
         return $this->version_checked;
     }
 
@@ -358,7 +365,7 @@ class Api
      * Encapsulates the GET/POST
      *
      * @param $url
-     * @param $context
+     * @param $data
      *
      * @return string
      *
@@ -367,62 +374,69 @@ class Api
      * @internal param $op : operation
      * @internal param $url : target URL
      * @internal param $headers : header data
-     * @internal param data $optional : submission data
+     * @internal param $data : submission data
+     * @internal param $method : http method
      */
-    private function makeRequest($url, $headers, $context, $method)
+    private function makeRequest($url, $headers, $data, $method)
     {
         $response = null;
         $message = null;
-        $context =  array('content' => $context->content);
-        //$context = json_encode($context, JSON_FORCE_OBJECT);
+
+        // check for multipart and set data accordingly
+        if($this->useMultiPart === NULL){
+            $data = (array) $data;
+
+            if($data['content'] === ""){
+                unset($data['content']);
+            }
+
+            if($data['contentUri'] === ""){
+                unset($data['contentUri']);
+            }
+
+            foreach($data as $v){
+                $data = array_filter($data, function($v){ if($v !== NULL || $v !== ""){return $v;}});
+            }
+            $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        }
 
         $code = 'unknownError';
-            $http_response_header = null;
-            //$response = file_get_contents($url, false, $context);
-            //$url = 'http://10.1.7.116:8181/rest/v1/language';
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $http_response_header = null;
 
-            if($method === 'POST'){
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $context);
-            } else if($method === 'GET'){
-                curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
-            }
+        // create cURL request
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-            curl_setopt($ch, CURLOPT_HEADER, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            if($response === false){
-                echo curl_errno($ch);
-                echo curl_error($ch);
-            }
-            curl_close($ch);
-            $response = explode(PHP_EOL, $response);
-           //var_dump($response);
-           $this->setResponseCode($resCode);
-           return $response;
+        if($method === 'POST'){
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        } else if($method === 'GET'){
+            curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
+        }
 
-            /*$response_status = $this->getResponseStatusCode($http_response_header);
-            $this->setResponseCode($response_status);
-            if (strlen($response) > 3 && mb_strpos($response, "\x1f" . "\x8b" . "\x08", 0) === 0) {
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if($response === false){
+            echo curl_errno($ch);
+            echo curl_error($ch);
+        }
+        curl_close($ch);
+        $response = explode(PHP_EOL, $response);
+        $this->setResponseCode($resCode);
+
+            if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
                 // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
                 // http://www.gzip.org/zlib/rfc-gzip.html#member-format
                 $response = gzinflate(substr($response, 10, -8));
             }
             if ($this->getResponseCode() < 500) {
-                if($http_response_header != null){
-                    $response = array($http_response_header, json_decode($response, true));
-                } else {
-                    $response  = json_decode($response, true);
-                }
                 return $response;
-            }*/
-            /*if ($response !== null) {
+            }
+            if ($response !== null) {
                 try {
-                    $json = json_decode($response, true);
                     if (array_key_exists('message', $json)) {
                         $message = $json['message'];
                     }
@@ -432,12 +446,12 @@ class Api
                 } catch (\Exception $e) {
                     // pass
                 }
-            }*/
+            }
 
-        /*if ($code === 'unknownError') {
+        if ($code === 'unknownError') {
             $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
         }
-        throw new RosetteException($message . ' [' . $url . ']', $code);*/
+        throw new RosetteException($message . ' [' . $url . ']', $code);
     }
 
     /**

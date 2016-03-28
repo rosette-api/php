@@ -20,6 +20,9 @@ $params->set('name', $name_translation_data);
 $params->set('targetLanguage', 'eng');
 $params->set ('targetScript', 'Latn');
 $params->set ('targetScheme', 'IC');
+$params->set('sourceLanguageOfOrigin', 'ara');
+$params->set('sourceLanguageOfUse', 'ara');
+
 
 try {
     $result = $api->nameTranslation($params);
