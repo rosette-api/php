@@ -376,7 +376,7 @@ class Api
      * @internal param $data : submission data
      * @internal param $method : http method
      */
-    private function makeRequest($url, $headers, $data = array(), $method = 'POST')
+    private function makeRequest($url, $headers, $data, $method)
     {
         $response = null;
         $message = null;
@@ -518,7 +518,7 @@ class Api
     private function getHttp($url, $headers)
     {
         $method = 'GET';
-        $response = $this->makeRequest($url, $headers);
+        $response = $this->makeRequest($url, $headers, null, $method);
 
         return $response;
     }
@@ -542,7 +542,7 @@ class Api
     private function postHttp($url, $headers, $data)
     {
         $method = 'POST';
-        $response = $this->makeRequest($url, $headers, $data);
+        $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
     }
