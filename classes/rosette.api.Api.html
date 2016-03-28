@@ -77,30 +77,26 @@ it is in the first array element. This method extracts that code.</span><pre>get
 <li class="method public "><a href="#method_info" title="info() :: Calls the info endpoint."><span class="description">Calls the info endpoint.</span><pre>info()</pre></a></li>
 <li class="method public "><a href="#method_isUseMultiPart" title="isUseMultiPart() :: Getter for MultiPart."><span class="description">Getter for MultiPart.</span><pre>isUseMultiPart()</pre></a></li>
 <li class="method public "><a href="#method_language" title="language() :: Calls the language endpoint."><span class="description">Calls the language endpoint.</span><pre>language()</pre></a></li>
-<li class="method public "><a href="#method_languageInfo" title="languageInfo() :: Calls the language/info endpoint."><span class="description">Calls the language/info endpoint.</span><pre>languageInfo()</pre></a></li>
-<li class="method public "><a href="#method_matchedName" title="matchedName() :: Calls the name matching endpoint."><span class="description">Calls the name matching endpoint.</span><pre>matchedName()</pre></a></li>
 <li class="method public "><a href="#method_morphology" title="morphology() :: Calls the morphology endpoint."><span class="description">Calls the morphology endpoint.</span><pre>morphology()</pre></a></li>
+<li class="method public "><a href="#method_nameSimilarity" title="nameSimilarity() :: Calls the name similarity endpoint."><span class="description">Calls the name similarity endpoint.</span><pre>nameSimilarity()</pre></a></li>
+<li class="method public "><a href="#method_nameTranslation" title="nameTranslation() :: Calls the name translation endpoint."><span class="description">Calls the name translation endpoint.</span><pre>nameTranslation()</pre></a></li>
 <li class="method public "><a href="#method_ping" title="ping() :: Calls the Ping endpoint."><span class="description">Calls the Ping endpoint.</span><pre>ping()</pre></a></li>
 <li class="method public "><a href="#method_relationships" title="relationships() :: Calls the relationships endpoint."><span class="description">Calls the relationships endpoint.</span><pre>relationships()</pre></a></li>
-<li class="method public "><a href="#method_relationshipsInfo" title="relationshipsInfo() :: Calls the relationships/info endpoint."><span class="description">Calls the relationships/info endpoint.</span><pre>relationshipsInfo()</pre></a></li>
 <li class="method public "><a href="#method_sentences" title="sentences() :: Calls the sentences endpoint."><span class="description">Calls the sentences endpoint.</span><pre>sentences()</pre></a></li>
 <li class="method public "><a href="#method_sentiment" title="sentiment() :: Calls the sentiment endpoint."><span class="description">Calls the sentiment endpoint.</span><pre>sentiment()</pre></a></li>
 <li class="method public "><a href="#method_setDebug" title="setDebug() :: Enables debug (more verbose output)."><span class="description">Enables debug (more verbose output).</span><pre>setDebug()</pre></a></li>
-<li class="method public "><a href="#method_setNumRetries" title="setNumRetries() :: Setter for numRetries."><span class="description">Setter for numRetries.</span><pre>setNumRetries()</pre></a></li>
 <li class="method public "><a href="#method_setResponseCode" title="setResponseCode() :: Sets the response code."><span class="description">Sets the response code.</span><pre>setResponseCode()</pre></a></li>
 <li class="method public "><a href="#method_setTimeout" title="setTimeout() :: Sets the max timeout value (seconds)."><span class="description">Sets the max timeout value (seconds).</span><pre>setTimeout()</pre></a></li>
 <li class="method public "><a href="#method_setUseMultiPart" title="setUseMultiPart() :: Setter for MultiPart."><span class="description">Setter for MultiPart.</span><pre>setUseMultiPart()</pre></a></li>
 <li class="method public "><a href="#method_setVersionChecked" title="setVersionChecked() :: Setter to set version_checked."><span class="description">Setter to set version_checked.</span><pre>setVersionChecked()</pre></a></li>
 <li class="method public "><a href="#method_skipVersionCheck" title="skipVersionCheck() :: Skips version check with server, not recommended."><span class="description">Skips version check with server, not recommended.</span><pre>skipVersionCheck()</pre></a></li>
 <li class="method public "><a href="#method_tokens" title="tokens() :: Calls the tokens endpoint."><span class="description">Calls the tokens endpoint.</span><pre>tokens()</pre></a></li>
-<li class="method public "><a href="#method_translatedName" title="translatedName() :: Calls the name translation endpoint."><span class="description">Calls the name translation endpoint.</span><pre>translatedName()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
                     <ul>
 <li class="method private "><a href="#method_callEndpoint" title="callEndpoint() :: Internal operations processor for most of the endpoints."><span class="description">Internal operations processor for most of the endpoints.</span><pre>callEndpoint()</pre></a></li>
 <li class="method private "><a href="#method_finishResult" title="finishResult() :: Processes the response, returning either the decoded Json or throwing an exception."><span class="description">Processes the response, returning either the decoded Json or throwing an exception.</span><pre>finishResult()</pre></a></li>
-<li class="method private "><a href="#method_getOptions" title="getOptions() :: Creates the Request option based on current settings."><span class="description">Creates the Request option based on current settings.</span><pre>getOptions()</pre></a></li>
 <li class="method private "><a href="#method_headersAsString" title="headersAsString() :: Creates the header string that is acceptable to file_get_contents."><span class="description">Creates the header string that is acceptable to file_get_contents.</span><pre>headersAsString()</pre></a></li>
 </ul>
 </li>
@@ -112,11 +108,9 @@ it is in the first array element. This method extracts that code.</span><pre>get
                     <ul>
 <li class="property private "><a href="#property_binding_version" title="$binding_version() :: Compatible server version."><span class="description"></span><pre>$binding_version</pre></a></li>
 <li class="property private "><a href="#property_headers" title="$headers() :: HTTP headers for Rosette API."><span class="description"></span><pre>$headers</pre></a></li>
-<li class="property private "><a href="#property_numRetries" title="$numRetries() :: Max retries before failing."><span class="description"></span><pre>$numRetries</pre></a></li>
-<li class="property private "><a href="#property_response_code" title="$response_code() :: Last response code."><span class="description"></span><pre>$response_code</pre></a></li>
+<li class="property private "><a href="#property_response_code" title="$response_code() :: Max timeout (seconds)."><span class="description"></span><pre>$response_code</pre></a></li>
 <li class="property private "><a href="#property_service_url" title="$service_url() :: URL of the Rosette API (or test server)."><span class="description"></span><pre>$service_url</pre></a></li>
 <li class="property private "><a href="#property_subUrl" title="$subUrl() :: Endpoint for the operation."><span class="description"></span><pre>$subUrl</pre></a></li>
-<li class="property private "><a href="#property_timeout" title="$timeout() :: Max timeout (seconds)."><span class="description"></span><pre>$timeout</pre></a></li>
 <li class="property private "><a href="#property_useMultiPart" title="$useMultiPart() :: MultiPart status."><span class="description"></span><pre>$useMultiPart</pre></a></li>
 <li class="property private "><a href="#property_user_key" title="$user_key() :: User key (required for Rosette API)."><span class="description"></span><pre>$user_key</pre></a></li>
 <li class="property private "><a href="#property_version_checked" title="$version_checked() :: True if the version has already been checked.  Saves round trips."><span class="description"></span><pre>$version_checked</pre></a></li>
@@ -140,7 +134,7 @@ it is in the first array element. This method extracts that code.</span><pre>get
 <div xmlns:php="http://php.net/xsl" class="element class">
 <p class="short_description">Class API.</p>
 <div class="details">
-<div class="long_description"><p>Api Python Client Binding API; representation of a Api server.
+<div class="long_description"><p>Api php Client Binding API; representation of a Api server.
 Call instance methods upon this object to communicate with particular
 Api server endpoints.
 Aside from ping() and info(), most of the methods require the construction
@@ -330,33 +324,6 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_languageInfo"></a><div class="element clickable method public method_languageInfo " data-toggle="collapse" data-target=".method_languageInfo .collapse" title="public">
-<h2>Calls the language/info endpoint.</h2>
-<pre>languageInfo() : mixed</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
-</div></div>
-</div>
-<a id="method_matchedName"></a><div class="element clickable method public method_matchedName " data-toggle="collapse" data-target=".method_matchedName .collapse" title="public">
-<h2>Calls the name matching endpoint.</h2>
-<pre>matchedName($nameMatchingParams) : mixed</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument"><h4>$nameMatchingParams</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
-</div></div>
-</div>
 <a id="method_morphology"></a><div class="element clickable method public method_morphology " data-toggle="collapse" data-target=".method_morphology .collapse" title="public">
 <h2>Calls the morphology endpoint.</h2>
 <pre>morphology($params, null $facet<code> = null</code>) : mixed</pre>
@@ -369,6 +336,40 @@ it is in the first array element. This method extracts that code.</h2>
 <h4>$facet</h4>
 <code>null</code>
 </div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameSimilarity"></a><div class="element clickable method public method_nameSimilarity " data-toggle="collapse" data-target=".method_nameSimilarity .collapse" title="public">
+<h2>Calls the name similarity endpoint.</h2>
+<pre>nameSimilarity($nameSimilarityParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameSimilarityParams</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameTranslation"></a><div class="element clickable method public method_nameTranslation " data-toggle="collapse" data-target=".method_nameTranslation .collapse" title="public">
+<h2>Calls the name translation endpoint.</h2>
+<pre>nameTranslation($nameTranslationParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameTranslationParams</h4></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
@@ -406,16 +407,6 @@ it is in the first array element. This method extracts that code.</h2>
 <th><code>\rosette\api\RosetteException</code></th>
 <td></td>
 </tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
-</div></div>
-</div>
-<a id="method_relationshipsInfo"></a><div class="element clickable method public method_relationshipsInfo " data-toggle="collapse" data-target=".method_relationshipsInfo .collapse" title="public">
-<h2>Calls the relationships/info endpoint.</h2>
-<pre>relationshipsInfo() : mixed</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
@@ -465,17 +456,6 @@ it is in the first array element. This method extracts that code.</h2>
 <h4>$debug</h4>
 <code>boolean</code>
 </div>
-</div></div>
-</div>
-<a id="method_setNumRetries"></a><div class="element clickable method public method_setNumRetries " data-toggle="collapse" data-target=".method_setNumRetries .collapse" title="public">
-<h2>Setter for numRetries.</h2>
-<pre>setNumRetries($numRetries) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$numRetries</h4><p>int</p></div>
 </div></div>
 </div>
 <a id="method_setResponseCode"></a><div class="element clickable method public method_setResponseCode " data-toggle="collapse" data-target=".method_setResponseCode .collapse" title="public">
@@ -553,23 +533,6 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_translatedName"></a><div class="element clickable method public method_translatedName " data-toggle="collapse" data-target=".method_translatedName .collapse" title="public">
-<h2>Calls the name translation endpoint.</h2>
-<pre>translatedName($nameTranslationParams) : mixed</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument"><h4>$nameTranslationParams</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
-</div></div>
-</div>
 <a id="method_callEndpoint"></a><div class="element clickable method private method_callEndpoint " data-toggle="collapse" data-target=".method_callEndpoint .collapse" title="private">
 <h2>Internal operations processor for most of the endpoints.</h2>
 <pre>callEndpoint($parameters, $subUrl) : mixed</pre>
@@ -606,12 +569,6 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_getOptions"></a><div class="element clickable method private method_getOptions " data-toggle="collapse" data-target=".method_getOptions .collapse" title="private">
-<h2>Creates the Request option based on current settings.</h2>
-<pre>getOptions() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="method_headersAsString"></a><div class="element clickable method private method_headersAsString " data-toggle="collapse" data-target=".method_headersAsString .collapse" title="private">
 <h2>Creates the header string that is acceptable to file_get_contents.</h2>
 <pre>headersAsString($headers) : string</pre>
@@ -631,7 +588,7 @@ it is in the first array element. This method extracts that code.</h2>
 <pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'0.7'</code></div>
+<div class="subelement argument"><code>'1.0'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -646,18 +603,8 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_numRetries"> </a><div class="element clickable property private property_numRetries" data-toggle="collapse" data-target=".property_numRetries .collapse" title="private">
-<h2>Max retries before failing.</h2>
-<pre>$numRetries : </pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="property_response_code"> </a><div class="element clickable property private property_response_code" data-toggle="collapse" data-target=".property_response_code .collapse" title="private">
-<h2>Last response code.</h2>
+<h2>Max timeout (seconds).</h2>
 <pre>$response_code : </pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -679,16 +626,6 @@ it is in the first array element. This method extracts that code.</h2>
 <a id="property_subUrl"> </a><div class="element clickable property private property_subUrl" data-toggle="collapse" data-target=".property_subUrl .collapse" title="private">
 <h2>Endpoint for the operation.</h2>
 <pre>$subUrl : null | string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_timeout"> </a><div class="element clickable property private property_timeout" data-toggle="collapse" data-target=".property_timeout .collapse" title="private">
-<h2>Max timeout (seconds).</h2>
-<pre>$timeout : </pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -733,11 +670,7 @@ it is in the first array element. This method extracts that code.</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-<<<<<<< HEAD
-            generated on 2016-02-18T15:26:48-05:00.<br></footer></div>
-=======
-            generated on 2016-02-17T15:41:19-05:00.<br></footer></div>
->>>>>>> 644b2215782dc56a9014c7965611d990302e0699
+            generated on 2016-03-28T11:06:50-04:00.<br></footer></div>
 </div>
 </body>
 </html>

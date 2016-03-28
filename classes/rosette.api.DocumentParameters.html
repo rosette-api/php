@@ -83,10 +83,10 @@
 <i title="Properties" class="icon-custom icon-property"></i> Properties
                     <ul>
 <li class="property public "><a href="#property_content" title="$content() :: "><span class="description">ontent is the text to be analyzed (required if no contentUri)</span><pre>$content</pre></a></li>
-<li class="property public "><a href="#property_contentType" title="$contentType() :: "><span class="description">contentType is the type of content RosetteConstants::$DataFormat (optional)</span><pre>$contentType</pre></a></li>
 <li class="property public "><a href="#property_contentUri" title="$contentUri() :: "><span class="description">contentUri is a URL to content that will be analyzed (required if no content)</span><pre>$contentUri</pre></a></li>
+<li class="property public "><a href="#property_fileName" title="$fileName() :: "><span class="description">fileName is the name of the file containing content to be analyzed</span><pre>$fileName</pre></a></li>
 <li class="property public "><a href="#property_language" title="$language() :: "><span class="description">language is the language of the content (optional)</span><pre>$language</pre></a></li>
-<li class="property public "><a href="#property_unit" title="$unit() :: "><span class="description">unit is the RosetteConstants::$InputUnit (optional)</span><pre>$unit</pre></a></li>
+<li class="property public "><a href="#property_useMultiPart" title="$useMultiPart() :: "><span class="description">useMultiPart determines if the user wishes to upload a multipart</span><pre>$useMultiPart</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -162,9 +162,7 @@
 <pre>loadDocumentFile($path, null $dataType<code> = null</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"><p>The file will be read as bytes; the appropriate conversion will be determined by the server.
-The document unit size remains
-by default L{InputUnit.DOC}.</p></div>
+<div class="long_description"><p>The file will be read as bytes; the appropriate conversion will be determined by the server.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$path</h4><p>: Pathname of a file acceptable to the C{open}
@@ -182,15 +180,13 @@ function.</p></div>
 </div>
 <a id="method_loadDocumentString"></a><div class="element clickable method public method_loadDocumentString " data-toggle="collapse" data-target=".method_loadDocumentString .collapse" title="public">
 <h2>Loads a string into the object.</h2>
-<pre>loadDocumentString($stringData, $dataType) </pre>
+<pre>loadDocumentString($stringData) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>The string will be taken as bytes or as Unicode dependent upon its native type and the data type asked for;
-if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.
-The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
+if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$stringData</h4></div>
-<div class="subelement argument"><h4>$dataType</h4></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
@@ -286,9 +282,9 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_contentType"> </a><div class="element clickable property public property_contentType" data-toggle="collapse" data-target=".property_contentType .collapse" title="public">
-<h2>contentType is the type of content RosetteConstants::$DataFormat (optional)</h2>
-<pre>$contentType : string</pre>
+<a id="property_contentUri"> </a><div class="element clickable property public property_contentUri" data-toggle="collapse" data-target=".property_contentUri .collapse" title="public">
+<h2>contentUri is a URL to content that will be analyzed (required if no content)</h2>
+<pre>$contentUri : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -296,9 +292,9 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_contentUri"> </a><div class="element clickable property public property_contentUri" data-toggle="collapse" data-target=".property_contentUri .collapse" title="public">
-<h2>contentUri is a URL to content that will be analyzed (required if no content)</h2>
-<pre>$contentUri : string</pre>
+<a id="property_fileName"> </a><div class="element clickable property public property_fileName" data-toggle="collapse" data-target=".property_fileName .collapse" title="public">
+<h2>fileName is the name of the file containing content to be analyzed</h2>
+<pre>$fileName : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -316,9 +312,9 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_unit"> </a><div class="element clickable property public property_unit" data-toggle="collapse" data-target=".property_unit .collapse" title="public">
-<h2>unit is the RosetteConstants::$InputUnit (optional)</h2>
-<pre>$unit : string</pre>
+<a id="property_useMultiPart"> </a><div class="element clickable property public property_useMultiPart" data-toggle="collapse" data-target=".property_useMultiPart .collapse" title="public">
+<h2>useMultiPart determines if the user wishes to upload a multipart</h2>
+<pre>$useMultiPart : boolean</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -333,11 +329,7 @@ The document unit size remains (by default) L{InputUnit.DOC}.</p></div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-<<<<<<< HEAD
-            generated on 2016-02-18T15:26:48-05:00.<br></footer></div>
-=======
-            generated on 2016-02-17T15:41:19-05:00.<br></footer></div>
->>>>>>> 644b2215782dc56a9014c7965611d990302e0699
+            generated on 2016-03-28T11:06:49-04:00.<br></footer></div>
 </div>
 </body>
 </html>
