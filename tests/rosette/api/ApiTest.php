@@ -27,24 +27,6 @@ use Symfony\Component\Config\Definition\Exception\Exception;
  * @return string mocked response
  */
 
-/*
-function file_get_contents($filename, $flags = null, $context = null, $offset = null, $maxlen = null)
-{
-    $context = \stream_context_get_params($context);
-    $header_str = $context['options']['http']['header'];
-    preg_match('/X-RosetteAPI-Key:\s*(.+)\s*\r\n/', $header_str, $out);  // we borrow the user_key field for testing
-    $test_file = $out[1];
-
-    // prepare mocked response content
-    $response_data = \file_get_contents(ApiTest::$responseDir . $test_file . '.json');
-    $response_data = json_encode(json_decode($response_data, true));  // necessary to get a valid json string
-    if (strlen($response_data) > 200) {  // test gzip encoding for longer response
-        $response_data = gzencode($response_data);
-    }
-
-    return $response_data;
-}*/
-
 function curl_exec($ch)
 {
     $data = array ('response'=>'{"content": "Mocked response content"}');
