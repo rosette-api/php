@@ -242,7 +242,7 @@ class Api
                 $msg = $resultObject['message'];
             }
             $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-             if (array_key_exists('code', $resultObject)) {
+            if (array_key_exists('code', $resultObject)) {
                 $serverCode = $resultObject['code'];
                 if ($msg === null) {
                     $msg = $serverCode;
@@ -279,7 +279,7 @@ class Api
         $this->subUrl = $subUrl;
         $this->useMultiPart = $parameters->useMultiPart;
 
-        if($this->useMultiPart){
+        if ($this->useMultiPart) {
             $content = $parameters->content;
             $filename = $parameters->fileName;
 
@@ -315,7 +315,6 @@ class Api
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
             return $this->finishResult($resultObject, 'callEndpoint');
-
         } else {
             $url = $this->service_url . $this->subUrl;
             if ($this->debug) {
@@ -383,19 +382,23 @@ class Api
         $message = null;
 
         // check for multipart and set data accordingly
-        if($this->useMultiPart === NULL){
+        if ($this->useMultiPart === null) {
             $data = (array) $data;
 
-            if($data['content'] === ""){
+            if ($data['content'] === "") {
                 unset($data['content']);
             }
 
-            if($data['contentUri'] === ""){
+            if ($data['contentUri'] === "") {
                 unset($data['contentUri']);
             }
 
-            foreach($data as $v){
-                $data = array_filter($data, function($v){ if($v !== NULL || $v !== ""){return $v;}});
+            foreach ($data as $v) {
+                $data = array_filter($data, function ($v) { 
+                    if ($v !== null || $v !== "") {
+                        return $v;
+                    }
+                });
             }
             $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         }
@@ -408,18 +411,18 @@ class Api
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        if($method === 'POST'){
+        if ($method === 'POST') {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        } else if($method === 'GET'){
-            curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
+        } elseif ($method === 'GET') {
+            curl_setopt($ch, CURLOPT_HTTPGET, true);
         }
 
         curl_setopt($ch, CURLOPT_HEADER, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
         $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        if($response === false){
+        if ($response === false) {
             echo curl_errno($ch);
             echo curl_error($ch);
         }
@@ -427,26 +430,26 @@ class Api
         $response = explode(PHP_EOL, $response);
         $this->setResponseCode($resCode);
 
-            if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
-                // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
-                // http://www.gzip.org/zlib/rfc-gzip.html#member-format
-                $response = gzinflate(substr($response, 10, -8));
-            }
-            if ($this->getResponseCode() < 500) {
-                return $response;
-            }
-            if ($response !== null) {
-                try {
-                    if (array_key_exists('message', $json)) {
-                        $message = $json['message'];
-                    }
-                    if (array_key_exists('code', $json)) {
-                        $code = $json['code'];
-                    }
-                } catch (\Exception $e) {
-                    // pass
+        if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
+            // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
+            // http://www.gzip.org/zlib/rfc-gzip.html#member-format
+            $response = gzinflate(substr($response, 10, -8));
+        }
+        if ($this->getResponseCode() < 500) {
+            return $response;
+        }
+        if ($response !== null) {
+            try {
+                if (array_key_exists('message', $json)) {
+                    $message = $json['message'];
                 }
+                if (array_key_exists('code', $json)) {
+                    $code = $json['code'];
+                }
+            } catch (\Exception $e) {
+                // pass
             }
+        }
 
         if ($code === 'unknownError') {
             $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);

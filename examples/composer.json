@@ -1,5 +1,5 @@
 {
     "require": {
-        "rosette/api": "0.8.*"
+        "rosette/api": "1.0.*"
     }
 }
