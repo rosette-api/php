@@ -428,7 +428,6 @@ class Api
         }
         curl_close($ch);
         $response = explode(PHP_EOL, $response);
-        var_dump($response);
         $this->setResponseCode($resCode);
 
         if (array_key_exists(9, $response)) {
