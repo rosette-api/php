@@ -20,7 +20,6 @@ Each example, when run, prints its output to the console.
 
 | File Name                     | What it does                                          | 
 | -------------                 |-------------                                        | 
-| base64_input.php                  | Entities using base64 encoded string                  |
 | categories.php                    | Gets the category of a document at a URL              | 
 | entities.php                      | Gets the entities from a piece of text                | 
 | entities_linked.php               | Gets the linked (to Wikipedia) entities from a piece of text |
