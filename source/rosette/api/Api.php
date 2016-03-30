@@ -345,7 +345,7 @@ class Api
             $resultObject = array_pop((array_slice($resultObject, -1)));
             $resultObject = (array) json_decode($resultObject);
 
-            if ($resultObject['versionChecked'] === true) {
+            if (key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
                 throw new RosetteException(
@@ -385,11 +385,11 @@ class Api
         if ($this->useMultiPart === null) {
             $data = (array) $data;
 
-            if ($data['content'] === "") {
+            if (key_exists('content', $data) && $data['content'] === "") {
                 unset($data['content']);
             }
 
-            if ($data['contentUri'] === "") {
+            if (key_exists('contentUri', $data) && $data['contentUri'] === "") {
                 unset($data['contentUri']);
             }
 
