@@ -7,7 +7,7 @@ See the wiki for more information.
 Installation
 ------------
 
-`composer require "rosette/api: ~1.0.1"`
+`composer require "rosette/api: ~1.0.*"`
 
 Basic Usage
 -----------
