@@ -345,7 +345,7 @@ class Api
             $resultObject = array_pop((array_slice($resultObject, -1)));
             $resultObject = (array) json_decode($resultObject);
 
-            if (key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
+            if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
                 throw new RosetteException(
@@ -385,11 +385,11 @@ class Api
         if ($this->useMultiPart === null) {
             $data = (array) $data;
 
-            if (key_exists('content', $data) && $data['content'] === "") {
+            if (array_key_exists('content', $data) && $data['content'] === "") {
                 unset($data['content']);
             }
 
-            if (key_exists('contentUri', $data) && $data['contentUri'] === "") {
+            if (array_key_exists('contentUri', $data) && $data['contentUri'] === "") {
                 unset($data['contentUri']);
             }
 
@@ -430,7 +430,7 @@ class Api
         $response = explode(PHP_EOL, $response);
         $this->setResponseCode($resCode);
 
-        if (count($response) > 8) {
+        if (array_key_exists(9, $response)) {
             if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
                 // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
                 // http://www.gzip.org/zlib/rfc-gzip.html#member-format
