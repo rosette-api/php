@@ -29,8 +29,20 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 function curl_exec($ch)
 {
-    $data = array ('response'=>'{"content": "Mocked response content"}');
-   return '{"content": "Mocked response content"}';
+    // mock response
+    // Note: The X's are set to a length to make the header = 200, which is necessary to force a correct
+    //       boundary between the header and body.
+    $mock_response = 'HTTP/1.1 200 OK'.PHP_EOL;
+    $mock_response .= 'Content-Type: application/json'.PHP_EOL;
+    $mock_response .= 'Date: Thu, 31 Mar 2016 13:12:00 GMT'.PHP_EOL;
+    $mock_response .= 'Server: openresty/1.9.7.3'.PHP_EOL;
+    $mock_response .= 'X-RosetteAPI-Request-Id: XXXXXXXXXXXXXXXXXXXXXXXX'.PHP_EOL;
+    $mock_response .= 'Content-Length: 95'.PHP_EOL;
+    $mock_response .= 'Connection: keep-alive'.PHP_EOL;
+    $mock_response .= PHP_EOL;
+    $mock_response .= '{"name":"Rosette API","version":"0.10.3","buildNumber":"","buildTime":"","versionChecked":true}';
+
+    return $mock_response;
 }
 
 function curl_getinfo($ch)
@@ -71,9 +83,6 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     private function getMockedResponse($filename)
     {
-        //$response = json_decode(\file_get_contents(self::$responseDir . $filename . '.json'), true);
-
-        //return $response;
         return curl_exec($ch = null);
     }
 
@@ -86,7 +95,6 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     private function getMockedResponseCode($filename)
     {
-        //return intval(\file_get_contents(self::$responseDir . $filename . '.status'));
         return curl_getinfo($ch = null);
     }
 
@@ -110,13 +118,13 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @group posts
-     * @expectedException \rosette\api\RosetteException
      */
     public function testCheckVersion()
     {
         $this->userKey = 'checkVersion';
         $api = $this->setUpApi($this->userKey);
-        $api->checkVersion('http://rosette.basistech.com');
+        $result = $api->checkVersion('http://rosette.basistech.com');
+        $this->assertTrue($result);
     }
 
     /**
@@ -124,11 +132,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testInfo()
     {
-        $expected = $this->getMockedResponse('info');
+        $expected = "Rosette API";
         $this->userKey = 'info';
         $api = $this->setUpApi($this->userKey);
         $result = $api->info();
-        $this->assertSame($expected, $result[0]);
+        $this->assertSame($expected, $result["name"]);
     }
 
     /**
@@ -136,11 +144,11 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testPing()
     {
-        $expected = $this->getMockedResponse('ping');
+        $expected = "Rosette API";
         $this->userKey = 'ping';
         $api = $this->setUpApi($this->userKey);
         $result = $api->ping();
-        $this->assertSame($expected, $result[0]);
+        $this->assertSame($expected, $result["name"]);
     }
 
     /**
@@ -198,7 +206,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $api->skipVersionCheck();  // need to set it so it doesn't call the mocked info()
         $api->setDebug(true);
         $input = $this->getRequestData($this->userKey);
-        $expected = $this->getMockedResponse($this->userKey);
+        $expected = "Rosette API";
         if ($endpoint === 'name-similarity') {
             $sourceName = new Name(
                 $input['name1']['text'],
@@ -232,43 +240,34 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         // If it does not throw an exception, check that it was not supposed to and if so check that it
         // returns the correct thing.
         // If it throws an exception, check that it was supposed to and if so pass otherwise fail test.
-        //try {
-            $result = '';
-            if ($endpoint === 'categories') {
-                $result = $api->categories($params);
-            }
-            if ($endpoint === 'entities') {
-                $result = $api->entities($params);
-            }
-            if ($endpoint === 'entities_linked') {
-                $result = $api->entities($params, true);
-            }
-            if ($endpoint === 'language') {
-                $result = $api->language($params);
-            }
-            if ($endpoint === 'name-similarity') {
-                $result = $api->nameSimilarity($params);
-            }
-            if ($endpoint === 'morphology_complete') {
-                $result = $api->morphology($params);
-            }
-            if ($endpoint === 'sentiment') {
-                $result = $api->sentiment($params);
-            }
-            if ($endpoint === 'name-translation') {
-                $result = $api->nameTranslation($params);
-            }
-            if ($endpoint === 'relationships') {
-                $result = $api->relationships($params);
-            }
-            // If there is a "code" key, it means an exception should be thrown
-            //if (!array_key_exists('code', $expected)) {
-                $this->assertEquals($expected, $result[0]);
-
-            //}
-        //} catch (RosetteException $exception) {
-           // $this->assertSame('unsupportedLanguage', $expected['code']);
-        //}
+        $result = '';
+        if ($endpoint === 'categories') {
+            $result = $api->categories($params);
+        }
+        if ($endpoint === 'entities') {
+            $result = $api->entities($params);
+        }
+        if ($endpoint === 'entities_linked') {
+            $result = $api->entities($params, true);
+        }
+        if ($endpoint === 'language') {
+            $result = $api->language($params);
+        }
+        if ($endpoint === 'name-similarity') {
+            $result = $api->nameSimilarity($params);
+        }
+        if ($endpoint === 'morphology_complete') {
+            $result = $api->morphology($params);
+        }
+        if ($endpoint === 'sentiment') {
+            $result = $api->sentiment($params);
+        }
+        if ($endpoint === 'name-translation') {
+            $result = $api->nameTranslation($params);
+        }
+        if ($endpoint === 'relationships') {
+            $result = $api->relationships($params);
+        }
+        $this->assertEquals($expected, $result["name"]);
     }
-
 }
