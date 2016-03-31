@@ -259,7 +259,6 @@ class Api
                 : failed to communicate with Api: ' . $msg,
                 is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
             );
-
         }
     }
 
@@ -342,8 +341,6 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
-            $resultObject = array_pop((array_slice($resultObject, -1)));
-            $resultObject = (array) json_decode($resultObject);
 
             if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
@@ -356,6 +353,34 @@ class Api
         }
 
         return $this->version_checked;
+    }
+
+    /**
+     * function headersToArray
+     *
+     * Converts the http response header string to an associative array
+     *
+     * @param $headers
+     *
+     * @returns associative array of headers
+     */
+    public function headersToArray($headers)
+    {
+        $head = array();
+        foreach ($headers as $k=>$v) {
+            $t = explode(':', $v, 2);
+            if (isset($t[1])) {
+                $head[ trim($t[0]) ] = trim($t[1]);
+            } else {
+                if (strlen(trim($v)) > 0) {
+                    $head[] = $v;
+                }
+                if (preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $v, $out)) {
+                    $head['response_code'] = intval($out[1]);
+                }
+            }
+        }
+        return $head;
     }
 
     /**
@@ -394,7 +419,7 @@ class Api
             }
 
             foreach ($data as $v) {
-                $data = array_filter($data, function ($v) { 
+                $data = array_filter($data, function ($v) {
                     if ($v !== null || $v !== "") {
                         return $v;
                     }
@@ -422,21 +447,23 @@ class Api
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
         $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $this->setResponseCode($resCode);
         if ($response === false) {
             echo curl_errno($ch);
-            echo curl_error($ch);
         }
-        curl_close($ch);
-        $response = explode(PHP_EOL, $response);
-        $this->setResponseCode($resCode);
+        $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        $header = explode(PHP_EOL, substr($response, 0, $header_size));
+        $body = substr($response, $header_size);
 
-        if (array_key_exists(9, $response)) {
-            if (strlen($response[9]) > 3 && mb_strpos($response[9], "\x1f" . "\x8b" . "\x08", 0) === 0) {
-                // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
-                // http://www.gzip.org/zlib/rfc-gzip.html#member-format
-                $response = gzinflate(substr($response, 10, -8));
-            }
+        curl_close($ch);
+
+        if (strlen($body) > 3 && mb_strpos($body, "\x1f" . "\x8b" . "\x08", 0) === 0) {
+            // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
+            // http://www.gzip.org/zlib/rfc-gzip.html#member-format
+            $body = gzinflate(substr($body, 10, -8));
         }
+        $response = [ 'headers' => $this->headersToArray($header) ];
+        $response = array_merge($response, json_decode($body, true));
         if ($this->getResponseCode() < 500) {
             return $response;
         }
@@ -480,27 +507,6 @@ class Api
         } else {
             throw new RosetteException('Invalid HTTP response status line: ' . $status_line);
         }
-    }
-
-    /**
-     * Creates the header string that is acceptable to file_get_contents.
-     *
-     * @param $headers
-     *
-     * @return string
-     */
-    private function headersAsString($headers)
-    {
-        return implode(
-            "\r\n",
-            array_map(
-                function ($k, $v) {
-                    return "$k: $v";
-                },
-                array_keys($headers),
-                array_values($headers)
-            )
-        );
     }
 
     /**

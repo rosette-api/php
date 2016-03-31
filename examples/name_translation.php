@@ -18,8 +18,8 @@ $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new 
 $params = new NameTranslationParameters();
 $params->set('name', $name_translation_data);
 $params->set('targetLanguage', 'eng');
-$params->set ('targetScript', 'Latn');
-$params->set ('targetScheme', 'IC');
+$params->set('targetScript', 'Latn');
+$params->set('targetScheme', 'IC');
 $params->set('sourceLanguageOfOrigin', 'ara');
 $params->set('sourceLanguageOfUse', 'ara');
 
