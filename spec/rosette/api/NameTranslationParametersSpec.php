@@ -7,23 +7,23 @@ use Prophecy\Argument;
 
 class NameTranslationParametersSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('rosette\api\NameTranslationParameters');
     }
 
-    function it_has_no_name()
+    public function it_has_no_name()
     {
         $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
     }
 
-    function it_has_no_target_language()
+    public function it_has_no_target_language()
     {
         $this->name = "test name";
         $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
     }
 
-    function it_passes_validate()
+    public function it_passes_validate()
     {
         $this->name = "test name";
         $this->targetLanguage = "target language";

@@ -285,9 +285,10 @@ class Api
         if ($this->useMultiPart) {
             $content = $parameters->content;
             $filename = $parameters->fileName;
+            // set the content to nothing so that it is filtered by the serialize
+            $parameters->content = '';
+            $parameters->fileName = '';
 
-            $parameters = (array) $parameters;
-            json_encode($parameters);
             json_encode($content, JSON_FORCE_OBJECT);
 
             // create multipart
@@ -297,8 +298,7 @@ class Api
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
-            $multi .= "{\"language\": \"eng\"}" . "\r\n";
-            $multi .= $parametersTemp . $clrf .$clrf;
+            $multi .= $parameters->serialize(false) . $clrf .$clrf;
             $multi .= '--' . $boundary . "\r\n";
             $multi .= 'Content-Type: text/plain' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="content"; filename="' . $filename . '"' . "\r\n" . "\r\n";

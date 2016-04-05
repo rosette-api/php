@@ -7,34 +7,37 @@ use Prophecy\Argument;
 
 class ApiSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('randomkey');
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('rosette\api\Api');
     }
 
-    function it_instantiates_correctly()
+    public function it_instantiates_correctly()
     {
         $this->getServiceUrl()->shouldEndWith('/rest/v1/');
     }
 
-    function it_sets_gets_response_code() {
+    public function it_sets_gets_response_code()
+    {
         $responseCode = 404;
         $this->setResponseCode($responseCode);
         $this->getResponseCode()->shouldBe($responseCode);
     }
 
-    function it_sets_gets_timeout() {
+    public function it_sets_gets_timeout()
+    {
         $timeout = 120;
         $this->setTimeout($timeout);
         $this->getTimeout()->shouldBe($timeout);
     }
 
-    function it_sets_gets_debug() {
+    public function it_sets_gets_debug()
+    {
         $debug = true;
         $this->setDebug($debug);
         $this->getDebug()->shouldBe($debug);
@@ -43,36 +46,39 @@ class ApiSpec extends ObjectBehavior
         $this->getDebug()->shouldBe($debug);
     }
 
-    function it_sets_gets_use_multi_part() {
+    public function it_sets_gets_use_multi_part()
+    {
         $useMultiPart = true;
         $this->setUseMultiPart($useMultiPart);
         $this->getUseMultiPart()->shouldBe($useMultiPart);
     }
 
-    function it_can_ping() {
+    public function it_can_ping()
+    {
         $this->ping()->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_gets_info() {
+    public function it_gets_info()
+    {
         $this->info()->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_language_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_language_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->language($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_sentences_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_sentences_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->sentences($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_tokens_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_tokens_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->tokens($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_morphology_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_morphology_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->morphology($params)->shouldHaveKeyWithValue('name', 'Rosette API');
         $facet = 'lemmas';
@@ -85,44 +91,43 @@ class ApiSpec extends ObjectBehavior
         $this->morphology($params, $facet)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_entities_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_entities_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->entities($params)->shouldHaveKeyWithValue('name', 'Rosette API');
         $linked = true;
         $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_categories_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_categories_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->categories($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_sentiment_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_sentiment_endpoint(\rosette\api\DocumentParameters $params)
     {
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     
-    function it_calls_using_multipart(\rosette\api\DocumentParameters $params)
+    public function it_calls_using_multipart(\rosette\api\DocumentParameters $params)
     {
         $params->loadDocumentFile('fakefile');
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_name_translation_endpoint(\rosette\api\NameTranslationParameters $params)
+    public function it_calls_the_name_translation_endpoint(\rosette\api\NameTranslationParameters $params)
     {
         $this->nameTranslation($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_name_similarity_endpoint(\rosette\api\NameSimilarityParameters $params)
+    public function it_calls_the_name_similarity_endpoint(\rosette\api\NameSimilarityParameters $params)
     {
         $this->nameSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    function it_calls_the_relationships_endpoint(\rosette\api\RelationshipsParameters $params)
+    public function it_calls_the_relationships_endpoint(\rosette\api\RelationshipsParameters $params)
     {
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
-
 }
 
 namespace rosette\api;

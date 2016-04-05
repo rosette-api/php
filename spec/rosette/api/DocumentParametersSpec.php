@@ -9,40 +9,40 @@ class DocumentParametersSpec extends ObjectBehavior
 {
     private $sampleStringData = 'Sample string data';
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('rosette\api\DocumentParameters');
     }
 
-    function it_validates_no_content_or_content_uri()
+    public function it_validates_no_content_or_content_uri()
     {
         $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
     }
 
-    function it_validates_no_content_and_content_uri()
+    public function it_validates_no_content_and_content_uri()
     {
         $this->content = 'content';
         $this->contentUri = 'contentUri';
         $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
     }
 
-    function it_loads_document_file()
+    public function it_loads_document_file()
     {
         $this->loadDocumentFile('path');
         $this->useMultiPart->shouldBe(true);
         $this->content->shouldBe($this->sampleStringData);
     }
 
-    function it_loads_document_string()
+    public function it_loads_document_string()
     {
         $this->loadDocumentString($this->sampleStringData);
         $this->content->shouldBe($this->sampleStringData);
-        $this->useMultiPart->shouldBe(false);
+        $this->useMultiPart->shouldBeLike(false);
     }
 
     // These test the abstract RosetteParamsSetBase
 
-    function it_sets_and_gets_a_property()
+    public function it_sets_and_gets_a_property()
     {
         $property = 'content';
         $value = 'Sample content';
@@ -50,19 +50,16 @@ class DocumentParametersSpec extends ObjectBehavior
         $this->Get($property)->shouldBe($value);
     }
 
-    function it_throws_if_invalid_property()
+    public function it_throws_if_invalid_property()
     {
         $this->shouldThrow('rosette\api\RosetteException')->duringGet('bogus');
     }
 
-    function it_serialized()
+    public function it_serialized()
     {
         $this->content = 'Sample Content';
         $this->serialize()->shouldBeLike('{"content":"Sample Content"}');
-
     }
-
-
 }
 
 namespace rosette\api;

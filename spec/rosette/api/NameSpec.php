@@ -7,13 +7,13 @@ use Prophecy\Argument;
 
 class NameSpec extends ObjectBehavior
 {
-    function it_should_except_with_no_name()
+    public function it_should_except_with_no_name()
     {
         $this->beConstructedWith(null);
         $this->shouldThrow('rosette\api\RosetteException')->duringInstantiation();
     }
 
-    function it_validates_arguments()
+    public function it_validates_arguments()
     {
         $name = 'testName';
         $entityType = 'entityType';

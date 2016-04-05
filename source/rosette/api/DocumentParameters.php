@@ -57,7 +57,6 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->content = '';
         $this->contentUri = '';
         $this->language = '';
-        $this->useMultiPart = false;
     }
 
     /**

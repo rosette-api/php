@@ -17,7 +17,6 @@ RUN apt-get -y update && apt-get install -y \
     php5-dev \
     php5-cli \
     php5-curl \
-    php5-xdebug \
     php5-xsl \
     libapache2-mod-php5
 

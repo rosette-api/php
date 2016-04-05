@@ -110,9 +110,11 @@ abstract class RosetteParamsSetBase
      *
      * @return string
      */
-    public function serialize()
+    public function serialize($validate = true)
     {
-        $this->validate();
+        if ($validate === true) {
+            $this->validate();
+        }
 
         $classObject = $this->removeEmptyProperties($this);
 
