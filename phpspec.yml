@@ -1,0 +1,5 @@
+suites:
+    rosette_suite:
+        namespace: rosette\api
+        src_path: %paths.config%/source
+        spec_path: %paths.config%
