@@ -90,6 +90,31 @@ class Api
     private $response_code;
 
     /**
+     * Create an L{API} object.
+     *
+     * @param string $service_url URL of the Api API
+     * @param string $user_key    An authentication string to be sent as user_key with
+     *                            all requests.
+     */
+    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
+    {
+        $this->user_key = $user_key;
+
+        $this->headers = array("X-RosetteAPI-Key: $user_key",
+                          "Content-Type: application/json",
+                          "Accept: application/json",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+
+        $this->setServiceUrl($service_url);
+        $this->setDebug(false);
+        $this->setUseMultiPart(false);
+        $this->setTimeout(300);
+        $this->version_checked = false;
+        $this->subUrl = null;
+    }
+
+    /**
      * Returns response code.
      *
      * @return mixed
@@ -130,48 +155,6 @@ class Api
     }
 
     /**
-     * Skips version check with server, not recommended.
-     */
-    public function skipVersionCheck()
-    {
-        $this->version_checked = true;
-    }
-
-    /**
-     * Create an L{API} object.
-     *
-     * @param string $service_url URL of the Api API
-     * @param string $user_key    An authentication string to be sent as user_key with
-     *                            all requests.
-     */
-    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
-    {
-        $this->user_key = $user_key;
-        $this->service_url = $service_url[strlen($service_url) - 1] === '/' ? $service_url : $service_url . '/';
-        $this->debug = false;
-        $this->useMultiPart = false;
-        $this->version_checked = false;
-        $this->subUrl = null;
-        $this->timeout = 300;
-
-        $this->headers = array("X-RosetteAPI-Key: $user_key",
-                          "Content-Type: application/json",
-                          "Accept: application/json",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
-    }
-
-    /**
-     * Setter to set version_checked.
-     *
-     * @param bool $version_checked
-     */
-    public function setVersionChecked($version_checked)
-    {
-        $this->version_checked = $version_checked;
-    }
-
-    /**
      * Enables debug (more verbose output).
      *
      * @param bool $debug
@@ -179,16 +162,27 @@ class Api
     public function setDebug($debug)
     {
         $this->debug = $debug;
+        $debug_header = 'X-RosetteAPI-Devel: true';
+        $index = array_search($debug_header, $this->headers, true);
+        if ($index === false) {
+            if ($debug === true) {
+                $this->headers[] = $debug_header;
+            }
+        } else {
+            if ($debug === false) {
+                unset($this->headers[$index]);
+            }
+        }
     }
 
     /**
-     * Getter for the user_key.
+     * Retrieves debug setting (more verbose output).
      *
-     * @return null|string
+     * @param bool $debug
      */
-    public function getUserKey()
+    public function getDebug()
     {
-        return $this->user_key;
+        return $this->debug;
     }
 
     /**
@@ -202,11 +196,21 @@ class Api
     }
 
     /**
+     * Setter for the service_url.
+     *
+     * @param string
+     */
+    public function setServiceUrl($url)
+    {
+        $this->service_url = $url[strlen($url) - 1] === '/' ? $url : $url . '/';
+    }
+
+    /**
      * Getter for MultiPart.
      *
      * @return bool
      */
-    public function isUseMultiPart()
+    public function getUseMultiPart()
     {
         return $this->useMultiPart;
     }
@@ -308,17 +312,11 @@ class Api
                           "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
 
             $url = $this->service_url . $this->subUrl;
-            if ($this->debug) {
-                $url .= '?debug=true';
-            }
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
             return $this->finishResult($resultObject, 'callEndpoint');
         } else {
             $url = $this->service_url . $this->subUrl;
-            if ($this->debug) {
-                $url .= '?debug=true';
-            }
             $resultObject = $this->postHttp($url, $this->headers, $parameters);
             return $this->finishResult($resultObject, 'callEndpoint');
         }
@@ -334,7 +332,7 @@ class Api
      *
      * @throws RosetteException
      */
-    public function checkVersion($url, $versionToCheck = null)
+    private function checkVersion($url, $versionToCheck = null)
     {
         if (!$this->version_checked) {
             if (!$versionToCheck) {
@@ -364,7 +362,7 @@ class Api
      *
      * @returns associative array of headers
      */
-    public function headersToArray($headers)
+    private function headersToArray($headers)
     {
         $head = array();
         foreach ($headers as $k=>$v) {
@@ -487,29 +485,6 @@ class Api
     }
 
     /**
-     * The response header that is returned by $http_response_header does not contain an explicit return code;
-     * it is in the first array element. This method extracts that code.
-     *
-     * @param $header_str
-     *
-     * @return int
-     *
-     * @throws RosetteException
-     */
-    public function getResponseStatusCode($header_str)
-    {
-        // the first line of a HTTP response by spec is the status line that looks like:
-        //     HTTP/1.1 200 OK
-        // just need to regex out the status code
-        $status_line = array_shift($header_str);
-        if (preg_match('#^HTTP/1\.[0-9]+\s+([1-5][0-9][0-9])\s+#', $status_line, $out) === 1) {
-            return intval($out[1]);
-        } else {
-            throw new RosetteException('Invalid HTTP response status line: ' . $status_line);
-        }
-    }
-
-    /**
      * Standard GET helper.
      *
      * @param $url
@@ -564,7 +539,6 @@ class Api
      */
     public function ping()
     {
-        $this->skipVersionCheck();
         $url = $this->service_url . 'ping';
         $resultObject = $this->getHttp($url, $this->headers);
 
@@ -580,7 +554,6 @@ class Api
      */
     public function info()
     {
-        $this->skipVersionCheck();
         $url = $this->service_url . 'info';
         $resultObject = $this->getHttp($url, $this->headers);
 
