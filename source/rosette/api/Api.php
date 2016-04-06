@@ -368,6 +368,28 @@ class Api
     }
 
     /**
+     * Checks for the signature values of gzip and bzip2
+     *
+     * @param $content
+     *
+     * @return bool
+     */
+    private function checkForZip($content)
+    {
+        $result = false;
+
+        if (strlen($content) > 3) {
+            if (bin2hex(substr($content, 0, 2)) == '1f8b') {
+                $result = true;
+            } elseif (substr($content, 0, 3) == 'BZh') {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * function makeRequest.
      *
      * Encapsulates the GET/POST
@@ -419,7 +441,7 @@ class Api
 
         curl_close($ch);
 
-        if (strlen($body) > 3 && mb_strpos($body, "\x1f" . "\x8b" . "\x08", 0) === 0) {
+        if ($this->checkForZip($body)) {
             // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
             // http://www.gzip.org/zlib/rfc-gzip.html#member-format
             $body = gzinflate(substr($body, 10, -8));

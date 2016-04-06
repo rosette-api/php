@@ -56,23 +56,31 @@ class ApiSpec extends ObjectBehavior
         $this->info()->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_language_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_language_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->language($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_sentences_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_sentences_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->sentences($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_tokens_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_tokens_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->tokens($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_morphology_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_morphology_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->morphology($params)->shouldHaveKeyWithValue('name', 'Rosette API');
         $facet = 'lemmas';
         $this->morphology($params, $facet)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -84,41 +92,60 @@ class ApiSpec extends ObjectBehavior
         $this->morphology($params, $facet)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_entities_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_entities_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->entities($params)->shouldHaveKeyWithValue('name', 'Rosette API');
         $linked = true;
         $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_categories_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_entities_linked_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
+        $linked = true;
+        $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+
+    public function it_calls_the_categories_endpoint($params)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->categories($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_sentiment_endpoint(\rosette\api\DocumentParameters $params)
+    public function it_calls_the_sentiment_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     
-    public function it_calls_using_multipart(\rosette\api\DocumentParameters $params)
+    public function it_calls_using_multipart($params)
     {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->loadDocumentFile('fakefile');
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_name_translation_endpoint(\rosette\api\NameTranslationParameters $params)
+    public function it_calls_the_name_translation_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\NameTranslationParameters');
         $this->nameTranslation($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_name_similarity_endpoint(\rosette\api\NameSimilarityParameters $params)
+    public function it_calls_the_name_similarity_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\NameSimilarityParameters');
         $this->nameSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_relationships_endpoint(\rosette\api\RelationshipsParameters $params)
+    public function it_calls_the_relationships_endpoint($params)
     {
+        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
+        $params->contentUri = 'http://some.dummysite.com';
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 }
