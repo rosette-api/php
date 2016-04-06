@@ -64,6 +64,8 @@ class DocumentParameters extends RosetteParamsSetBase
     /**
      * Setter for multiPartContent. Clears the content and contentUri properties if it contains
      * data
+     *
+     * @param $str_content
      */
     public function setMultiPartContent($str_content)
     {
@@ -76,6 +78,8 @@ class DocumentParameters extends RosetteParamsSetBase
 
     /**
      * Getter for multiPartContent
+     *
+     * @return string
      */
     public function getMultiPartContent()
     {
