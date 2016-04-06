@@ -24,6 +24,6 @@
     "bin-dir": "bin"
   },
   "autoload": {
-    "psr-4": {"rosette\\": "/source/source/rosette"}
+    "psr-4": {"rosette\\": "./source/rosette"}
   }
 }
