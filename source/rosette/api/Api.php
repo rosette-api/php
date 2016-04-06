@@ -46,42 +46,42 @@ class Api
      * @var string
      */
     private static $binding_version = '1.0';
+
     /**
      * User key (required for Rosette API).
      *
      * @var null|string
      */
     private $user_key;
+
     /**
      * URL of the Rosette API (or test server).
      *
      * @var string
      */
     private $service_url;
+
     /**
      * HTTP headers for Rosette API.
      *
      * @var array
      */
     private $headers;
-    /**
-     * MultiPart status.
-     *
-     * @var bool
-     */
-    private $useMultiPart;
+
     /**
      * True if the version has already been checked.  Saves round trips.
      *
      * @var bool
      */
     private $version_checked;
+
     /**
      * Endpoint for the operation.
      *
      * @var null|string
      */
     private $subUrl;
+
     /**
      * Max timeout (seconds).
      *
@@ -108,7 +108,6 @@ class Api
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
-        $this->setUseMultiPart(false);
         $this->setTimeout(300);
         $this->version_checked = false;
         $this->subUrl = null;
@@ -175,6 +174,7 @@ class Api
         }
     }
 
+
     /**
      * Retrieves debug setting (more verbose output).
      *
@@ -206,23 +206,17 @@ class Api
     }
 
     /**
-     * Getter for MultiPart.
-     *
-     * @return bool
+     * Replaces a header item with a new one
      */
-    public function getUseMultiPart()
+    private function replaceHeaderItem($old_header_item, $new_header_item)
     {
-        return $this->useMultiPart;
-    }
-
-    /**
-     * Setter for MultiPart.
-     *
-     * @param bool $useMultiPart
-     */
-    public function setUseMultiPart($useMultiPart)
-    {
-        $this->useMultiPart = $useMultiPart;
+        $index = array_search($old_header_item, $this->headers, true);
+        if ($index !== false) {
+            unset($this->headers[$index]);
+        }
+        if (strlen(trim($new_header_item)) > 0) {
+            $this->headers[] = $new_header_item;
+        }
     }
 
     /**
@@ -280,14 +274,10 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
-        $this->useMultiPart = isset($parameters->useMultiPart) ? $parameters->useMultiPart : null;
 
-        if ($this->useMultiPart) {
-            $content = $parameters->content;
+        if (strlen($parameters->getMultiPartContent()) > 0) {
+            $content = $parameters->getMultiPartContent();
             $filename = $parameters->fileName;
-            // set the content to nothing so that it is filtered by the serialize
-            $parameters->content = '';
-            $parameters->fileName = '';
 
             json_encode($content, JSON_FORCE_OBJECT);
 
@@ -305,11 +295,7 @@ class Api
             $multi .= $content . "\r\n";
             $multi .= '--' . $boundary . '--';
 
-            $this->headers = array("X-RosetteAPI-Key: $this->user_key",
-                          "Content-Type: multipart/mixed",
-                          "Accept: */*",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+            $this->replaceHeaderItem('Content-Type: application/json', 'Content-Type: multipart/mixed');
 
             $url = $this->service_url . $this->subUrl;
 
@@ -317,7 +303,7 @@ class Api
             return $this->finishResult($resultObject, 'callEndpoint');
         } else {
             $url = $this->service_url . $this->subUrl;
-            $resultObject = $this->postHttp($url, $this->headers, $parameters);
+            $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize());
             return $this->finishResult($resultObject, 'callEndpoint');
         }
     }
@@ -403,28 +389,6 @@ class Api
     {
         $response = null;
         $message = null;
-
-        // check for multipart and set data accordingly
-        if ($this->useMultiPart === null) {
-            $data = (array) $data;
-
-            if (array_key_exists('content', $data) && $data['content'] === "") {
-                unset($data['content']);
-            }
-
-            if (array_key_exists('contentUri', $data) && $data['contentUri'] === "") {
-                unset($data['contentUri']);
-            }
-
-            foreach ($data as $v) {
-                $data = array_filter($data, function ($v) {
-                    if ($v !== null || $v !== "") {
-                        return $v;
-                    }
-                });
-            }
-            $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        }
 
         $code = 'unknownError';
         $http_response_header = null;

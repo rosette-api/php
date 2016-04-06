@@ -46,13 +46,6 @@ class ApiSpec extends ObjectBehavior
         $this->getDebug()->shouldBe($debug);
     }
 
-    public function it_sets_gets_use_multi_part()
-    {
-        $useMultiPart = true;
-        $this->setUseMultiPart($useMultiPart);
-        $this->getUseMultiPart()->shouldBe($useMultiPart);
-    }
-
     public function it_can_ping()
     {
         $this->ping()->shouldHaveKeyWithValue('name', 'Rosette API');

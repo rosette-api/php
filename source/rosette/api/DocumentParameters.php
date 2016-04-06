@@ -38,9 +38,10 @@ class DocumentParameters extends RosetteParamsSetBase
     public $language;
 
     /**
-     * @var bool useMultiPart determines if the user wishes to upload a multipart
+     * @var string multiPartContent contains content for multipart packaging.  Private to prevent
+     * processing by the serializer
      */
-    public $useMultiPart;
+    private $multiPartContent;
 
     /**
      * @var string fileName is the name of the file containing content to be analyzed
@@ -57,6 +58,28 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->content = '';
         $this->contentUri = '';
         $this->language = '';
+        $this->multiPartContent = '';
+    }
+
+    /**
+     * Setter for multiPartContent. Clears the content and contentUri properties if it contains
+     * data
+     */
+    public function setMultiPartContent($str_content)
+    {
+        $this->multiPartContent = trim($str_content);
+        if (strlen($str_content) > 0) {
+            $this->content = '';
+            $this->contentUri = '';
+        }
+    }
+
+    /**
+     * Getter for multiPartContent
+     */
+    public function getMultiPartContent()
+    {
+        return $this->multiPartContent;
     }
 
     /**
@@ -66,19 +89,21 @@ class DocumentParameters extends RosetteParamsSetBase
      */
     public function validate()
     {
-        if (empty(trim($this->content))) {
-            if (empty(trim($this->contentUri))) {
-                throw new RosetteException(
-                    'Must supply one of Content or ContentUri',
-                    RosetteException::$INVALID_DATATYPE
-                );
-            }
-        } else {
-            if (!empty(trim($this->contentUri))) {
-                throw new RosetteException(
-                    'Cannot supply both Content and ContentUri',
-                    RosetteException::$INVALID_DATATYPE
-                );
+        if (empty(trim($this->multiPartContent))) {
+            if (empty(trim($this->content))) {
+                if (empty(trim($this->contentUri))) {
+                    throw new RosetteException(
+                        'Must supply one of Content or ContentUri',
+                        RosetteException::$INVALID_DATATYPE
+                    );
+                }
+            } else {
+                if (!empty(trim($this->contentUri))) {
+                    throw new RosetteException(
+                        'Cannot supply both Content and ContentUri',
+                        RosetteException::$INVALID_DATATYPE
+                    );
+                }
             }
         }
     }
@@ -90,17 +115,12 @@ class DocumentParameters extends RosetteParamsSetBase
      *
      * @param $path : Pathname of a file acceptable to the C{open}
      * function.
-     * @param null $dataType
      *
      * @throws RosetteException
      */
-    public function loadDocumentFile($path, $dataType = null)
+    public function loadDocumentFile($path)
     {
-        if (!$dataType) {
-            $dataType = RosetteConstants::$DataFormat['UNSPECIFIED'];
-        }
-        $this->loadDocumentString(file_get_contents($path), $dataType);
-        $this->useMultiPart = true;
+        $this->loadDocumentString(file_get_contents($path), true);
         $this->fileName = $path;
     }
 
@@ -111,12 +131,17 @@ class DocumentParameters extends RosetteParamsSetBase
      * if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.
      *
      * @param $stringData
-     * @param $dataType
+     * @param $multiPart
      *
      * @throws RosetteException
      */
-    public function loadDocumentString($stringData)
+    public function loadDocumentString($stringData, $multiPart = false)
     {
-        $this->content = $stringData;
+        if ($multiPart === true) {
+            $this->setMultiPartContent($stringData);
+        } else {
+            $this->content = $stringData;
+            $this->multiPartContent = '';
+        }
     }
 }

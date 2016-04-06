@@ -29,15 +29,15 @@ class DocumentParametersSpec extends ObjectBehavior
     public function it_loads_document_file()
     {
         $this->loadDocumentFile('path');
-        $this->useMultiPart->shouldBe(true);
-        $this->content->shouldBe($this->sampleStringData);
+        $this->getMultiPartContent()->shouldNotBe('');
+        $this->content->shouldBe('');
     }
 
     public function it_loads_document_string()
     {
         $this->loadDocumentString($this->sampleStringData);
         $this->content->shouldBe($this->sampleStringData);
-        $this->useMultiPart->shouldBeLike(false);
+        $this->getMultiPartContent()->shouldBe('');
     }
 
     // These test the abstract RosetteParamsSetBase
