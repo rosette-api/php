@@ -73,6 +73,16 @@ abstract class RosetteParamsSetBase
     abstract public function validate();
 
     /**
+     * Provides default multiPart call for child classes that don't implement it
+     *
+     * @return string
+     */
+    public function getMultiPartContent()
+    {
+        return '';
+    }
+
+    /**
      * Recursively removes empty properties to facilitate json encoding.
      *
      * @param $obj Object to clean
