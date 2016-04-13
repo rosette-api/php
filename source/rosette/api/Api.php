@@ -83,11 +83,19 @@ class Api
     private $subUrl;
 
     /**
-     * Max timeout (seconds).
+     * response code
      *
      * @var
      */
     private $response_code;
+
+    /**
+     * request override - for testing
+     *
+     * @RosetteRequest
+     */
+    private $mock_request;
+
 
     /**
      * Create an L{API} object.
@@ -111,6 +119,17 @@ class Api
         $this->setTimeout(300);
         $this->version_checked = false;
         $this->subUrl = null;
+        $this->mock_request = null;
+    }
+    
+    /**
+     * Sets on override Request for mocking purposes
+     *
+     * @param $requestObject
+     */
+    public function setMockRequest($requestObject)
+    {
+        $this->mock_request = $requestObject;
     }
 
     /**
@@ -339,55 +358,6 @@ class Api
         return $this->version_checked;
     }
 
-    /**
-     * function headersToArray
-     *
-     * Converts the http response header string to an associative array
-     *
-     * @param $headers
-     *
-     * @returns associative array of headers
-     */
-    private function headersToArray($headers)
-    {
-        $head = array();
-        foreach ($headers as $k=>$v) {
-            $t = explode(':', $v, 2);
-            if (isset($t[1])) {
-                $head[ trim($t[0]) ] = trim($t[1]);
-            } else {
-                if (strlen(trim($v)) > 0) {
-                    $head[] = $v;
-                }
-                if (preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $v, $out)) {
-                    $head['response_code'] = intval($out[1]);
-                }
-            }
-        }
-        return $head;
-    }
-
-    /**
-     * Checks for the signature values of gzip and bzip2
-     *
-     * @param $content
-     *
-     * @return bool
-     */
-    private function checkForZip($content)
-    {
-        $result = false;
-
-        if (strlen($content) > 3) {
-            if (bin2hex(substr($content, 0, 2)) == '1f8b') {
-                $result = true;
-            } elseif (substr($content, 0, 3) == 'BZh') {
-                $result = true;
-            }
-        }
-
-        return $result;
-    }
 
     /**
      * function makeRequest.
@@ -409,65 +379,16 @@ class Api
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        $response = null;
-        $message = null;
-
-        $code = 'unknownError';
-        $http_response_header = null;
-
-        // create cURL request
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        if ($method === 'POST') {
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        } elseif ($method === 'GET') {
-            curl_setopt($ch, CURLOPT_HTTPGET, true);
-        }
-
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $this->setResponseCode($resCode);
-        if ($response === false) {
-            echo curl_errno($ch);
-        }
-        $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-        $header = explode(PHP_EOL, substr($response, 0, $header_size));
-        $body = substr($response, $header_size);
-
-        curl_close($ch);
-
-        if ($this->checkForZip($body)) {
-            // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
-            // http://www.gzip.org/zlib/rfc-gzip.html#member-format
-            $body = gzinflate(substr($body, 10, -8));
-        }
-        $response = [ 'headers' => $this->headersToArray($header) ];
-        $response = array_merge($response, json_decode($body, true));
-        if ($this->getResponseCode() < 500) {
-            return $response;
-        }
-        if ($response !== null) {
-            try {
-                if (array_key_exists('message', $json)) {
-                    $message = $json['message'];
-                }
-                if (array_key_exists('code', $json)) {
-                    $code = $json['code'];
-                }
-            } catch (\Exception $e) {
-                // pass
+        $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
+        if ($request->makeRequest($url, $headers, $data, $method) === false) {
+            throw new RosetteException($request->getResponseError); 
+        } else {
+            $this->setResponseCode($request->getResponseCode());
+            if ($this->getResponseCode() !== 200) {
+                throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
             }
+            return $request->getResponse();
         }
-
-        if ($code === 'unknownError') {
-            $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
-        }
-        throw new RosetteException($message . ' [' . $url . ']', $code);
     }
 
     /**
