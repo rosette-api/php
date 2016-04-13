@@ -90,6 +90,20 @@ class Api
     private $response_code;
 
     /**
+     * max retries
+     *
+     * @var int
+     */
+    private $max_retries;
+
+    /**
+     * retry sleep count (ms)
+     *
+     * @var int
+     */
+    private $ms_between_retries;
+
+    /**
      * request override - for testing
      *
      * @RosetteRequest
@@ -119,6 +133,8 @@ class Api
         $this->setTimeout(300);
         $this->version_checked = false;
         $this->subUrl = null;
+        $this->max_retries = 5;
+        $this->ms_between_retries = 500000;
         $this->mock_request = null;
     }
     
@@ -130,6 +146,26 @@ class Api
     public function setMockRequest($requestObject)
     {
         $this->mock_request = $requestObject;
+    }
+
+    /**
+     * Sets the maximum retries for server connect
+     *
+     * @param $max_retries
+     */
+    public function setMaxRetries($max_retries)
+    {
+        $this->max_retries = $max_retries;
+    }
+
+    /**
+     * Sets the millisecond sleep time between retries
+     *
+     * @param $max_retries
+     */
+    public function setMillisecondsBetweenRetries($ms_between_retries)
+    {
+        $this->ms_between_retries = $ms_between_retries;
     }
 
     /**
@@ -239,47 +275,6 @@ class Api
     }
 
     /**
-     * Processes the response, returning either the decoded Json or throwing an exception.
-     *
-     * @param $resultObject
-     * @param $action
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    private function finishResult($resultObject, $action)
-    {
-        $msg = null;
-
-        if ($this->getResponseCode() === 200) {
-            return $resultObject;
-        } else {
-            if (array_key_exists('message', $resultObject)) {
-                $msg = $resultObject['message'];
-            }
-            $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-            if (array_key_exists('code', $resultObject)) {
-                $serverCode = $resultObject['code'];
-                if ($msg === null) {
-                    $msg = $serverCode;
-                }
-            } else {
-                $serverCode = RosetteException::$BAD_REQUEST_FORMAT;
-                if ($msg === null) {
-                    $msg = 'unknown error';
-                }
-            }
-
-            throw new RosetteException(
-                $complaint_url . '
-                : failed to communicate with Api: ' . $msg,
-                is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
-            );
-        }
-    }
-
-    /**
      * Internal operations processor for most of the endpoints.
      *
      * @param $parameters
@@ -293,6 +288,7 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
+        $resultObject = '';
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
@@ -319,12 +315,11 @@ class Api
             $url = $this->service_url . $this->subUrl;
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
-            return $this->finishResult($resultObject, 'callEndpoint');
         } else {
             $url = $this->service_url . $this->subUrl;
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize());
-            return $this->finishResult($resultObject, 'callEndpoint');
         }
+        return $resultObject;
     }
 
     /**
@@ -344,6 +339,12 @@ class Api
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
+
+            // should not get called due to makeRequest checks, but just in case, we want to 
+            // avoid an incompatible version error when it's something else.
+            if ($this->getResponseCode() !== 200) {
+                throw new RosetteException( $resultObject['message'], $this->getResponseCode());
+            }
 
             if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
@@ -365,28 +366,35 @@ class Api
      * Encapsulates the GET/POST
      *
      * @param $url
+     * @param $headers
      * @param $data
+     * @param $method
      *
      * @return string
      *
      * @throws RosetteException
      *
-     * @internal param $op : operation
-     * @internal param $url : target URL
-     * @internal param $headers : header data
-     * @internal param $data : submission data
-     * @internal param $method : http method
      */
     private function makeRequest($url, $headers, $data, $method)
     {
         $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
-        if ($request->makeRequest($url, $headers, $data, $method) === false) {
-            throw new RosetteException($request->getResponseError); 
-        } else {
-            $this->setResponseCode($request->getResponseCode());
-            if ($this->getResponseCode() !== 200) {
-                throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+        for ($retries = 0; $retries < $this->max_retries; $retries++) {
+            if ($request->makeRequest($url, $headers, $data, $method) === false) {
+                throw new RosetteException($request->getResponseError); 
+            } else {
+                $this->setResponseCode($request->getResponseCode());
+                if ($this->getResponseCode() === 429) {
+                    usleep($this->ms_between_retries);
+                    continue;
+                } elseif ($this->getResponseCode() !== 200) {
+                    throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+                }
+                return $request->getResponse();
             }
+        }
+        if ($this->getResponseCode() !== 200) {
+            throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+        } else {
             return $request->getResponse();
         }
     }
@@ -449,7 +457,7 @@ class Api
         $url = $this->service_url . 'ping';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'ping');
+        return $resultObject;
     }
 
     /**
@@ -464,7 +472,7 @@ class Api
         $url = $this->service_url . 'info';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'info');
+        return $resultObject;
     }
 
     /**

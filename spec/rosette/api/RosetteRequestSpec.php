@@ -7,7 +7,7 @@ use Prophecy\Argument;
 
 class RosetteRequestSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $headers = array("X-RosetteAPI-Key: user_key",
                           "Content-Type: application/json",
@@ -16,24 +16,23 @@ class RosetteRequestSpec extends ObjectBehavior
         $this->beConstructedWith('https://api.rosette.com/rest/v1', null, $headers, 'GET');
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('\rosette\api\RosetteRequest');
     }
 
-    function it_sends_a_request()
+    public function it_sends_a_request()
     {
         $this->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->shouldBeBool();
     }
 
-    function it_returns_a_code()
+    public function it_returns_a_code()
     {
         $this->getResponseCode()->shouldBeInteger();
     }
 
-    function it_returns_a_response()
+    public function it_returns_a_response()
     {
         $this->getResponse()->shouldBeArray();
     }
-
 }
