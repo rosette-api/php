@@ -49,6 +49,11 @@ class DocumentParameters extends RosetteParamsSetBase
     public $fileName;
 
     /**
+     * @var string genre to categorize the input data
+     */
+    public $genre;
+
+    /**
      * Constructor.
      *
      * @throws RosetteException
@@ -59,6 +64,7 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->contentUri = '';
         $this->language = '';
         $this->multiPartContent = '';
+        $this->genre = '';
     }
 
     /**
