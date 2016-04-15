@@ -83,11 +83,33 @@ class Api
     private $subUrl;
 
     /**
-     * Max timeout (seconds).
+     * response code
      *
      * @var
      */
     private $response_code;
+
+    /**
+     * max retries
+     *
+     * @var int
+     */
+    private $max_retries;
+
+    /**
+     * retry sleep count (ms)
+     *
+     * @var int
+     */
+    private $ms_between_retries;
+
+    /**
+     * request override - for testing
+     *
+     * @RosetteRequest
+     */
+    private $mock_request;
+
 
     /**
      * Create an L{API} object.
@@ -111,6 +133,39 @@ class Api
         $this->setTimeout(300);
         $this->version_checked = false;
         $this->subUrl = null;
+        $this->max_retries = 5;
+        $this->ms_between_retries = 500000;
+        $this->mock_request = null;
+    }
+    
+    /**
+     * Sets on override Request for mocking purposes
+     *
+     * @param $requestObject
+     */
+    public function setMockRequest($requestObject)
+    {
+        $this->mock_request = $requestObject;
+    }
+
+    /**
+     * Sets the maximum retries for server connect
+     *
+     * @param $max_retries
+     */
+    public function setMaxRetries($max_retries)
+    {
+        $this->max_retries = $max_retries;
+    }
+
+    /**
+     * Sets the millisecond sleep time between retries
+     *
+     * @param $max_retries
+     */
+    public function setMillisecondsBetweenRetries($ms_between_retries)
+    {
+        $this->ms_between_retries = $ms_between_retries;
     }
 
     /**
@@ -220,47 +275,6 @@ class Api
     }
 
     /**
-     * Processes the response, returning either the decoded Json or throwing an exception.
-     *
-     * @param $resultObject
-     * @param $action
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    private function finishResult($resultObject, $action)
-    {
-        $msg = null;
-
-        if ($this->getResponseCode() === 200) {
-            return $resultObject;
-        } else {
-            if (array_key_exists('message', $resultObject)) {
-                $msg = $resultObject['message'];
-            }
-            $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-            if (array_key_exists('code', $resultObject)) {
-                $serverCode = $resultObject['code'];
-                if ($msg === null) {
-                    $msg = $serverCode;
-                }
-            } else {
-                $serverCode = RosetteException::$BAD_REQUEST_FORMAT;
-                if ($msg === null) {
-                    $msg = 'unknown error';
-                }
-            }
-
-            throw new RosetteException(
-                $complaint_url . '
-                : failed to communicate with Api: ' . $msg,
-                is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
-            );
-        }
-    }
-
-    /**
      * Internal operations processor for most of the endpoints.
      *
      * @param $parameters
@@ -274,6 +288,7 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
+        $resultObject = '';
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
@@ -300,12 +315,11 @@ class Api
             $url = $this->service_url . $this->subUrl;
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
-            return $this->finishResult($resultObject, 'callEndpoint');
         } else {
             $url = $this->service_url . $this->subUrl;
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize());
-            return $this->finishResult($resultObject, 'callEndpoint');
         }
+        return $resultObject;
     }
 
     /**
@@ -326,6 +340,12 @@ class Api
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
 
+            // should not get called due to makeRequest checks, but just in case, we want to 
+            // avoid an incompatible version error when it's something else.
+            if ($this->getResponseCode() !== 200) {
+                throw new RosetteException( $resultObject['message'], $this->getResponseCode());
+            }
+
             if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
             } else {
@@ -339,55 +359,6 @@ class Api
         return $this->version_checked;
     }
 
-    /**
-     * function headersToArray
-     *
-     * Converts the http response header string to an associative array
-     *
-     * @param $headers
-     *
-     * @returns associative array of headers
-     */
-    private function headersToArray($headers)
-    {
-        $head = array();
-        foreach ($headers as $k=>$v) {
-            $t = explode(':', $v, 2);
-            if (isset($t[1])) {
-                $head[ trim($t[0]) ] = trim($t[1]);
-            } else {
-                if (strlen(trim($v)) > 0) {
-                    $head[] = $v;
-                }
-                if (preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $v, $out)) {
-                    $head['response_code'] = intval($out[1]);
-                }
-            }
-        }
-        return $head;
-    }
-
-    /**
-     * Checks for the signature values of gzip and bzip2
-     *
-     * @param $content
-     *
-     * @return bool
-     */
-    private function checkForZip($content)
-    {
-        $result = false;
-
-        if (strlen($content) > 3) {
-            if (bin2hex(substr($content, 0, 2)) == '1f8b') {
-                $result = true;
-            } elseif (substr($content, 0, 3) == 'BZh') {
-                $result = true;
-            }
-        }
-
-        return $result;
-    }
 
     /**
      * function makeRequest.
@@ -395,79 +366,37 @@ class Api
      * Encapsulates the GET/POST
      *
      * @param $url
+     * @param $headers
      * @param $data
+     * @param $method
      *
      * @return string
      *
      * @throws RosetteException
      *
-     * @internal param $op : operation
-     * @internal param $url : target URL
-     * @internal param $headers : header data
-     * @internal param $data : submission data
-     * @internal param $method : http method
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        $response = null;
-        $message = null;
-
-        $code = 'unknownError';
-        $http_response_header = null;
-
-        // create cURL request
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        if ($method === 'POST') {
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        } elseif ($method === 'GET') {
-            curl_setopt($ch, CURLOPT_HTTPGET, true);
-        }
-
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $this->setResponseCode($resCode);
-        if ($response === false) {
-            echo curl_errno($ch);
-        }
-        $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-        $header = explode(PHP_EOL, substr($response, 0, $header_size));
-        $body = substr($response, $header_size);
-
-        curl_close($ch);
-
-        if ($this->checkForZip($body)) {
-            // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
-            // http://www.gzip.org/zlib/rfc-gzip.html#member-format
-            $body = gzinflate(substr($body, 10, -8));
-        }
-        $response = [ 'headers' => $this->headersToArray($header) ];
-        $response = array_merge($response, json_decode($body, true));
-        if ($this->getResponseCode() < 500) {
-            return $response;
-        }
-        if ($response !== null) {
-            try {
-                if (array_key_exists('message', $json)) {
-                    $message = $json['message'];
+        $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
+        for ($retries = 0; $retries < $this->max_retries; $retries++) {
+            if ($request->makeRequest($url, $headers, $data, $method) === false) {
+                throw new RosetteException($request->getResponseError); 
+            } else {
+                $this->setResponseCode($request->getResponseCode());
+                if ($this->getResponseCode() === 429) {
+                    usleep($this->ms_between_retries);
+                    continue;
+                } elseif ($this->getResponseCode() !== 200) {
+                    throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
                 }
-                if (array_key_exists('code', $json)) {
-                    $code = $json['code'];
-                }
-            } catch (\Exception $e) {
-                // pass
+                return $request->getResponse();
             }
         }
-
-        if ($code === 'unknownError') {
-            $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
+        if ($this->getResponseCode() !== 200) {
+            throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+        } else {
+            return $request->getResponse();
         }
-        throw new RosetteException($message . ' [' . $url . ']', $code);
     }
 
     /**
@@ -528,7 +457,7 @@ class Api
         $url = $this->service_url . 'ping';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'ping');
+        return $resultObject;
     }
 
     /**
@@ -543,7 +472,7 @@ class Api
         $url = $this->service_url . 'info';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'info');
+        return $resultObject;
     }
 
     /**

@@ -46,41 +46,81 @@ class ApiSpec extends ObjectBehavior
         $this->getDebug()->shouldBe($debug);
     }
 
-    public function it_can_ping()
+    public function it_can_ping($request)
     {
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API' ]);
+
+        $this->setMockRequest($request);
         $this->ping()->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_gets_info()
+    public function it_gets_info($request)
     {
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API' ]);
+
+        $this->setMockRequest($request);
         $this->info()->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_language_endpoint($params)
+    public function it_calls_the_language_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->language($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_sentences_endpoint($params)
+    public function it_calls_the_sentences_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->sentences($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_tokens_endpoint($params)
+    public function it_calls_the_tokens_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->tokens($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_morphology_endpoint($params)
+    public function it_calls_the_morphology_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->morphology($params)->shouldHaveKeyWithValue('name', 'Rosette API');
         $facet = 'lemmas';
         $this->morphology($params, $facet)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -92,87 +132,142 @@ class ApiSpec extends ObjectBehavior
         $this->morphology($params, $facet)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_entities_endpoint($params)
+    public function it_calls_the_entities_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->entities($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+
+    public function it_calls_the_entities_linked_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $linked = true;
         $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_entities_linked_endpoint($params)
+    public function it_calls_the_categories_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
-        $linked = true;
-        $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
-    }
 
-    public function it_calls_the_categories_endpoint($params)
-    {
-        $params->beADoubleOf('\rosette\api\DocumentParameters');
-        $params->content = 'Sample Data';
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->categories($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_sentiment_endpoint($params)
+    public function it_calls_the_sentiment_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     
-    public function it_calls_using_multipart($params)
+    public function it_calls_using_multipart($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->loadDocumentFile('fakefile');
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_name_translation_endpoint($params)
+    public function it_calls_the_name_translation_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\NameTranslationParameters');
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->nameTranslation($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_name_similarity_endpoint($params)
+    public function it_calls_the_name_similarity_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\NameSimilarityParameters');
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->nameSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
-    public function it_calls_the_relationships_endpoint($params)
+    public function it_calls_the_relationships_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\RelationshipsParameters');
         $params->contentUri = 'http://some.dummysite.com';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+
+        $this->setMockRequest($request);
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
-}
 
-namespace rosette\api;
+    public function it_fails_with_non_200_response($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
+        $params->contentUri = 'http://some.dummysite.com';
 
-// mock the curl_exec call - return the version checked response to satisfy checkVersion
-function curl_exec($ch)
-{
-    // mock response
-    // Note: The X's are set to a length to make the header = 200, which is necessary to force a correct
-    //       boundary between the header and body.
-    $mock_response = 'HTTP/1.1 200 OK'.PHP_EOL;
-    $mock_response .= 'Content-Type: application/json'.PHP_EOL;
-    $mock_response .= 'Date: Thu, 31 Mar 2016 13:12:00 GMT'.PHP_EOL;
-    $mock_response .= 'Server: openresty/1.9.7.3'.PHP_EOL;
-    $mock_response .= 'X-RosetteAPI-Request-Id: XXXXXXXXXXXXXXXXXXXXXXXX'.PHP_EOL;
-    $mock_response .= 'Content-Length: 95'.PHP_EOL;
-    $mock_response .= 'Connection: keep-alive'.PHP_EOL;
-    $mock_response .= PHP_EOL;
-    $mock_response .= '{"name":"Rosette API","version":"0.10.3","buildNumber":"","buildTime":"","versionChecked":true}';
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(403);
+        $request->getResponse()->willReturn([ 'message' => 'access to this resource denied', 'code' => 'forbidden' ]);
 
-    return $mock_response;
-}
+        $this->setMockRequest($request);
+        $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
+    }
 
-// mock the curl_getinfo call in order to return a valid code
-function curl_getinfo($ch)
-{
-    return 200;
+    public function it_fails_check_version($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
+        $params->contentUri = 'http://some.dummysite.com';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => false ]);
+
+        $this->setMockRequest($request);
+        $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
+    }
 }
