@@ -55,6 +55,10 @@ class NameTranslationParameters extends RosetteParamsSetBase
      */
     public $targetScheme;
     /**
+     * @var string genre to categorize the input data
+     */
+    public $genre;
+    /**
      * constructor.
      */
     public function __construct()
