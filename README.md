@@ -9,7 +9,7 @@ See the [wiki](https://github.com/rosette-api/php/wiki) for more information.
 Installation
 ------------
 
-`composer require "rosette/api: ~1.0.*"`
+`composer require "rosette/api: ~1.1.*"`
 
 Basic Usage
 -----------

@@ -120,10 +120,10 @@ fi
 
 
 #Run unit tests
-cd /php-dev && ./vendor/bin/phpunit -v --bootstrap ./vendor/autoload.php ./tests/rosette/api/ApiTest.php
+cd /php-dev && ./bin/phpspec run
 
 #Run php-cs-fixer
-./vendor/bin/php-cs-fixer fix . --dry-run --diff --level=psr2
+./bin/php-cs-fixer fix . --dry-run --diff --level=psr2
 
 #Generate gh-pages and push them to git account (if git username is provided)
 if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then

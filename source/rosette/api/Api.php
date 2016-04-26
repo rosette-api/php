@@ -45,49 +45,128 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.0';
+    private static $binding_version = '1.1';
+
     /**
      * User key (required for Rosette API).
      *
      * @var null|string
      */
     private $user_key;
+
     /**
      * URL of the Rosette API (or test server).
      *
      * @var string
      */
     private $service_url;
+
     /**
      * HTTP headers for Rosette API.
      *
      * @var array
      */
     private $headers;
-    /**
-     * MultiPart status.
-     *
-     * @var bool
-     */
-    private $useMultiPart;
+
     /**
      * True if the version has already been checked.  Saves round trips.
      *
      * @var bool
      */
     private $version_checked;
+
     /**
      * Endpoint for the operation.
      *
      * @var null|string
      */
     private $subUrl;
+
     /**
-     * Max timeout (seconds).
+     * response code
      *
      * @var
      */
     private $response_code;
+
+    /**
+     * max retries
+     *
+     * @var int
+     */
+    private $max_retries;
+
+    /**
+     * retry sleep count (ms)
+     *
+     * @var int
+     */
+    private $ms_between_retries;
+
+    /**
+     * request override - for testing
+     *
+     * @RosetteRequest
+     */
+    private $mock_request;
+
+
+    /**
+     * Create an L{API} object.
+     *
+     * @param string $service_url URL of the Api API
+     * @param string $user_key    An authentication string to be sent as user_key with
+     *                            all requests.
+     */
+    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
+    {
+        $this->user_key = $user_key;
+
+        $this->headers = array("X-RosetteAPI-Key: $user_key",
+                          "Content-Type: application/json",
+                          "Accept: application/json",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+
+        $this->setServiceUrl($service_url);
+        $this->setDebug(false);
+        $this->setTimeout(300);
+        $this->version_checked = false;
+        $this->subUrl = null;
+        $this->max_retries = 5;
+        $this->ms_between_retries = 500000;
+        $this->mock_request = null;
+    }
+    
+    /**
+     * Sets on override Request for mocking purposes
+     *
+     * @param $requestObject
+     */
+    public function setMockRequest($requestObject)
+    {
+        $this->mock_request = $requestObject;
+    }
+
+    /**
+     * Sets the maximum retries for server connect
+     *
+     * @param $max_retries
+     */
+    public function setMaxRetries($max_retries)
+    {
+        $this->max_retries = $max_retries;
+    }
+
+    /**
+     * Sets the millisecond sleep time between retries
+     *
+     * @param $max_retries
+     */
+    public function setMillisecondsBetweenRetries($ms_between_retries)
+    {
+        $this->ms_between_retries = $ms_between_retries;
+    }
 
     /**
      * Returns response code.
@@ -130,48 +209,6 @@ class Api
     }
 
     /**
-     * Skips version check with server, not recommended.
-     */
-    public function skipVersionCheck()
-    {
-        $this->version_checked = true;
-    }
-
-    /**
-     * Create an L{API} object.
-     *
-     * @param string $service_url URL of the Api API
-     * @param string $user_key    An authentication string to be sent as user_key with
-     *                            all requests.
-     */
-    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
-    {
-        $this->user_key = $user_key;
-        $this->service_url = $service_url[strlen($service_url) - 1] === '/' ? $service_url : $service_url . '/';
-        $this->debug = false;
-        $this->useMultiPart = false;
-        $this->version_checked = false;
-        $this->subUrl = null;
-        $this->timeout = 300;
-
-        $this->headers = array("X-RosetteAPI-Key: $user_key",
-                          "Content-Type: application/json",
-                          "Accept: application/json",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
-    }
-
-    /**
-     * Setter to set version_checked.
-     *
-     * @param bool $version_checked
-     */
-    public function setVersionChecked($version_checked)
-    {
-        $this->version_checked = $version_checked;
-    }
-
-    /**
      * Enables debug (more verbose output).
      *
      * @param bool $debug
@@ -179,16 +216,28 @@ class Api
     public function setDebug($debug)
     {
         $this->debug = $debug;
+        $debug_header = 'X-RosetteAPI-Devel: true';
+        $index = array_search($debug_header, $this->headers, true);
+        if ($index === false) {
+            if ($debug === true) {
+                $this->headers[] = $debug_header;
+            }
+        } else {
+            if ($debug === false) {
+                unset($this->headers[$index]);
+            }
+        }
     }
 
+
     /**
-     * Getter for the user_key.
+     * Retrieves debug setting (more verbose output).
      *
-     * @return null|string
+     * @param bool $debug
      */
-    public function getUserKey()
+    public function getDebug()
     {
-        return $this->user_key;
+        return $this->debug;
     }
 
     /**
@@ -202,63 +251,26 @@ class Api
     }
 
     /**
-     * Getter for MultiPart.
+     * Setter for the service_url.
      *
-     * @return bool
+     * @param string
      */
-    public function isUseMultiPart()
+    public function setServiceUrl($url)
     {
-        return $this->useMultiPart;
+        $this->service_url = $url[strlen($url) - 1] === '/' ? $url : $url . '/';
     }
 
     /**
-     * Setter for MultiPart.
-     *
-     * @param bool $useMultiPart
+     * Replaces a header item with a new one
      */
-    public function setUseMultiPart($useMultiPart)
+    private function replaceHeaderItem($old_header_item, $new_header_item)
     {
-        $this->useMultiPart = $useMultiPart;
-    }
-
-    /**
-     * Processes the response, returning either the decoded Json or throwing an exception.
-     *
-     * @param $resultObject
-     * @param $action
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    private function finishResult($resultObject, $action)
-    {
-        $msg = null;
-
-        if ($this->getResponseCode() === 200) {
-            return $resultObject;
-        } else {
-            if (array_key_exists('message', $resultObject)) {
-                $msg = $resultObject['message'];
-            }
-            $complaint_url = $this->subUrl === null ? 'Top level info' : $action . ' ' . $this->subUrl;
-            if (array_key_exists('code', $resultObject)) {
-                $serverCode = $resultObject['code'];
-                if ($msg === null) {
-                    $msg = $serverCode;
-                }
-            } else {
-                $serverCode = RosetteException::$BAD_REQUEST_FORMAT;
-                if ($msg === null) {
-                    $msg = 'unknown error';
-                }
-            }
-
-            throw new RosetteException(
-                $complaint_url . '
-                : failed to communicate with Api: ' . $msg,
-                is_numeric($serverCode) ? $serverCode : RosetteException::$BAD_REQUEST_FORMAT
-            );
+        $index = array_search($old_header_item, $this->headers, true);
+        if ($index !== false) {
+            unset($this->headers[$index]);
+        }
+        if (strlen(trim($new_header_item)) > 0) {
+            $this->headers[] = $new_header_item;
         }
     }
 
@@ -276,14 +288,12 @@ class Api
     {
         $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
-        $this->useMultiPart = isset($parameters->useMultiPart) ? $parameters->useMultiPart : null;
+        $resultObject = '';
 
-        if ($this->useMultiPart) {
-            $content = $parameters->content;
+        if (strlen($parameters->getMultiPartContent()) > 0) {
+            $content = $parameters->getMultiPartContent();
             $filename = $parameters->fileName;
 
-            $parameters = (array) $parameters;
-            json_encode($parameters);
             json_encode($content, JSON_FORCE_OBJECT);
 
             // create multipart
@@ -293,35 +303,23 @@ class Api
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
-            $multi .= "{\"language\": \"eng\"}" . "\r\n";
-            $multi .= $parametersTemp . $clrf .$clrf;
+            $multi .= $parameters->serialize(false) . $clrf .$clrf;
             $multi .= '--' . $boundary . "\r\n";
             $multi .= 'Content-Type: text/plain' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="content"; filename="' . $filename . '"' . "\r\n" . "\r\n";
             $multi .= $content . "\r\n";
             $multi .= '--' . $boundary . '--';
 
-            $this->headers = array("X-RosetteAPI-Key: $this->user_key",
-                          "Content-Type: multipart/mixed",
-                          "Accept: */*",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+            $this->replaceHeaderItem('Content-Type: application/json', 'Content-Type: multipart/mixed');
 
             $url = $this->service_url . $this->subUrl;
-            if ($this->debug) {
-                $url .= '?debug=true';
-            }
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
-            return $this->finishResult($resultObject, 'callEndpoint');
         } else {
             $url = $this->service_url . $this->subUrl;
-            if ($this->debug) {
-                $url .= '?debug=true';
-            }
-            $resultObject = $this->postHttp($url, $this->headers, $parameters);
-            return $this->finishResult($resultObject, 'callEndpoint');
+            $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize());
         }
+        return $resultObject;
     }
 
     /**
@@ -334,13 +332,19 @@ class Api
      *
      * @throws RosetteException
      */
-    public function checkVersion($url, $versionToCheck = null)
+    private function checkVersion($url, $versionToCheck = null)
     {
         if (!$this->version_checked) {
             if (!$versionToCheck) {
                 $versionToCheck = self::$binding_version;
             }
             $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
+
+            // should not get called due to makeRequest checks, but just in case, we want to 
+            // avoid an incompatible version error when it's something else.
+            if ($this->getResponseCode() !== 200) {
+                throw new RosetteException( $resultObject['message'], $this->getResponseCode());
+            }
 
             if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
                 $this->version_checked = true;
@@ -355,33 +359,6 @@ class Api
         return $this->version_checked;
     }
 
-    /**
-     * function headersToArray
-     *
-     * Converts the http response header string to an associative array
-     *
-     * @param $headers
-     *
-     * @returns associative array of headers
-     */
-    public function headersToArray($headers)
-    {
-        $head = array();
-        foreach ($headers as $k=>$v) {
-            $t = explode(':', $v, 2);
-            if (isset($t[1])) {
-                $head[ trim($t[0]) ] = trim($t[1]);
-            } else {
-                if (strlen(trim($v)) > 0) {
-                    $head[] = $v;
-                }
-                if (preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $v, $out)) {
-                    $head['response_code'] = intval($out[1]);
-                }
-            }
-        }
-        return $head;
-    }
 
     /**
      * function makeRequest.
@@ -389,123 +366,36 @@ class Api
      * Encapsulates the GET/POST
      *
      * @param $url
+     * @param $headers
      * @param $data
+     * @param $method
      *
      * @return string
      *
      * @throws RosetteException
      *
-     * @internal param $op : operation
-     * @internal param $url : target URL
-     * @internal param $headers : header data
-     * @internal param $data : submission data
-     * @internal param $method : http method
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        $response = null;
-        $message = null;
-
-        // check for multipart and set data accordingly
-        if ($this->useMultiPart === null) {
-            $data = (array) $data;
-
-            if (array_key_exists('content', $data) && $data['content'] === "") {
-                unset($data['content']);
-            }
-
-            if (array_key_exists('contentUri', $data) && $data['contentUri'] === "") {
-                unset($data['contentUri']);
-            }
-
-            foreach ($data as $v) {
-                $data = array_filter($data, function ($v) {
-                    if ($v !== null || $v !== "") {
-                        return $v;
-                    }
-                });
-            }
-            $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        }
-
-        $code = 'unknownError';
-        $http_response_header = null;
-
-        // create cURL request
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        if ($method === 'POST') {
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        } elseif ($method === 'GET') {
-            curl_setopt($ch, CURLOPT_HTTPGET, true);
-        }
-
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        $resCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $this->setResponseCode($resCode);
-        if ($response === false) {
-            echo curl_errno($ch);
-        }
-        $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-        $header = explode(PHP_EOL, substr($response, 0, $header_size));
-        $body = substr($response, $header_size);
-
-        curl_close($ch);
-
-        if (strlen($body) > 3 && mb_strpos($body, "\x1f" . "\x8b" . "\x08", 0) === 0) {
-            // a gzipped string starts with ID1(\x1f) ID2(\x8b) CM(\x08)
-            // http://www.gzip.org/zlib/rfc-gzip.html#member-format
-            $body = gzinflate(substr($body, 10, -8));
-        }
-        $response = [ 'headers' => $this->headersToArray($header) ];
-        $response = array_merge($response, json_decode($body, true));
-        if ($this->getResponseCode() < 500) {
-            return $response;
-        }
-        if ($response !== null) {
-            try {
-                if (array_key_exists('message', $json)) {
-                    $message = $json['message'];
+        $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
+        for ($retries = 0; $retries < $this->max_retries; $retries++) {
+            if ($request->makeRequest($url, $headers, $data, $method) === false) {
+                throw new RosetteException($request->getResponseError); 
+            } else {
+                $this->setResponseCode($request->getResponseCode());
+                if ($this->getResponseCode() === 429) {
+                    usleep($this->ms_between_retries);
+                    continue;
+                } elseif ($this->getResponseCode() !== 200) {
+                    throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
                 }
-                if (array_key_exists('code', $json)) {
-                    $code = $json['code'];
-                }
-            } catch (\Exception $e) {
-                // pass
+                return $request->getResponse();
             }
         }
-
-        if ($code === 'unknownError') {
-            $message = sprintf('A retryable network operation has not succeeded after %d attempts', $this->numRetries);
-        }
-        throw new RosetteException($message . ' [' . $url . ']', $code);
-    }
-
-    /**
-     * The response header that is returned by $http_response_header does not contain an explicit return code;
-     * it is in the first array element. This method extracts that code.
-     *
-     * @param $header_str
-     *
-     * @return int
-     *
-     * @throws RosetteException
-     */
-    public function getResponseStatusCode($header_str)
-    {
-        // the first line of a HTTP response by spec is the status line that looks like:
-        //     HTTP/1.1 200 OK
-        // just need to regex out the status code
-        $status_line = array_shift($header_str);
-        if (preg_match('#^HTTP/1\.[0-9]+\s+([1-5][0-9][0-9])\s+#', $status_line, $out) === 1) {
-            return intval($out[1]);
+        if ($this->getResponseCode() !== 200) {
+            throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
         } else {
-            throw new RosetteException('Invalid HTTP response status line: ' . $status_line);
+            return $request->getResponse();
         }
     }
 
@@ -564,11 +454,10 @@ class Api
      */
     public function ping()
     {
-        $this->skipVersionCheck();
         $url = $this->service_url . 'ping';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'ping');
+        return $resultObject;
     }
 
     /**
@@ -580,11 +469,10 @@ class Api
      */
     public function info()
     {
-        $this->skipVersionCheck();
         $url = $this->service_url . 'info';
         $resultObject = $this->getHttp($url, $this->headers);
 
-        return $this->finishResult($resultObject, 'info');
+        return $resultObject;
     }
 
     /**

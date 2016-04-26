@@ -31,6 +31,10 @@ class NameSimilarityParameters extends RosetteParamsSetBase
      */
     public $name2;
     /**
+     * @var string genre to categorize the input data
+     */
+    public $genre;
+    /**
      * constructor.
      *
      * @param Name - sourceName source name to be compared
@@ -40,6 +44,7 @@ class NameSimilarityParameters extends RosetteParamsSetBase
     {
         $this->name1 = $sourceName;
         $this->name2 = $targetName;
+        $this->genre = '';
     }
 
     /**
