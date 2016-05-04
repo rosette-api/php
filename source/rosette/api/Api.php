@@ -540,15 +540,15 @@ class Api
      * Calls the entities endpoint.
      *
      * @param $params
-     * @param $linked
+     * @param $resolve_entities
      *
      * @return mixed
      *
      * @throws RosetteException
      */
-    public function entities($params, $linked = false)
+    public function entities($params, $resolve_entities = false)
     {
-        return $linked ? $this->callEndpoint($params, 'entities/linked') : $this->callEndpoint($params, 'entities');
+        return $resolve_entities ? $this->callEndpoint($params, 'entities/linked') : $this->callEndpoint($params, 'entities');
     }
 
     /**
