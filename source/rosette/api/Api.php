@@ -343,7 +343,7 @@ class Api
             // should not get called due to makeRequest checks, but just in case, we want to 
             // avoid an incompatible version error when it's something else.
             if ($this->getResponseCode() !== 200) {
-                throw new RosetteException( $resultObject['message'], $this->getResponseCode());
+                throw new RosetteException($resultObject['message'], $this->getResponseCode());
             }
 
             if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
@@ -380,7 +380,7 @@ class Api
         $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
         for ($retries = 0; $retries < $this->max_retries; $retries++) {
             if ($request->makeRequest($url, $headers, $data, $method) === false) {
-                throw new RosetteException($request->getResponseError); 
+                throw new RosetteException($request->getResponseError);
             } else {
                 $this->setResponseCode($request->getResponseCode());
                 if ($this->getResponseCode() === 429) {

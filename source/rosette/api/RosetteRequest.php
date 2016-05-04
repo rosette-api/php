@@ -198,7 +198,7 @@ class RosetteRequest
             $response = [ 'headers' => $this->headersToArray() ];
             $responseBody = $this->getResponseBody();
             if (empty($responseBody)) {
-                $response = array_merge($response, [ 'body' => 'empty' ]); 
+                $response = array_merge($response, [ 'body' => 'empty' ]);
             } else {
                 $response = array_merge($response, json_decode($this->getResponseBody(), true));
             }
