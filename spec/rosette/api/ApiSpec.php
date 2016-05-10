@@ -76,7 +76,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->language($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -90,7 +90,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->sentences($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -104,7 +104,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->tokens($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -118,7 +118,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->morphology($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -140,7 +140,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->entities($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -154,7 +154,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $linked = true;
@@ -169,7 +169,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->categories($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -183,7 +183,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -197,7 +197,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -210,7 +210,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->nameTranslation($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -223,7 +223,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->nameSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -237,7 +237,7 @@ class ApiSpec extends ObjectBehavior
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => true ]);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
 
         $this->setMockRequest($request);
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
@@ -257,17 +257,4 @@ class ApiSpec extends ObjectBehavior
         $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
     }
 
-    public function it_fails_check_version($params, $request)
-    {
-        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
-        $params->contentUri = 'http://some.dummysite.com';
-
-        $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
-        $request->getResponseCode()->willReturn(200);
-        $request->getResponse()->willReturn([ 'name' => 'Rosette API', 'versionChecked' => false ]);
-
-        $this->setMockRequest($request);
-        $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
-    }
 }
