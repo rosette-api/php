@@ -69,13 +69,6 @@ class Api
     private $headers;
 
     /**
-     * True if the version has already been checked.  Saves round trips.
-     *
-     * @var bool
-     */
-    private $version_checked;
-
-    /**
      * Endpoint for the operation.
      *
      * @var null|string
@@ -126,12 +119,13 @@ class Api
                           "Content-Type: application/json",
                           "Accept: application/json",
                           "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version, );
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version,
+                          "X-RosetteAPI-Binding: php",
+                          "X-RosetteAPI-Binding-Version: " . self::$binding_version );
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
         $this->setTimeout(300);
-        $this->version_checked = false;
         $this->subUrl = null;
         $this->max_retries = 5;
         $this->ms_between_retries = 500000;
@@ -286,7 +280,6 @@ class Api
      */
     private function callEndpoint($parameters, $subUrl)
     {
-        $this->checkVersion($this->service_url);
         $this->subUrl = $subUrl;
         $resultObject = '';
 
@@ -321,44 +314,6 @@ class Api
         }
         return $resultObject;
     }
-
-    /**
-     * Checks the server version against the api (or provided )version.
-     *
-     * @param $url
-     * @param $versionToCheck
-     *
-     * @return bool
-     *
-     * @throws RosetteException
-     */
-    private function checkVersion($url, $versionToCheck = null)
-    {
-        if (!$this->version_checked) {
-            if (!$versionToCheck) {
-                $versionToCheck = self::$binding_version;
-            }
-            $resultObject = $this->postHttp($url . "info?clientVersion=$versionToCheck", $this->headers, null);
-
-            // should not get called due to makeRequest checks, but just in case, we want to 
-            // avoid an incompatible version error when it's something else.
-            if ($this->getResponseCode() !== 200) {
-                throw new RosetteException($resultObject['message'], $this->getResponseCode());
-            }
-
-            if (array_key_exists('versionChecked', $resultObject) && $resultObject['versionChecked'] === true) {
-                $this->version_checked = true;
-            } else {
-                throw new RosetteException(
-                    'The server version is not compatible with binding version ' . strval($versionToCheck),
-                    RosetteException::$INCOMPATIBLE_VERSION
-                );
-            }
-        }
-
-        return $this->version_checked;
-    }
-
 
     /**
      * function makeRequest.
