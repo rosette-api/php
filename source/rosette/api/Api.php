@@ -286,7 +286,11 @@ class Api
      */
     public function setOption($name, $value)
     {
-        $this->options[$name] = $value;
+        if ($value != null) {
+            $this->options[$name] = $value;
+        } elseif (array_key_exists($name, $this->options)) {
+            unset($this->options[$name]);
+        }
     }
 
     /**

@@ -44,6 +44,14 @@ class ApiSpec extends ObjectBehavior
         $this->getOption("test")->shouldBeNull();
     }
 
+    public function it_sets_gets_clears_single_option()
+    {
+        $this->setOption("test", "foo");
+        $this->getOption("test")->shouldBe("foo");
+        $this->setOption("test", null);
+        $this->getOption("test")->shouldBeNull();
+    }
+
     public function it_sets_gets_debug()
     {
         $debug = true;
