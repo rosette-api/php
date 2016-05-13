@@ -36,6 +36,14 @@ class ApiSpec extends ObjectBehavior
         $this->getTimeout()->shouldBe($timeout);
     }
 
+    public function it_sets_gets_clears_options()
+    {
+        $this->setOption("test", "foo");
+        $this->getOption("test")->shouldBe("foo");
+        $this->clearOptions();
+        $this->getOption("test")->shouldBeNull();
+    }
+
     public function it_sets_gets_debug()
     {
         $debug = true;
@@ -256,5 +264,4 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
     }
-
 }

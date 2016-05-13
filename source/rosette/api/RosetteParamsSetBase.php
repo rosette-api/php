@@ -91,6 +91,11 @@ abstract class RosetteParamsSetBase
      */
     private function removeEmptyProperties($obj)
     {
+        $arr = json_decode(json_encode($obj), true);
+        return array_filter($arr);
+
+        /** iteratively loops through the object and removes elements
+            that are empty.
         $objVars = get_object_vars($obj);
 
         if (count($objVars) > 0) {
@@ -113,19 +118,26 @@ abstract class RosetteParamsSetBase
         }
 
         return $obj;
+        */
     }
 
     /**
      * Serialize into a json string.
      *
+     * @param $options associative array of options
+     *
      * @return string
      */
-    public function serialize()
+    public function serialize($options)
     {
         $this->validate();
 
-        $classObject = $this->removeEmptyProperties($this);
+        $classArray = $this->removeEmptyProperties($this);
 
-        return json_encode($this);
+        if (!empty($options) && count($options) > 0) {
+            $classArray["options"] = $options;
+        }
+
+        return json_encode($classArray);
     }
 }
