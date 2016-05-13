@@ -239,7 +239,7 @@ class ApiSpec extends ObjectBehavior
 
     public function it_calls_the_relationships_endpoint($params, $request)
     {
-        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
 
         $request->beADoubleOf('rosette\api\RosetteRequest');
@@ -253,7 +253,7 @@ class ApiSpec extends ObjectBehavior
 
     public function it_fails_with_non_200_response($params, $request)
     {
-        $params->beADoubleOf('\rosette\api\RelationshipsParameters');
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
 
         $request->beADoubleOf('rosette\api\RosetteRequest');

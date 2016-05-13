@@ -5,7 +5,7 @@
  **/
 require_once dirname(__FILE__) . '/vendor/autoload.php';
 use rosette\api\Api;
-use rosette\api\RelationshipsParameters;
+use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
 
 $options = getopt(null, array('key:', 'url::'));
@@ -15,9 +15,9 @@ if (!isset($options['key'])) {
 }
 $relationships_text_data = "The Ghostbusters movie was filmed in Boston.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new RelationshipsParameters();
+$params = new DocumentParameters();
 $params->set('content', $relationships_text_data);
-$params->setOption('accuracyMode', 'RECALL');
+$api->setOption('accuracyMode', 'RECALL');
 
 try {
     $result = $api->relationships($params);
