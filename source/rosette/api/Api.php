@@ -103,6 +103,12 @@ class Api
      */
     private $mock_request;
 
+    /**
+     * internal options array
+     * @var array
+     */
+    private $options;
+
 
     /**
      * Create an L{API} object.
@@ -130,6 +136,7 @@ class Api
         $this->max_retries = 5;
         $this->ms_between_retries = 500000;
         $this->mock_request = null;
+        $this->options = array();
     }
     
     /**
@@ -227,7 +234,7 @@ class Api
     /**
      * Retrieves debug setting (more verbose output).
      *
-     * @param bool $debug
+     * @return bool
      */
     public function getDebug()
     {
@@ -253,6 +260,47 @@ class Api
     {
         $this->service_url = $url[strlen($url) - 1] === '/' ? $url : $url . '/';
     }
+
+    /**
+     * Getter for options
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    public function getOption($name)
+    {
+        if (array_key_exists($name, $this->options)) {
+            return $this->options[$name];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Setter for options
+     *
+     * @param string $name
+     * @param string $value
+     *
+     */
+    public function setOption($name, $value)
+    {
+        if ($value != null) {
+            $this->options[$name] = $value;
+        } elseif (array_key_exists($name, $this->options)) {
+            unset($this->options[$name]);
+        }
+    }
+
+    /**
+     * Clears all options
+     */
+    public function clearOptions()
+    {
+        $this->options = array();
+    }
+
 
     /**
      * Replaces a header item with a new one
@@ -296,7 +344,7 @@ class Api
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
-            $multi .= $parameters->serialize(false) . $clrf .$clrf;
+            $multi .= $parameters->serialize($this->options) . $clrf .$clrf;
             $multi .= '--' . $boundary . "\r\n";
             $multi .= 'Content-Type: text/plain' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="content"; filename="' . $filename . '"' . "\r\n" . "\r\n";
@@ -310,7 +358,7 @@ class Api
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
             $url = $this->service_url . $this->subUrl;
-            $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize());
+            $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
         }
         return $resultObject;
     }

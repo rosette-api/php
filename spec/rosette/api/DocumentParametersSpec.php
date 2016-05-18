@@ -57,8 +57,17 @@ class DocumentParametersSpec extends ObjectBehavior
 
     public function it_serialized()
     {
+        $options = array();
         $this->content = 'Sample Content';
-        $this->serialize()->shouldBeLike('{"content":"Sample Content"}');
+        $this->serialize($options)->shouldBeLike('{"content":"Sample Content"}');
+    }
+
+    public function it_serialized_with_options()
+    {
+        $options = array();
+        $this->content = 'Sample Content';
+        $options["test"] = "foo";
+        $this->serialize($options)->shouldBeLike('{"content":"Sample Content","options":{"test":"foo"}}');
     }
 }
 
