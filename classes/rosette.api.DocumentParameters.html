@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">8</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,10 +65,15 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
 <li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Getter for multiPartContent"><span class="description">Getter for multiPartContent</span><pre>getMultiPartContent()</pre></a></li>
+<li class="method public inherited"><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Provides default multiPart call for child classes that don't implement it"><span class="description">Provides default multiPart call for child classes that don't implement it</span><pre>getMultiPartContent()</pre></a></li>
 <li class="method public "><a href="#method_loadDocumentFile" title="loadDocumentFile() :: Loads a file into the object."><span class="description">Loads a file into the object.</span><pre>loadDocumentFile()</pre></a></li>
 <li class="method public "><a href="#method_loadDocumentString" title="loadDocumentString() :: Loads a string into the object."><span class="description">Loads a string into the object.</span><pre>loadDocumentString()</pre></a></li>
 <li class="method public inherited"><a href="#method_serialize" title="serialize() :: Serialize into a json string."><span class="description">Serialize into a json string.</span><pre>serialize()</pre></a></li>
 <li class="method public inherited"><a href="#method_set" title="set() :: Sets a property based on the name."><span class="description">Sets a property based on the name.</span><pre>set()</pre></a></li>
+<li class="method public "><a href="#method_setMultiPartContent" title="setMultiPartContent() :: Setter for multiPartContent. Clears the content and contentUri properties if it contains
+data"><span class="description">Setter for multiPartContent. Clears the content and contentUri properties if it contains
+data</span><pre>setMultiPartContent()</pre></a></li>
 <li class="method public "><a href="#method_validate" title="validate() :: Validates parameters."><span class="description">Validates parameters.</span><pre>validate()</pre></a></li>
 <li class="method public inherited"><a href="#method_validate" title="validate() :: Validates parameters before serializing them."><span class="description">Validates parameters before serializing them.</span><pre>validate()</pre></a></li>
 </ul>
@@ -85,9 +90,13 @@
 <li class="property public "><a href="#property_content" title="$content() :: "><span class="description">ontent is the text to be analyzed (required if no contentUri)</span><pre>$content</pre></a></li>
 <li class="property public "><a href="#property_contentUri" title="$contentUri() :: "><span class="description">contentUri is a URL to content that will be analyzed (required if no content)</span><pre>$contentUri</pre></a></li>
 <li class="property public "><a href="#property_fileName" title="$fileName() :: "><span class="description">fileName is the name of the file containing content to be analyzed</span><pre>$fileName</pre></a></li>
+<li class="property public "><a href="#property_genre" title="$genre() :: "><span class="description">genre to categorize the input data</span><pre>$genre</pre></a></li>
 <li class="property public "><a href="#property_language" title="$language() :: "><span class="description">language is the language of the content (optional)</span><pre>$language</pre></a></li>
-<li class="property public "><a href="#property_useMultiPart" title="$useMultiPart() :: "><span class="description">useMultiPart determines if the user wishes to upload a multipart</span><pre>$useMultiPart</pre></a></li>
 </ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property_multiPartContent" title="$multiPartContent() :: "><span class="description">multiPartContent contains content for multipart packaging.  Private to prevent
+processing by the serializer</span><pre>$multiPartContent</pre></a></li></ul>
 </li>
 </ul>
 </div>
@@ -157,9 +166,33 @@
 <code>mixed</code>property value</div>
 </div></div>
 </div>
+<a id="method_getMultiPartContent"></a><div class="element clickable method public method_getMultiPartContent " data-toggle="collapse" data-target=".method_getMultiPartContent .collapse" title="public">
+<h2>Getter for multiPartContent</h2>
+<pre>getMultiPartContent() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\rosette\api\RosetteParamsSetBase::getMultiPartContent()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getMultiPartContent"></a><div class="element clickable method public method_getMultiPartContent inherited" data-toggle="collapse" data-target=".method_getMultiPartContent .collapse" title="public">
+<h2>Provides default multiPart call for child classes that don't implement it</h2>
+<pre>getMultiPartContent() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
 <a id="method_loadDocumentFile"></a><div class="element clickable method public method_loadDocumentFile " data-toggle="collapse" data-target=".method_loadDocumentFile .collapse" title="public">
 <h2>Loads a file into the object.</h2>
-<pre>loadDocumentFile($path, null $dataType<code> = null</code>) </pre>
+<pre>loadDocumentFile($path) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>The file will be read as bytes; the appropriate conversion will be determined by the server.</p></div>
@@ -167,10 +200,6 @@
 <div class="subelement argument">
 <h4>$path</h4><p>: Pathname of a file acceptable to the C{open}
 function.</p></div>
-<div class="subelement argument">
-<h4>$dataType</h4>
-<code>null</code>
-</div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
@@ -180,13 +209,14 @@ function.</p></div>
 </div>
 <a id="method_loadDocumentString"></a><div class="element clickable method public method_loadDocumentString " data-toggle="collapse" data-target=".method_loadDocumentString .collapse" title="public">
 <h2>Loads a string into the object.</h2>
-<pre>loadDocumentString($stringData) </pre>
+<pre>loadDocumentString($stringData, $multiPart<code> = false</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"><p>The string will be taken as bytes or as Unicode dependent upon its native type and the data type asked for;
 if the type is HTML or XHTML, bytes are expected, the encoding to be determined by the server.</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$stringData</h4></div>
+<div class="subelement argument"><h4>$multiPart</h4></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
@@ -196,10 +226,13 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
 </div>
 <a id="method_serialize"></a><div class="element clickable method public method_serialize inherited" data-toggle="collapse" data-target=".method_serialize .collapse" title="public">
 <h2>Serialize into a json string.</h2>
-<pre>serialize() : string</pre>
+<pre>serialize($options) : string</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4><p>associative array of options</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
@@ -217,6 +250,17 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
 <div class="subelement argument">
 <h4>$value</h4>
 <code>mixed</code><p>the value to set</p></div>
+</div></div>
+</div>
+<a id="method_setMultiPartContent"></a><div class="element clickable method public method_setMultiPartContent " data-toggle="collapse" data-target=".method_setMultiPartContent .collapse" title="public">
+<h2>Setter for multiPartContent. Clears the content and contentUri properties if it contains
+data</h2>
+<pre>setMultiPartContent($str_content) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$str_content</h4></div>
 </div></div>
 </div>
 <a id="method_validate"></a><div class="element clickable method public method_validate " data-toggle="collapse" data-target=".method_validate .collapse" title="public">
@@ -302,6 +346,16 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_genre"> </a><div class="element clickable property public property_genre" data-toggle="collapse" data-target=".property_genre .collapse" title="public">
+<h2>genre to categorize the input data</h2>
+<pre>$genre : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_language"> </a><div class="element clickable property public property_language" data-toggle="collapse" data-target=".property_language .collapse" title="public">
 <h2>language is the language of the content (optional)</h2>
 <pre>$language : string</pre>
@@ -312,9 +366,10 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_useMultiPart"> </a><div class="element clickable property public property_useMultiPart" data-toggle="collapse" data-target=".property_useMultiPart .collapse" title="public">
-<h2>useMultiPart determines if the user wishes to upload a multipart</h2>
-<pre>$useMultiPart : boolean</pre>
+<a id="property_multiPartContent"> </a><div class="element clickable property private property_multiPartContent" data-toggle="collapse" data-target=".property_multiPartContent .collapse" title="private">
+<h2>multiPartContent contains content for multipart packaging.  Private to prevent
+processing by the serializer</h2>
+<pre>$multiPartContent : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -329,7 +384,7 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-03-28T11:16:29-04:00.<br></footer></div>
+            generated on 2016-05-31T10:56:28-04:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">8</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,6 +65,7 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: constructor."><span class="description">constructor.</span><pre>__construct()</pre></a></li>
 <li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
+<li class="method public inherited"><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Provides default multiPart call for child classes that don't implement it"><span class="description">Provides default multiPart call for child classes that don't implement it</span><pre>getMultiPartContent()</pre></a></li>
 <li class="method public inherited"><a href="#method_serialize" title="serialize() :: Serialize into a json string."><span class="description">Serialize into a json string.</span><pre>serialize()</pre></a></li>
 <li class="method public inherited"><a href="#method_set" title="set() :: Sets a property based on the name."><span class="description">Sets a property based on the name.</span><pre>set()</pre></a></li>
 <li class="method public "><a href="#method_validate" title="validate() :: Validates parameters."><span class="description">Validates parameters.</span><pre>validate()</pre></a></li>
@@ -80,6 +81,7 @@
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
                     <ul>
+<li class="property public "><a href="#property_genre" title="$genre() :: "><span class="description">genre to categorize the input data</span><pre>$genre</pre></a></li>
 <li class="property public "><a href="#property_name1" title="$name1() :: "><span class="description">sourceName source name</span><pre>$name1</pre></a></li>
 <li class="property public "><a href="#property_name2" title="$name2() :: "><span class="description">targetName target name</span><pre>$name2</pre></a></li>
 </ul>
@@ -126,8 +128,16 @@
 <td>\rosette\api\RosetteParamsSetBase::__construct()</td>
 </tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$sourceName</h4></div>
-<div class="subelement argument"><h4>$targetName</h4></div>
+<div class="subelement argument">
+<h4>$sourceName</h4>
+<code>\rosette\api\Name</code><ul>
+<li>sourceName source name to be compared</li>
+</ul></div>
+<div class="subelement argument">
+<h4>$targetName</h4>
+<code>\rosette\api\Name</code><ul>
+<li>targetName target name to be compared</li>
+</ul></div>
 </div></div>
 </div>
 <a id="method_get"></a><div class="element clickable method public method_get inherited" data-toggle="collapse" data-target=".method_get .collapse" title="public">
@@ -150,12 +160,25 @@
 <code>mixed</code>property value</div>
 </div></div>
 </div>
-<a id="method_serialize"></a><div class="element clickable method public method_serialize inherited" data-toggle="collapse" data-target=".method_serialize .collapse" title="public">
-<h2>Serialize into a json string.</h2>
-<pre>serialize() : string</pre>
+<a id="method_getMultiPartContent"></a><div class="element clickable method public method_getMultiPartContent inherited" data-toggle="collapse" data-target=".method_getMultiPartContent .collapse" title="public">
+<h2>Provides default multiPart call for child classes that don't implement it</h2>
+<pre>getMultiPartContent() : string</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_serialize"></a><div class="element clickable method public method_serialize inherited" data-toggle="collapse" data-target=".method_serialize .collapse" title="public">
+<h2>Serialize into a json string.</h2>
+<pre>serialize($options) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4><p>associative array of options</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
@@ -228,6 +251,16 @@
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_genre"> </a><div class="element clickable property public property_genre" data-toggle="collapse" data-target=".property_genre .collapse" title="public">
+<h2>genre to categorize the input data</h2>
+<pre>$genre : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_name1"> </a><div class="element clickable property public property_name1" data-toggle="collapse" data-target=".property_name1 .collapse" title="public">
 <h2>sourceName source name</h2>
 <pre>$name1 : \rosette\api\Name</pre>
@@ -255,7 +288,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-03-28T11:16:29-04:00.<br></footer></div>
+            generated on 2016-05-31T10:56:28-04:00.<br></footer></div>
 </div>
 </body>
 </html>
