@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">8</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -62,7 +62,21 @@
 <ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
-                    <ul><li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li></ul>
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
+<li class="method public inherited"><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Provides default multiPart call for child classes that don't implement it"><span class="description">Provides default multiPart call for child classes that don't implement it</span><pre>getMultiPartContent()</pre></a></li>
+<li class="method public inherited"><a href="#method_serialize" title="serialize() :: Serialize into a json string."><span class="description">Serialize into a json string.</span><pre>serialize()</pre></a></li>
+<li class="method public inherited"><a href="#method_set" title="set() :: Sets a property based on the name."><span class="description">Sets a property based on the name.</span><pre>set()</pre></a></li>
+<li class="method public "><a href="#method_validate" title="validate() :: required validate function"><span class="description">required validate function</span><pre>validate()</pre></a></li>
+<li class="method public inherited"><a href="#method_validate" title="validate() :: Validates parameters before serializing them."><span class="description">Validates parameters before serializing them.</span><pre>validate()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul><li class="method protected inherited"><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private inherited"><a href="#method_removeEmptyProperties" title="removeEmptyProperties() :: Recursively removes empty properties to facilitate json encoding."><span class="description">Recursively removes empty properties to facilitate json encoding.</span><pre>removeEmptyProperties()</pre></a></li></ul>
 </li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
@@ -92,10 +106,16 @@
 <p class="short_description">Class that represents a Name.</p>
 <div class="details">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>package</th>
 <td><a href="../packages/Default.html">Default</a></td>
-</tr></table>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\rosette\api\RosetteParamsSetBase</td>
+</tr>
+</table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
@@ -104,6 +124,10 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\rosette\api\RosetteParamsSetBase::__construct()</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$text</h4></div>
 <div class="subelement argument"><h4>$entityType</h4></div>
@@ -114,6 +138,110 @@
 <th><code>\rosette\api\RosetteException</code></th>
 <td></td>
 </tr></table>
+</div></div>
+</div>
+<a id="method_get"></a><div class="element clickable method public method_get inherited" data-toggle="collapse" data-target=".method_get .collapse" title="public">
+<h2>Gets a property value based on the property name.</h2>
+<pre>get(string $propertyName) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$propertyName</h4>
+<code>string</code><p>the name of the property</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td>if property name not found</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>property value</div>
+</div></div>
+</div>
+<a id="method_getMultiPartContent"></a><div class="element clickable method public method_getMultiPartContent inherited" data-toggle="collapse" data-target=".method_getMultiPartContent .collapse" title="public">
+<h2>Provides default multiPart call for child classes that don't implement it</h2>
+<pre>getMultiPartContent() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_serialize"></a><div class="element clickable method public method_serialize inherited" data-toggle="collapse" data-target=".method_serialize .collapse" title="public">
+<h2>Serialize into a json string.</h2>
+<pre>serialize($options) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4><p>associative array of options</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_set"></a><div class="element clickable method public method_set inherited" data-toggle="collapse" data-target=".method_set .collapse" title="public">
+<h2>Sets a property based on the name.</h2>
+<pre>set(string $propertyName, mixed $value) </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$propertyName</h4>
+<code>string</code><p>the name of the property</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>the value to set</p></div>
+</div></div>
+</div>
+<a id="method_validate"></a><div class="element clickable method public method_validate " data-toggle="collapse" data-target=".method_validate .collapse" title="public">
+<h2>required validate function</h2>
+<pre>validate() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\rosette\api\RosetteParamsSetBase::validate()</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_validate"></a><div class="element clickable method public method_validate inherited" data-toggle="collapse" data-target=".method_validate .collapse" title="public">
+<h2>Validates parameters before serializing them.</h2>
+<pre>validate() : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method___construct"></a><div class="element clickable method protected method___construct inherited" data-toggle="collapse" data-target=".method___construct .collapse" title="protected">
+<h2>Constructor.</h2>
+<pre>__construct() </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_removeEmptyProperties"></a><div class="element clickable method private method_removeEmptyProperties inherited" data-toggle="collapse" data-target=".method_removeEmptyProperties .collapse" title="private">
+<h2>Recursively removes empty properties to facilitate json encoding.</h2>
+<pre>removeEmptyProperties($obj) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$obj</h4><p>Object to clean</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
 <h3>
@@ -165,7 +293,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-03-28T11:16:29-04:00.<br></footer></div>
+            generated on 2016-05-31T10:56:28-04:00.<br></footer></div>
 </div>
 </body>
 </html>
