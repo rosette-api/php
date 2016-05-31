@@ -135,7 +135,7 @@ if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
     git branch -d develop
     #generate gh-pages from development source and output the contents to php repo
     cd /php-dev
-    ./vendor/bin/phpdoc -d ./source/rosette/api -t /php
+    ./bin/phpdoc -d ./source/rosette/api -t /php
     cd /php
     find -name 'phpdoc-cache-*' -exec rm -rf {} \;
     git add .
