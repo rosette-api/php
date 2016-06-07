@@ -450,7 +450,6 @@ class Api
      */
     private function postHttp($url, $headers, $data)
     {
-        var_dump($data);
         $method = 'POST';
         $response = $this->makeRequest($url, $headers, $data, $method);
 
