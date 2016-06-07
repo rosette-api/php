@@ -331,6 +331,13 @@ class Api
         $this->subUrl = $subUrl;
         $resultObject = '';
 
+        // if custom headers exist, add them
+        if($parameters->customHeaders != null){
+            foreach ($parameters->customHeaders as $key => $value) {
+                array_push($this->headers, $value);
+            }
+        }
+
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
             $filename = $parameters->fileName;
@@ -357,6 +364,7 @@ class Api
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
+
             $url = $this->service_url . $this->subUrl;
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
         }
@@ -442,6 +450,7 @@ class Api
      */
     private function postHttp($url, $headers, $data)
     {
+        var_dump($data);
         $method = 'POST';
         $response = $this->makeRequest($url, $headers, $data, $method);
 
