@@ -164,7 +164,6 @@ class DocumentParameters extends RosetteParamsSetBase
     /**
      * Loads a custom header into the object.
      *
-     * The file will be read as bytes; the appropriate conversion will be determined by the server.
      *
      * @param $customHeaders : Array of custom headers to be passed during the request
      * 
