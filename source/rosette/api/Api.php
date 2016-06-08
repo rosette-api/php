@@ -137,14 +137,6 @@ class Api
                           "X-RosetteAPI-Binding: php",
                           "X-RosetteAPI-Binding-Version: " . self::$binding_version );
 
-        /*$this->headers = $this->addHeaders(array("X-RosetteAPI-Key: $user_key",
-                          "Content-Type: application/json",
-                          "Accept: application/json",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version,
-                          "X-RosetteAPI-Binding: php",
-                          "X-RosetteAPI-Binding-Version: " . self::$binding_version ));*/
-
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
         $this->setTimeout(300);
@@ -325,11 +317,6 @@ class Api
      */
     public function getCustomHeaders()
     {
-        /*if (sizeof($this->customHeaders) > 0) {
-            return $this->customHeaders;
-        } else {
-            return null;
-        }*/
         return $this->customHeaders;
     }
 

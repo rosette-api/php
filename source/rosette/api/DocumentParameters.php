@@ -65,7 +65,6 @@ class DocumentParameters extends RosetteParamsSetBase
         $this->language = '';
         $this->multiPartContent = '';
         $this->genre = '';
-        $this->customHeaders = '';
     }
 
     /**
