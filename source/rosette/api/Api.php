@@ -332,11 +332,11 @@ class Api
         $resultObject = '';
 
         // if custom headers exist, add them
-        if($parameters->customHeaders != null){
+        /*if($parameters->customHeaders != null){
             foreach ($parameters->customHeaders as $key => $value) {
                 array_push($this->headers, $value);
             }
-        }
+        }*/
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
