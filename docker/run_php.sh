@@ -120,7 +120,7 @@ fi
 
 
 #Run unit tests
-cd /php-dev && ./bin/phpspec run
+cd /php-dev && ./bin/phpspec run --config=phpspec.yml --bootstrap=vendor/autoload.php --no-interaction --format=pretty
 
 #Run php-cs-fixer
 ./bin/php-cs-fixer fix . --dry-run --diff --level=psr2
