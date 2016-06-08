@@ -37,7 +37,7 @@ class NameSimilarityParameters extends RosetteParamsSetBase
     /**
      * @var array customHeaders to allow user to provide custom headers for an API request
      */
-    public $customHeaders;
+    //public $customHeaders;
     /**
      * constructor.
      *
@@ -82,8 +82,8 @@ class NameSimilarityParameters extends RosetteParamsSetBase
      * @throws RosetteException
      */
 
-    public function loadCustomHeaders($headers)
+    /*public function loadCustomHeaders($headers)
     {
         $this->customHeaders = $headers;
-    }
+    }*/
 }
