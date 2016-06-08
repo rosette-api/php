@@ -11,8 +11,6 @@ function HELP {
     echo "  API_KEY       - Rosette API key (required)"
     echo "  FILENAME      - PHP source file (optional)"
     echo "  ALT_URL       - Alternate service URL (optional)"
-    echo "  GIT_USERNAME  - Git username where you would like to push regenerated gh-pages (optional)"
-    echo "  VERSION       - Build version (optional)"
     echo "Compiles and runs the source file(s) using the local development source."
     exit 1
 }
@@ -84,14 +82,6 @@ while getopts ":API_KEY:FILENAME:ALT_URL" arg; do
             FILENAME=${OPTARG}
             usage
             ;;
-        GIT_USERNAME)
-            GIT_USERNAME=${OPTARG}
-            usage
-            ;;
-        VERSION)
-            VERSION={OPTARG}
-            usage
-            ;;
     esac
 done
 
@@ -124,23 +114,5 @@ cd /php-dev && ./bin/phpspec run
 
 #Run php-cs-fixer
 ./bin/php-cs-fixer fix . --dry-run --diff --level=psr2
-
-#Generate gh-pages and push them to git account (if git username is provided)
-if [ ! -z ${GIT_USERNAME} ] && [ ! -z ${VERSION} ]; then
-    #clone php git repo to the root dir
-    cd /
-    git clone git@github.com:${GIT_USERNAME}/php.git
-    cd php
-    git checkout origin/gh-pages -b gh-pages
-    git branch -d develop
-    #generate gh-pages from development source and output the contents to php repo
-    cd /php-dev
-    ./bin/phpdoc -d ./source/rosette/api -t /php
-    cd /php
-    find -name 'phpdoc-cache-*' -exec rm -rf {} \;
-    git add .
-    git commit -a -m "publish php apidocs ${VERSION}"
-    git push
-fi
 
 exit ${retcode}
