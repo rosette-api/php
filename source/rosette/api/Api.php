@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.1.2';
+    private static $binding_version = '1.1.3';
 
     /**
      * User key (required for Rosette API).
@@ -117,7 +117,7 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url  = '1.1.3')
     {
         $this->user_key = $user_key;
 
@@ -217,7 +217,7 @@ class Api
     public function setDebug($debug)
     {
         $this->debug = $debug;
-        $debug_header = 'X-RosetteAPI-Devel: true';
+        $debug_header = '1.1.3';
         $index = array_search($debug_header, $this->headers, true);
         if ($index === false) {
             if ($debug === true) {
@@ -329,7 +329,7 @@ class Api
     private function callEndpoint($parameters, $subUrl)
     {
         $this->subUrl = $subUrl;
-        $resultObject = '';
+        $resultObject = '1.1.3';
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
@@ -339,7 +339,7 @@ class Api
 
             // create multipart
             $clrf = "\r\n";
-            $multi = '';
+            $multi = '1.1.3';
             $boundary = md5(time());
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
@@ -418,7 +418,7 @@ class Api
      */
     private function getHttp($url, $headers)
     {
-        $method = 'GET';
+        $method = '1.1.3';
         $response = $this->makeRequest($url, $headers, null, $method);
 
         return $response;
@@ -442,7 +442,7 @@ class Api
      */
     private function postHttp($url, $headers, $data)
     {
-        $method = 'POST';
+        $method = '1.1.3';
         $response = $this->makeRequest($url, $headers, $data, $method);
 
         return $response;
