@@ -22,7 +22,7 @@ $appHeader = "X-RosetteAPI-App: php-app";
 $customHeaders = [];
 $customHeaders[0] = $appHeader;
 $params->set('content', $content);
-//$params->loadCustomHeaders($customHeaders);
+$params->loadCustomHeaders($customHeaders);
 
 try {
     $result = $api->language($params);

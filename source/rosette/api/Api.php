@@ -332,11 +332,15 @@ class Api
         $resultObject = '';
 
         // if custom headers exist, add them
-        /*if($parameters->customHeaders != null){
+        if($parameters->customHeaders != null){
             foreach ($parameters->customHeaders as $key => $value) {
-                array_push($this->headers, $value);
+                if(strpos($value, "X") === 0 && strpos($value, "-") === 1){
+                    array_push($this->headers, $value);
+                } else {
+                    throw new RosetteException("Custom headers must start with \"X-\"");
+                }
             }
-        }*/
+        }
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
