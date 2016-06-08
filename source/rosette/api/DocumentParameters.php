@@ -54,11 +54,6 @@ class DocumentParameters extends RosetteParamsSetBase
     public $genre;
 
     /**
-     * @var array customHeaders to allow user to provide custom headers for an API request
-     */
-    public $customHeaders;
-
-    /**
      * Constructor.
      *
      * @throws RosetteException
@@ -159,20 +154,5 @@ class DocumentParameters extends RosetteParamsSetBase
             $this->content = $stringData;
             $this->multiPartContent = '';
         }
-    }
-
-    /**
-     * Loads a custom header into the object.
-     *
-     *
-     * @param $customHeaders : Array of custom headers to be passed during the request
-     * 
-     *
-     * @throws RosetteException
-     */
-
-    public function loadCustomHeaders($headers)
-    {
-        $this->customHeaders = $headers;
     }
 }

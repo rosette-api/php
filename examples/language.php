@@ -17,12 +17,12 @@ $language_data = "Por favor Señorita, says the man.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
 $content = $language_data;
+$params->set('content', $content);
 $appHeader = [];
 $appHeader = "X-RosetteAPI-App: php-app";
 $customHeaders = [];
 $customHeaders[0] = $appHeader;
-$params->set('content', $content);
-$params->loadCustomHeaders($customHeaders);
+$api->setCustomHeaders($customHeaders);
 
 try {
     $result = $api->language($params);

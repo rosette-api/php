@@ -59,10 +59,6 @@ class NameTranslationParameters extends RosetteParamsSetBase
      */
     public $genre;
     /**
-     * @var array customHeaders to allow user to provide custom headers for an API request
-     */
-    public $customHeaders;
-    /**
      * constructor.
      */
     public function __construct()
@@ -88,20 +84,5 @@ class NameTranslationParameters extends RosetteParamsSetBase
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
-    }
-
-    /**
-     * Loads a custom header into the object.
-     *
-     *
-     * @param $customHeaders : Array of custom headers to be passed during the request
-     * 
-     *
-     * @throws RosetteException
-     */
-
-    public function loadCustomHeaders($headers)
-    {
-        $this->customHeaders = $headers;
     }
 }

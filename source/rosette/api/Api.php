@@ -109,6 +109,12 @@ class Api
      */
     private $options;
 
+    /**
+     * internal customHeaders array
+     * @var array
+     */
+    private $customHeaders;
+
 
     /**
      * Create an L{API} object.
@@ -121,6 +127,8 @@ class Api
     {
         $this->user_key = $user_key;
 
+
+
         $this->headers = array("X-RosetteAPI-Key: $user_key",
                           "Content-Type: application/json",
                           "Accept: application/json",
@@ -128,6 +136,14 @@ class Api
                           "User-Agent: RosetteAPIPHP/" . self::$binding_version,
                           "X-RosetteAPI-Binding: php",
                           "X-RosetteAPI-Binding-Version: " . self::$binding_version );
+
+        /*$this->headers = $this->addHeaders(array("X-RosetteAPI-Key: $user_key",
+                          "Content-Type: application/json",
+                          "Accept: application/json",
+                          "Accept-Encoding: gzip",
+                          "User-Agent: RosetteAPIPHP/" . self::$binding_version,
+                          "X-RosetteAPI-Binding: php",
+                          "X-RosetteAPI-Binding-Version: " . self::$binding_version ));*/
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
@@ -301,6 +317,72 @@ class Api
         $this->options = array();
     }
 
+        /**
+     * Setter for options
+     *
+     *
+     * @return array
+     */
+    public function getCustomHeaders()
+    {
+        /*if (sizeof($this->customHeaders) > 0) {
+            return $this->customHeaders;
+        } else {
+            return null;
+        }*/
+        return $this->customHeaders;
+    }
+
+    /**
+     * Setter for custom headers
+     *
+     * @param array $headers
+     *
+     */
+    public function setCustomHeaders($headers)
+    {
+        $this->clearCustomHeaders();
+        if($headers != null){
+            foreach ($headers as $key => $value) {
+                if(preg_match("/^X-RosetteAPI-/", $value)){
+                    array_push($this->customHeaders, $value);
+                } else {
+                    throw new RosetteException("Custom headers must start with \"X-\"");
+                }
+            }
+        }
+    }
+
+    /**
+    * Adds custom headers to headers array if there are any
+    *
+    * @param array $headers
+    *
+    * @return array $headers
+    **/
+    private function addHeaders($headers)
+    {
+       $customHeaders = $this->getCustomHeaders();
+
+       if(sizeof($customHeaders) > 0){
+            foreach($customHeaders as $value)
+            {
+                array_push($headers, $value);
+            }
+            return $headers;
+       } else {
+        return $headers;
+       }
+    }
+
+    /**
+     * Clears all custom headers
+     */
+    public function clearCustomHeaders()
+    {
+        $this->customHeaders = array();
+    }
+
 
     /**
      * Replaces a header item with a new one
@@ -331,16 +413,7 @@ class Api
         $this->subUrl = $subUrl;
         $resultObject = '';
 
-        // if custom headers exist, add them
-        if($parameters->customHeaders != null){
-            foreach ($parameters->customHeaders as $key => $value) {
-                if(strpos($value, "X") === 0 && strpos($value, "-") === 1){
-                    array_push($this->headers, $value);
-                } else {
-                    throw new RosetteException("Custom headers must start with \"X-\"");
-                }
-            }
-        }
+        $this->headers = $this->addHeaders($this->headers);
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();

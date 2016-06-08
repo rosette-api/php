@@ -275,15 +275,14 @@ class ApiSpec extends ObjectBehavior
 
     public function it_fails_with_incorrectly_formatted_custom_header($params, $request)
     {
-        $params->beADoubleOf('\rosette\api\DocumentParameters');
-        $params->contentUri = 'http://some.dummysite.com';
-        $appHeader = [];
-        $appHeader = "RosetteAPI-App: php-app";
-        $customHeaders = [];
-        $customHeaders[0] = $appHeader;
-        $params->set('content', "some content");
-        $params->loadCustomHeaders($customHeaders);
-        $this->shouldThrow('rosette\api\RosetteException')->duringLanguage($params);
+        $this->shouldThrow('rosette\api\RosetteException')->duringSetCustomHeaders(array("test"));
+    }
 
+    public function it_sets_gets_clears_customHeaders()
+    {
+        $this->setCustomHeaders(array('X-RosetteAPI-test'));
+        $this->getCustomHeaders()->shouldBe(array('X-RosetteAPI-test'));
+        $this->clearCustomHeaders();
+        $this->getCustomHeaders()->shouldBe(array());
     }
 }
