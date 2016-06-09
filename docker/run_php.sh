@@ -36,6 +36,7 @@ function cleanURL() {
         esac
         ping_url=${ALT_URL}
     fi
+    echo "Calling URL: ${ping_url}"
 }
 
 function validateURL() {
