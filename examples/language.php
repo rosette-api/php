@@ -18,11 +18,8 @@ $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new 
 $params = new DocumentParameters();
 $content = $language_data;
 $params->set('content', $content);
-$appHeader = [];
-$appHeader = "X-RosetteAPI-App: php-app";
-$customHeaders = [];
-$customHeaders[0] = $appHeader;
-$api->setCustomHeaders($customHeaders);
+$customHeader = "X-RosetteAPI-App: php-app";
+$api->setCustomHeaders($customHeader);
 
 try {
     $result = $api->language($params);

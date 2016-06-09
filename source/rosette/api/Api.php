@@ -326,16 +326,14 @@ class Api
      * @param array $headers
      *
      */
-    public function setCustomHeaders($headers)
+    public function setCustomHeaders($header)
     {
         $this->clearCustomHeaders();
-        if($headers != null){
-            foreach ($headers as $key => $value) {
-                if(preg_match("/^X-RosetteAPI-/", $value)){
-                    array_push($this->customHeaders, $value);
-                } else {
-                    throw new RosetteException("Custom headers must start with \"X-\"");
-                }
+        if($header != null){
+            if(preg_match("/^X-RosetteAPI-/", $header)){
+                array_push($this->customHeaders, $header);
+            } else {
+                throw new RosetteException("Custom headers must start with \"X-\"");
             }
         }
     }
