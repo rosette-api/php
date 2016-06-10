@@ -15,9 +15,12 @@ if (!isset($options['key'])) {
 }
 $entities_text_data = "Bill Murray will appear in new Ghostbusters film: Dr. Peter Venkman was spotted filming a cameo in Boston this… http://dlvr.it/BnsFfS";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
+# to improve performance, and if you don't need the QID, set this option
+# $api->setOption("linkEntities", FALSE);
 $params = new DocumentParameters();
 $content = $entities_text_data;
 $params->set('content', $content);
+$params->set('genre', 'social-media');
 
 try {
     $result = $api->entities($params);
