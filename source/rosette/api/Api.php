@@ -109,6 +109,12 @@ class Api
      */
     private $options;
 
+    /**
+     * internal customHeaders array
+     * @var array
+     */
+    private $customHeaders;
+
 
     /**
      * Create an L{API} object.
@@ -120,6 +126,8 @@ class Api
     public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
+
+
 
         $this->headers = array("X-RosetteAPI-Key: $user_key",
                           "Content-Type: application/json",
@@ -301,6 +309,65 @@ class Api
         $this->options = array();
     }
 
+        /**
+     * Setter for options
+     *
+     *
+     * @return array
+     */
+    public function getCustomHeaders()
+    {
+        return $this->customHeaders;
+    }
+
+    /**
+     * Setter for custom headers
+     *
+     * @param array $headers
+     *
+     */
+    public function setCustomHeaders($header)
+    {
+        $this->clearCustomHeaders();
+        if($header != null){
+            if(preg_match("/^X-RosetteAPI-/", $header)){
+                array_push($this->customHeaders, $header);
+            } else {
+                throw new RosetteException("Custom headers must start with \"X-\"");
+            }
+        }
+    }
+
+    /**
+    * Adds custom headers to headers array if there are any
+    *
+    * @param array $headers
+    *
+    * @return array $headers
+    **/
+    private function addHeaders($headers)
+    {
+       $customHeaders = $this->getCustomHeaders();
+
+       if(sizeof($customHeaders) > 0){
+            foreach($customHeaders as $value)
+            {
+                array_push($headers, $value);
+            }
+            return $headers;
+       } else {
+        return $headers;
+       }
+    }
+
+    /**
+     * Clears all custom headers
+     */
+    public function clearCustomHeaders()
+    {
+        $this->customHeaders = array();
+    }
+
 
     /**
      * Replaces a header item with a new one
@@ -331,6 +398,8 @@ class Api
         $this->subUrl = $subUrl;
         $resultObject = '';
 
+        $this->headers = $this->addHeaders($this->headers);
+
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
             $filename = $parameters->fileName;
@@ -357,6 +426,7 @@ class Api
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
+
             $url = $this->service_url . $this->subUrl;
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
         }
