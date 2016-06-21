@@ -401,7 +401,7 @@ class Api
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
-            $filename = $parameters->fileName;
+            $filename = $parameters->getFileName();
 
             json_encode($content, JSON_FORCE_OBJECT);
 
