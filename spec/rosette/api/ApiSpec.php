@@ -270,4 +270,18 @@ class ApiSpec extends ObjectBehavior
         $this->clearCustomHeaders();
         $this->getCustomHeaders()->shouldBe(array());
     }
+
+    public function it_fails_with_409_response($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->contentUri = 'http://some.dummysite.com';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(409);
+        $request->getResponse()->willReturn([ 'code' => 'incompatible version', 'message' => 'the version of client library used is not compatible with this server' ]);
+
+        $this->setMockRequest($request);
+        $this->shouldThrow('rosette\api\RosetteException')->duringRelationships($params);
+    }
 }
