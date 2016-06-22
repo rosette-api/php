@@ -46,7 +46,7 @@ class DocumentParameters extends RosetteParamsSetBase
     /**
      * @var string fileName is the name of the file containing content to be analyzed
      */
-    public $fileName;
+    private $fileName;
 
     /**
      * @var string genre to categorize the input data
@@ -90,6 +90,16 @@ class DocumentParameters extends RosetteParamsSetBase
     public function getMultiPartContent()
     {
         return $this->multiPartContent;
+    }
+
+    /**
+     * Getter for fileName
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->fileName;
     }
 
     /**
