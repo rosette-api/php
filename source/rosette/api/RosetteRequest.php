@@ -118,6 +118,7 @@ class RosetteRequest
 
         curl_setopt($this->curl_handle, CURLOPT_HEADER, 1);
         curl_setopt($this->curl_handle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($this->curl_handle, CURLOP_SSL_VERIFYPEER, false);
         
         $this->response = curl_exec($this->curl_handle);
 
