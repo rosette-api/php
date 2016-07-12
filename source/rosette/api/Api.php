@@ -21,7 +21,7 @@ namespace rosette\api;
 set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
 spl_autoload_register(function ($class) {
     $class = preg_replace('/.+\\\\/', '', $class);
-    require_once $class . '.php';
+    require_once ucfirst($class) . '.php';
 });
 
 /**
