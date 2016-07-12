@@ -620,9 +620,9 @@ class Api
      {
         if ($resolve_entities == true) {
             error_reporting(E_DEPRECATED);
-            $this->callEndpoint($params, 'entities/linked');
+            return $this->callEndpoint($params, 'entities/linked');
         } else {
-            $this->callEndpoint($params, 'entities');
+            return $this->callEndpoint($params, 'entities');
         }
      }
 
