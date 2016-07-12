@@ -607,19 +607,25 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-    /**
-     * Calls the entities endpoint.
-     *
-     * @param $params
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    public function entities($params)
-    {
-        return $this->callEndpoint($params, 'entities');
-    }
+      * Calls the entities endpoint.
+      *
+      * @param $params
+      * @param $resolve_entities
+      *
+      * @return mixed
+      *
+      * @throws RosetteException
+      */
+      public function entities($params, $resolve_entities = false)
+     {
+        if ($resolve_entities){
+            trigger_error("entities/linked has been combined with /entities, no need to specify resolve_entities")
+            $this->callEndpoint($params, 'entities/linked')
+        } else {
+            $this->callEndpoint($params, 'entities')
+        }
+     }
+
 
     /**
      * Calls the categories endpoint.

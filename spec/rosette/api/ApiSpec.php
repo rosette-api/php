@@ -162,6 +162,21 @@ class ApiSpec extends ObjectBehavior
         $this->entities($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
 
+    public function it_calls_the_entities_linked_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->content = 'Sample Data';
+
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+
+        $this->setMockRequest($request);
+        $linked = true;
+        $this->entities($params, $linked)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+
     public function it_calls_the_categories_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
