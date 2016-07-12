@@ -21,7 +21,7 @@ $params->set('content', $content);
 $params->set('genre', 'social-media');
 
 try {
-    $result = $api->entities($params);
+    $result = $api->entities($params, false);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
