@@ -607,7 +607,7 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-      * Calls the entities endpoint.
+      /* Calls the entities endpoint.
       *
       * @param $params
       * @param $resolve_entities
@@ -619,7 +619,7 @@ class Api
       public function entities($params, $resolve_entities = false)
      {
         if ($resolve_entities){
-            trigger_error("entities/linked has been combined with /entities, no need to specify resolve_entities")
+            error_reporting(E_DEPRECATED);
             $this->callEndpoint($params, 'entities/linked')
         } else {
             $this->callEndpoint($params, 'entities')
