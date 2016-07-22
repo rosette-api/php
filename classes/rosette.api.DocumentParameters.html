@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">13</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,6 +65,7 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
 <li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#method_getFileName" title="getFileName() :: Getter for fileName"><span class="description">Getter for fileName</span><pre>getFileName()</pre></a></li>
 <li class="method public "><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Getter for multiPartContent"><span class="description">Getter for multiPartContent</span><pre>getMultiPartContent()</pre></a></li>
 <li class="method public inherited"><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Provides default multiPart call for child classes that don't implement it"><span class="description">Provides default multiPart call for child classes that don't implement it</span><pre>getMultiPartContent()</pre></a></li>
 <li class="method public "><a href="#method_loadDocumentFile" title="loadDocumentFile() :: Loads a file into the object."><span class="description">Loads a file into the object.</span><pre>loadDocumentFile()</pre></a></li>
@@ -89,14 +90,16 @@ data</span><pre>setMultiPartContent()</pre></a></li>
                     <ul>
 <li class="property public "><a href="#property_content" title="$content() :: "><span class="description">ontent is the text to be analyzed (required if no contentUri)</span><pre>$content</pre></a></li>
 <li class="property public "><a href="#property_contentUri" title="$contentUri() :: "><span class="description">contentUri is a URL to content that will be analyzed (required if no content)</span><pre>$contentUri</pre></a></li>
-<li class="property public "><a href="#property_fileName" title="$fileName() :: "><span class="description">fileName is the name of the file containing content to be analyzed</span><pre>$fileName</pre></a></li>
 <li class="property public "><a href="#property_genre" title="$genre() :: "><span class="description">genre to categorize the input data</span><pre>$genre</pre></a></li>
 <li class="property public "><a href="#property_language" title="$language() :: "><span class="description">language is the language of the content (optional)</span><pre>$language</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
-                    <ul><li class="property private "><a href="#property_multiPartContent" title="$multiPartContent() :: "><span class="description">multiPartContent contains content for multipart packaging.  Private to prevent
-processing by the serializer</span><pre>$multiPartContent</pre></a></li></ul>
+                    <ul>
+<li class="property private "><a href="#property_fileName" title="$fileName() :: "><span class="description">fileName is the name of the file containing content to be analyzed</span><pre>$fileName</pre></a></li>
+<li class="property private "><a href="#property_multiPartContent" title="$multiPartContent() :: "><span class="description">multiPartContent contains content for multipart packaging.  Private to prevent
+processing by the serializer</span><pre>$multiPartContent</pre></a></li>
+</ul>
 </li>
 </ul>
 </div>
@@ -164,6 +167,16 @@ processing by the serializer</span><pre>$multiPartContent</pre></a></li></ul>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>mixed</code>property value</div>
+</div></div>
+</div>
+<a id="method_getFileName"></a><div class="element clickable method public method_getFileName " data-toggle="collapse" data-target=".method_getFileName .collapse" title="public">
+<h2>Getter for fileName</h2>
+<pre>getFileName() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
 </div></div>
 </div>
 <a id="method_getMultiPartContent"></a><div class="element clickable method public method_getMultiPartContent " data-toggle="collapse" data-target=".method_getMultiPartContent .collapse" title="public">
@@ -336,16 +349,6 @@ data</h2>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_fileName"> </a><div class="element clickable property public property_fileName" data-toggle="collapse" data-target=".property_fileName .collapse" title="public">
-<h2>fileName is the name of the file containing content to be analyzed</h2>
-<pre>$fileName : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="property_genre"> </a><div class="element clickable property public property_genre" data-toggle="collapse" data-target=".property_genre .collapse" title="public">
 <h2>genre to categorize the input data</h2>
 <pre>$genre : string</pre>
@@ -359,6 +362,16 @@ data</h2>
 <a id="property_language"> </a><div class="element clickable property public property_language" data-toggle="collapse" data-target=".property_language .collapse" title="public">
 <h2>language is the language of the content (optional)</h2>
 <pre>$language : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_fileName"> </a><div class="element clickable property private property_fileName" data-toggle="collapse" data-target=".property_fileName .collapse" title="private">
+<h2>fileName is the name of the file containing content to be analyzed</h2>
+<pre>$fileName : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -384,7 +397,7 @@ processing by the serializer</h2>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-06-08T20:38:59Z.<br></footer></div>
+            generated on 2016-07-22T14:11:39Z.<br></footer></div>
 </div>
 </body>
 </html>

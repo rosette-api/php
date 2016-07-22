@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">2</span></a></li>
+                <span class="label label-info">13</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,8 +65,11 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Create an L{API} object."><span class="description">Create an L{API} object.</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method_categories" title="categories() :: Calls the categories endpoint."><span class="description">Calls the categories endpoint.</span><pre>categories()</pre></a></li>
+<li class="method public "><a href="#method_clearCustomHeaders" title="clearCustomHeaders() :: Clears all custom headers"><span class="description">Clears all custom headers</span><pre>clearCustomHeaders()</pre></a></li>
 <li class="method public "><a href="#method_clearOptions" title="clearOptions() :: Clears all options"><span class="description">Clears all options</span><pre>clearOptions()</pre></a></li>
-<li class="method public "><a href="#method_entities" title="entities() :: Calls the entities endpoint."><span class="description">Calls the entities endpoint.</span><pre>entities()</pre></a></li>
+<li class="method public "><a href="#method_entities" title="entities() :: "><span class="description">entities()
+        </span><pre>entities()</pre></a></li>
+<li class="method public "><a href="#method_getCustomHeaders" title="getCustomHeaders() :: Setter for options"><span class="description">Setter for options</span><pre>getCustomHeaders()</pre></a></li>
 <li class="method public "><a href="#method_getDebug" title="getDebug() :: Retrieves debug setting (more verbose output)."><span class="description">Retrieves debug setting (more verbose output).</span><pre>getDebug()</pre></a></li>
 <li class="method public "><a href="#method_getOption" title="getOption() :: Getter for options"><span class="description">Getter for options</span><pre>getOption()</pre></a></li>
 <li class="method public "><a href="#method_getResponseCode" title="getResponseCode() :: Returns response code."><span class="description">Returns response code.</span><pre>getResponseCode()</pre></a></li>
@@ -81,6 +84,7 @@
 <li class="method public "><a href="#method_relationships" title="relationships() :: Calls the relationships endpoint."><span class="description">Calls the relationships endpoint.</span><pre>relationships()</pre></a></li>
 <li class="method public "><a href="#method_sentences" title="sentences() :: Calls the sentences endpoint."><span class="description">Calls the sentences endpoint.</span><pre>sentences()</pre></a></li>
 <li class="method public "><a href="#method_sentiment" title="sentiment() :: Calls the sentiment endpoint."><span class="description">Calls the sentiment endpoint.</span><pre>sentiment()</pre></a></li>
+<li class="method public "><a href="#method_setCustomHeaders" title="setCustomHeaders() :: Setter for custom headers"><span class="description">Setter for custom headers</span><pre>setCustomHeaders()</pre></a></li>
 <li class="method public "><a href="#method_setDebug" title="setDebug() :: Enables debug (more verbose output)."><span class="description">Enables debug (more verbose output).</span><pre>setDebug()</pre></a></li>
 <li class="method public "><a href="#method_setMaxRetries" title="setMaxRetries() :: Sets the maximum retries for server connect"><span class="description">Sets the maximum retries for server connect</span><pre>setMaxRetries()</pre></a></li>
 <li class="method public "><a href="#method_setMillisecondsBetweenRetries" title="setMillisecondsBetweenRetries() :: Sets the millisecond sleep time between retries"><span class="description">Sets the millisecond sleep time between retries</span><pre>setMillisecondsBetweenRetries()</pre></a></li>
@@ -94,6 +98,7 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
+<li class="method private "><a href="#method_addHeaders" title="addHeaders() :: Adds custom headers to headers array if there are any"><span class="description">Adds custom headers to headers array if there are any</span><pre>addHeaders()</pre></a></li>
 <li class="method private "><a href="#method_callEndpoint" title="callEndpoint() :: Internal operations processor for most of the endpoints."><span class="description">Internal operations processor for most of the endpoints.</span><pre>callEndpoint()</pre></a></li>
 <li class="method private "><a href="#method_makeRequest" title="makeRequest() :: function makeRequest."><span class="description">function makeRequest.</span><pre>makeRequest()</pre></a></li>
 <li class="method private "><a href="#method_replaceHeaderItem" title="replaceHeaderItem() :: Replaces a header item with a new one"><span class="description">Replaces a header item with a new one</span><pre>replaceHeaderItem()</pre></a></li>
@@ -106,6 +111,7 @@
 <li class="nav-header private">» Private
                     <ul>
 <li class="property private "><a href="#property_binding_version" title="$binding_version() :: Compatible server version."><span class="description"></span><pre>$binding_version</pre></a></li>
+<li class="property private "><a href="#property_customHeaders" title="$customHeaders() :: internal customHeaders array"><span class="description"></span><pre>$customHeaders</pre></a></li>
 <li class="property private "><a href="#property_headers" title="$headers() :: HTTP headers for Rosette API."><span class="description"></span><pre>$headers</pre></a></li>
 <li class="property private "><a href="#property_max_retries" title="$max_retries() :: max retries"><span class="description"></span><pre>$max_retries</pre></a></li>
 <li class="property private "><a href="#property_mock_request" title="$mock_request() :: request override - for testing"><span class="description"></span><pre>$mock_request</pre></a></li>
@@ -187,6 +193,12 @@ provide the content data that will be processed by the service.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_clearCustomHeaders"></a><div class="element clickable method public method_clearCustomHeaders " data-toggle="collapse" data-target=".method_clearCustomHeaders .collapse" title="public">
+<h2>Clears all custom headers</h2>
+<pre>clearCustomHeaders() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="method_clearOptions"></a><div class="element clickable method public method_clearOptions " data-toggle="collapse" data-target=".method_clearOptions .collapse" title="public">
 <h2>Clears all options</h2>
 <pre>clearOptions() </pre>
@@ -194,21 +206,25 @@ provide the content data that will be processed by the service.</p>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="method_entities"></a><div class="element clickable method public method_entities " data-toggle="collapse" data-target=".method_entities .collapse" title="public">
-<h2>Calls the entities endpoint.</h2>
-<pre>entities($params, $resolve_entities<code> = false</code>) : mixed</pre>
+<h2>entities()
+        </h2>
+<pre>entities($params, $resolve_entities<code> = false</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$params</h4></div>
 <div class="subelement argument"><h4>$resolve_entities</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
+</div></div>
+</div>
+<a id="method_getCustomHeaders"></a><div class="element clickable method public method_getCustomHeaders " data-toggle="collapse" data-target=".method_getCustomHeaders .collapse" title="public">
+<h2>Setter for options</h2>
+<pre>getCustomHeaders() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
 <h3>Returns</h3>
-<div class="subelement response"><code>mixed</code></div>
+<div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
 <a id="method_getDebug"></a><div class="element clickable method public method_getDebug " data-toggle="collapse" data-target=".method_getDebug .collapse" title="public">
@@ -419,6 +435,16 @@ provide the content data that will be processed by the service.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_setCustomHeaders"></a><div class="element clickable method public method_setCustomHeaders " data-toggle="collapse" data-target=".method_setCustomHeaders .collapse" title="public">
+<h2>Setter for custom headers</h2>
+<pre>setCustomHeaders($header) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$header</h4></div>
+</div></div>
+</div>
 <a id="method_setDebug"></a><div class="element clickable method public method_setDebug " data-toggle="collapse" data-target=".method_setDebug .collapse" title="public">
 <h2>Enables debug (more verbose output).</h2>
 <pre>setDebug(boolean $debug) </pre>
@@ -494,12 +520,15 @@ provide the content data that will be processed by the service.</p>
 </div>
 <a id="method_setServiceUrl"></a><div class="element clickable method public method_setServiceUrl " data-toggle="collapse" data-target=".method_setServiceUrl .collapse" title="public">
 <h2>Setter for the service_url.</h2>
-<pre>setServiceUrl($url) </pre>
+<pre>setServiceUrl(string $url) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$url</h4></div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code>
+</div>
 </div></div>
 </div>
 <a id="method_setTimeout"></a><div class="element clickable method public method_setTimeout " data-toggle="collapse" data-target=".method_setTimeout .collapse" title="public">
@@ -530,6 +559,22 @@ provide the content data that will be processed by the service.</p>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_addHeaders"></a><div class="element clickable method private method_addHeaders " data-toggle="collapse" data-target=".method_addHeaders .collapse" title="private">
+<h2>Adds custom headers to headers array if there are any</h2>
+<pre>addHeaders(array $headers) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$headers</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>$headers</div>
 </div></div>
 </div>
 <a id="method_callEndpoint"></a><div class="element clickable method private method_callEndpoint " data-toggle="collapse" data-target=".method_callEndpoint .collapse" title="private">
@@ -588,9 +633,19 @@ provide the content data that will be processed by the service.</p>
 <pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'1.1.2'</code></div>
+<div class="subelement argument"><code>'1.2.0'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_customHeaders"> </a><div class="element clickable property private property_customHeaders" data-toggle="collapse" data-target=".property_customHeaders .collapse" title="private">
+<h2>internal customHeaders array</h2>
+<pre>$customHeaders : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_headers"> </a><div class="element clickable property private property_headers" data-toggle="collapse" data-target=".property_headers .collapse" title="private">
@@ -696,7 +751,7 @@ provide the content data that will be processed by the service.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-06-08T20:38:59Z.<br></footer></div>
+            generated on 2016-07-22T14:11:39Z.<br></footer></div>
 </div>
 </body>
 </html>
