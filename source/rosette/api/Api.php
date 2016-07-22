@@ -21,7 +21,7 @@ namespace rosette\api;
 set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
 spl_autoload_register(function ($class) {
     $class = preg_replace('/.+\\\\/', '', $class);
-    require_once $class . '.php';
+    require_once ucfirst($class) . '.php';
 });
 
 /**
@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.1.2';
+    private static $binding_version = '1.2.0';
 
     /**
      * User key (required for Rosette API).
@@ -329,8 +329,8 @@ class Api
     public function setCustomHeaders($header)
     {
         $this->clearCustomHeaders();
-        if($header != null){
-            if(preg_match("/^X-RosetteAPI-/", $header)){
+        if ($header != null) {
+            if (preg_match("/^X-RosetteAPI-/", $header)) {
                 array_push($this->customHeaders, $header);
             } else {
                 throw new RosetteException("Custom headers must start with \"X-\"");
@@ -347,17 +347,16 @@ class Api
     **/
     private function addHeaders($headers)
     {
-       $customHeaders = $this->getCustomHeaders();
+        $customHeaders = $this->getCustomHeaders();
 
-       if(sizeof($customHeaders) > 0){
-            foreach($customHeaders as $value)
-            {
+        if (sizeof($customHeaders) > 0) {
+            foreach ($customHeaders as $value) {
                 array_push($headers, $value);
             }
             return $headers;
-       } else {
-        return $headers;
-       }
+        } else {
+            return $headers;
+        }
     }
 
     /**
@@ -402,7 +401,7 @@ class Api
 
         if (strlen($parameters->getMultiPartContent()) > 0) {
             $content = $parameters->getMultiPartContent();
-            $filename = $parameters->fileName;
+            $filename = $parameters->getFileName();
 
             json_encode($content, JSON_FORCE_OBJECT);
 
@@ -426,7 +425,6 @@ class Api
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
-
             $url = $this->service_url . $this->subUrl;
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
         }
@@ -609,20 +607,25 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-    /**
-     * Calls the entities endpoint.
-     *
-     * @param $params
-     * @param $resolve_entities
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    public function entities($params, $resolve_entities = false)
-    {
-        return $resolve_entities ? $this->callEndpoint($params, 'entities/linked') : $this->callEndpoint($params, 'entities');
-    }
+      /* Calls the entities endpoint.
+      *
+      * @param $params
+      * @param $resolve_entities
+      *
+      * @return mixed
+      *
+      * @throws RosetteException
+      */
+      public function entities($params, $resolve_entities = false)
+     {
+        if ($resolve_entities == true) {
+            error_reporting(E_DEPRECATED);
+            return $this->callEndpoint($params, 'entities/linked');
+        } else {
+            return $this->callEndpoint($params, 'entities');
+        }
+     }
+
 
     /**
      * Calls the categories endpoint.
