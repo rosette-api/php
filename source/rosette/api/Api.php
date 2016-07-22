@@ -21,7 +21,7 @@ namespace rosette\api;
 set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
 spl_autoload_register(function ($class) {
     $class = preg_replace('/.+\\\\/', '', $class);
-    require_once $class . '.php';
+    require_once ucfirst($class) . '.php';
 });
 
 /**
@@ -607,19 +607,25 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-    /**
-     * Calls the entities endpoint.
-     *
-     * @param $params
-     *
-     * @return mixed
-     *
-     * @throws RosetteException
-     */
-    public function entities($params)
-    {
-        return $this->callEndpoint($params, 'entities');
-    }
+      /* Calls the entities endpoint.
+      *
+      * @param $params
+      * @param $resolve_entities
+      *
+      * @return mixed
+      *
+      * @throws RosetteException
+      */
+      public function entities($params, $resolve_entities = false)
+     {
+        if ($resolve_entities == true) {
+            error_reporting(E_DEPRECATED);
+            return $this->callEndpoint($params, 'entities/linked');
+        } else {
+            return $this->callEndpoint($params, 'entities');
+        }
+     }
+
 
     /**
      * Calls the categories endpoint.
