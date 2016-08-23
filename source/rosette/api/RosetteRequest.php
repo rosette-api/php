@@ -66,6 +66,12 @@ class RosetteRequest
      * @var bool
      */
     private $initialized;
+    /**
+     * Maximum connections
+     *
+     * @var int
+     */
+    private $max_connections;
 
     /**
      * class constructor
@@ -74,6 +80,7 @@ class RosetteRequest
     public function __construct()
     {
         $this->initialized = false;
+        $this->max_connections = 1;
     }
 
     /**
@@ -116,6 +123,7 @@ class RosetteRequest
             curl_setopt($this->curl_handle, CURLOPT_HTTPGET, true);
         }
 
+        curl_setopt($this->curl_handle, CURLOPT_MAXCONNECTS, $this->max_connections);
         curl_setopt($this->curl_handle, CURLOPT_HEADER, 1);
         curl_setopt($this->curl_handle, CURLOPT_RETURNTRANSFER, true);
         $this->response = curl_exec($this->curl_handle);
@@ -195,6 +203,14 @@ class RosetteRequest
     {
         if ($this->response !== false) {
             $response = [ 'headers' => $this->headersToArray() ];
+
+            if (array_key_exists('X-RosetteAPI-Concurrency', $response['headers'])) {
+                $concurrency = $response['headers']['X-RosetteAPI-Concurrency'];
+                if ($concurrency != $this->max_connections) {
+                    $this->max_connections = $concurrency;
+                }
+            }
+
             $responseBody = $this->getResponseBody();
             if (empty($responseBody)) {
                 $response = array_merge($response, [ 'body' => 'empty' ]);
@@ -208,6 +224,15 @@ class RosetteRequest
         return $response;
     }
 
+    /**
+     * Gets the maximum number of connections allowed
+     *
+     * @return int 
+     */
+    public function getMaxConnections()
+    {
+        return $this->max_connections;
+    }
 
     /**
      * function headersToArray
