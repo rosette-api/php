@@ -1,7 +1,9 @@
 <?php
 namespace spec\rosette\api;
+
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+
 class ApiSpec extends ObjectBehavior
 {
     public function let()
@@ -50,6 +52,10 @@ class ApiSpec extends ObjectBehavior
         $debug = false;
         $this->setDebug($debug);
         $this->getDebug()->shouldBe($debug);
+    }
+    public function it_gets_max_connections()
+    {
+        $this->getMaxConnections()->shouldBe(1);
     }
     public function it_can_ping($request)
     {
