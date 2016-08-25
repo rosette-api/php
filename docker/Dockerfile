@@ -14,14 +14,14 @@ RUN apt-get -y update && apt-get install -y \
 
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php5-5.6
 RUN apt-get -y update && apt-get install -y \
-    php5-dev \
-    php5-cli \
-    php5-curl \
-    libapache2-mod-php5
+    php-dev \
+    php-cli \
+    php-curl \
+    libapache2-mod-php
 
 
-RUN echo "memory_limit=-1" >> /etc/php5/cli/php.ini && \
-    echo "date.timezone=America/New_York" >> /etc/php5/cli/php.ini
+RUN echo "memory_limit=-1" >> /etc/php/7.0/cli/php.ini && \
+    echo "date.timezone=America/New_York" >> /etc/php/7.0/cli/php.ini
 
 RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && \
     chmod +x /usr/local/bin/composer
