@@ -706,4 +706,18 @@ class Api
     {
         return $this->callEndpoint($params, 'relationships');
     }
+
+    /**
+     * Calls the text-embedding endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function textEmbedding($params)
+    {
+        return $this->callEndpoint($params, 'text-embedding');
+    }
 }
