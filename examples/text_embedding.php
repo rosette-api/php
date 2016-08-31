@@ -18,7 +18,6 @@ $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new 
 $params = new DocumentParameters();
 $content = $embeddings_data;
 $params->set('content', $content);
-$params->set('genre', 'social-media');
 
 try {
     $result = $api->textEmbedding($params, false);
