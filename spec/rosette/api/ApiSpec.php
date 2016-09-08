@@ -1,7 +1,9 @@
 <?php
 namespace spec\rosette\api;
+
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+
 class ApiSpec extends ObjectBehavior
 {
     public function let()
@@ -50,6 +52,10 @@ class ApiSpec extends ObjectBehavior
         $debug = false;
         $this->setDebug($debug);
         $this->getDebug()->shouldBe($debug);
+    }
+    public function it_gets_max_connections()
+    {
+        $this->getMaxConnections()->shouldBe(1);
     }
     public function it_can_ping($request)
     {
@@ -196,6 +202,17 @@ class ApiSpec extends ObjectBehavior
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+    public function it_calls_the_text_embedding_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->contentUri = 'http://some.dummysite.com';
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->textEmbedding($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_fails_with_non_200_response($params, $request)
     {

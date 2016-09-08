@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.2.0';
+    private static $binding_version = '1.3.0';
 
     /**
      * User key (required for Rosette API).
@@ -97,13 +97,6 @@ class Api
     private $ms_between_retries;
 
     /**
-     * request override - for testing
-     *
-     * @RosetteRequest
-     */
-    private $mock_request;
-
-    /**
      * internal options array
      * @var array
      */
@@ -115,6 +108,11 @@ class Api
      */
     private $customHeaders;
 
+    /**
+     * internal Request object
+     * @var array
+     */
+    private $request;
 
     /**
      * Create an L{API} object.
@@ -143,7 +141,7 @@ class Api
         $this->subUrl = null;
         $this->max_retries = 5;
         $this->ms_between_retries = 500000;
-        $this->mock_request = null;
+        $this->request = new RosetteRequest();
         $this->options = array();
     }
     
@@ -154,7 +152,7 @@ class Api
      */
     public function setMockRequest($requestObject)
     {
-        $this->mock_request = $requestObject;
+        $this->request = $requestObject;
     }
 
     /**
@@ -369,6 +367,17 @@ class Api
 
 
     /**
+     * Returns the max connections (concurrency)
+     *
+     * @return int
+     */
+    public function getMaxConnections()
+    {
+        return $this->request->getMaxConnections();
+    }
+
+
+    /**
      * Replaces a header item with a new one
      */
     private function replaceHeaderItem($old_header_item, $new_header_item)
@@ -448,25 +457,25 @@ class Api
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        $request = $this->mock_request != null ? $this->mock_request : new RosetteRequest();
         for ($retries = 0; $retries < $this->max_retries; $retries++) {
-            if ($request->makeRequest($url, $headers, $data, $method) === false) {
-                throw new RosetteException($request->getResponseError);
+            if ($this->request->makeRequest($url, $headers, $data, $method) === false) {
+                throw new RosetteException($this->request->getResponseError);
             } else {
-                $this->setResponseCode($request->getResponseCode());
+                $this->setResponseCode($this->request->getResponseCode());
                 if ($this->getResponseCode() === 429) {
+                    print('429 RETRY');
                     usleep($this->ms_between_retries);
                     continue;
                 } elseif ($this->getResponseCode() !== 200) {
-                    throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+                    throw new RosetteException($this->request->getResponse()['message'], $this->getResponseCode());
                 }
-                return $request->getResponse();
+                return $this->request->getResponse();
             }
         }
         if ($this->getResponseCode() !== 200) {
-            throw new RosetteException($request->getResponse()['message'], $this->getResponseCode());
+            throw new RosetteException($this->request->getResponse()['message'], $this->getResponseCode());
         } else {
-            return $request->getResponse();
+            return $this->request->getResponse();
         }
     }
 
@@ -607,24 +616,25 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-      /* Calls the entities endpoint.
-      *
-      * @param $params
-      * @param $resolve_entities
-      *
-      * @return mixed
-      *
-      * @throws RosetteException
-      */
-      public function entities($params, $resolve_entities = false)
-     {
+    /** 
+     * Calls the entities endpoint.
+     *
+     * @param $params
+     * @param $resolve_entities
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function entities($params, $resolve_entities = false)
+    {
         if ($resolve_entities == true) {
             error_reporting(E_DEPRECATED);
             return $this->callEndpoint($params, 'entities/linked');
         } else {
             return $this->callEndpoint($params, 'entities');
         }
-     }
+    }
 
 
     /**
@@ -695,5 +705,19 @@ class Api
     public function relationships($params)
     {
         return $this->callEndpoint($params, 'relationships');
+    }
+
+    /**
+     * Calls the text-embedding endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function textEmbedding($params)
+    {
+        return $this->callEndpoint($params, 'text-embedding');
     }
 }
