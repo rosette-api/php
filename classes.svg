@@ -27,50 +27,55 @@
 <text text-anchor="middle" x="513.196" y="-461.2" font-family="Courier,monospace" font-size="11.00">DocumentParameters</text>
 </g>
 <!-- \\rosette\\api\\RosetteParamsSetBase -->
-<g id="node6" class="node"><title>\\rosette\\api\\RosetteParamsSetBase</title>
-<polygon fill="none" stroke="black" points="348.696,-293 196.696,-293 196.696,-257 348.696,-257 348.696,-293"/>
-<text text-anchor="start" x="238.696" y="-278.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="204.696" y="-266.2" font-family="Courier,monospace" font-size="11.00">RosetteParamsSetBase</text>
+<g id="node8" class="node"><title>\\rosette\\api\\RosetteParamsSetBase</title>
+<polygon fill="none" stroke="black" points="348.696,-374 196.696,-374 196.696,-338 348.696,-338 348.696,-374"/>
+<text text-anchor="start" x="238.696" y="-359.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="204.696" y="-347.2" font-family="Courier,monospace" font-size="11.00">RosetteParamsSetBase</text>
 </g>
 <!-- \\rosette\\api\\DocumentParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
 <g id="edge1" class="edge"><title>\\rosette\\api\\DocumentParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
-<path fill="none" stroke="black" d="M443.907,-448.425C435.786,-445.262 427.85,-441.49 420.696,-437 363.757,-401.269 315.282,-337.504 290.785,-301.552"/>
-<polygon fill="none" stroke="black" points="293.559,-299.403 285.084,-293.045 287.744,-303.301 293.559,-299.403"/>
+<path fill="none" stroke="black" d="M444.65,-445.882C436.486,-443.162 428.338,-440.189 420.696,-437 381.702,-420.73 339.721,-396.905 310.646,-379.303"/>
+<polygon fill="none" stroke="black" points="312.414,-376.281 302.055,-374.055 308.765,-382.255 312.414,-376.281"/>
 </g>
-<!-- \\rosette\\api\\Api -->
-<g id="node2" class="node"><title>\\rosette\\api\\Api</title>
-<polygon fill="none" stroke="black" points="540.196,-428 486.196,-428 486.196,-392 540.196,-392 540.196,-428"/>
-<text text-anchor="middle" x="513.196" y="-407.2" font-family="Courier,monospace" font-size="11.00">Api</text>
+<!-- \\rosette\\api\\NameSimilarityParameters -->
+<g id="node2" class="node"><title>\\rosette\\api\\NameSimilarityParameters</title>
+<polygon fill="none" stroke="black" points="602.696,-428 423.696,-428 423.696,-392 602.696,-392 602.696,-428"/>
+<text text-anchor="middle" x="513.196" y="-407.2" font-family="Courier,monospace" font-size="11.00">NameSimilarityParameters</text>
 </g>
-<!-- \\rosette\\api\\Name -->
-<g id="node3" class="node"><title>\\rosette\\api\\Name</title>
-<polygon fill="none" stroke="black" points="540.196,-374 486.196,-374 486.196,-338 540.196,-338 540.196,-374"/>
-<text text-anchor="middle" x="513.196" y="-353.2" font-family="Courier,monospace" font-size="11.00">Name</text>
-</g>
-<!-- \\rosette\\api\\Name&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
-<g id="edge2" class="edge"><title>\\rosette\\api\\Name&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
-<path fill="none" stroke="black" d="M486.025,-348.767C467.65,-343.569 442.552,-336.231 420.696,-329 390.448,-318.993 357.09,-306.833 329.808,-296.587"/>
-<polygon fill="none" stroke="black" points="331.018,-293.303 320.426,-293.05 328.548,-299.853 331.018,-293.303"/>
+<!-- \\rosette\\api\\NameSimilarityParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
+<g id="edge2" class="edge"><title>\\rosette\\api\\NameSimilarityParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
+<path fill="none" stroke="black" d="M432.447,-391.944C408.762,-386.581 382.734,-380.688 358.726,-375.252"/>
+<polygon fill="none" stroke="black" points="359.456,-371.829 348.93,-373.034 357.91,-378.656 359.456,-371.829"/>
 </g>
 <!-- \\rosette\\api\\RosetteRequest -->
-<g id="node4" class="node"><title>\\rosette\\api\\RosetteRequest</title>
-<polygon fill="none" stroke="black" points="568.696,-320 457.696,-320 457.696,-284 568.696,-284 568.696,-320"/>
-<text text-anchor="middle" x="513.196" y="-299.2" font-family="Courier,monospace" font-size="11.00">RosetteRequest</text>
+<g id="node3" class="node"><title>\\rosette\\api\\RosetteRequest</title>
+<polygon fill="none" stroke="black" points="568.696,-374 457.696,-374 457.696,-338 568.696,-338 568.696,-374"/>
+<text text-anchor="middle" x="513.196" y="-353.2" font-family="Courier,monospace" font-size="11.00">RosetteRequest</text>
+</g>
+<!-- \\rosette\\api\\Name -->
+<g id="node4" class="node"><title>\\rosette\\api\\Name</title>
+<polygon fill="none" stroke="black" points="540.196,-320 486.196,-320 486.196,-284 540.196,-284 540.196,-320"/>
+<text text-anchor="middle" x="513.196" y="-299.2" font-family="Courier,monospace" font-size="11.00">Name</text>
+</g>
+<!-- \\rosette\\api\\Name&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
+<g id="edge3" class="edge"><title>\\rosette\\api\\Name&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
+<path fill="none" stroke="black" d="M485.761,-307.985C455.261,-314.891 403.561,-326.596 358.846,-336.721"/>
+<polygon fill="none" stroke="black" points="357.813,-333.366 348.832,-338.988 359.358,-340.193 357.813,-333.366"/>
 </g>
 <!-- \\rosette\\api\\CustomException -->
 <g id="node5" class="node"><title>\\rosette\\api\\CustomException</title>
-<polygon fill="none" stroke="black" points="331.696,-104 213.696,-104 213.696,-68 331.696,-68 331.696,-104"/>
-<text text-anchor="middle" x="272.696" y="-83.2" font-family="Courier,monospace" font-size="11.00">CustomException</text>
+<polygon fill="none" stroke="black" points="331.696,-131 213.696,-131 213.696,-95 331.696,-95 331.696,-131"/>
+<text text-anchor="middle" x="272.696" y="-110.2" font-family="Courier,monospace" font-size="11.00">CustomException</text>
 </g>
 <!-- \\rosette\\api\\IException -->
 <g id="node11" class="node"><title>\\rosette\\api\\IException</title>
-<polygon fill="none" stroke="black" points="116,-104 32,-104 32,-68 116,-68 116,-104"/>
-<text text-anchor="middle" x="74" y="-83.2" font-family="Courier,monospace" font-size="11.00">IException</text>
+<polygon fill="none" stroke="black" points="116,-131 32,-131 32,-95 116,-95 116,-131"/>
+<text text-anchor="middle" x="74" y="-110.2" font-family="Courier,monospace" font-size="11.00">IException</text>
 </g>
 <!-- \\rosette\\api\\CustomException&#45;&gt;\\rosette\\api\\IException -->
-<g id="edge4" class="edge"><title>\\rosette\\api\\CustomException&#45;&gt;\\rosette\\api\\IException</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M213.479,-86C185.877,-86 153.184,-86 126.497,-86"/>
-<polygon fill="none" stroke="black" points="126.213,-82.5001 116.213,-86 126.213,-89.5001 126.213,-82.5001"/>
+<g id="edge5" class="edge"><title>\\rosette\\api\\CustomException&#45;&gt;\\rosette\\api\\IException</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M213.479,-113C185.877,-113 153.184,-113 126.497,-113"/>
+<polygon fill="none" stroke="black" points="126.213,-109.5 116.213,-113 126.213,-116.5 126.213,-109.5"/>
 </g>
 <!-- \\Exception -->
 <g id="node12" class="node"><title>\\Exception</title>
@@ -78,44 +83,39 @@
 <text text-anchor="middle" x="74" y="-14.3" font-family="Times,serif" font-size="14.00" fill="gray">xception</text>
 </g>
 <!-- \\rosette\\api\\CustomException&#45;&gt;\\Exception -->
-<g id="edge3" class="edge"><title>\\rosette\\api\\CustomException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M219.501,-67.9558C188.723,-57.3154 150.145,-43.9786 120.594,-33.7622"/>
-<polygon fill="none" stroke="black" points="121.537,-30.3851 110.942,-30.4256 119.25,-37.0009 121.537,-30.3851"/>
-</g>
-<!-- \\rosette\\api\\RosetteConstants -->
-<g id="node7" class="node"><title>\\rosette\\api\\RosetteConstants</title>
-<polygon fill="none" stroke="black" points="575.696,-266 450.696,-266 450.696,-230 575.696,-230 575.696,-266"/>
-<text text-anchor="middle" x="513.196" y="-245.2" font-family="Courier,monospace" font-size="11.00">RosetteConstants</text>
-</g>
-<!-- \\rosette\\api\\RosetteException -->
-<g id="node8" class="node"><title>\\rosette\\api\\RosetteException</title>
-<polygon fill="none" stroke="black" points="575.696,-104 450.696,-104 450.696,-68 575.696,-68 575.696,-104"/>
-<text text-anchor="middle" x="513.196" y="-83.2" font-family="Courier,monospace" font-size="11.00">RosetteException</text>
-</g>
-<!-- \\rosette\\api\\RosetteException&#45;&gt;\\rosette\\api\\CustomException -->
-<g id="edge5" class="edge"><title>\\rosette\\api\\RosetteException&#45;&gt;\\rosette\\api\\CustomException</title>
-<path fill="none" stroke="black" d="M450.466,-86C417.319,-86 376.376,-86 342.243,-86"/>
-<polygon fill="none" stroke="black" points="341.885,-82.5001 331.885,-86 341.885,-89.5001 341.885,-82.5001"/>
+<g id="edge4" class="edge"><title>\\rosette\\api\\CustomException&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M234.236,-94.9076C199.9,-78.3244 149.242,-53.8572 114.329,-36.9953"/>
+<polygon fill="none" stroke="black" points="115.453,-33.6514 104.926,-32.4539 112.409,-39.9547 115.453,-33.6514"/>
 </g>
 <!-- \\rosette\\api\\NameTranslationParameters -->
-<g id="node9" class="node"><title>\\rosette\\api\\NameTranslationParameters</title>
-<polygon fill="none" stroke="black" points="605.696,-212 420.696,-212 420.696,-176 605.696,-176 605.696,-212"/>
-<text text-anchor="middle" x="513.196" y="-191.2" font-family="Courier,monospace" font-size="11.00">NameTranslationParameters</text>
+<g id="node6" class="node"><title>\\rosette\\api\\NameTranslationParameters</title>
+<polygon fill="none" stroke="black" points="605.696,-266 420.696,-266 420.696,-230 605.696,-230 605.696,-266"/>
+<text text-anchor="middle" x="513.196" y="-245.2" font-family="Courier,monospace" font-size="11.00">NameTranslationParameters</text>
 </g>
 <!-- \\rosette\\api\\NameTranslationParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
 <g id="edge6" class="edge"><title>\\rosette\\api\\NameTranslationParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
-<path fill="none" stroke="black" d="M449.025,-212.056C439.5,-214.947 429.816,-217.983 420.696,-221 390.448,-231.007 357.09,-243.167 329.808,-253.413"/>
-<polygon fill="none" stroke="black" points="328.548,-250.147 320.426,-256.95 331.018,-256.697 328.548,-250.147"/>
+<path fill="none" stroke="black" d="M444.65,-266.118C436.486,-268.838 428.338,-271.811 420.696,-275 381.702,-291.27 339.721,-315.095 310.646,-332.697"/>
+<polygon fill="none" stroke="black" points="308.765,-329.745 302.055,-337.945 312.414,-335.719 308.765,-329.745"/>
 </g>
-<!-- \\rosette\\api\\NameSimilarityParameters -->
-<g id="node10" class="node"><title>\\rosette\\api\\NameSimilarityParameters</title>
-<polygon fill="none" stroke="black" points="602.696,-158 423.696,-158 423.696,-122 602.696,-122 602.696,-158"/>
-<text text-anchor="middle" x="513.196" y="-137.2" font-family="Courier,monospace" font-size="11.00">NameSimilarityParameters</text>
+<!-- \\rosette\\api\\Api -->
+<g id="node7" class="node"><title>\\rosette\\api\\Api</title>
+<polygon fill="none" stroke="black" points="540.196,-212 486.196,-212 486.196,-176 540.196,-176 540.196,-212"/>
+<text text-anchor="middle" x="513.196" y="-191.2" font-family="Courier,monospace" font-size="11.00">Api</text>
 </g>
-<!-- \\rosette\\api\\NameSimilarityParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase -->
-<g id="edge7" class="edge"><title>\\rosette\\api\\NameSimilarityParameters&#45;&gt;\\rosette\\api\\RosetteParamsSetBase</title>
-<path fill="none" stroke="black" d="M441.792,-158.043C434.53,-160.708 427.373,-163.689 420.696,-167 375.505,-189.406 329.643,-225.738 301.439,-249.994"/>
-<polygon fill="none" stroke="black" points="298.865,-247.594 293.62,-256.799 303.461,-252.874 298.865,-247.594"/>
+<!-- \\rosette\\api\\RosetteException -->
+<g id="node9" class="node"><title>\\rosette\\api\\RosetteException</title>
+<polygon fill="none" stroke="black" points="575.696,-158 450.696,-158 450.696,-122 575.696,-122 575.696,-158"/>
+<text text-anchor="middle" x="513.196" y="-137.2" font-family="Courier,monospace" font-size="11.00">RosetteException</text>
+</g>
+<!-- \\rosette\\api\\RosetteException&#45;&gt;\\rosette\\api\\CustomException -->
+<g id="edge7" class="edge"><title>\\rosette\\api\\RosetteException&#45;&gt;\\rosette\\api\\CustomException</title>
+<path fill="none" stroke="black" d="M450.466,-133.012C417.319,-129.259 376.376,-124.624 342.243,-120.76"/>
+<polygon fill="none" stroke="black" points="342.215,-117.235 331.885,-119.587 341.428,-124.19 342.215,-117.235"/>
+</g>
+<!-- \\rosette\\api\\RosetteConstants -->
+<g id="node10" class="node"><title>\\rosette\\api\\RosetteConstants</title>
+<polygon fill="none" stroke="black" points="575.696,-104 450.696,-104 450.696,-68 575.696,-68 575.696,-104"/>
+<text text-anchor="middle" x="513.196" y="-83.2" font-family="Courier,monospace" font-size="11.00">RosetteConstants</text>
 </g>
 </g>
 </svg>

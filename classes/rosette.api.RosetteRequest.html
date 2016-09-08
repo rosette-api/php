@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">13</span></a></li>
+                <span class="label label-info">10</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -65,6 +65,7 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: class constructor"><span class="description">class constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method___destruct" title="__destruct() :: class destructor"><span class="description">class destructor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method_getMaxConnections" title="getMaxConnections() :: Gets the maximum number of connections allowed"><span class="description">Gets the maximum number of connections allowed</span><pre>getMaxConnections()</pre></a></li>
 <li class="method public "><a href="#method_getResponse" title="getResponse() :: Returns the associative array response or the error message"><span class="description">Returns the associative array response or the error message</span><pre>getResponse()</pre></a></li>
 <li class="method public "><a href="#method_getResponseCode" title="getResponseCode() :: Returns curl response code"><span class="description">Returns curl response code</span><pre>getResponseCode()</pre></a></li>
 <li class="method public "><a href="#method_getResponseError" title="getResponseError() :: Returns the error string if curl error"><span class="description">Returns the error string if curl error</span><pre>getResponseError()</pre></a></li>
@@ -90,6 +91,7 @@
 <li class="property private "><a href="#property_data" title="$data() :: Request data"><span class="description"></span><pre>$data</pre></a></li>
 <li class="property private "><a href="#property_headers" title="$headers() :: Request headers"><span class="description"></span><pre>$headers</pre></a></li>
 <li class="property private "><a href="#property_initialized" title="$initialized() :: indicates that curl is initialized"><span class="description"></span><pre>$initialized</pre></a></li>
+<li class="property private "><a href="#property_max_connections" title="$max_connections() :: Maximum connections"><span class="description"></span><pre>$max_connections</pre></a></li>
 <li class="property private "><a href="#property_method" title="$method() :: POST or GET"><span class="description"></span><pre>$method</pre></a></li>
 <li class="property private "><a href="#property_response" title="$response() :: Response object"><span class="description"></span><pre>$response</pre></a></li>
 <li class="property private "><a href="#property_url" title="$url() :: API URL"><span class="description"></span><pre>$url</pre></a></li>
@@ -131,6 +133,16 @@
 <pre>__destruct() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getMaxConnections"></a><div class="element clickable method public method_getMaxConnections " data-toggle="collapse" data-target=".method_getMaxConnections .collapse" title="public">
+<h2>Gets the maximum number of connections allowed</h2>
+<pre>getMaxConnections() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
+</div></div>
 </div>
 <a id="method_getResponse"></a><div class="element clickable method public method_getResponse " data-toggle="collapse" data-target=".method_getResponse .collapse" title="public">
 <h2>Returns the associative array response or the error message</h2>
@@ -283,6 +295,16 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_max_connections"> </a><div class="element clickable property private property_max_connections" data-toggle="collapse" data-target=".property_max_connections .collapse" title="private">
+<h2>Maximum connections</h2>
+<pre>$max_connections : integer</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_method"> </a><div class="element clickable property private property_method" data-toggle="collapse" data-target=".property_method .collapse" title="private">
 <h2>POST or GET</h2>
 <pre>$method : string</pre>
@@ -320,7 +342,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-07-22T14:11:39Z.<br></footer></div>
+            generated on 2016-09-08T17:12:17Z.<br></footer></div>
 </div>
 </body>
 </html>

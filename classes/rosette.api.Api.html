@@ -33,7 +33,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">13</span></a></li>
+                <span class="label label-info">10</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -67,10 +67,10 @@
 <li class="method public "><a href="#method_categories" title="categories() :: Calls the categories endpoint."><span class="description">Calls the categories endpoint.</span><pre>categories()</pre></a></li>
 <li class="method public "><a href="#method_clearCustomHeaders" title="clearCustomHeaders() :: Clears all custom headers"><span class="description">Clears all custom headers</span><pre>clearCustomHeaders()</pre></a></li>
 <li class="method public "><a href="#method_clearOptions" title="clearOptions() :: Clears all options"><span class="description">Clears all options</span><pre>clearOptions()</pre></a></li>
-<li class="method public "><a href="#method_entities" title="entities() :: "><span class="description">entities()
-        </span><pre>entities()</pre></a></li>
+<li class="method public "><a href="#method_entities" title="entities() :: Calls the entities endpoint."><span class="description">Calls the entities endpoint.</span><pre>entities()</pre></a></li>
 <li class="method public "><a href="#method_getCustomHeaders" title="getCustomHeaders() :: Setter for options"><span class="description">Setter for options</span><pre>getCustomHeaders()</pre></a></li>
 <li class="method public "><a href="#method_getDebug" title="getDebug() :: Retrieves debug setting (more verbose output)."><span class="description">Retrieves debug setting (more verbose output).</span><pre>getDebug()</pre></a></li>
+<li class="method public "><a href="#method_getMaxConnections" title="getMaxConnections() :: Returns the max connections (concurrency)"><span class="description">Returns the max connections (concurrency)</span><pre>getMaxConnections()</pre></a></li>
 <li class="method public "><a href="#method_getOption" title="getOption() :: Getter for options"><span class="description">Getter for options</span><pre>getOption()</pre></a></li>
 <li class="method public "><a href="#method_getResponseCode" title="getResponseCode() :: Returns response code."><span class="description">Returns response code.</span><pre>getResponseCode()</pre></a></li>
 <li class="method public "><a href="#method_getServiceUrl" title="getServiceUrl() :: Getter for the service_url."><span class="description">Getter for the service_url.</span><pre>getServiceUrl()</pre></a></li>
@@ -93,6 +93,7 @@
 <li class="method public "><a href="#method_setResponseCode" title="setResponseCode() :: Sets the response code."><span class="description">Sets the response code.</span><pre>setResponseCode()</pre></a></li>
 <li class="method public "><a href="#method_setServiceUrl" title="setServiceUrl() :: Setter for the service_url."><span class="description">Setter for the service_url.</span><pre>setServiceUrl()</pre></a></li>
 <li class="method public "><a href="#method_setTimeout" title="setTimeout() :: Sets the max timeout value (seconds)."><span class="description">Sets the max timeout value (seconds).</span><pre>setTimeout()</pre></a></li>
+<li class="method public "><a href="#method_textEmbedding" title="textEmbedding() :: Calls the text-embedding endpoint."><span class="description">Calls the text-embedding endpoint.</span><pre>textEmbedding()</pre></a></li>
 <li class="method public "><a href="#method_tokens" title="tokens() :: Calls the tokens endpoint."><span class="description">Calls the tokens endpoint.</span><pre>tokens()</pre></a></li>
 </ul>
 </li>
@@ -114,9 +115,9 @@
 <li class="property private "><a href="#property_customHeaders" title="$customHeaders() :: internal customHeaders array"><span class="description"></span><pre>$customHeaders</pre></a></li>
 <li class="property private "><a href="#property_headers" title="$headers() :: HTTP headers for Rosette API."><span class="description"></span><pre>$headers</pre></a></li>
 <li class="property private "><a href="#property_max_retries" title="$max_retries() :: max retries"><span class="description"></span><pre>$max_retries</pre></a></li>
-<li class="property private "><a href="#property_mock_request" title="$mock_request() :: request override - for testing"><span class="description"></span><pre>$mock_request</pre></a></li>
 <li class="property private "><a href="#property_ms_between_retries" title="$ms_between_retries() :: retry sleep count (ms)"><span class="description"></span><pre>$ms_between_retries</pre></a></li>
 <li class="property private "><a href="#property_options" title="$options() :: internal options array"><span class="description"></span><pre>$options</pre></a></li>
+<li class="property private "><a href="#property_request" title="$request() :: internal Request object"><span class="description"></span><pre>$request</pre></a></li>
 <li class="property private "><a href="#property_response_code" title="$response_code() :: response code"><span class="description"></span><pre>$response_code</pre></a></li>
 <li class="property private "><a href="#property_service_url" title="$service_url() :: URL of the Rosette API (or test server)."><span class="description"></span><pre>$service_url</pre></a></li>
 <li class="property private "><a href="#property_subUrl" title="$subUrl() :: Endpoint for the operation."><span class="description"></span><pre>$subUrl</pre></a></li>
@@ -206,15 +207,21 @@ provide the content data that will be processed by the service.</p>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="method_entities"></a><div class="element clickable method public method_entities " data-toggle="collapse" data-target=".method_entities .collapse" title="public">
-<h2>entities()
-        </h2>
-<pre>entities($params, $resolve_entities<code> = false</code>) </pre>
+<h2>Calls the entities endpoint.</h2>
+<pre>entities($params, $resolve_entities<code> = false</code>) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$params</h4></div>
 <div class="subelement argument"><h4>$resolve_entities</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
 <a id="method_getCustomHeaders"></a><div class="element clickable method public method_getCustomHeaders " data-toggle="collapse" data-target=".method_getCustomHeaders .collapse" title="public">
@@ -235,6 +242,16 @@ provide the content data that will be processed by the service.</p>
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getMaxConnections"></a><div class="element clickable method public method_getMaxConnections " data-toggle="collapse" data-target=".method_getMaxConnections .collapse" title="public">
+<h2>Returns the max connections (concurrency)</h2>
+<pre>getMaxConnections() : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>integer</code></div>
 </div></div>
 </div>
 <a id="method_getOption"></a><div class="element clickable method public method_getOption " data-toggle="collapse" data-target=".method_getOption .collapse" title="public">
@@ -544,6 +561,23 @@ provide the content data that will be processed by the service.</p>
 </div>
 </div></div>
 </div>
+<a id="method_textEmbedding"></a><div class="element clickable method public method_textEmbedding " data-toggle="collapse" data-target=".method_textEmbedding .collapse" title="public">
+<h2>Calls the text-embedding endpoint.</h2>
+<pre>textEmbedding($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
 <a id="method_tokens"></a><div class="element clickable method public method_tokens " data-toggle="collapse" data-target=".method_tokens .collapse" title="public">
 <h2>Calls the tokens endpoint.</h2>
 <pre>tokens($params) : mixed</pre>
@@ -633,7 +667,7 @@ provide the content data that will be processed by the service.</p>
 <pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'1.2.0'</code></div>
+<div class="subelement argument"><code>'1.3.0'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -668,22 +702,6 @@ provide the content data that will be processed by the service.</p>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_mock_request"> </a><div class="element clickable property private property_mock_request" data-toggle="collapse" data-target=".property_mock_request .collapse" title="private">
-<h2>request override - for testing</h2>
-<pre>$mock_request </pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered"><tr>
-<th>RosetteRequest</th>
-<td></td>
-</tr></table>
-</div></div>
-</div>
 <a id="property_ms_between_retries"> </a><div class="element clickable property private property_ms_between_retries" data-toggle="collapse" data-target=".property_ms_between_retries .collapse" title="private">
 <h2>retry sleep count (ms)</h2>
 <pre>$ms_between_retries : integer</pre>
@@ -697,6 +715,16 @@ provide the content data that will be processed by the service.</p>
 <a id="property_options"> </a><div class="element clickable property private property_options" data-toggle="collapse" data-target=".property_options .collapse" title="private">
 <h2>internal options array</h2>
 <pre>$options : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_request"> </a><div class="element clickable property private property_request" data-toggle="collapse" data-target=".property_request .collapse" title="private">
+<h2>internal Request object</h2>
+<pre>$request : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -751,7 +779,7 @@ provide the content data that will be processed by the service.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-07-22T14:11:39Z.<br></footer></div>
+            generated on 2016-09-08T17:12:17Z.<br></footer></div>
 </div>
 </body>
 </html>
