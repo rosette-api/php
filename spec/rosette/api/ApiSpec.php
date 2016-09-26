@@ -214,6 +214,17 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->textEmbedding($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
+    public function it_calls_the_syntax_dependencies_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->contentUri = 'http://some.dummysite.com';
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->syntax_dependencies($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
     public function it_fails_with_non_200_response($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
