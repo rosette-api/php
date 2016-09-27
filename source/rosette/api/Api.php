@@ -730,7 +730,7 @@ class Api
     *
     * @throws RosetteException
     */
-    public function syntax_dependencies($params)
+    public function syntaxDependencies($params)
     {
         return $this->callEndpoint($params, 'syntax/dependencies');
     }

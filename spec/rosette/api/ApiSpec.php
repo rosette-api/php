@@ -223,7 +223,7 @@ class ApiSpec extends ObjectBehavior
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
-        $this->syntax_dependencies($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+        $this->syntaxDependencies($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_fails_with_non_200_response($params, $request)
     {

@@ -13,15 +13,15 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$syntax_dependencies_data = "Sony Pictures is planning to shoot a good portion of the new \"Ghostbusters\" in Boston as well.";
+$syntaxDependenciesData = "Sony Pictures is planning to shoot a good portion of the new \"Ghostbusters\" in Boston as well.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $entities_text_data;
+$content = $syntaxDependenciesData;
 $params->set('content', $content);
 $params->set('genre', 'social-media');
 
 try {
-    $result = $api->entities($params, false);
+    $result = $api->syntaxDependencies($params, false);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
