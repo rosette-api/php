@@ -720,4 +720,18 @@ class Api
     {
         return $this->callEndpoint($params, 'text-embedding');
     }
+
+    /**
+    * Calls the syntax/dependencies endpoint
+    *
+    * @param $params
+    * 
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function syntaxDependencies($params)
+    {
+        return $this->callEndpoint($params, 'syntax/dependencies');
+    }
 }
