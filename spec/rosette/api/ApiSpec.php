@@ -24,12 +24,6 @@ class ApiSpec extends ObjectBehavior
         $this->setResponseCode($responseCode);
         $this->getResponseCode()->shouldBe($responseCode);
     }
-    public function it_sets_gets_timeout()
-    {
-        $timeout = 120;
-        $this->setTimeout($timeout);
-        $this->getTimeout()->shouldBe($timeout);
-    }
     public function it_sets_gets_clears_options()
     {
         $this->setOption("test", "foo");

@@ -16,7 +16,7 @@ if (!isset($options['key'])) {
 $syntax_dependencies_data = "Sony Pictures is planning to shoot a good portion of the new \"Ghostbusters\" in Boston as well.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $syntaxDependenciesData;
+$content = $syntax_dependencies_data;
 $params->set('content', $content);
 $params->set('genre', 'social-media');
 
