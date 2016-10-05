@@ -13,7 +13,7 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$relationships_text_data = "The Ghostbusters movie was filmed in Boston.";
+$relationships_text_data = "Bill Gates, Microsoft's former CEO, is a philanthropist.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
 $params->set('content', $relationships_text_data);
