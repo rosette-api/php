@@ -24,12 +24,6 @@ class ApiSpec extends ObjectBehavior
         $this->setResponseCode($responseCode);
         $this->getResponseCode()->shouldBe($responseCode);
     }
-    public function it_sets_gets_timeout()
-    {
-        $timeout = 120;
-        $this->setTimeout($timeout);
-        $this->getTimeout()->shouldBe($timeout);
-    }
     public function it_sets_gets_clears_options()
     {
         $this->setOption("test", "foo");
@@ -213,6 +207,17 @@ class ApiSpec extends ObjectBehavior
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
         $this->textEmbedding($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+    public function it_calls_the_syntax_dependencies_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
+        $params->contentUri = 'http://some.dummysite.com';
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->syntaxDependencies($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_fails_with_non_200_response($params, $request)
     {

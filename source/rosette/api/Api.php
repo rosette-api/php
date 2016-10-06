@@ -45,7 +45,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.3.0';
+    private static $binding_version = '1.4.0';
 
     /**
      * User key (required for Rosette API).
@@ -81,20 +81,6 @@ class Api
      * @var
      */
     private $response_code;
-
-    /**
-     * max retries
-     *
-     * @var int
-     */
-    private $max_retries;
-
-    /**
-     * retry sleep count (ms)
-     *
-     * @var int
-     */
-    private $ms_between_retries;
 
     /**
      * internal options array
@@ -137,10 +123,7 @@ class Api
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
-        $this->setTimeout(300);
         $this->subUrl = null;
-        $this->max_retries = 5;
-        $this->ms_between_retries = 500000;
         $this->request = new RosetteRequest();
         $this->options = array();
     }
@@ -193,26 +176,6 @@ class Api
     public function setResponseCode($response_code)
     {
         $this->response_code = $response_code;
-    }
-
-    /**
-     * Returns the max timeout value (seconds).
-     *
-     * @return mixed
-     */
-    public function getTimeout()
-    {
-        return $this->timeout;
-    }
-
-    /**
-     * Sets the max timeout value (seconds).
-     *
-     * @param mixed $timeout
-     */
-    public function setTimeout($timeout)
-    {
-        $this->timeout = $timeout;
     }
 
     /**
@@ -457,24 +420,13 @@ class Api
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        for ($retries = 0; $retries < $this->max_retries; $retries++) {
-            if ($this->request->makeRequest($url, $headers, $data, $method) === false) {
-                throw new RosetteException($this->request->getResponseError);
-            } else {
-                $this->setResponseCode($this->request->getResponseCode());
-                if ($this->getResponseCode() === 429) {
-                    print('429 RETRY');
-                    usleep($this->ms_between_retries);
-                    continue;
-                } elseif ($this->getResponseCode() !== 200) {
-                    throw new RosetteException($this->request->getResponse()['message'], $this->getResponseCode());
-                }
-                return $this->request->getResponse();
-            }
-        }
-        if ($this->getResponseCode() !== 200) {
-            throw new RosetteException($this->request->getResponse()['message'], $this->getResponseCode());
+        if ($this->request->makeRequest($url, $headers, $data, $method) === false) {
+            throw new RosetteException($this->request->getResponseError);
         } else {
+            $this->setResponseCode($this->request->getResponseCode());
+            if ($this->getResponseCode() !== 200) {
+                throw new RosetteException($this->request->getResponse()['message'], $this->getResponseCode());
+            }
             return $this->request->getResponse();
         }
     }
@@ -719,5 +671,19 @@ class Api
     public function textEmbedding($params)
     {
         return $this->callEndpoint($params, 'text-embedding');
+    }
+
+    /**
+    * Calls the syntax/dependencies endpoint
+    *
+    * @param $params
+    * 
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function syntaxDependencies($params)
+    {
+        return $this->callEndpoint($params, 'syntax/dependencies');
     }
 }
