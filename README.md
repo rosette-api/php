@@ -2,7 +2,7 @@
 See the wiki for more information.
 
 ## Installation ##
-`composer require "rosette/api: ~1.3"`
+`composer require "rosette/api: ~1.4"`
 
 =======
 ## Docker ##
