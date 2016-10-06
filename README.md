@@ -1,9 +1,3 @@
-
-PHP client binding for Rosette API
-==================================
-
-See the [wiki](https://github.com/rosette-api/php/wiki) for more information.
-=======
 # PHP client binding for Rosette API #
 See the wiki for more information.
 
