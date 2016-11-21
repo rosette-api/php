@@ -572,20 +572,14 @@ class Api
      * Calls the entities endpoint.
      *
      * @param $params
-     * @param $resolve_entities
      *
      * @return mixed
      *
      * @throws RosetteException
      */
-    public function entities($params, $resolve_entities = false)
+    public function entities($params)
     {
-        if ($resolve_entities == true) {
-            error_reporting(E_DEPRECATED);
-            return $this->callEndpoint($params, 'entities/linked');
-        } else {
-            return $this->callEndpoint($params, 'entities');
-        }
+        return $this->callEndpoint($params, 'entities');
     }
 
 

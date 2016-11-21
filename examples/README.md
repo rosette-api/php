@@ -22,7 +22,6 @@ Each example, when run, prints its output to the console.
 | -------------                 |-------------                                        | 
 | categories.php                    | Gets the category of a document at a URL              | 
 | entities.php                      | Gets the entities from a piece of text                | 
-| entities_linked.php               | Gets the linked (to Wikipedia) entities from a piece of text |
 | info.php                          | Gets information about Rosette API                    | 
 | language.php                      | Gets the language of a piece of text                  | 
 | matched-name.php                  | Gets the similarity score of two names                | 
