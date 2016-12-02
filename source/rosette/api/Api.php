@@ -69,6 +69,13 @@ class Api
     private $headers;
 
     /**
+     * Parameters for the URL query.
+     *
+     * @var array
+     */
+    private $url_params;
+
+    /**
      * Endpoint for the operation.
      *
      * @var null|string
@@ -126,6 +133,7 @@ class Api
         $this->subUrl = null;
         $this->request = new RosetteRequest();
         $this->options = array();
+        $this->url_params = array();
     }
     
     /**
@@ -231,6 +239,54 @@ class Api
     }
 
     /**
+     * Setter for an additional query parameter to the Rosette API URL.
+     * 
+     * @param string $param_name (e.g. output)
+     * @param string $param_value (e.g. rosette)
+     */
+    public function setUrlParam($param_name, $param_value)
+    {
+        $this->url_params[$param_name] = $param_value;
+    }
+
+    /**
+     * Gets the value of the item with key $name in the array if it exists
+     *
+     * @param string $name
+     * @param array $array
+     * @return string
+     */
+    private function getValueFromArray($name, $array)
+    {
+        if (array_key_exists($name, $array)) {
+            return $array[$name];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Getter for the URL parameter with the specified name
+     *
+     * @return string
+     */
+    public function getUrlParam($param_name)
+    {
+        getValueFromArray($name, $this->url_params);
+    }
+
+    /**
+     * Clears all URL extension parameters.
+     */
+    public function clearUrlParams()
+    {
+        foreach ($this->url_params as $i => $value) {
+            unset($this->url_params[$i]);
+        }
+        $this->url_params = array_values($this->url_params);
+    }
+
+    /**
      * Getter for options
      *
      * @param string $name
@@ -239,11 +295,7 @@ class Api
      */
     public function getOption($name)
     {
-        if (array_key_exists($name, $this->options)) {
-            return $this->options[$name];
-        } else {
-            return null;
-        }
+        getValueFromArray($name, $this->options);
     }
 
     /**
@@ -270,7 +322,7 @@ class Api
         $this->options = array();
     }
 
-        /**
+    /**
      * Setter for options
      *
      *
@@ -355,7 +407,30 @@ class Api
     }
 
     /**
-     * Internal operations processor for most of the endpoints.
+     * Adds the URL parameters to the base URL
+     *
+     * @param $paramArray
+     * @param $baseURL
+     * 
+     * @return URL with query parameters from $paramArray
+     */
+    private function addUrlParametersToBaseUrl($paramArray, $baseURL)
+    {
+        if ($baseURL[strlen($baseURL) - 1] !== '?') {
+            $baseURL = $baseURL . '?';
+        }
+        $elementsLeft = count($paramArrary);
+        foreach ($paramArray as $key => $value) {
+            $elementsLeft = $elementsLeft - 1;
+            $baseURL = $baseURL . $key . '=' . $paramArray[$key];
+            if ($elementsLeft > 0) {
+                $baseURL = $baseURL . '&';
+            }
+        }
+        return $baseURL;
+    }
+     
+    /** Internal operations processor for most of the endpoints.
      *
      * @param $parameters
      * @param $subUrl
@@ -394,13 +469,15 @@ class Api
             $this->replaceHeaderItem('Content-Type: application/json', 'Content-Type: multipart/mixed');
 
             $url = $this->service_url . $this->subUrl;
+            $url = $this->addUrlParametersToBaseUrl($this->url_params, $url);
 
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
             $url = $this->service_url . $this->subUrl;
+            $url = $this->addUrlParametersToBaseUrl($this->url_params, $url);
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
-        }
-        return $resultObject;
+        }        
+           return $resultObject;
     }
 
     /**
