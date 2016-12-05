@@ -24,6 +24,23 @@ class ApiSpec extends ObjectBehavior
         $this->setResponseCode($responseCode);
         $this->getResponseCode()->shouldBe($responseCode);
     }
+    public function it_sets_gets_clears_url_params()
+    {
+        $this->setUrlParam("output", "Rosette");
+        $this->setUrlParam("test", "foo");
+        $this->getUrlParam("output")->shouldBe("Rosette");
+        $this->getUrlParam("test")->shouldBe("foo");
+        $this->clearUrlParams();
+        $this->getUrlParam("output")->shouldBeNull();
+        $this->getUrlParam("test")->shouldBeNull();
+    }
+    public function it_sets_gets_clears_single_url_param()
+    {
+        $this->setUrlParam("output", "Rosette");
+        $this->getUrlParam("output")->shouldBe("Rosette");
+        $this->clearUrlParams();
+        $this->getUrlParam("output")->shouldBeNull();
+    }
     public function it_sets_gets_clears_options()
     {
         $this->setOption("test", "foo");

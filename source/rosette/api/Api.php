@@ -268,11 +268,12 @@ class Api
     /**
      * Getter for the URL parameter with the specified name
      *
+     * @param string $param_name
      * @return string
      */
     public function getUrlParam($param_name)
     {
-        getValueFromArray($name, $this->url_params);
+        return $this->getValueFromArray($param_name, $this->url_params);
     }
 
     /**
@@ -295,7 +296,7 @@ class Api
      */
     public function getOption($name)
     {
-        getValueFromArray($name, $this->options);
+        return $this->getValueFromArray($name, $this->options);
     }
 
     /**
@@ -419,7 +420,7 @@ class Api
         if ($baseURL[strlen($baseURL) - 1] !== '?') {
             $baseURL = $baseURL . '?';
         }
-        $elementsLeft = count($paramArrary);
+        $elementsLeft = count($paramArray);
         foreach ($paramArray as $key => $value) {
             $elementsLeft = $elementsLeft - 1;
             $baseURL = $baseURL . $key . '=' . $paramArray[$key];
