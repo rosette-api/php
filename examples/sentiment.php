@@ -27,6 +27,6 @@ try {
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
+} finally {
+    fclose($temp);  // clean up the temp file
 }
-
-fclose($temp);  // clean up the temp file
