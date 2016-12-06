@@ -410,25 +410,25 @@ class Api
     /**
      * Adds the URL parameters to the base URL
      *
-     * @param $paramArray
-     * @param $baseURL
+     * @param $param_array
+     * @param $base_url
      * 
-     * @return URL with query parameters from $paramArray
+     * @return URL with query parameters from $param_array
      */
-    private function addUrlParametersToBaseUrl($paramArray, $baseURL)
+    private function addUrlParametersToBaseUrl($param_array, $base_url)
     {
-        if ($baseURL[strlen($baseURL) - 1] !== '?') {
-            $baseURL = $baseURL . '?';
+        if ($base_url[strlen($base_url) - 1] !== '?') {
+            $base_url = $base_url . '?';
         }
-        $elementsLeft = count($paramArray);
-        foreach ($paramArray as $key => $value) {
-            $elementsLeft = $elementsLeft - 1;
-            $baseURL = $baseURL . $key . '=' . $paramArray[$key];
-            if ($elementsLeft > 0) {
-                $baseURL = $baseURL . '&';
+        $elements_left = count($param_array);
+        foreach ($param_array as $key => $value) {
+            $elements_left = $elements_left - 1;
+            $base_url = $base_url . $key . '=' . $param_array[$key];
+            if ($elements_left > 0) {
+                $base_url = $base_url . '&';
             }
         }
-        return $baseURL;
+        return $base_url;
     }
      
     /** Internal operations processor for most of the endpoints.
