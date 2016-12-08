@@ -478,7 +478,7 @@ class Api
             $url = $this->addUrlParametersToBaseUrl($this->url_params, $url);
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
         }        
-           return $resultObject;
+       return $resultObject;
     }
 
     /**
