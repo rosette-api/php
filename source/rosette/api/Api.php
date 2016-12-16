@@ -324,9 +324,9 @@ class Api
      */
     public function setCustomHeader($header, $value = null)
     {
-        $headerPrefix = 'X-RosetteAPI-';
-        if (strlen($header) < strlen($headerPrefix) || substr($header, 0, strlen($headerPrefix)) !== $headerPrefix) {
-            throw new RosetteException("Custom headers must start with \"X-\"");
+        $headerPrefix = 'x-rosetteapi-';
+        if (strlen($header) < strlen($headerPrefix) || strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0) {
+            throw new RosetteException("Custom headers must start with \"$headerPrefix\"");
         }
         if (is_null($value) && array_key_exists($header, $this->customHeaders)) {
             unsset($this->customHeaders, $header);

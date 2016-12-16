@@ -16,10 +16,10 @@
  **/
 namespace rosette\api;
 
-/* 
- * Per PSR: A file SHOULD declare new symbols (classes, functions, constants, etc.) and cause no other 
+/*
+ * Per PSR: A file SHOULD declare new symbols (classes, functions, constants, etc.) and cause no other
  * side effects, or it SHOULD execute logic with side effects, but SHOULD NOT do both.
- * 
+ *
  * To accommodate this, we perform the require_once in its own file
  */
 require_once __DIR__ . '/../../../vendor/autoload.php';
