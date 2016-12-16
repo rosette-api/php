@@ -1,4 +1,0 @@
-0.7.4  Example updates
-0.7.3: Example additions
-0.7.1: Added RELAX endpoints
-0.5.0: first published version.

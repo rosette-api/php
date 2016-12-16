@@ -9,20 +9,13 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
- * @license http://www.apache.org/licenses/LICENSE-2.0
+ * @license   Apache http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software distributed under the License is
  * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  **/
 namespace rosette\api;
-
-// autoload classes in the package
-set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__));
-spl_autoload_register(function ($class) {
-    $class = preg_replace('/.+\\\\/', '', $class);
-    require_once ucfirst($class) . '.php';
-});
 
 /**
  * Class API.
@@ -85,7 +78,7 @@ class Api
     /**
      * response code
      *
-     * @var
+     * @var string
      */
     private $response_code;
 
@@ -103,7 +96,7 @@ class Api
 
     /**
      * internal Request object
-     * @var array
+     * @var class
      */
     private $request;
 
@@ -114,19 +107,16 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
 
-
-
-        $this->headers = array("X-RosetteAPI-Key: $user_key",
-                          "Content-Type: application/json",
-                          "Accept: application/json",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version,
-                          "X-RosetteAPI-Binding: php",
-                          "X-RosetteAPI-Binding-Version: " . self::$binding_version );
+        $this->headers = array('X-RosetteAPI-Key' => $user_key,
+            'Content-Type' => 'application/json',
+            'Accept-Encoding' => 'gzip',
+            'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version,
+            'X-RosetteApi-Binding' => 'php',
+            'X-RosetteAPI-Binding-Version' => self::$binding_version);
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
@@ -134,6 +124,7 @@ class Api
         $this->request = new RosetteRequest();
         $this->options = array();
         $this->url_params = array();
+        $this->customHeaders = array();
     }
     
     /**
@@ -194,17 +185,7 @@ class Api
     public function setDebug($debug)
     {
         $this->debug = $debug;
-        $debug_header = 'X-RosetteAPI-Devel: true';
-        $index = array_search($debug_header, $this->headers, true);
-        if ($index === false) {
-            if ($debug === true) {
-                $this->headers[] = $debug_header;
-            }
-        } else {
-            if ($debug === false) {
-                unset($this->headers[$index]);
-            }
-        }
+        $this->headers['X-RosetteAPI-Devel'] = $this->debug;
     }
 
 
@@ -240,29 +221,13 @@ class Api
 
     /**
      * Setter for an additional query parameter to the Rosette API URL.
-     * 
+     *
      * @param string $param_name (e.g. output)
      * @param string $param_value (e.g. rosette)
      */
     public function setUrlParam($param_name, $param_value)
     {
         $this->url_params[$param_name] = $param_value;
-    }
-
-    /**
-     * Gets the value of the item with key $name in the array if it exists
-     *
-     * @param string $name
-     * @param array $array
-     * @return string
-     */
-    private function getValueFromArray($name, $array)
-    {
-        if (array_key_exists($name, $array)) {
-            return $array[$name];
-        } else {
-            return null;
-        }
     }
 
     /**
@@ -288,6 +253,22 @@ class Api
     }
 
     /**
+     * Gets the value of the item with key $name in the array if it exists
+     *
+     * @param string $name
+     * @param array $array
+     * @return string
+     */
+    private function getValueFromArray($name, $array)
+    {
+        if (array_key_exists($name, $array)) {
+            return $array[$name];
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Getter for options
      *
      * @param string $name
@@ -308,7 +289,7 @@ class Api
      */
     public function setOption($name, $value)
     {
-        if ($value != null) {
+        if (!is_null($value)) {
             $this->options[$name] = $value;
         } elseif (array_key_exists($name, $this->options)) {
             unset($this->options[$name]);
@@ -335,20 +316,23 @@ class Api
     }
 
     /**
-     * Setter for custom headers
+     * Setter for custom header
      *
-     * @param array $headers
+     * @param string $header
+     * @param string $value
      *
      */
-    public function setCustomHeaders($header)
+    public function setCustomHeader($header, $value = null)
     {
-        $this->clearCustomHeaders();
-        if ($header != null) {
-            if (preg_match("/^X-RosetteAPI-/", $header)) {
-                array_push($this->customHeaders, $header);
-            } else {
-                throw new RosetteException("Custom headers must start with \"X-\"");
-            }
+        $headerPrefix = 'x-rosetteapi-';
+        if (strlen($header) < strlen($headerPrefix) ||
+            strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0) {
+            throw new RosetteException("Custom headers must start with \"$headerPrefix\"");
+        }
+        if (is_null($value) && array_key_exists($header, $this->customHeaders)) {
+            unsset($this->customHeaders, $header);
+        } else {
+            $this->customHeaders[$header] = $value;
         }
     }
 
@@ -361,16 +345,11 @@ class Api
     **/
     private function addHeaders($headers)
     {
-        $customHeaders = $this->getCustomHeaders();
-
-        if (sizeof($customHeaders) > 0) {
-            foreach ($customHeaders as $value) {
-                array_push($headers, $value);
-            }
-            return $headers;
-        } else {
-            return $headers;
+        foreach ($this->customHeaders as $key => $value) {
+            $headers[$key] = $value;
         }
+
+        return $headers;
     }
 
     /**
@@ -378,57 +357,13 @@ class Api
      */
     public function clearCustomHeaders()
     {
+        unset($this->customHeaders);
         $this->customHeaders = array();
     }
 
-
-    /**
-     * Returns the max connections (concurrency)
-     *
-     * @return int
-     */
-    public function getMaxConnections()
+    public function getResponseHeader()
     {
-        return $this->request->getMaxConnections();
-    }
-
-
-    /**
-     * Replaces a header item with a new one
-     */
-    private function replaceHeaderItem($old_header_item, $new_header_item)
-    {
-        $index = array_search($old_header_item, $this->headers, true);
-        if ($index !== false) {
-            unset($this->headers[$index]);
-        }
-        if (strlen(trim($new_header_item)) > 0) {
-            $this->headers[] = $new_header_item;
-        }
-    }
-
-    /**
-     * Adds the URL parameters to the base URL
-     *
-     * @param $param_array
-     * @param $base_url
-     * 
-     * @return URL with query parameters from $param_array
-     */
-    private function addUrlParametersToBaseUrl($param_array, $base_url)
-    {
-        if ($base_url[strlen($base_url) - 1] !== '?') {
-            $base_url = $base_url . '?';
-        }
-        $elements_left = count($param_array);
-        foreach ($param_array as $key => $value) {
-            $elements_left = $elements_left - 1;
-            $base_url = $base_url . $key . '=' . $param_array[$key];
-            if ($elements_left > 0) {
-                $base_url = $base_url . '&';
-            }
-        }
-        return $base_url;
+        return $this->request->getResponseHeader();
     }
      
     /** Internal operations processor for most of the endpoints.
@@ -467,18 +402,16 @@ class Api
             $multi .= $content . "\r\n";
             $multi .= '--' . $boundary . '--';
 
-            $this->replaceHeaderItem('Content-Type: application/json', 'Content-Type: multipart/mixed');
+            $this->headers['Content-Type'] = 'multipart/mixed';
 
             $url = $this->service_url . $this->subUrl;
-            $url = $this->addUrlParametersToBaseUrl($this->url_params, $url);
-
             $resultObject = $this->postHttp($url, $this->headers, $multi);
         } else {
             $url = $this->service_url . $this->subUrl;
-            $url = $this->addUrlParametersToBaseUrl($this->url_params, $url);
+            $this->headers['Content-Type'] = 'application/json';
             $resultObject = $this->postHttp($url, $this->headers, $parameters->serialize($this->options));
-        }        
-       return $resultObject;
+        }
+        return $resultObject;
     }
 
     /**
@@ -498,7 +431,7 @@ class Api
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        if ($this->request->makeRequest($url, $headers, $data, $method) === false) {
+        if ($this->request->makeRequest($url, $headers, $data, $method, $this->url_params) === false) {
             throw new RosetteException($this->request->getResponseError);
         } else {
             $this->setResponseCode($this->request->getResponseCode());
@@ -646,7 +579,7 @@ class Api
         return $this->callEndpoint($params, 'morphology/' . $facet);
     }
 
-    /** 
+    /**
      * Calls the entities endpoint.
      *
      * @param $params
@@ -749,7 +682,7 @@ class Api
     * Calls the syntax/dependencies endpoint
     *
     * @param $params
-    * 
+    *
     * @return mixed
     *
     * @throws RosetteException

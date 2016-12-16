@@ -64,14 +64,10 @@ class ApiSpec extends ObjectBehavior
         $this->setDebug($debug);
         $this->getDebug()->shouldBe($debug);
     }
-    public function it_gets_max_connections()
-    {
-        $this->getMaxConnections()->shouldBe(1);
-    }
     public function it_can_ping($request)
     {
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API' ]);
         $this->setMockRequest($request);
@@ -80,7 +76,7 @@ class ApiSpec extends ObjectBehavior
     public function it_gets_info($request)
     {
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API' ]);
         $this->setMockRequest($request);
@@ -91,7 +87,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -102,7 +98,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -113,7 +109,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -124,7 +120,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -143,7 +139,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -154,7 +150,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -165,7 +161,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -177,7 +173,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->loadDocumentFile('fakefile');
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -187,7 +183,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\NameTranslationParameters');
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -197,7 +193,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\NameSimilarityParameters');
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -208,7 +204,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -219,7 +215,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -230,7 +226,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
@@ -241,7 +237,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(403);
         $request->getResponse()->willReturn([ 'message' => 'access to this resource denied', 'code' => 'forbidden' ]);
         $this->setMockRequest($request);
@@ -249,12 +245,12 @@ class ApiSpec extends ObjectBehavior
     }
     public function it_fails_with_incorrectly_formatted_custom_header($params, $request)
     {
-        $this->shouldThrow('rosette\api\RosetteException')->duringSetCustomHeaders("test");
+        $this->shouldThrow('rosette\api\RosetteException')->duringSetCustomHeader("test");
     }
     public function it_sets_gets_clears_customHeaders()
     {
-        $this->setCustomHeaders('X-RosetteAPI-test');
-        $this->getCustomHeaders()->shouldBe(array('X-RosetteAPI-test'));
+        $this->setCustomHeader('X-RosetteAPI-test', 'true');
+        $this->getCustomHeaders()->shouldBe(array('X-RosetteAPI-test' => 'true'));
         $this->clearCustomHeaders();
         $this->getCustomHeaders()->shouldBe(array());
     }
@@ -263,7 +259,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
         $request->beADoubleOf('rosette\api\RosetteRequest');
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(409);
         $request->getResponse()->willReturn([ 'code' => 'incompatible version', 'message' => 'the version of client library used is not compatible with this server' ]);
         $this->setMockRequest($request);
