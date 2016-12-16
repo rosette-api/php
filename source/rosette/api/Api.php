@@ -120,15 +120,6 @@ class Api
     {
         $this->user_key = $user_key;
 
-
-
-        $this->headers = array("X-RosetteAPI-Key: $user_key",
-                          "Content-Type: application/json",
-                          "Accept: application/json",
-                          "Accept-Encoding: gzip",
-                          "User-Agent: RosetteAPIPHP/" . self::$binding_version,
-                          "X-RosetteAPI-Binding: php",
-                          "X-RosetteAPI-Binding-Version: " . self::$binding_version );
         $this->headers = array('X-RosetteAPI-Key' => $user_key,
             'Content-Type' => 'application/json',
             'Accept-Encoding' => 'gzip',
