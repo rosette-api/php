@@ -16,3 +16,5 @@ target/
 # PHP
 composer.lock
 vendor/
+bin/
+*.cache
