@@ -139,7 +139,7 @@ class Api
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
         $this->subUrl = null;
-        $this->request = new RosetteRequest($this->getServiceUrl());
+        $this->request = new RosetteRequest();
         $this->options = array();
         $this->url_params = array();
         $this->customHeaders = array();
