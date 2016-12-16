@@ -39,13 +39,6 @@ class RosetteRequest
     private $initialized;
 
     /**
-     * Current session variable
-     *
-     * @var mixed
-     */
-    private $session;
-
-    /**
      * class constructor
      *
      */

@@ -9,7 +9,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
- * @license http://www.apache.org/licenses/LICENSE-2.0
+ * @license   Apache http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software distributed under the License is
  * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -116,7 +116,7 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url  = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
     {
         $this->user_key = $user_key;
 
