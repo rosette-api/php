@@ -23,26 +23,26 @@ class Name extends RosetteParamsSetBase
     /**
      * Textual form of the name.
      *
-     * @var
+     * @var string
      */
     public $text;
     /**
      * Entity type of the name.
      *
-     * @var
+     * @var string
      */
     public $entityType;
     /**
      * Language of the name.
      *
-     * @var
+     * @var string
      */
     public $language;
 
     /**
      * Script in which the name is written.
      *
-     * @var
+     * @var string
      */
     public $script;
 

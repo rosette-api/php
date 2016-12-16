@@ -13,7 +13,7 @@ class RosetteRequestSpec extends ObjectBehavior
 
     public function it_sends_a_request()
     {
-        $this->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any())->shouldBeBool();
+        $this->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->shouldBeBool();
     }
 
     public function it_returns_a_code()
@@ -24,10 +24,5 @@ class RosetteRequestSpec extends ObjectBehavior
     public function it_returns_a_response()
     {
         $this->getResponse()->shouldBeArray();
-    }
-
-    public function it_gets_max_connections()
-    {
-        $this->getMaxConnections()->shouldBe(1);
     }
 }
