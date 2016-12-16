@@ -69,11 +69,16 @@ class RosetteRequest
      */
     public function makeRequest($url, $headers, $data, $method, $url_params = null)
     {
+        // Unfortunately, the 'options' argument for post and get is NOT for
+        // query parameters (as it is in Python). Hence, the construction.
+        if (!is_null($url_params)) {
+            $url = $url . '?' . http_build_query($url_params);
+        }
         try {
             if ($method === 'POST') {
-                $this->response = \Requests::post($url, $headers, $data, $url_params);
+                $this->response = \Requests::post($url, $headers, $data);
             } elseif ($method === 'GET') {
-                $this->response = \Requests::get($url, $headers, $url_params);
+                $this->response = \Requests::get($url, $headers);
             }
             return true;
         } catch (Requests_Exception $e) {
