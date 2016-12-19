@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to get entities from a piece of text.
  **/
-require_once dirname(__FILE__) . '/vendor/autoload.php';
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
@@ -21,7 +21,7 @@ $params->set('content', $content);
 $params->set('genre', 'social-media');
 
 try {
-    $result = $api->entities($params, false);
+    $result = $api->entities($params);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);

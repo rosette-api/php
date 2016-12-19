@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to detect possible languages for a piece of text.
  **/
-require_once dirname(__FILE__) . '/vendor/autoload.php';
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
@@ -18,8 +18,7 @@ $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new 
 $params = new DocumentParameters();
 $content = $language_data;
 $params->set('content', $content);
-$customHeader = "X-RosetteAPI-App: php-app";
-$api->setCustomHeaders($customHeader);
+$api->setCustomHeader('X-RosetteAPI-App', 'php-app');
 
 try {
     $result = $api->language($params);

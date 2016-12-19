@@ -24,36 +24,7 @@ namespace rosette\api;
  */
 class RosetteRequest
 {
-    /**
-     * API URL
-     *
-     * @var string
-     */
-    private $url;
-    /**
-     * Request data
-     *
-     * @var string
-     */
-    private $data;
-    /**
-     * Request headers
-     *
-     * @var string
-     */
-    private $headers;
-    /**
-     * POST or GET
-     *
-     * @var string
-     */
-    private $method;
-    /**
-     * PHP curl handle
-     *
-     * @var mixed
-     */
-    private $curl_handle;
+
     /**
      * Response object
      *
@@ -66,12 +37,6 @@ class RosetteRequest
      * @var bool
      */
     private $initialized;
-    /**
-     * Maximum connections
-     *
-     * @var int
-     */
-    private $max_connections;
 
     /**
      * class constructor
@@ -79,8 +44,7 @@ class RosetteRequest
      */
     public function __construct()
     {
-        $this->initialized = false;
-        $this->max_connections = 1;
+        $this->initialized = true;
     }
 
     /**
@@ -89,7 +53,6 @@ class RosetteRequest
     public function __destruct()
     {
         if ($this->initialized) {
-            curl_close($this->curl_handle);
             $this->initialized = false;
         }
     }
@@ -104,31 +67,23 @@ class RosetteRequest
      *
      * @return bool
      */
-    public function makeRequest($url, $headers, $data, $method)
+    public function makeRequest($url, $headers, $data, $method, $url_params = null)
     {
-        if ($this->initialized === true) {
-            curl_reset($this->curl_handle);
-        } else {
-            $this->curl_handle = curl_init();
-            $this->initialized = true;
+        // Unfortunately, the 'options' argument for post and get is NOT for
+        // query parameters (as it is in Python). Hence, the construction.
+        if (!is_null($url_params)) {
+            $url = $url . '?' . http_build_query($url_params);
         }
-
-        curl_setopt($this->curl_handle, CURLOPT_URL, $url);
-        curl_setopt($this->curl_handle, CURLOPT_HTTPHEADER, $headers);
-
-        if ($method === 'POST') {
-            curl_setopt($this->curl_handle, CURLOPT_POST, true);
-            curl_setopt($this->curl_handle, CURLOPT_POSTFIELDS, $data);
-        } elseif ($method === 'GET') {
-            curl_setopt($this->curl_handle, CURLOPT_HTTPGET, true);
+        try {
+            if ($method === 'POST') {
+                $this->response = \Requests::post($url, $headers, $data);
+            } elseif ($method === 'GET') {
+                $this->response = \Requests::get($url, $headers);
+            }
+            return true;
+        } catch (Requests_Exception $e) {
+            throw new RosetteException($e->getMessage(), $e->getCode());
         }
-
-        curl_setopt($this->curl_handle, CURLOPT_MAXCONNECTS, $this->max_connections);
-        curl_setopt($this->curl_handle, CURLOPT_HEADER, 1);
-        curl_setopt($this->curl_handle, CURLOPT_RETURNTRANSFER, true);
-        $this->response = curl_exec($this->curl_handle);
-
-        return $this->response !== false;
     }
 
     /**
@@ -140,11 +95,7 @@ class RosetteRequest
      */
     public function getResponseCode()
     {
-        if ($this->curl_handle === null) {
-            return 0;
-        } else {
-            return curl_getinfo($this->curl_handle, CURLINFO_HTTP_CODE);
-        }
+        return !$this->response ? 0 : $this->response->status_code;
     }
 
 
@@ -157,7 +108,7 @@ class RosetteRequest
      */
     public function getResponseError()
     {
-        return curl_error($this->curl_handle);
+        return $this->response->body;
     }
 
     /**
@@ -168,11 +119,9 @@ class RosetteRequest
      *
      * @return array
      */
-    private function getResponseHeaders()
+    public function getResponseHeader()
     {
-        $header_size = $this->curlHeaderSize($this->curl_handle);
-
-        return explode(PHP_EOL, substr($this->response, 0, $header_size));
+        return $this->response->headers;
     }
 
     /**
@@ -180,18 +129,9 @@ class RosetteRequest
      *
      * @return string
      */
-    private function getResponseBody()
+    public function getResponseBody()
     {
-        $body = '';
-        $header_size = $this->curlHeaderSize($this->curl_handle);
-        if (!empty($this->response)) {
-            $body = substr($this->response, $header_size);
-            if ($this->checkForZip($body)) {
-                $body = gzinflate(substr($body, 10, -8));
-            }
-        }
-
-        return $body;
+        return $this->response->body;
     }
 
     /**
@@ -201,66 +141,15 @@ class RosetteRequest
      */
     public function getResponse()
     {
-        if ($this->response !== false) {
-            $response = [ 'headers' => $this->headersToArray() ];
-
-            if (array_key_exists('X-RosetteAPI-Concurrency', $response['headers'])) {
-                $concurrency = $response['headers']['X-RosetteAPI-Concurrency'];
-                if ($concurrency != $this->max_connections) {
-                    $this->max_connections = $concurrency;
-                }
-            }
-
-            $responseBody = $this->getResponseBody();
-            if (empty($responseBody)) {
-                $response = array_merge($response, [ 'body' => 'empty' ]);
-            } else {
-                $response = array_merge($response, json_decode($this->getResponseBody(), true));
-            }
-        } else {
-            $response = $this->getResponseError();
+        if (!$this->response) {
+            return array();
         }
-
-        return $response;
-    }
-
-    /**
-     * Gets the maximum number of connections allowed
-     *
-     * @return int 
-     */
-    public function getMaxConnections()
-    {
-        return $this->max_connections;
-    }
-
-    /**
-     * function headersToArray
-     *
-     * Converts the http response header string to an associative array
-     *
-     * @param $headers
-     *
-     * @returns associative array of headers
-     */
-    private function headersToArray()
-    {
-        $headers = $this->getResponseHeaders();
-        $array_headers = array();
-        foreach ($headers as $k=>$v) {
-            $t = explode(':', $v, 2);
-            if (isset($t[1])) {
-                $array_headers[ trim($t[0]) ] = trim($t[1]);
-            } else {
-                if (strlen(trim($v)) > 0) {
-                    $array_headers[] = $v;
-                }
-                if (preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $v, $out)) {
-                    $array_headers['response_code'] = intval($out[1]);
-                }
-            }
+        $headers['response_code'] = $this->response->status_code;
+        foreach ($this->response->headers as $key => $value) {
+            $headers[$key] = $value;
         }
-        return $array_headers;
+        $response['headers'] = $headers;
+        return array_merge($response, json_decode($this->response->body, true));
     }
 
     /**
@@ -283,20 +172,5 @@ class RosetteRequest
         }
 
         return $result;
-    }
-    /**
-     * Returns the curl header size
-     *
-     * @param $curl_handle
-     *
-     * @return int
-     */
-    private function curlHeaderSize($curl_handle)
-    {
-        if ($curl_handle === null) {
-            return 0;
-        } else {
-            return curl_getinfo($curl_handle, CURLINFO_HEADER_SIZE);
-        }
     }
 }

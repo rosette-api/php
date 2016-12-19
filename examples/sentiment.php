@@ -3,7 +3,7 @@
 /**
  * Example code to call Rosette API to get a document's sentiment from a local file.
  **/
-require_once dirname(__FILE__) . '/vendor/autoload.php';
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
 use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
@@ -27,6 +27,6 @@ try {
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
+} finally {
+    fclose($temp);  // clean up the temp file
 }
-
-fclose($temp);  // clean up the temp file

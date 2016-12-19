@@ -1,5 +1,9 @@
 {
   "name": "rosette/api",
+<<<<<<< HEAD
+=======
+  "version": "1.5.0",
+>>>>>>> develop
   "description": "Rosette API PHP client SDK",
   "license": "Apache",
   "keywords": [
@@ -16,12 +20,15 @@
   ],
   "require-dev": {
     "friendsofphp/php-cs-fixer": ">=1.9",
-    "phpspec/phpspec": "~2.5"
+    "phpspec/phpspec": "~2.5",
+    "rmccue/requests": ">=1.0"
   },
   "config": {
     "bin-dir": "bin"
   },
   "autoload": {
-    "psr-4": {"rosette\\": "./source/rosette"}
+    "psr-4": {
+        "rosette\\": "./source/rosette"
+    }
   }
 }
