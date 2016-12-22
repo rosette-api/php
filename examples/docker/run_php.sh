@@ -89,6 +89,8 @@ validateURL
 
 #Copy the examples from the mounted content in /source to current WORKDIR
 cp /source/examples/*.* .
+composer install 
+cp -r ./vendor/. ../vendor
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then

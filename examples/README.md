@@ -5,8 +5,10 @@ These examples are scripts that can be run independently to demonstrate the Rose
 
 You can now run your desired _endpoint_.php file to see it in action.  Before running the examples 
 for the first time:
-1. cd examples
-2. composer update
+1. ```cd examples```
+2. ```composer update```
+3. The examples are dual purpose in that they're used to test both source and packagist. In order to meet that requirement, the examples expect the vendor directory to be at the same level as examples/.
+```cp -r ./vendor/. ../vendor``` or you can edit the example to reference the vendor directory that is in the examples directory.
 
 For example, run `php categories.php` if you want to see the categories functionality demonstrated.
 
