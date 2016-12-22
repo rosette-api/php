@@ -13,7 +13,7 @@ RUN apt-get -y update && apt-get install -y \
     vim \
     wget
 
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php5-5.6
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
 RUN apt-get -y update && apt-get install -y \
     php-dev \
     php-cli \
