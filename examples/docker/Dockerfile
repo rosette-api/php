@@ -21,8 +21,8 @@ RUN apt-get -y update && apt-get install -y \
     libapache2-mod-php
 
 
-RUN echo "memory_limit=-1" >> /etc/php/7.0/cli/php.ini && \
-    echo "date.timezone=America/New_York" >> /etc/php/7.0/cli/php.ini
+RUN echo "memory_limit=-1" >> /etc/php/7.1/cli/php.ini && \
+    echo "date.timezone=America/New_York" >> /etc/php/7.1/cli/php.ini
 
 RUN wget -O /usr/local/bin/composer https://getcomposer.org/composer.phar && \
     chmod +x /usr/local/bin/composer && composer self-update
