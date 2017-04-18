@@ -126,7 +126,7 @@ class Api
         $this->url_params = array();
         $this->customHeaders = array();
     }
-    
+
     /**
      * Sets on override Request for mocking purposes
      *
@@ -365,7 +365,7 @@ class Api
     {
         return $this->request->getResponseHeader();
     }
-     
+
     /** Internal operations processor for most of the endpoints.
      *
      * @param $parameters
@@ -651,6 +651,20 @@ class Api
     }
 
     /**
+     * Calls the name deduplication endpoint.
+     *
+     * @param $nameDeduplicationParams
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function nameDeduplication($nameDeduplicationParams)
+    {
+        return $this->callEndpoint($nameDeduplicationParams, 'name-deduplication');
+    }
+
+    /**
      * Calls the relationships endpoint.
      *
      * @param $params
@@ -690,5 +704,19 @@ class Api
     public function syntaxDependencies($params)
     {
         return $this->callEndpoint($params, 'syntax/dependencies');
+    }
+
+    /**
+    * Calls the transliteration endpoint
+    *
+    * @param $params
+    *
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function transliteration($params)
+    {
+        return $this->callEndpoint($params, 'transliteration');
     }
 }

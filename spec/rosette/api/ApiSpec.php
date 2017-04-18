@@ -167,7 +167,7 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->sentiment($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
-    
+
     public function it_calls_using_multipart($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
@@ -198,6 +198,16 @@ class ApiSpec extends ObjectBehavior
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
         $this->nameSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+    public function it_calls_the_name_deduplication_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\NameDeduplicationParameters');
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->nameDeduplication($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_calls_the_relationships_endpoint($params, $request)
     {
@@ -231,6 +241,16 @@ class ApiSpec extends ObjectBehavior
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
         $this->syntaxDependencies($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
+    public function it_calls_the_transliteration_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\TransliterationParameters');
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->transliteration($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_fails_with_non_200_response($params, $request)
     {
