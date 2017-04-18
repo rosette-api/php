@@ -36,7 +36,7 @@ class NameDeduplicationParameters extends RosetteParamsSetBase
      * @param array - list of Name objects
      * @param float - threshold value used for cluster sizing
      */
-    public function __construct(array $names, float $threshold = 0.75)
+    public function __construct($names, $threshold = 0.75)
     {
         $this->names = $names;
         $this->threshold = $threshold;
