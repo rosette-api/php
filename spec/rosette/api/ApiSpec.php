@@ -244,7 +244,7 @@ class ApiSpec extends ObjectBehavior
     }
     public function it_calls_the_transliteration_endpoint($params, $request)
     {
-        $params->beADoubleOf('\rosette\api\TransliterationParameters');
+        $params->beADoubleOf('\rosette\api\DocumentParameters');
         $request->beADoubleOf('rosette\api\RosetteRequest');
         $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);

@@ -15,7 +15,7 @@ if (!isset($options['key'])) {
 }
 $transliteration_data = "معمر محمد أبو منيار القذاف";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new TransliterationParameters($transliteration_data, 'eng', 'Latn', 'ara', 'ara');
+$params = new DocumentParameters($transliteration_data);
 
 try {
     $result = $api->transliteration($params);
