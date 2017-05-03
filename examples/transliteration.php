@@ -5,7 +5,7 @@
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
-use rosette\api\TransliterationParameters;
+use rosette\api\DocumentParameters;
 use rosette\api\RosetteException;
 
 $options = getopt(null, array('key:', 'url::'));
@@ -15,7 +15,8 @@ if (!isset($options['key'])) {
 }
 $transliteration_data = "معمر محمد أبو منيار القذاف";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new DocumentParameters($transliteration_data);
+$params = new DocumentParameters();
+$params->set('content', $transliteration_data);
 
 try {
     $result = $api->transliteration($params);
