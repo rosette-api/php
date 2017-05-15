@@ -14,11 +14,11 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$name_dedup_data = "John Smith,Johnathon Smith,Fred Jones";
+$name_dedupe_data = "John Smith,Johnathon Smith,Fred Jones";
 
 $dedup_array = array();
 $threshold = 0.75;
-foreach (explode(',', $name_dedup_data) as $name) {
+foreach (explode(',', $name_dedupe_data) as $name) {
     array_push($dedup_array, new Name($name));
 }
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
