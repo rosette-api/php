@@ -27,7 +27,7 @@ class NameDeduplicationParameters extends RosetteParamsSetBase
      */
     public $names;
     /**
-     * @var float threshold 0 - 1 range for cluster size
+     * @var float threshold 0 - 1 range for cluster size. Can be null to use default.
      */
     public $threshold;
     /**
@@ -36,7 +36,7 @@ class NameDeduplicationParameters extends RosetteParamsSetBase
      * @param array - list of Name objects
      * @param float - threshold value used for cluster sizing
      */
-    public function __construct($names, $threshold = 0.75)
+    public function __construct($names, $threshold = null)
     {
         $this->names = $names;
         $this->threshold = $threshold;
@@ -55,13 +55,7 @@ class NameDeduplicationParameters extends RosetteParamsSetBase
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
-        if (empty($this->threshold)) {
-            throw new RosetteException(
-                sprintf('Required name deduplication parameter not supplied: threshold'),
-                RosetteException::$BAD_REQUEST_FORMAT
-            );
-        }
-        if ($this->threshold <= 0 || $this->threshold >= 1.0) {
+        if ($this->threshold != null && ($this->threshold <= 0 || $this->threshold >= 1.0)) {
             throw new RosetteException(
                 sprintf("Threshold must be in the range of 0 to 1.0"),
                 RosetteException::$BAD_REQUEST_FORMAT
