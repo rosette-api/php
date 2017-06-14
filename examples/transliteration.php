@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get entities from a piece of text.
+ * Example code to call Rosette API to transliterate content.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
@@ -13,14 +13,13 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$syntax_dependencies_data = "Yoshinori Ohsumi, a Japanese cell biologist, was awarded the Nobel Prize in Physiology or Medicine on Monday.";
+$transliteration_data = "معمر محمد أبو منيار القذاف";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $syntax_dependencies_data;
-$params->set('content', $content);
+$params->set('content', $transliteration_data);
 
 try {
-    $result = $api->syntaxDependencies($params, false);
+    $result = $api->transliteration($params);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);

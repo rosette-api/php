@@ -1,11 +1,12 @@
 <?php
 
 /**
- * Example code to call Rosette API to get entities from a piece of text.
+ * Example code to call Rosette API to deduplicate a list of names.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
-use rosette\api\DocumentParameters;
+use rosette\api\Name;
+use rosette\api\NameDeduplicationParameters;
 use rosette\api\RosetteException;
 
 $options = getopt(null, array('key:', 'url::'));
@@ -13,14 +14,18 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$syntax_dependencies_data = "Yoshinori Ohsumi, a Japanese cell biologist, was awarded the Nobel Prize in Physiology or Medicine on Monday.";
+$name_dedupe_data = "John Smith,Johnathon Smith,Fred Jones";
+
+$dedup_array = array();
+$threshold = 0.75;
+foreach (explode(',', $name_dedupe_data) as $name) {
+    array_push($dedup_array, new Name($name));
+}
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new DocumentParameters();
-$content = $syntax_dependencies_data;
-$params->set('content', $content);
+$params = new NameDeduplicationParameters($dedup_array, $threshold);
 
 try {
-    $result = $api->syntaxDependencies($params, false);
+    $result = $api->nameDeduplication($params);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
