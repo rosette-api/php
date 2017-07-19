@@ -80,6 +80,7 @@
 <li class="method public "><a href="#method_info" title="info() :: Calls the info endpoint."><span class="description">Calls the info endpoint.</span><pre>info()</pre></a></li>
 <li class="method public "><a href="#method_language" title="language() :: Calls the language endpoint."><span class="description">Calls the language endpoint.</span><pre>language()</pre></a></li>
 <li class="method public "><a href="#method_morphology" title="morphology() :: Calls the morphology endpoint."><span class="description">Calls the morphology endpoint.</span><pre>morphology()</pre></a></li>
+<li class="method public "><a href="#method_nameDeduplication" title="nameDeduplication() :: Calls the name deduplication endpoint."><span class="description">Calls the name deduplication endpoint.</span><pre>nameDeduplication()</pre></a></li>
 <li class="method public "><a href="#method_nameSimilarity" title="nameSimilarity() :: Calls the name similarity endpoint."><span class="description">Calls the name similarity endpoint.</span><pre>nameSimilarity()</pre></a></li>
 <li class="method public "><a href="#method_nameTranslation" title="nameTranslation() :: Calls the name translation endpoint."><span class="description">Calls the name translation endpoint.</span><pre>nameTranslation()</pre></a></li>
 <li class="method public "><a href="#method_ping" title="ping() :: Calls the Ping endpoint."><span class="description">Calls the Ping endpoint.</span><pre>ping()</pre></a></li>
@@ -98,6 +99,7 @@
 <li class="method public "><a href="#method_syntaxDependencies" title="syntaxDependencies() :: Calls the syntax/dependencies endpoint"><span class="description">Calls the syntax/dependencies endpoint</span><pre>syntaxDependencies()</pre></a></li>
 <li class="method public "><a href="#method_textEmbedding" title="textEmbedding() :: Calls the text-embedding endpoint."><span class="description">Calls the text-embedding endpoint.</span><pre>textEmbedding()</pre></a></li>
 <li class="method public "><a href="#method_tokens" title="tokens() :: Calls the tokens endpoint."><span class="description">Calls the tokens endpoint.</span><pre>tokens()</pre></a></li>
+<li class="method public "><a href="#method_transliteration" title="transliteration() :: Calls the transliteration endpoint"><span class="description">Calls the transliteration endpoint</span><pre>transliteration()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -352,6 +354,23 @@ provide the content data that will be processed by the service.</p>
 <h4>$facet</h4>
 <code>null</code>
 </div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameDeduplication"></a><div class="element clickable method public method_nameDeduplication " data-toggle="collapse" data-target=".method_nameDeduplication .collapse" title="public">
+<h2>Calls the name deduplication endpoint.</h2>
+<pre>nameDeduplication($nameDeduplicationParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameDeduplicationParams</h4></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\rosette\api\RosetteException</code></th>
@@ -630,6 +649,23 @@ provide the content data that will be processed by the service.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_transliteration"></a><div class="element clickable method public method_transliteration " data-toggle="collapse" data-target=".method_transliteration .collapse" title="public">
+<h2>Calls the transliteration endpoint</h2>
+<pre>transliteration($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
 <a id="method_addHeaders"></a><div class="element clickable method private method_addHeaders " data-toggle="collapse" data-target=".method_addHeaders .collapse" title="private">
 <h2>Adds custom headers to headers array if there are any</h2>
 <pre>addHeaders(array $headers) : array</pre>
@@ -710,7 +746,7 @@ provide the content data that will be processed by the service.</p>
 <pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'1.5.0'</code></div>
+<div class="subelement argument"><code>'1.7.0'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -812,7 +848,7 @@ provide the content data that will be processed by the service.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2016-12-19T15:47:47Z.<br></footer></div>
+            generated on 2017-07-19T20:33:04Z.<br></footer></div>
 </div>
 </body>
 </html>

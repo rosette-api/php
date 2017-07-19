@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>API Documentation » \rosette\api\NameSimilarityParameters</title>
+<title>API Documentation » \rosette\api\NameDeduplicationParameters</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -81,15 +81,14 @@
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
                     <ul>
-<li class="property public "><a href="#property_genre" title="$genre() :: "><span class="description">genre to categorize the input data</span><pre>$genre</pre></a></li>
-<li class="property public "><a href="#property_name1" title="$name1() :: "><span class="description">sourceName source name</span><pre>$name1</pre></a></li>
-<li class="property public "><a href="#property_name2" title="$name2() :: "><span class="description">targetName target name</span><pre>$name2</pre></a></li>
+<li class="property public "><a href="#property_names" title="$names() :: "><span class="description">list of Name objects</span><pre>$names</pre></a></li>
+<li class="property public "><a href="#property_threshold" title="$threshold() :: "><span class="description">threshold 0 - 1 range for cluster size. Can be null to use default.</span><pre>$threshold</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\rosette\api\NameSimilarityParameters"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\rosette\api\NameDeduplicationParameters"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -98,11 +97,11 @@
 <span class="divider">\</span><a href="../namespaces/rosette.api.html">api</a>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/rosette.api.NameSimilarityParameters.html">NameSimilarityParameters</a>
+<span class="divider">\</span><a href="../classes/rosette.api.NameDeduplicationParameters.html">NameDeduplicationParameters</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">Class NameSimilarityParameters.</p>
+<p class="short_description">Class NameDeduplicationParameters.</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -119,7 +118,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>constructor.</h2>
-<pre>__construct(\rosette\api\Name $sourceName, \rosette\api\Name $targetName) </pre>
+<pre>__construct(array $names, float $threshold<code> = null</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -129,14 +128,14 @@
 </tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$sourceName</h4>
-<code>\rosette\api\Name</code><ul>
-<li>sourceName source name to be compared</li>
+<h4>$names</h4>
+<code>array</code><ul>
+<li>list of Name objects</li>
 </ul></div>
 <div class="subelement argument">
-<h4>$targetName</h4>
-<code>\rosette\api\Name</code><ul>
-<li>targetName target name to be compared</li>
+<h4>$threshold</h4>
+<code>float</code><ul>
+<li>threshold value used for cluster sizing</li>
 </ul></div>
 </div></div>
 </div>
@@ -251,9 +250,9 @@
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_genre"> </a><div class="element clickable property public property_genre" data-toggle="collapse" data-target=".property_genre .collapse" title="public">
-<h2>genre to categorize the input data</h2>
-<pre>$genre : string</pre>
+<a id="property_names"> </a><div class="element clickable property public property_names" data-toggle="collapse" data-target=".property_names .collapse" title="public">
+<h2>list of Name objects</h2>
+<pre>$names : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -261,19 +260,9 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_name1"> </a><div class="element clickable property public property_name1" data-toggle="collapse" data-target=".property_name1 .collapse" title="public">
-<h2>sourceName source name</h2>
-<pre>$name1 : \rosette\api\Name</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_name2"> </a><div class="element clickable property public property_name2" data-toggle="collapse" data-target=".property_name2 .collapse" title="public">
-<h2>targetName target name</h2>
-<pre>$name2 : \rosette\api\Name</pre>
+<a id="property_threshold"> </a><div class="element clickable property public property_threshold" data-toggle="collapse" data-target=".property_threshold .collapse" title="public">
+<h2>threshold 0 - 1 range for cluster size. Can be null to use default.</h2>
+<pre>$threshold : float</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
