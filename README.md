@@ -4,7 +4,12 @@
 See the wiki for more information.
 
 ## Installation ##
-`composer require "rosette/api: ~1.4"`
+`composer require "rosette/api: ~1.5"`
+
+If the version you are using is not [the latest from Packagist](https://packagist.org/packages/rosette/api),
+please check for its [**compatibilty with api.rosette.com**](https://developer.rosette.com/features-and-functions?php).
+If you have an on-premise version of Rosette API server, please contact support for
+binding compatibility with your installation.
 
 ## Docker ##
 A Docker image for running the examples against the compiled source library is available on Docker Hub.
