@@ -1,6 +1,6 @@
 node {
     def SOURCEDIR = pwd()
-    def TEST_CONTAINER = 'examples/nodejs-test'
+    def TEST_CONTAINER = 'examples/php-test'
     def DOCKERFILE_DIR = './examples/docker'
     try {
         stage("Clean up") {
