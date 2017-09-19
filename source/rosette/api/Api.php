@@ -719,4 +719,18 @@ class Api
     {
         return $this->callEndpoint($params, 'transliteration');
     }
+
+    /**
+    * Calls the topics endpoint
+    *
+    * @param $params
+    *
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function topics($params)
+    {
+        return $this->callEndpoint($params, 'topics');
+    }
 }

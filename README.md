@@ -4,7 +4,7 @@
 See the wiki for more information.
 
 ## Installation ##
-`composer require "rosette/api: ~1.5"`
+`composer require "rosette/api: ~1.8"`
 
 If the version you are using is not [the latest from Packagist](https://packagist.org/packages/rosette/api),
 please check for its [**compatibilty with api.rosette.com**](https://developer.rosette.com/features-and-functions?php).
@@ -25,6 +25,9 @@ See [examples](examples)
 
 ## API Documentation ##
 See [documentation](http://rosette-api.github.io/php)
+
+## Release Notes
+See the [wiki](https://github.com/rosette-api/php/wiki/Release-Notes)
 
 ## Additional Information ##
 Visit [Rosette API site](https://developer.rosette.com)
