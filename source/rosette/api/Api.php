@@ -38,7 +38,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.7.0';
+    private static $binding_version = '1.8.0';
 
     /**
      * User key (required for Rosette API).
