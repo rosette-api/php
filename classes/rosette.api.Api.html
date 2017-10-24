@@ -1,0 +1,872 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » \rosette\api\Api</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/rosette.html"><i class="icon-th"></i> rosette</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">9</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div xmlns:php="http://php.net/xsl" class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+</div>
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
+<li class="nav-header">
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct() :: Create an L{API} object."><span class="description">Create an L{API} object.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_categories" title="categories() :: Calls the categories endpoint."><span class="description">Calls the categories endpoint.</span><pre>categories()</pre></a></li>
+<li class="method public "><a href="#method_clearCustomHeaders" title="clearCustomHeaders() :: Clears all custom headers"><span class="description">Clears all custom headers</span><pre>clearCustomHeaders()</pre></a></li>
+<li class="method public "><a href="#method_clearOptions" title="clearOptions() :: Clears all options"><span class="description">Clears all options</span><pre>clearOptions()</pre></a></li>
+<li class="method public "><a href="#method_clearUrlParams" title="clearUrlParams() :: Clears all URL extension parameters."><span class="description">Clears all URL extension parameters.</span><pre>clearUrlParams()</pre></a></li>
+<li class="method public "><a href="#method_entities" title="entities() :: Calls the entities endpoint."><span class="description">Calls the entities endpoint.</span><pre>entities()</pre></a></li>
+<li class="method public "><a href="#method_getCustomHeaders" title="getCustomHeaders() :: Setter for options"><span class="description">Setter for options</span><pre>getCustomHeaders()</pre></a></li>
+<li class="method public "><a href="#method_getDebug" title="getDebug() :: Retrieves debug setting (more verbose output)."><span class="description">Retrieves debug setting (more verbose output).</span><pre>getDebug()</pre></a></li>
+<li class="method public "><a href="#method_getOption" title="getOption() :: Getter for options"><span class="description">Getter for options</span><pre>getOption()</pre></a></li>
+<li class="method public "><a href="#method_getResponseCode" title="getResponseCode() :: Returns response code."><span class="description">Returns response code.</span><pre>getResponseCode()</pre></a></li>
+<li class="method public "><a href="#method_getResponseHeader" title="getResponseHeader() :: "><span class="description">getResponseHeader()
+        </span><pre>getResponseHeader()</pre></a></li>
+<li class="method public "><a href="#method_getServiceUrl" title="getServiceUrl() :: Getter for the service_url."><span class="description">Getter for the service_url.</span><pre>getServiceUrl()</pre></a></li>
+<li class="method public "><a href="#method_getUrlParam" title="getUrlParam() :: Getter for the URL parameter with the specified name"><span class="description">Getter for the URL parameter with the specified name</span><pre>getUrlParam()</pre></a></li>
+<li class="method public "><a href="#method_info" title="info() :: Calls the info endpoint."><span class="description">Calls the info endpoint.</span><pre>info()</pre></a></li>
+<li class="method public "><a href="#method_language" title="language() :: Calls the language endpoint."><span class="description">Calls the language endpoint.</span><pre>language()</pre></a></li>
+<li class="method public "><a href="#method_morphology" title="morphology() :: Calls the morphology endpoint."><span class="description">Calls the morphology endpoint.</span><pre>morphology()</pre></a></li>
+<li class="method public "><a href="#method_nameDeduplication" title="nameDeduplication() :: Calls the name deduplication endpoint."><span class="description">Calls the name deduplication endpoint.</span><pre>nameDeduplication()</pre></a></li>
+<li class="method public "><a href="#method_nameSimilarity" title="nameSimilarity() :: Calls the name similarity endpoint."><span class="description">Calls the name similarity endpoint.</span><pre>nameSimilarity()</pre></a></li>
+<li class="method public "><a href="#method_nameTranslation" title="nameTranslation() :: Calls the name translation endpoint."><span class="description">Calls the name translation endpoint.</span><pre>nameTranslation()</pre></a></li>
+<li class="method public "><a href="#method_ping" title="ping() :: Calls the Ping endpoint."><span class="description">Calls the Ping endpoint.</span><pre>ping()</pre></a></li>
+<li class="method public "><a href="#method_relationships" title="relationships() :: Calls the relationships endpoint."><span class="description">Calls the relationships endpoint.</span><pre>relationships()</pre></a></li>
+<li class="method public "><a href="#method_sentences" title="sentences() :: Calls the sentences endpoint."><span class="description">Calls the sentences endpoint.</span><pre>sentences()</pre></a></li>
+<li class="method public "><a href="#method_sentiment" title="sentiment() :: Calls the sentiment endpoint."><span class="description">Calls the sentiment endpoint.</span><pre>sentiment()</pre></a></li>
+<li class="method public "><a href="#method_setCustomHeader" title="setCustomHeader() :: Setter for custom header"><span class="description">Setter for custom header</span><pre>setCustomHeader()</pre></a></li>
+<li class="method public "><a href="#method_setDebug" title="setDebug() :: Enables debug (more verbose output)."><span class="description">Enables debug (more verbose output).</span><pre>setDebug()</pre></a></li>
+<li class="method public "><a href="#method_setMaxRetries" title="setMaxRetries() :: Sets the maximum retries for server connect"><span class="description">Sets the maximum retries for server connect</span><pre>setMaxRetries()</pre></a></li>
+<li class="method public "><a href="#method_setMillisecondsBetweenRetries" title="setMillisecondsBetweenRetries() :: Sets the millisecond sleep time between retries"><span class="description">Sets the millisecond sleep time between retries</span><pre>setMillisecondsBetweenRetries()</pre></a></li>
+<li class="method public "><a href="#method_setMockRequest" title="setMockRequest() :: Sets on override Request for mocking purposes"><span class="description">Sets on override Request for mocking purposes</span><pre>setMockRequest()</pre></a></li>
+<li class="method public "><a href="#method_setOption" title="setOption() :: Setter for options"><span class="description">Setter for options</span><pre>setOption()</pre></a></li>
+<li class="method public "><a href="#method_setResponseCode" title="setResponseCode() :: Sets the response code."><span class="description">Sets the response code.</span><pre>setResponseCode()</pre></a></li>
+<li class="method public "><a href="#method_setServiceUrl" title="setServiceUrl() :: Setter for the service_url."><span class="description">Setter for the service_url.</span><pre>setServiceUrl()</pre></a></li>
+<li class="method public "><a href="#method_setUrlParam" title="setUrlParam() :: Setter for an additional query parameter to the Rosette API URL."><span class="description">Setter for an additional query parameter to the Rosette API URL.</span><pre>setUrlParam()</pre></a></li>
+<li class="method public "><a href="#method_syntaxDependencies" title="syntaxDependencies() :: Calls the syntax/dependencies endpoint"><span class="description">Calls the syntax/dependencies endpoint</span><pre>syntaxDependencies()</pre></a></li>
+<li class="method public "><a href="#method_textEmbedding" title="textEmbedding() :: Calls the text-embedding endpoint."><span class="description">Calls the text-embedding endpoint.</span><pre>textEmbedding()</pre></a></li>
+<li class="method public "><a href="#method_tokens" title="tokens() :: Calls the tokens endpoint."><span class="description">Calls the tokens endpoint.</span><pre>tokens()</pre></a></li>
+<li class="method public "><a href="#method_topics" title="topics() :: Calls the topics endpoint"><span class="description">Calls the topics endpoint</span><pre>topics()</pre></a></li>
+<li class="method public "><a href="#method_transliteration" title="transliteration() :: Calls the transliteration endpoint"><span class="description">Calls the transliteration endpoint</span><pre>transliteration()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_addHeaders" title="addHeaders() :: Adds custom headers to headers array if there are any"><span class="description">Adds custom headers to headers array if there are any</span><pre>addHeaders()</pre></a></li>
+<li class="method private "><a href="#method_callEndpoint" title="callEndpoint() :: Internal operations processor for most of the endpoints."><span class="description">Internal operations processor for most of the endpoints.</span><pre>callEndpoint()</pre></a></li>
+<li class="method private "><a href="#method_getValueFromArray" title="getValueFromArray() :: Gets the value of the item with key $name in the array if it exists"><span class="description">Gets the value of the item with key $name in the array if it exists</span><pre>getValueFromArray()</pre></a></li>
+<li class="method private "><a href="#method_makeRequest" title="makeRequest() :: function makeRequest."><span class="description">function makeRequest.</span><pre>makeRequest()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_binding_version" title="$binding_version() :: Compatible server version."><span class="description"></span><pre>$binding_version</pre></a></li>
+<li class="property private "><a href="#property_customHeaders" title="$customHeaders() :: internal customHeaders array"><span class="description"></span><pre>$customHeaders</pre></a></li>
+<li class="property private "><a href="#property_headers" title="$headers() :: HTTP headers for Rosette API."><span class="description"></span><pre>$headers</pre></a></li>
+<li class="property private "><a href="#property_options" title="$options() :: internal options array"><span class="description"></span><pre>$options</pre></a></li>
+<li class="property private "><a href="#property_request" title="$request() :: internal Request object"><span class="description"></span><pre>$request</pre></a></li>
+<li class="property private "><a href="#property_response_code" title="$response_code() :: response code"><span class="description"></span><pre>$response_code</pre></a></li>
+<li class="property private "><a href="#property_service_url" title="$service_url() :: URL of the Rosette API (or test server)."><span class="description"></span><pre>$service_url</pre></a></li>
+<li class="property private "><a href="#property_subUrl" title="$subUrl() :: Endpoint for the operation."><span class="description"></span><pre>$subUrl</pre></a></li>
+<li class="property private "><a href="#property_url_params" title="$url_params() :: Parameters for the URL query."><span class="description"></span><pre>$url_params</pre></a></li>
+<li class="property private "><a href="#property_user_key" title="$user_key() :: User key (required for Rosette API)."><span class="description"></span><pre>$user_key</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a xmlns:php="http://php.net/xsl" id="\rosette\api\Api"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<li>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/rosette.html">rosette</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/rosette.api.html">api</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/rosette.api.Api.html">Api</a>
+</li>
+</ul>
+<div xmlns:php="http://php.net/xsl" class="element class">
+<p class="short_description">Class API.</p>
+<div class="details">
+<div class="long_description"><p>Api php Client Binding API; representation of a Api server.
+Call instance methods upon this object to communicate with particular
+Api server endpoints.
+Aside from ping() and info(), most of the methods require the construction
+of either a DocumentParameters object or an NameTranslationParameters object.  These
+provide the content data that will be processed by the service.</p>
+<p>usage example: $api = new API($service_url, $user_key)</p></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="%5Crosette%5Capi%5C_construct()"></a></td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Default.html">Default</a></td>
+</tr>
+</table>
+<h3>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>Create an L{API} object.</h2>
+<pre>__construct(string $user_key, string $service_url<code> = 'https://api.rosette.com/rest/v1/'</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$user_key</h4>
+<code>string</code><p>An authentication string to be sent as user_key with
+                           all requests.</p></div>
+<div class="subelement argument">
+<h4>$service_url</h4>
+<code>string</code><p>URL of the Api API</p></div>
+</div></div>
+</div>
+<a id="method_categories"></a><div class="element clickable method public method_categories " data-toggle="collapse" data-target=".method_categories .collapse" title="public">
+<h2>Calls the categories endpoint.</h2>
+<pre>categories($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_clearCustomHeaders"></a><div class="element clickable method public method_clearCustomHeaders " data-toggle="collapse" data-target=".method_clearCustomHeaders .collapse" title="public">
+<h2>Clears all custom headers</h2>
+<pre>clearCustomHeaders() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_clearOptions"></a><div class="element clickable method public method_clearOptions " data-toggle="collapse" data-target=".method_clearOptions .collapse" title="public">
+<h2>Clears all options</h2>
+<pre>clearOptions() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_clearUrlParams"></a><div class="element clickable method public method_clearUrlParams " data-toggle="collapse" data-target=".method_clearUrlParams .collapse" title="public">
+<h2>Clears all URL extension parameters.</h2>
+<pre>clearUrlParams() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_entities"></a><div class="element clickable method public method_entities " data-toggle="collapse" data-target=".method_entities .collapse" title="public">
+<h2>Calls the entities endpoint.</h2>
+<pre>entities($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getCustomHeaders"></a><div class="element clickable method public method_getCustomHeaders " data-toggle="collapse" data-target=".method_getCustomHeaders .collapse" title="public">
+<h2>Setter for options</h2>
+<pre>getCustomHeaders() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_getDebug"></a><div class="element clickable method public method_getDebug " data-toggle="collapse" data-target=".method_getDebug .collapse" title="public">
+<h2>Retrieves debug setting (more verbose output).</h2>
+<pre>getDebug() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getOption"></a><div class="element clickable method public method_getOption " data-toggle="collapse" data-target=".method_getOption .collapse" title="public">
+<h2>Getter for options</h2>
+<pre>getOption(string $name) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getResponseCode"></a><div class="element clickable method public method_getResponseCode " data-toggle="collapse" data-target=".method_getResponseCode .collapse" title="public">
+<h2>Returns response code.</h2>
+<pre>getResponseCode() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getResponseHeader"></a><div class="element clickable method public method_getResponseHeader " data-toggle="collapse" data-target=".method_getResponseHeader .collapse" title="public">
+<h2>getResponseHeader()
+        </h2>
+<pre>getResponseHeader() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getServiceUrl"></a><div class="element clickable method public method_getServiceUrl " data-toggle="collapse" data-target=".method_getServiceUrl .collapse" title="public">
+<h2>Getter for the service_url.</h2>
+<pre>getServiceUrl() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getUrlParam"></a><div class="element clickable method public method_getUrlParam " data-toggle="collapse" data-target=".method_getUrlParam .collapse" title="public">
+<h2>Getter for the URL parameter with the specified name</h2>
+<pre>getUrlParam(string $param_name) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$param_name</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_info"></a><div class="element clickable method public method_info " data-toggle="collapse" data-target=".method_info .collapse" title="public">
+<h2>Calls the info endpoint.</h2>
+<pre>info() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_language"></a><div class="element clickable method public method_language " data-toggle="collapse" data-target=".method_language .collapse" title="public">
+<h2>Calls the language endpoint.</h2>
+<pre>language($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_morphology"></a><div class="element clickable method public method_morphology " data-toggle="collapse" data-target=".method_morphology .collapse" title="public">
+<h2>Calls the morphology endpoint.</h2>
+<pre>morphology($params, null $facet<code> = null</code>) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<div class="subelement argument">
+<h4>$facet</h4>
+<code>null</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameDeduplication"></a><div class="element clickable method public method_nameDeduplication " data-toggle="collapse" data-target=".method_nameDeduplication .collapse" title="public">
+<h2>Calls the name deduplication endpoint.</h2>
+<pre>nameDeduplication($nameDeduplicationParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameDeduplicationParams</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameSimilarity"></a><div class="element clickable method public method_nameSimilarity " data-toggle="collapse" data-target=".method_nameSimilarity .collapse" title="public">
+<h2>Calls the name similarity endpoint.</h2>
+<pre>nameSimilarity($nameSimilarityParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameSimilarityParams</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_nameTranslation"></a><div class="element clickable method public method_nameTranslation " data-toggle="collapse" data-target=".method_nameTranslation .collapse" title="public">
+<h2>Calls the name translation endpoint.</h2>
+<pre>nameTranslation($nameTranslationParams) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$nameTranslationParams</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_ping"></a><div class="element clickable method public method_ping " data-toggle="collapse" data-target=".method_ping .collapse" title="public">
+<h2>Calls the Ping endpoint.</h2>
+<pre>ping() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Rosette\Api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_relationships"></a><div class="element clickable method public method_relationships " data-toggle="collapse" data-target=".method_relationships .collapse" title="public">
+<h2>Calls the relationships endpoint.</h2>
+<pre>relationships($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_sentences"></a><div class="element clickable method public method_sentences " data-toggle="collapse" data-target=".method_sentences .collapse" title="public">
+<h2>Calls the sentences endpoint.</h2>
+<pre>sentences($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_sentiment"></a><div class="element clickable method public method_sentiment " data-toggle="collapse" data-target=".method_sentiment .collapse" title="public">
+<h2>Calls the sentiment endpoint.</h2>
+<pre>sentiment($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_setCustomHeader"></a><div class="element clickable method public method_setCustomHeader " data-toggle="collapse" data-target=".method_setCustomHeader .collapse" title="public">
+<h2>Setter for custom header</h2>
+<pre>setCustomHeader(string $header, string $value<code> = null</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setDebug"></a><div class="element clickable method public method_setDebug " data-toggle="collapse" data-target=".method_setDebug .collapse" title="public">
+<h2>Enables debug (more verbose output).</h2>
+<pre>setDebug(boolean $debug) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$debug</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_setMaxRetries"></a><div class="element clickable method public method_setMaxRetries " data-toggle="collapse" data-target=".method_setMaxRetries .collapse" title="public">
+<h2>Sets the maximum retries for server connect</h2>
+<pre>setMaxRetries($max_retries) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$max_retries</h4></div>
+</div></div>
+</div>
+<a id="method_setMillisecondsBetweenRetries"></a><div class="element clickable method public method_setMillisecondsBetweenRetries " data-toggle="collapse" data-target=".method_setMillisecondsBetweenRetries .collapse" title="public">
+<h2>Sets the millisecond sleep time between retries</h2>
+<pre>setMillisecondsBetweenRetries($ms_between_retries) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$ms_between_retries</h4></div>
+</div></div>
+</div>
+<a id="method_setMockRequest"></a><div class="element clickable method public method_setMockRequest " data-toggle="collapse" data-target=".method_setMockRequest .collapse" title="public">
+<h2>Sets on override Request for mocking purposes</h2>
+<pre>setMockRequest($requestObject) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$requestObject</h4></div>
+</div></div>
+</div>
+<a id="method_setOption"></a><div class="element clickable method public method_setOption " data-toggle="collapse" data-target=".method_setOption .collapse" title="public">
+<h2>Setter for options</h2>
+<pre>setOption(string $name, string $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setResponseCode"></a><div class="element clickable method public method_setResponseCode " data-toggle="collapse" data-target=".method_setResponseCode .collapse" title="public">
+<h2>Sets the response code.</h2>
+<pre>setResponseCode(mixed $response_code) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$response_code</h4>
+<code>mixed</code>
+</div>
+</div></div>
+</div>
+<a id="method_setServiceUrl"></a><div class="element clickable method public method_setServiceUrl " data-toggle="collapse" data-target=".method_setServiceUrl .collapse" title="public">
+<h2>Setter for the service_url.</h2>
+<pre>setServiceUrl(string $url) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setUrlParam"></a><div class="element clickable method public method_setUrlParam " data-toggle="collapse" data-target=".method_setUrlParam .collapse" title="public">
+<h2>Setter for an additional query parameter to the Rosette API URL.</h2>
+<pre>setUrlParam(string $param_name, string $param_value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$param_name</h4>
+<code>string</code><p>(e.g. output)</p></div>
+<div class="subelement argument">
+<h4>$param_value</h4>
+<code>string</code><p>(e.g. rosette)</p></div>
+</div></div>
+</div>
+<a id="method_syntaxDependencies"></a><div class="element clickable method public method_syntaxDependencies " data-toggle="collapse" data-target=".method_syntaxDependencies .collapse" title="public">
+<h2>Calls the syntax/dependencies endpoint</h2>
+<pre>syntaxDependencies($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_textEmbedding"></a><div class="element clickable method public method_textEmbedding " data-toggle="collapse" data-target=".method_textEmbedding .collapse" title="public">
+<h2>Calls the text-embedding endpoint.</h2>
+<pre>textEmbedding($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_tokens"></a><div class="element clickable method public method_tokens " data-toggle="collapse" data-target=".method_tokens .collapse" title="public">
+<h2>Calls the tokens endpoint.</h2>
+<pre>tokens($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_topics"></a><div class="element clickable method public method_topics " data-toggle="collapse" data-target=".method_topics .collapse" title="public">
+<h2>Calls the topics endpoint</h2>
+<pre>topics($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_transliteration"></a><div class="element clickable method public method_transliteration " data-toggle="collapse" data-target=".method_transliteration .collapse" title="public">
+<h2>Calls the transliteration endpoint</h2>
+<pre>transliteration($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_addHeaders"></a><div class="element clickable method private method_addHeaders " data-toggle="collapse" data-target=".method_addHeaders .collapse" title="private">
+<h2>Adds custom headers to headers array if there are any</h2>
+<pre>addHeaders(array $headers) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$headers</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>$headers</div>
+</div></div>
+</div>
+<a id="method_callEndpoint"></a><div class="element clickable method private method_callEndpoint " data-toggle="collapse" data-target=".method_callEndpoint .collapse" title="private">
+<h2>Internal operations processor for most of the endpoints.</h2>
+<pre>callEndpoint($parameters, $subUrl) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$parameters</h4></div>
+<div class="subelement argument"><h4>$subUrl</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getValueFromArray"></a><div class="element clickable method private method_getValueFromArray " data-toggle="collapse" data-target=".method_getValueFromArray .collapse" title="private">
+<h2>Gets the value of the item with key $name in the array if it exists</h2>
+<pre>getValueFromArray(string $name, array $array) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$array</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_makeRequest"></a><div class="element clickable method private method_makeRequest " data-toggle="collapse" data-target=".method_makeRequest .collapse" title="private">
+<h2>function makeRequest.</h2>
+<pre>makeRequest($url, $headers, $data, $method) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Encapsulates the GET/POST</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$url</h4></div>
+<div class="subelement argument"><h4>$headers</h4></div>
+<div class="subelement argument"><h4>$data</h4></div>
+<div class="subelement argument"><h4>$method</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_binding_version"> </a><div class="element clickable property private property_binding_version" data-toggle="collapse" data-target=".property_binding_version .collapse" title="private">
+<h2>Compatible server version.</h2>
+<pre>$binding_version : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>'1.8.0'</code></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_customHeaders"> </a><div class="element clickable property private property_customHeaders" data-toggle="collapse" data-target=".property_customHeaders .collapse" title="private">
+<h2>internal customHeaders array</h2>
+<pre>$customHeaders : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_headers"> </a><div class="element clickable property private property_headers" data-toggle="collapse" data-target=".property_headers .collapse" title="private">
+<h2>HTTP headers for Rosette API.</h2>
+<pre>$headers : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_options"> </a><div class="element clickable property private property_options" data-toggle="collapse" data-target=".property_options .collapse" title="private">
+<h2>internal options array</h2>
+<pre>$options : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_request"> </a><div class="element clickable property private property_request" data-toggle="collapse" data-target=".property_request .collapse" title="private">
+<h2>internal Request object</h2>
+<pre>$request : \rosette\api\class</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_response_code"> </a><div class="element clickable property private property_response_code" data-toggle="collapse" data-target=".property_response_code .collapse" title="private">
+<h2>response code</h2>
+<pre>$response_code : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_service_url"> </a><div class="element clickable property private property_service_url" data-toggle="collapse" data-target=".property_service_url .collapse" title="private">
+<h2>URL of the Rosette API (or test server).</h2>
+<pre>$service_url : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_subUrl"> </a><div class="element clickable property private property_subUrl" data-toggle="collapse" data-target=".property_subUrl .collapse" title="private">
+<h2>Endpoint for the operation.</h2>
+<pre>$subUrl : null | string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_url_params"> </a><div class="element clickable property private property_url_params" data-toggle="collapse" data-target=".property_url_params .collapse" title="private">
+<h2>Parameters for the URL query.</h2>
+<pre>$url_params : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_user_key"> </a><div class="element clickable property private property_user_key" data-toggle="collapse" data-target=".property_user_key .collapse" title="private">
+<h2>User key (required for Rosette API).</h2>
+<pre>$user_key : null | string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
+            generated on 2017-10-24T13:27:34Z.<br></footer></div>
+</div>
+</body>
+</html>
