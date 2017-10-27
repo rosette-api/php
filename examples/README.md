@@ -39,5 +39,6 @@ Each example, when run, prints its output to the console.
 | sentences.php                     | Gets the sentences from a piece of text               |
 | sentiment.php                     | Gets the sentiment of a local file                    |
 | tokens.php                        | Gets the tokens (words) from a piece of text          |
+| topics.php | Gets the key phrases and concepts from a piece of text |
 | transliteration.php               | Transliterates content |
 

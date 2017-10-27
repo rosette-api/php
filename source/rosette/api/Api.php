@@ -38,7 +38,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.7.0';
+    private static $binding_version = '1.8.0';
 
     /**
      * User key (required for Rosette API).
@@ -718,5 +718,19 @@ class Api
     public function transliteration($params)
     {
         return $this->callEndpoint($params, 'transliteration');
+    }
+
+    /**
+    * Calls the topics endpoint
+    *
+    * @param $params
+    *
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function topics($params)
+    {
+        return $this->callEndpoint($params, 'topics');
     }
 }
