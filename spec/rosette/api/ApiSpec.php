@@ -24,6 +24,12 @@ class ApiSpec extends ObjectBehavior
         $this->setResponseCode($responseCode);
         $this->getResponseCode()->shouldBe($responseCode);
     }
+    public function it_constructs_user_agent()
+    {
+        $version = $this->getWrappedObject()->getBindingVersion();
+        $uaString = 'RosetteAPIPHP/' . $version . '/' . phpversion();
+        $this->getUserAgent()->shouldBe($uaString);
+    }
     public function it_sets_gets_clears_url_params()
     {
         $this->setUrlParam("output", "Rosette");
