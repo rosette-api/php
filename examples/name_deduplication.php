@@ -14,7 +14,7 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$name_dedupe_data = "John Smith,Johnathon Smith,Fred Jones";
+$name_dedupe_data = "Alice Terry,Alice Thierry,Betty Grable,Betty Gable,Norma Shearer,Norm Shearer,Brigitte Helm,Bridget Helem,Judy Holliday,Julie Halliday";
 
 $dedup_array = array();
 $threshold = 0.75;
