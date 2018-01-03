@@ -114,9 +114,9 @@ class Api
         $this->headers = array('X-RosetteAPI-Key' => $user_key,
             'Content-Type' => 'application/json',
             'Accept-Encoding' => 'gzip',
-            'User-Agent' => 'RosetteAPIPHP/' . self::$binding_version,
+            'User-Agent' => $this->getUserAgent(),
             'X-RosetteApi-Binding' => 'php',
-            'X-RosetteAPI-Binding-Version' => self::$binding_version);
+            'X-RosetteAPI-Binding-Version' => $this->getBindingVersion());
 
         $this->setServiceUrl($service_url);
         $this->setDebug(false);
@@ -125,6 +125,22 @@ class Api
         $this->options = array();
         $this->url_params = array();
         $this->customHeaders = array();
+    }
+
+    /**
+     * Returns the binding version
+     */
+    public function getBindingVersion()
+    {
+        return self::$binding_version;
+    }
+
+    /**
+     * Returns the string used for User-Agent
+     */
+    public function getUserAgent()
+    {
+        return 'RosetteAPIPHP/' . $this->getBindingVersion() . '/' . phpversion();
     }
 
     /**
