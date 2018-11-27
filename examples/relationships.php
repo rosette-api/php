@@ -17,7 +17,6 @@ $relationships_text_data = "FLIR Systems is headquartered in Oregon and produces
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
 $params->set('content', $relationships_text_data);
-$api->setOption('accuracyMode', 'RECALL');
 
 try {
     $result = $api->relationships($params);
