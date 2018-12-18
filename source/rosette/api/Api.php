@@ -705,7 +705,7 @@ class Api
      */
     public function textEmbedding($params)
     {
-        return $this->callEndpoint($params, 'text-embedding');
+        return $this->callEndpoint($params, 'semantics/vector');
     }
 
     /**
@@ -748,5 +748,19 @@ class Api
     public function topics($params)
     {
         return $this->callEndpoint($params, 'topics');
+    }
+
+    /**
+    * Calls the relatedTerms endpoint
+    *
+    * @param $params
+    *
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function relatedTerms($params)
+    {
+        return $this->callEndpoint($params, 'semantics/similar');
     }
 }
