@@ -20,7 +20,7 @@ $content = $embeddings_data;
 $params->set('content', $content);
 
 try {
-    $result = $api->textEmbedding($params, false);
+    $result = $api->semanticVectors($params, false);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
