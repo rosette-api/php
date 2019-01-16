@@ -226,7 +226,7 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->relationships($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
-    public function it_calls_the_text_embedding_endpoint($params, $request)
+    public function it_calls_the_semantic_vectors_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->contentUri = 'http://some.dummysite.com';
@@ -235,7 +235,7 @@ class ApiSpec extends ObjectBehavior
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
-        $this->textEmbedding($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+        $this->semanticVectors($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_calls_the_syntax_dependencies_endpoint($params, $request)
     {
@@ -269,7 +269,7 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->topics($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
-    public function it_calls_the_related_terms_endpoint($params, $request)
+    public function it_calls_the_similar_terms_endpoint($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');
         $params->content = 'Sample Data';
@@ -278,7 +278,7 @@ class ApiSpec extends ObjectBehavior
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
         $this->setMockRequest($request);
-        $this->relatedTerms($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+        $this->similarTerms($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
     public function it_fails_with_non_200_response($params, $request)
     {

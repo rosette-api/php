@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get text vectors from sample text
+ * Example code to call Rosette API to get related terms from sample text
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
@@ -13,14 +13,15 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$embeddings_data = "Cambridge, Massachusetts";
+$term_data = 'spy';
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $embeddings_data;
+$content = $term_data;
 $params->set('content', $content);
+$api->setOption('resultLanguages', array('spa', 'deu', 'jpn'));
 
 try {
-    $result = $api->textEmbedding($params, false);
+    $result = $api->similarTerms($params, false);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);

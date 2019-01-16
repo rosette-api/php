@@ -697,6 +697,8 @@ class Api
     /**
      * Calls the text-embedding endpoint.
      *
+     * Deprecated.  Please use `semanticVectors` instead
+     *
      * @param $params
      *
      * @return mixed
@@ -704,6 +706,20 @@ class Api
      * @throws RosetteException
      */
     public function textEmbedding($params)
+    {
+        return $this->callEndpoint($params, 'text-embedding');
+    }
+
+    /**
+     * Calls the semantic vectors endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function semanticVectors($params)
     {
         return $this->callEndpoint($params, 'semantics/vector');
     }
@@ -751,7 +767,7 @@ class Api
     }
 
     /**
-    * Calls the relatedTerms endpoint
+    * Calls the similarTerms endpoint
     *
     * @param $params
     *
@@ -759,7 +775,7 @@ class Api
     *
     * @throws RosetteException
     */
-    public function relatedTerms($params)
+    public function similarTerms($params)
     {
         return $this->callEndpoint($params, 'semantics/similar');
     }
