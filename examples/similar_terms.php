@@ -13,10 +13,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$term_data = 'spy';
+$similar_terms_data = 'spy';
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $term_data;
+$content = $similar_terms_data;
 $params->set('content', $content);
 $api->setOption('resultLanguages', array('spa', 'deu', 'jpn'));
 
