@@ -13,14 +13,14 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$embeddings_data = "Cambridge, Massachusetts";
+$semantic_vectors_data = "Cambridge, Massachusetts";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$content = $embeddings_data;
+$content = $semantic_vectors_data;
 $params->set('content', $content);
 
 try {
-    $result = $api->textEmbedding($params, false);
+    $result = $api->semanticVectors($params, false);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);

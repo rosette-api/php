@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+=======
+[![Build Status](https://travis-ci.org/rosette-api/php.svg?branch=develop)](https://travis-ci.org/rosette-api/php)
+
+>>>>>>> develop
 # PHP client binding for Rosette API #
 See the wiki for more information.
 
 ## Installation ##
-`composer require "rosette/api: ~1.8"`
+`composer require "rosette/api"`
 
 If the version you are using is not [the latest from Packagist](https://packagist.org/packages/rosette/api),
 please check for its [**compatibilty with api.rosette.com**](https://developer.rosette.com/features-and-functions?php).

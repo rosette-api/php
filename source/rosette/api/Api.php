@@ -5,7 +5,7 @@
  *
  * Primary class for interfacing with the Rosette API
  *
- * @copyright 2015-2016 Basis Technology Corporation.
+ * @copyright 2015-2018 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -38,7 +38,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.9.0';
+    private static $binding_version = '1.12.1';
 
     /**
      * User key (required for Rosette API).
@@ -697,6 +697,8 @@ class Api
     /**
      * Calls the text-embedding endpoint.
      *
+     * Deprecated.  Please use `semanticVectors` instead
+     *
      * @param $params
      *
      * @return mixed
@@ -706,6 +708,20 @@ class Api
     public function textEmbedding($params)
     {
         return $this->callEndpoint($params, 'text-embedding');
+    }
+
+    /**
+     * Calls the semantic vectors endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function semanticVectors($params)
+    {
+        return $this->callEndpoint($params, 'semantics/vector');
     }
 
     /**
@@ -748,5 +764,19 @@ class Api
     public function topics($params)
     {
         return $this->callEndpoint($params, 'topics');
+    }
+
+    /**
+    * Calls the similarTerms endpoint
+    *
+    * @param $params
+    *
+    * @return mixed
+    *
+    * @throws RosetteException
+    */
+    public function similarTerms($params)
+    {
+        return $this->callEndpoint($params, 'semantics/similar');
     }
 }
