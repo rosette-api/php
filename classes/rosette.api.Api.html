@@ -87,6 +87,7 @@
 <li class="method public "><a href="#method_nameTranslation" title="nameTranslation() :: Calls the name translation endpoint."><span class="description">Calls the name translation endpoint.</span><pre>nameTranslation()</pre></a></li>
 <li class="method public "><a href="#method_ping" title="ping() :: Calls the Ping endpoint."><span class="description">Calls the Ping endpoint.</span><pre>ping()</pre></a></li>
 <li class="method public "><a href="#method_relationships" title="relationships() :: Calls the relationships endpoint."><span class="description">Calls the relationships endpoint.</span><pre>relationships()</pre></a></li>
+<li class="method public "><a href="#method_semanticVectors" title="semanticVectors() :: Calls the semantic vectors endpoint."><span class="description">Calls the semantic vectors endpoint.</span><pre>semanticVectors()</pre></a></li>
 <li class="method public "><a href="#method_sentences" title="sentences() :: Calls the sentences endpoint."><span class="description">Calls the sentences endpoint.</span><pre>sentences()</pre></a></li>
 <li class="method public "><a href="#method_sentiment" title="sentiment() :: Calls the sentiment endpoint."><span class="description">Calls the sentiment endpoint.</span><pre>sentiment()</pre></a></li>
 <li class="method public "><a href="#method_setCustomHeader" title="setCustomHeader() :: Setter for custom header"><span class="description">Setter for custom header</span><pre>setCustomHeader()</pre></a></li>
@@ -98,6 +99,7 @@
 <li class="method public "><a href="#method_setResponseCode" title="setResponseCode() :: Sets the response code."><span class="description">Sets the response code.</span><pre>setResponseCode()</pre></a></li>
 <li class="method public "><a href="#method_setServiceUrl" title="setServiceUrl() :: Setter for the service_url."><span class="description">Setter for the service_url.</span><pre>setServiceUrl()</pre></a></li>
 <li class="method public "><a href="#method_setUrlParam" title="setUrlParam() :: Setter for an additional query parameter to the Rosette API URL."><span class="description">Setter for an additional query parameter to the Rosette API URL.</span><pre>setUrlParam()</pre></a></li>
+<li class="method public "><a href="#method_similarTerms" title="similarTerms() :: Calls the similarTerms endpoint"><span class="description">Calls the similarTerms endpoint</span><pre>similarTerms()</pre></a></li>
 <li class="method public "><a href="#method_syntaxDependencies" title="syntaxDependencies() :: Calls the syntax/dependencies endpoint"><span class="description">Calls the syntax/dependencies endpoint</span><pre>syntaxDependencies()</pre></a></li>
 <li class="method public "><a href="#method_textEmbedding" title="textEmbedding() :: Calls the text-embedding endpoint."><span class="description">Calls the text-embedding endpoint.</span><pre>textEmbedding()</pre></a></li>
 <li class="method public "><a href="#method_tokens" title="tokens() :: Calls the tokens endpoint."><span class="description">Calls the tokens endpoint.</span><pre>tokens()</pre></a></li>
@@ -461,6 +463,23 @@ provide the content data that will be processed by the service.</p>
 <div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
+<a id="method_semanticVectors"></a><div class="element clickable method public method_semanticVectors " data-toggle="collapse" data-target=".method_semanticVectors .collapse" title="public">
+<h2>Calls the semantic vectors endpoint.</h2>
+<pre>semanticVectors($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
 <a id="method_sentences"></a><div class="element clickable method public method_sentences " data-toggle="collapse" data-target=".method_sentences .collapse" title="public">
 <h2>Calls the sentences endpoint.</h2>
 <pre>sentences($params) : mixed</pre>
@@ -613,6 +632,23 @@ provide the content data that will be processed by the service.</p>
 <code>string</code><p>(e.g. rosette)</p></div>
 </div></div>
 </div>
+<a id="method_similarTerms"></a><div class="element clickable method public method_similarTerms " data-toggle="collapse" data-target=".method_similarTerms .collapse" title="public">
+<h2>Calls the similarTerms endpoint</h2>
+<pre>similarTerms($params) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$params</h4></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
 <a id="method_syntaxDependencies"></a><div class="element clickable method public method_syntaxDependencies " data-toggle="collapse" data-target=".method_syntaxDependencies .collapse" title="public">
 <h2>Calls the syntax/dependencies endpoint</h2>
 <pre>syntaxDependencies($params) : mixed</pre>
@@ -635,7 +671,7 @@ provide the content data that will be processed by the service.</p>
 <pre>textEmbedding($params) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
+<div class="long_description"><p>Deprecated.  Please use <code>semanticVectors</code> instead</p></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$params</h4></div>
 <h3>Exceptions</h3>
@@ -778,7 +814,7 @@ provide the content data that will be processed by the service.</p>
 <pre>$binding_version : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>'1.9.0'</code></div>
+<div class="subelement argument"><code>'1.12.1'</code></div>
 </div></div>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -880,7 +916,7 @@ provide the content data that will be processed by the service.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2018-01-17T19:36:37Z.<br></footer></div>
+            generated on 2019-02-07T22:26:03Z.<br></footer></div>
 </div>
 </body>
 </html>
