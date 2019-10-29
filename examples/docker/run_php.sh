@@ -87,10 +87,12 @@ cleanURL
 
 validateURL
 
+cp -r -n /source/* .
+
 #Copy the examples from the mounted content in /source to current WORKDIR
-cp /source/examples/*.* .
-composer install 
-cp -r ./vendor/. ../vendor
+cp /source/examples/*.* /test-dev/examples/
+
+cd /test-dev/examples
 
 #Run the examples
 if [ ! -z ${API_KEY} ]; then
