@@ -280,6 +280,16 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->similarTerms($params)->shouldHaveKeyWithValue('name', 'Rosette API');
     }
+    public function it_calls_the_address_similarity_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\AddressSimilarityParameters');
+        $request->beADoubleOf('rosette\api\RosetteRequest');
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => 'Rosette API']);
+        $this->setMockRequest($request);
+        $this->addressSimilarity($params)->shouldHaveKeyWithValue('name', 'Rosette API');
+    }
     public function it_fails_with_non_200_response($params, $request)
     {
         $params->beADoubleOf('\rosette\api\DocumentParameters');

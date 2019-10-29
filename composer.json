@@ -1,6 +1,6 @@
 {
   "name": "rosette/api",
-  "version": "1.12.1",
+  "version": "1.14.3",
   "description": "Rosette API PHP client SDK",
   "license": "Apache",
   "keywords": [

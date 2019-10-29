@@ -42,7 +42,7 @@ function cleanURL() {
 }
 
 function validateURL() {
-    match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "Rosette API")
+    match=$(curl "${ping_url}/ping" -H "X-RosetteAPI-Key: ${API_KEY}" |  grep -o "Rosette at your service")
     if [ "${match}" = "" ]; then
         echo -e "\n${ping_url} server not responding\n"
         exit 1
