@@ -189,6 +189,30 @@ class Address extends RosetteParamsSetBase
         $poBox = null
     )
     {
+        if ($house === null && 
+            $houseNumber === null &&
+            $road === null &&
+            $unit === null &&
+            $level === null &&
+            $staircase === null &&
+            $entrance === null &&
+            $suburb === null &&
+            $cityDistrict === null &&
+            $city === null &&
+            $island === null &&
+            $stateDistrict === null &&
+            $state === null &&
+            $countryRegion === null &&
+            $country === null &&
+            $worldRegion === null &&
+            $postalCode === null &&
+            $poBox === null)
+        {
+            throw new RosetteException(
+                sprintf('At least one address field is required'),
+                RosetteException::$BAD_REQUEST_FORMAT
+            );
+        }    
         $this->house = $house;
         $this->houseNumber = $houseNumber;
         $this->road = $road;
