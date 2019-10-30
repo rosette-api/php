@@ -1,8 +1,17 @@
 PHP Examples
 ============
 
+## Endpoint Examples ##
 These examples are scripts that can be run independently to demonstrate the Rosette API functionality.
 
+Each example file demonstrates one of the capabilities of the Rosette Platform. Each example, when run, prints its output to the console.
+
+Here are some methods for running the examples.  Each example will also accept an optional `--url` parameter for
+overriding the default URL.
+
+A note on prerequisites.  Rosette API only supports TLS 1.2 so ensure your toolchain also supports it.
+
+### Packagist ###
 You can now run your desired _endpoint_.php file to see it in action.  Before running the examples
 for the first time:
 
@@ -15,31 +24,21 @@ For example, run `php categories.php` if you want to see the categories function
 
 All files require you to input your Rosette API User Key after `--key` to run.
 For example: `php ping.php --key 1234567890`
+
 All also allow you to input your own service URL if applicable.
 For example: `php ping.php --key 1234567890 --url http://www.myurl.com`
 
+### Docker ###
+Docker files can be found [here](https://github.com/rosette-api/docker/tree/develop/examples/docker)
 
-Each example, when run, prints its output to the console.
+#### Summary
+To simplify the running of the PHP examples, the Dockerfile will build an image and install the latest rosette-api library.
 
-| File Name                     | What it does                                          |
-| -------------                 |-------------                                          |
-| address_similarity.php            | Gets the similarity score of two addresses            |
-| categories.php                    | Gets the category of a document at a URL              |
-| entities.php                      | Gets the entities from a piece of text                |
-| info.php                          | Gets information about Rosette API                    |
-| language.php                      | Gets the language of a piece of text                  |
-| morphology_complete.php               | Gets the complete morphological analysis of a piece of text|
-| morphology_compound-components.php    | Gets the de-compounded words from a piece of text     |
-| morphology_han-readings.php           | Gets the Chinese words from a piece of text           |
-| morphology_lemmas.php                 | Gets the lemmas of words from a piece of text         |
-| morphology_parts-of-speech.php        | Gets the part-of-speech tags for words in a piece of text |
-| name_deduplication.php               | Fuzzy deduplication of a list of names  |
-| name_translation.php               | Translates a name from one language to another        |
-| name_similarity.php                  | Gets the similarity score of two names                |
-| ping.php                          | Pings the Rosette API to check for reachability       |
-| sentences.php                     | Gets the sentences from a piece of text               |
-| sentiment.php                     | Gets the sentiment of a local file                    |
-| tokens.php                        | Gets the tokens (words) from a piece of text          |
-| topics.php | Gets the key phrases and concepts from a piece of text |
-| transliteration.php               | Transliterates content |
+#### Basic Usage
+Build the docker image, e.g. `docker build -t basistech/php .`
 
+Run an example as `docker run -e API_KEY=api-key -v "path-to-example-source:/source" basistech/php:1.1`
+
+To test against a specific source file, add `-e FILENAME=filename` before the `-v`.
+
+To test against an alternate url, add `-e ALT_URL=alternate_url` before the `-v`.
