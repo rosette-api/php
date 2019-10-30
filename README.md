@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.org/rosette-api/php.svg?branch=develop)](https://travis-ci.org/rosette-api/php) ![](https://img.shields.io/packagist/v/rosette/api.svg?colorB=bright%20green&style=flat)
+<a href="https://www.rosette.com"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
 
-# PHP client binding for Rosette API #
+---
+
+[![Build Status](https://travis-ci.org/rosette-api/php.svg?branch=develop)](https://travis-ci.org/rosette-api/php) ![](https://img.shields.io/packagist/v/rosette/api.svg?colorB=bright%20green&style=flat)
 
 ## Rosette API
 The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
