@@ -5,8 +5,9 @@ php:
   - 5.6
   - 7.0
 before_script:
+  - cp examples/docker/composer.json ./composer.json
   - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+  - composer install --prefer-source --no-interaction
 script:
     - bin/phpspec run --config=phpspec.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
 
