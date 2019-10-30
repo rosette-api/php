@@ -22,7 +22,7 @@ For example: `php ping.php --key 1234567890 --url http://www.myurl.com`
 Each example, when run, prints its output to the console.
 
 | File Name                     | What it does                                          |
-| -------------                 |-------------
+| -------------                 |-------------                                          |
 | address_similarity.php            | Gets the similarity score of two addresses            |
 | categories.php                    | Gets the category of a document at a URL              |
 | entities.php                      | Gets the entities from a piece of text                |
