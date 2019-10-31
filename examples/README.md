@@ -25,8 +25,8 @@ chmod +x /usr/local/bin/composer
 composer self-update
 
 cd /source/examples
-sed -i s',/../vendor,/vendor,' *.php
 composer require "rosette/api"
+mv vendor/ ../.
 
 php ping.php --key $API_KEY
 
