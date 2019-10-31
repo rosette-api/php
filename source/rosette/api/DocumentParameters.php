@@ -23,7 +23,7 @@ namespace rosette\api;
 class DocumentParameters extends RosetteParamsSetBase
 {
     /**
-     * @var string ontent is the text to be analyzed (required if no contentUri)
+     * @var string content is the text to be analyzed (required if no contentUri)
      */
     public $content;
 

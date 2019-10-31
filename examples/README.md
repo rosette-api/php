@@ -1,7 +1,4 @@
-PHP Examples
-============
-
-## Endpoint Examples ##
+## Endpoint Examples
 These examples are scripts that can be run independently to demonstrate the Rosette API functionality.
 
 Each example file demonstrates one of the capabilities of the Rosette Platform. Each example, when run, prints its output to the console.
@@ -9,36 +6,50 @@ Each example file demonstrates one of the capabilities of the Rosette Platform. 
 Here are some methods for running the examples.  Each example will also accept an optional `--url` parameter for
 overriding the default URL.
 
+Also, the examples are dual purpose in that they're used to test both source and packagist.  The instructions include steps to address this depending on what you are testing.
+
 A note on prerequisites.  Rosette API only supports TLS 1.2 so ensure your toolchain also supports it.
 
-### Packagist ###
-You can now run your desired _endpoint_.php file to see it in action.  Before running the examples
-for the first time:
+#### Docker/Latest Version From Packagist
 
-1. ```cd examples```
-2. ```composer update```
-3. The examples are dual purpose in that they're used to test both source and packagist. In order to meet that requirement, the examples expect the vendor directory to be at the same level as examples/.
-```cp -r ./vendor/. ../vendor``` or you can edit the example to reference the vendor directory that is in the examples directory.
+```
+git clone git@github.com:rosette-api/php.git
+cd php
+docker run -it -v $(pwd):/source --entrypoint bash php:7.3-cli
 
-For example, run `php categories.php` if you want to see the categories functionality demonstrated.
+apt-get update
+apt-get install -y git zip
 
-All files require you to input your Rosette API User Key after `--key` to run.
-For example: `php ping.php --key 1234567890`
+curl -s -o /usr/local/bin/composer https://getcomposer.org/composer.phar
+chmod +x /usr/local/bin/composer
+composer self-update
 
-All also allow you to input your own service URL if applicable.
-For example: `php ping.php --key 1234567890 --url http://www.myurl.com`
+cd /source/examples
+composer require "rosette/api"
+mv vendor/ ../.
 
-### Docker ###
-Docker files can be found [here](https://github.com/rosette-api/docker/tree/develop/examples/docker)
+php ping.php --key $API_KEY
 
-#### Summary
-To simplify the running of the PHP examples, the Dockerfile will build an image and install the latest rosette-api library.
+```
 
-#### Basic Usage
-Build the docker image, e.g. `docker build -t basistech/php .`
+#### Docker/Latest Source
 
-Run an example as `docker run -e API_KEY=api-key -v "path-to-example-source:/source" basistech/php:1.1`
+```
+git clone git@github.com:rosette-api/php.git
+cd php
+docker run -it -v $(pwd):/source --entrypoint bash php:7.3-cli
 
-To test against a specific source file, add `-e FILENAME=filename` before the `-v`.
+apt-get update
+apt-get install -y git zip
 
-To test against an alternate url, add `-e ALT_URL=alternate_url` before the `-v`.
+curl -s -o /usr/local/bin/composer https://getcomposer.org/composer.phar
+chmod +x /usr/local/bin/composer
+composer self-update
+
+cd /source
+composer install
+cd examples
+
+php ping.php --key $API_KEY
+
+```
