@@ -1,11 +1,11 @@
 <?php
 
 /**
- * class NameSimilarityParameters.
+ * class AddressSimilarityParameters.
  *
- * Parameters that are necessary for name similarity operations.
+ * Parameters that are necessary for address similarity operations.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2019 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -18,33 +18,28 @@
 namespace rosette\api;
 
 /**
- * Class NameSimilarityParameters.
+ * Class AddressSimilarityParameters.
  */
-class NameSimilarityParameters extends RosetteParamsSetBase
+class AddressSimilarityParameters extends RosetteParamsSetBase
 {
     /**
-     * @var Name sourceName source name
+     * @var Address Address1 address 1
      */
-    public $name1;
+    public $address1;
     /**
-     * @var Name targetName target name
+     * @var Address Address2 address 2
      */
-    public $name2;
-    /**
-     * @var string genre to categorize the input data
-     */
-    public $genre;
+    public $address2;
     /**
      * constructor.
      *
-     * @param Name - sourceName source name to be compared
-     * @param Name - targetName target name to be compared
+     * @param Address - Address1 to be compared
+     * @param Address - Address2 to be compared
      */
-    public function __construct(Name $sourceName, Name $targetName)
+    public function __construct(Address $Address1, Address $Address2)
     {
-        $this->name1 = $sourceName;
-        $this->name2 = $targetName;
-        $this->genre = '';
+        $this->address1 = $Address1;
+        $this->address2 = $Address2;
     }
 
     /**
@@ -54,15 +49,15 @@ class NameSimilarityParameters extends RosetteParamsSetBase
      */
     public function validate()
     {
-        if (empty($this->name1)) {
+        if (empty($this->address1)) {
             throw new RosetteException(
-                sprintf('Required name similarity parameter not supplied: sourceName'),
+                sprintf('Required address similarity parameter not supplied: Address1'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
-        if (empty($this->name2)) {
+        if (empty($this->address2)) {
             throw new RosetteException(
-                sprintf('Required name similarity parameter not supplied: targetName'),
+                sprintf('Required address similarity parameter not supplied: Address2'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }

@@ -1,13 +1,19 @@
 {
   "name": "rosette/api",
-  "version": "1.12.1",
-  "description": "Rosette API PHP client SDK",
+  "version": "1.14.3",
+  "description": "PHP Interface for Rosette Text Analytics",
   "license": "Apache",
   "keywords": [
-    "rosette",
     "basis",
+    "entity extraction",
+    "morphology",
+    "name similarity",
+    "ner",
     "nlp",
-    "text analytics"
+    "rosette",
+    "sentiment",
+    "text analytics",
+    "text embeddings"
   ],
   "authors": [
     {
