@@ -133,11 +133,11 @@ class Address extends RosetteParamsSetBase
     public $worldRegion;
 
     /**
-     * The address postal code.
+     * The address post code.
      *
      * @var string
      */
-    public $postalCode;
+    public $postCode;
 
     /**
      * The address P.O. Box.
@@ -149,24 +149,24 @@ class Address extends RosetteParamsSetBase
     /**
      * Constructor.
      *
-     * @param $house 
-     * @param $houseNumber 
-     * @param $road 
-     * @param $unit 
-     * @param $level 
-     * @param $staircase 
-     * @param $entrance 
-     * @param $suburb 
-     * @param $cityDistrict 
-     * @param $city 
-     * @param $island 
-     * @param $stateDistrict 
-     * @param $state 
-     * @param $countryRegion 
-     * @param $country 
-     * @param $worldRegion 
-     * @param $postalCode 
-     * @param $poBox 
+     * @param $house
+     * @param $houseNumber
+     * @param $road
+     * @param $unit
+     * @param $level
+     * @param $staircase
+     * @param $entrance
+     * @param $suburb
+     * @param $cityDistrict
+     * @param $city
+     * @param $island
+     * @param $stateDistrict
+     * @param $state
+     * @param $countryRegion
+     * @param $country
+     * @param $worldRegion
+     * @param $postCode
+     * @param $poBox
      */
     public function __construct(
         $house = null,
@@ -185,7 +185,7 @@ class Address extends RosetteParamsSetBase
         $countryRegion = null,
         $country = null,
         $worldRegion = null,
-        $postalCode = null,
+        $postCode = null,
         $poBox = null
     )
     {
@@ -205,7 +205,7 @@ class Address extends RosetteParamsSetBase
             $countryRegion === null &&
             $country === null &&
             $worldRegion === null &&
-            $postalCode === null &&
+            $postCode === null &&
             $poBox === null)
         {
             throw new RosetteException(
@@ -229,7 +229,7 @@ class Address extends RosetteParamsSetBase
         $this->countryRegion = $countryRegion;
         $this->country = $country;
         $this->worldRegion = $worldRegion;
-        $this->postalCode = $postalCode;
+        $this->postCode = $postCode;
         $this->poBox = $poBox;
     }
 

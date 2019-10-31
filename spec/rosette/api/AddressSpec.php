@@ -32,7 +32,7 @@ class AddressSpec extends ObjectBehavior
         $countryRegion = 'countryRegion';
         $country = 'country';
         $worldRegion = 'worldRegion';
-        $postalCode = 'postalCode';
+        $postCode = 'postCode';
         $poBox = 'poBox';
 
         $this->beConstructedWith(
@@ -52,7 +52,7 @@ class AddressSpec extends ObjectBehavior
             $countryRegion,
             $country,
             $worldRegion,
-            $postalCode,
+            $postCode,
             $poBox
         );
 
@@ -72,7 +72,7 @@ class AddressSpec extends ObjectBehavior
         $this->countryRegion->shouldBeLike($countryRegion);
         $this->country->shouldBeLike($country);
         $this->worldRegion->shouldBeLike($worldRegion);
-        $this->postalCode->shouldBeLike($postalCode);
+        $this->postCode->shouldBeLike($postCode);
         $this->poBox->shouldBeLike($poBox);
     }
 }
