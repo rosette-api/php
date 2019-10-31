@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>API Documentation » \rosette\api\Name</title>
+<title>API Documentation » \rosette\api\AddressSimilarityParameters</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -63,12 +63,12 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: constructor."><span class="description">constructor.</span><pre>__construct()</pre></a></li>
 <li class="method public inherited"><a href="#method_get" title="get() :: Gets a property value based on the property name."><span class="description">Gets a property value based on the property name.</span><pre>get()</pre></a></li>
 <li class="method public inherited"><a href="#method_getMultiPartContent" title="getMultiPartContent() :: Provides default multiPart call for child classes that don't implement it"><span class="description">Provides default multiPart call for child classes that don't implement it</span><pre>getMultiPartContent()</pre></a></li>
 <li class="method public inherited"><a href="#method_serialize" title="serialize() :: Serialize into a json string."><span class="description">Serialize into a json string.</span><pre>serialize()</pre></a></li>
 <li class="method public inherited"><a href="#method_set" title="set() :: Sets a property based on the name."><span class="description">Sets a property based on the name.</span><pre>set()</pre></a></li>
-<li class="method public "><a href="#method_validate" title="validate() :: required validate function"><span class="description">required validate function</span><pre>validate()</pre></a></li>
+<li class="method public "><a href="#method_validate" title="validate() :: Validates parameters."><span class="description">Validates parameters.</span><pre>validate()</pre></a></li>
 <li class="method public inherited"><a href="#method_validate" title="validate() :: Validates parameters before serializing them."><span class="description">Validates parameters before serializing them.</span><pre>validate()</pre></a></li>
 </ul>
 </li>
@@ -81,16 +81,14 @@
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
                     <ul>
-<li class="property public "><a href="#property_entityType" title="$entityType() :: Entity type of the name."><span class="description"></span><pre>$entityType</pre></a></li>
-<li class="property public "><a href="#property_language" title="$language() :: Language of the name."><span class="description"></span><pre>$language</pre></a></li>
-<li class="property public "><a href="#property_script" title="$script() :: Script in which the name is written."><span class="description"></span><pre>$script</pre></a></li>
-<li class="property public "><a href="#property_text" title="$text() :: Textual form of the name."><span class="description"></span><pre>$text</pre></a></li>
+<li class="property public "><a href="#property_address1" title="$address1() :: "><span class="description">Address1 address 1</span><pre>$address1</pre></a></li>
+<li class="property public "><a href="#property_address2" title="$address2() :: "><span class="description">Address2 address 2</span><pre>$address2</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\rosette\api\Name"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\rosette\api\AddressSimilarityParameters"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -99,11 +97,11 @@
 <span class="divider">\</span><a href="../namespaces/rosette.api.html">api</a>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/rosette.api.Name.html">Name</a>
+<span class="divider">\</span><a href="../classes/rosette.api.AddressSimilarityParameters.html">AddressSimilarityParameters</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">Class that represents a Name.</p>
+<p class="short_description">Class AddressSimilarityParameters.</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -119,8 +117,8 @@
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
-<h2>Constructor.</h2>
-<pre>__construct($text, $entityType<code> = null</code>, $language<code> = null</code>, $script<code> = null</code>) </pre>
+<h2>constructor.</h2>
+<pre>__construct(\rosette\api\Address $Address1, \rosette\api\Address $Address2) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -129,15 +127,16 @@
 <td>\rosette\api\RosetteParamsSetBase::__construct()</td>
 </tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$text</h4></div>
-<div class="subelement argument"><h4>$entityType</h4></div>
-<div class="subelement argument"><h4>$language</h4></div>
-<div class="subelement argument"><h4>$script</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
+<div class="subelement argument">
+<h4>$Address1</h4>
+<code>\rosette\api\Address</code><ul>
+<li>Address1 to be compared</li>
+</ul></div>
+<div class="subelement argument">
+<h4>$Address2</h4>
+<code>\rosette\api\Address</code><ul>
+<li>Address2 to be compared</li>
+</ul></div>
 </div></div>
 </div>
 <a id="method_get"></a><div class="element clickable method public method_get inherited" data-toggle="collapse" data-target=".method_get .collapse" title="public">
@@ -199,7 +198,7 @@
 </div></div>
 </div>
 <a id="method_validate"></a><div class="element clickable method public method_validate " data-toggle="collapse" data-target=".method_validate .collapse" title="public">
-<h2>required validate function</h2>
+<h2>Validates parameters.</h2>
 <pre>validate() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -207,6 +206,11 @@
 <table class="table table-bordered"><tr>
 <th>inherited_from</th>
 <td>\rosette\api\RosetteParamsSetBase::validate()</td>
+</tr></table>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\rosette\api\RosetteException</code></th>
+<td></td>
 </tr></table>
 </div></div>
 </div>
@@ -246,9 +250,9 @@
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_entityType"> </a><div class="element clickable property public property_entityType" data-toggle="collapse" data-target=".property_entityType .collapse" title="public">
-<h2>Entity type of the name.</h2>
-<pre>$entityType : string</pre>
+<a id="property_address1"> </a><div class="element clickable property public property_address1" data-toggle="collapse" data-target=".property_address1 .collapse" title="public">
+<h2>Address1 address 1</h2>
+<pre>$address1 : \rosette\api\Address</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -256,29 +260,9 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_language"> </a><div class="element clickable property public property_language" data-toggle="collapse" data-target=".property_language .collapse" title="public">
-<h2>Language of the name.</h2>
-<pre>$language : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_script"> </a><div class="element clickable property public property_script" data-toggle="collapse" data-target=".property_script .collapse" title="public">
-<h2>Script in which the name is written.</h2>
-<pre>$script : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_text"> </a><div class="element clickable property public property_text" data-toggle="collapse" data-target=".property_text .collapse" title="public">
-<h2>Textual form of the name.</h2>
-<pre>$text : string</pre>
+<a id="property_address2"> </a><div class="element clickable property public property_address2" data-toggle="collapse" data-target=".property_address2 .collapse" title="public">
+<h2>Address2 address 2</h2>
+<pre>$address2 : \rosette\api\Address</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>

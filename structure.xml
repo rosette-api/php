@@ -1,11 +1,696 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="API Documentation" version="2.8.5">
   <partials/>
-  <file path="Api.php" generated-path="Api.html" hash="e2d232f425de357e820eddfd51ff3e5b" package="Default">
+  <file path="Address.php" generated-path="Address.html" hash="32fcbbfef5ed0247916bff2cae278c88" package="Default">
+    <docblock line="0">
+      <description>Address represents an address in Rosette API.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2019 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="21" package="Default">
+      <extends>\rosette\api\RosetteParamsSetBase</extends>
+      <name>Address</name>
+      <full_name>\rosette\api\Address</full_name>
+      <docblock line="21">
+        <description>Class that represents an Address.</description>
+        <long-description></long-description>
+        <tag name="package" line="21" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="//"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$house</name>
+        <full_name>\rosette\api\Address::house</full_name>
+        <default></default>
+        <docblock line="28">
+          <description>The address house.</description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="35" package="Default">
+        <name>$houseNumber</name>
+        <full_name>\rosette\api\Address::houseNumber</full_name>
+        <default></default>
+        <docblock line="35">
+          <description>The address house number.</description>
+          <long-description></long-description>
+          <tag name="var" line="35" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="42" package="Default">
+        <name>$road</name>
+        <full_name>\rosette\api\Address::road</full_name>
+        <default></default>
+        <docblock line="42">
+          <description>The address road.</description>
+          <long-description></long-description>
+          <tag name="var" line="42" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="49" package="Default">
+        <name>$unit</name>
+        <full_name>\rosette\api\Address::unit</full_name>
+        <default></default>
+        <docblock line="49">
+          <description>The address unit.</description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="56" package="Default">
+        <name>$level</name>
+        <full_name>\rosette\api\Address::level</full_name>
+        <default></default>
+        <docblock line="56">
+          <description>The address level.</description>
+          <long-description></long-description>
+          <tag name="var" line="56" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="63" package="Default">
+        <name>$staircase</name>
+        <full_name>\rosette\api\Address::staircase</full_name>
+        <default></default>
+        <docblock line="63">
+          <description>The address staircase.</description>
+          <long-description></long-description>
+          <tag name="var" line="63" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="70" package="Default">
+        <name>$entrance</name>
+        <full_name>\rosette\api\Address::entrance</full_name>
+        <default></default>
+        <docblock line="70">
+          <description>The address entrance.</description>
+          <long-description></long-description>
+          <tag name="var" line="70" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="77" package="Default">
+        <name>$suburb</name>
+        <full_name>\rosette\api\Address::suburb</full_name>
+        <default></default>
+        <docblock line="77">
+          <description>The address suburb.</description>
+          <long-description></long-description>
+          <tag name="var" line="77" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="84" package="Default">
+        <name>$cityDistrict</name>
+        <full_name>\rosette\api\Address::cityDistrict</full_name>
+        <default></default>
+        <docblock line="84">
+          <description>The address city district.</description>
+          <long-description></long-description>
+          <tag name="var" line="84" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="91" package="Default">
+        <name>$city</name>
+        <full_name>\rosette\api\Address::city</full_name>
+        <default></default>
+        <docblock line="91">
+          <description>The address city.</description>
+          <long-description></long-description>
+          <tag name="var" line="91" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="98" package="Default">
+        <name>$island</name>
+        <full_name>\rosette\api\Address::island</full_name>
+        <default></default>
+        <docblock line="98">
+          <description>The address island.</description>
+          <long-description></long-description>
+          <tag name="var" line="98" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="105" package="Default">
+        <name>$stateDistrict</name>
+        <full_name>\rosette\api\Address::stateDistrict</full_name>
+        <default></default>
+        <docblock line="105">
+          <description>The address state district.</description>
+          <long-description></long-description>
+          <tag name="var" line="105" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="112" package="Default">
+        <name>$state</name>
+        <full_name>\rosette\api\Address::state</full_name>
+        <default></default>
+        <docblock line="112">
+          <description>The address state.</description>
+          <long-description></long-description>
+          <tag name="var" line="112" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="119" package="Default">
+        <name>$countryRegion</name>
+        <full_name>\rosette\api\Address::countryRegion</full_name>
+        <default></default>
+        <docblock line="119">
+          <description>The address country region.</description>
+          <long-description></long-description>
+          <tag name="var" line="119" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="126" package="Default">
+        <name>$country</name>
+        <full_name>\rosette\api\Address::country</full_name>
+        <default></default>
+        <docblock line="126">
+          <description>The address country.</description>
+          <long-description></long-description>
+          <tag name="var" line="126" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="133" package="Default">
+        <name>$worldRegion</name>
+        <full_name>\rosette\api\Address::worldRegion</full_name>
+        <default></default>
+        <docblock line="133">
+          <description>The address world region.</description>
+          <long-description></long-description>
+          <tag name="var" line="133" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="140" package="Default">
+        <name>$postCode</name>
+        <full_name>\rosette\api\Address::postCode</full_name>
+        <default></default>
+        <docblock line="140">
+          <description>The address post code.</description>
+          <long-description></long-description>
+          <tag name="var" line="140" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="147" package="Default">
+        <name>$poBox</name>
+        <full_name>\rosette\api\Address::poBox</full_name>
+        <default></default>
+        <docblock line="147">
+          <description>The address P.O. Box.</description>
+          <long-description></long-description>
+          <tag name="var" line="147" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="171" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\Address::__construct()</full_name>
+        <docblock line="171">
+          <description>Constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="171" description="" type="" variable="$house"/>
+          <tag name="param" line="171" description="" type="" variable="$houseNumber"/>
+          <tag name="param" line="171" description="" type="" variable="$road"/>
+          <tag name="param" line="171" description="" type="" variable="$unit"/>
+          <tag name="param" line="171" description="" type="" variable="$level"/>
+          <tag name="param" line="171" description="" type="" variable="$staircase"/>
+          <tag name="param" line="171" description="" type="" variable="$entrance"/>
+          <tag name="param" line="171" description="" type="" variable="$suburb"/>
+          <tag name="param" line="171" description="" type="" variable="$cityDistrict"/>
+          <tag name="param" line="171" description="" type="" variable="$city"/>
+          <tag name="param" line="171" description="" type="" variable="$island"/>
+          <tag name="param" line="171" description="" type="" variable="$stateDistrict"/>
+          <tag name="param" line="171" description="" type="" variable="$state"/>
+          <tag name="param" line="171" description="" type="" variable="$countryRegion"/>
+          <tag name="param" line="171" description="" type="" variable="$country"/>
+          <tag name="param" line="171" description="" type="" variable="$worldRegion"/>
+          <tag name="param" line="171" description="" type="" variable="$postCode"/>
+          <tag name="param" line="171" description="" type="" variable="$poBox"/>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="//#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$house</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$houseNumber</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$road</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$unit</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$level</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$staircase</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$entrance</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$suburb</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$cityDistrict</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$city</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$island</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$stateDistrict</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$state</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$countryRegion</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$country</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$worldRegion</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$postCode</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$poBox</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="239" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\Address::validate()</full_name>
+        <docblock line="239">
+          <description>required validate function</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="//#method_validate"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="80" package="Default">
+        <name>getMultiPartContent</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::getMultiPartContent()</full_name>
+        <docblock line="80">
+          <description>Provides default multiPart call for child classes that don't implement it</description>
+          <long-description></long-description>
+          <tag name="return" line="80" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="92" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="92">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="92" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="92" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="131" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="131">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="param" line="131" description="&lt;p&gt;associative array of options&lt;/p&gt;" type="" variable="$options"/>
+          <tag name="return" line="131" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+    </class>
+    <source>eJydWG2P2jgQ/s6vGK2qll1R6PXb7V7vyrJUh9qDPWCvqnTSyiQGLIU4ZzvLolX/+42dOCTOCxvyAcQ8z4zHfiZjm9/+iLZRpzO4uurAFQx9X1ApQdAIv2moJJAQSGplIcy5pEpRGN5P+uigfT57PDoIttkq+Pjhl1/hlkgmYUm9bcgDvjnAiIuIC6IYD63PN+bRUFIf4tCnAtQWI0bEw68U6cE/VEj0gI/9D9DVhIsUuri8gQOPYUcOEHIFsaQYAIdcs4ACffZopHSqHt9FASOhR/WIe6a2Zpw0Sh9+pDH4ShGkE9DzAL7Os4AoM8Ug/blVKroeDPb7fZ+YfPtcbAYpKgffJqPxdDF+jzmnE30Ig2Q9/4uZwPmuDkAiTMsjK0w2IHvgAshGUMQU12nvBVMs3PRA8rXaE0HBZ1IJtopVYb1shkzqcfIcXDQU7WK4gMniAm6Hi8miB98nyz9nD0v4PpzPh9PlZLyA2RxGs+ndZDmZTfHXFxhOf8DXyfSuBxRXC8ehz5ERHnNkejGprwWEBaWFFNY8SUlG1GNr5uG8wk1MNhQ2/ImKEKcDERU7JrWiuqR8CNiOKVMTsjwpPcrVoBOSHZW4zBREUnb/kojdZMU6CgjmprZEOfWaVrGOMuh4hmULmz4rGvrS1vE9EWQnF1Rh0dLOSwfwMdH1cwVLTMkW/5bHJjGDWMLnJyJAr3y4SU0D8x3FK9QY3hgnzPhUXAjj3YqKs8JPjWvzIIITv21w7dMcNQ6ZahtV+zRHDegTDdqGNU7NcSW+5sIj7UXMHJvjY/UJ3W3ahrd+J7KPV7FYtU7deDVH9pg6pP3Day2ndr5LfU8Pc0705qhMYq9pXdqJ18lyUfTsdTHer1sYQz0r/okF5zFW1gF74ybZedstfeI9N86vGujMEZpj77kI/DOnYHxfM4GIS4Wz8FuroB1H6Ncc/r4/68Mtf24fHZ3KoUe4ZSoRe4qX94tI72fpvlBpTDYLF9Kt3rXpRu3aTJd1jVl7dAHb2EoOpim51nwnqcJcW/IOVyRzfO8qwVLsfKHXgK45V1kuZEuibEcxq2Rex6Gnj0Hw+OhZZbsJEZ9ENfiEB4Qg6DnmRMwyqOUsW7WgZauRtGzORC1DVtYKJyNs2Z6XthotWxN5KxM7ClwDV4yRF7kWLgM5ocuglboKQbFTs7Fems+XjMHW0LXSfkp48PYtZHhZ4yOrSEq0rkMTzevQVPs6OFcDdZRjLdQGSWuiDi/WRhOrHrW10jCRfM000hpyKNbQCVo9oVBTdaRjbdUzTI2l8GUGvhRoaiv4HkK6tzeesbkf49jdAk8/MsKtSK2774YKD+EE90QeHnexNaO4E7PjXfbdZa8Uwh3k+vrN7fDucT7++2G8WD5+mc3/Gi4LXpc32c+f+uP4Euk7/fvfbf+zV6kqOOuDxQuRQ027YnqvccC0OabXEwe0PdLeMhw43yvzlwWHluubuTO/G8u20Ozo7hCcXuocwCvIllQCsw6bHYfL8yq0WvdQW0XPaOVcnBbsnjCr6TliiVJszsXjnkPNtercoa1ESrq2PXiZmiwdv7K/cp5IwHw9ZbuDN+7ult11t4LBQP+LtdX/kSie0dLBf3b+B6bGWOA=</source>
+  </file>
+  <file path="AddressSimilarityParameters.php" generated-path="AddressSimilarityParameters.html" hash="21bc847ce4f3a9735155542f3f5e77a9" package="Default">
+    <docblock line="0">
+      <description>class AddressSimilarityParameters.</description>
+      <long-description>Parameters that are necessary for address similarity operations.</long-description>
+      <tag name="copyright" line="0" description="2019 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="rosette\api" line="23" package="Default">
+      <extends>\rosette\api\RosetteParamsSetBase</extends>
+      <name>AddressSimilarityParameters</name>
+      <full_name>\rosette\api\AddressSimilarityParameters</full_name>
+      <docblock line="23">
+        <description>Class AddressSimilarityParameters.</description>
+        <long-description></long-description>
+        <tag name="package" line="23" description="Default"/>
+        <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase" refers="\rosette\api\RosetteParamsSetBase" link="//"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="rosette\api" line="28" package="Default">
+        <name>$address1</name>
+        <full_name>\rosette\api\AddressSimilarityParameters::address1</full_name>
+        <default></default>
+        <docblock line="28">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="28" description="&lt;p&gt;Address1 address 1&lt;/p&gt;" type="\rosette\api\Address" variable="">
+            <type>\rosette\api\Address</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="rosette\api" line="32" package="Default">
+        <name>$address2</name>
+        <full_name>\rosette\api\AddressSimilarityParameters::address2</full_name>
+        <default></default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="32" description="&lt;p&gt;Address2 address 2&lt;/p&gt;" type="\rosette\api\Address" variable="">
+            <type>\rosette\api\Address</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="39" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\AddressSimilarityParameters::__construct()</full_name>
+        <docblock line="39">
+          <description>constructor.</description>
+          <long-description></long-description>
+          <tag name="param" line="39" description="&lt;ul&gt;&#10;&lt;li&gt;Address1 to be compared&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Address" variable="$Address1">
+            <type>\rosette\api\Address</type>
+          </tag>
+          <tag name="param" line="39" description="&lt;ul&gt;&#10;&lt;li&gt;Address2 to be compared&lt;/li&gt;&#10;&lt;/ul&gt;" type="\rosette\api\Address" variable="$Address2">
+            <type>\rosette\api\Address</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::__construct()" refers="\rosette\api\RosetteParamsSetBase::__construct()" link="//#method___construct"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$Address1</name>
+          <default></default>
+          <type>\rosette\api\Address</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$Address2</name>
+          <default></default>
+          <type>\rosette\api\Address</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="50" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\AddressSimilarityParameters::validate()</full_name>
+        <docblock line="50">
+          <description>Validates parameters.</description>
+          <long-description></long-description>
+          <tag name="throws" line="50" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+          <tag name="inherited_from" description="\rosette\api\RosetteParamsSetBase::validate()" refers="\rosette\api\RosetteParamsSetBase::validate()" link="//#method_validate"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="rosette\api" line="28" package="Default">
+        <name>__construct</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::__construct()</full_name>
+        <docblock line="28">
+          <description>Constructor.</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="38" package="Default">
+        <name>set</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::set()</full_name>
+        <docblock line="38">
+          <description>Sets a property based on the name.</description>
+          <long-description></long-description>
+          <tag name="param" line="38" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="38" description="&lt;p&gt;the value to set&lt;/p&gt;" type="mixed" variable="$value">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="54" package="Default">
+        <name>get</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::get()</full_name>
+        <docblock line="54">
+          <description>Gets a property value based on the property name.</description>
+          <long-description></long-description>
+          <tag name="param" line="54" description="&lt;p&gt;the name of the property&lt;/p&gt;" type="string" variable="$propertyName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="54" description="property value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="54" description="if property name not found" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$propertyName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="rosette\api" line="73" package="Default">
+        <name>validate</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::validate()</full_name>
+        <docblock line="73">
+          <description>Validates parameters before serializing them.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="73" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="80" package="Default">
+        <name>getMultiPartContent</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::getMultiPartContent()</full_name>
+        <docblock line="80">
+          <description>Provides default multiPart call for child classes that don't implement it</description>
+          <long-description></long-description>
+          <tag name="return" line="80" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="rosette\api" line="92" package="Default">
+        <name>removeEmptyProperties</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::removeEmptyProperties()</full_name>
+        <docblock line="92">
+          <description>Recursively removes empty properties to facilitate json encoding.</description>
+          <long-description></long-description>
+          <tag name="param" line="92" description="&lt;p&gt;Object to clean&lt;/p&gt;" type="" variable="$obj"/>
+          <tag name="return" line="92" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$obj</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="131" package="Default">
+        <name>serialize</name>
+        <full_name>\rosette\api\RosetteParamsSetBase::serialize()</full_name>
+        <docblock line="131">
+          <description>Serialize into a json string.</description>
+          <long-description></long-description>
+          <tag name="param" line="131" description="&lt;p&gt;associative array of options&lt;/p&gt;" type="" variable="$options"/>
+          <tag name="return" line="131" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$options</name>
+          <default></default>
+          <type/>
+        </argument>
+        <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
+      </method>
+    </class>
+    <source>eJzFVF1v2jAUfc+vuEJIBUSh5G10X2lLNbQONkJbVZpUmeQCloLt2U5TNPW/7zqE8NW1fZnmlyj29Tn3HB/7/Sc1V57XbjQ8aECUMGMgiGONxoR8wROmuV1+Z5ot0KI2LapyhZsZsHNmgWkEgRHtYnoJU6mBrUDAlCggFWpmuRQlzOdIqqXms7kF/6TzDs6Y4QbGGM2FTORsCedSK7natN5zxSMUBmNIRYya6BECxSL6FCtNuKG+aAf4rROouYJKsVSpn8JSprBgSxDSQmqQAIhyyhMEfIxQWeACIrlQCWciQseYcTvPeQqUFtwVGHJiGZUzcDpATrergNlcYlL8zq1V3XY7y7IWy/ttST1rF6umfdU/7w3C3jH1XAi9FokzUOOvlGvSO1kCU9RWxCbUbMIycDbPNNKala7tjGzmYtYEI6c2c2cSc2M1n6R2x691h9w4nu0aMo0JqAQh9MMKnAVhP2zCbX/8ZXg9httgNAoG434vhOEIzoeDi/64PxzQ3yUEgzv42h9cNAHJLeLBR5WfP/XInZkYuwOEEHGnBRcV928URnzKI9IlZimbIczkA2pBcoBis+DGnaih7mJIKFJ2FaRDUY6l0fYExdOQzQhaGrQWfzLFT8ugn78l6G3v1ftAMi2K2MBoxZKvmBAtJRm93x7QyCndoDA8ML2GW3875VXpFGXt/KvSCZ01VIvVzulbwPwSzH8JzD8Ai8hMq9PISt0q5koe5USVTMebxil1E8wvC2Utfq3ef75+p8FpKiJ3sHB/X3ZUWyNV18RN2J/y6znKynA3qu5aH39cmwcfNrtP/1LkbxUVBj15+z7dsITHzKIBtZ2VXcPsXMuszEQvf1ZI1IuCHwrg2r4SPoUaLpRd1vY01etbVW7ktPQMZwfMtZ06N4zSXNhp7Wi0fl6eebBLifljaVKV3+NuGYCjevMAeJ+6262eBRf3o96P6144vr8cjr4F451d9c2BPL2q2v/vqv1/pPrJe/L+AAwtUd8=</source>
+  </file>
+  <file path="Api.php" generated-path="Api.html" hash="f8206921bfe0020208d576d2cddda1da" package="Default">
     <docblock line="0">
       <description>Api.</description>
       <long-description>Primary class for interfacing with the Rosette API</long-description>
-      <tag name="copyright" line="0" description="2015-2018 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
+      <tag name="copyright" line="0" description="2015-2019 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
       <tag name="license" line="0" description="Apache http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
@@ -29,7 +714,7 @@ usage example: $api = new API($service_url, $user_key)</long-description>
       <property static="true" visibility="private" namespace="rosette\api" line="41" package="Default">
         <name>$binding_version</name>
         <full_name>\rosette\api\Api::binding_version</full_name>
-        <default>'1.12.1'</default>
+        <default>'1.14.3'</default>
         <docblock line="41">
           <description>Compatible server version.</description>
           <long-description></long-description>
@@ -950,6 +1635,26 @@ usage example: $api = new API($service_url, $user_key)</long-description>
           <type/>
         </argument>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="rosette\api" line="792" package="Default">
+        <name>addressSimilarity</name>
+        <full_name>\rosette\api\Api::addressSimilarity()</full_name>
+        <docblock line="792">
+          <description>Calls the addressSimilarity endpoint</description>
+          <long-description></long-description>
+          <tag name="param" line="792" description="" type="" variable="$params"/>
+          <tag name="return" line="792" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="792" description="" type="\rosette\api\RosetteException">
+            <type>\rosette\api\RosetteException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$params</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
     </class>
     <parse_markers>
       <error line="110" code="PPC:ERR-50014">Name of argument $user_key does not match with the DocBlock's name $service_url in __construct()</error>
@@ -958,7 +1663,7 @@ usage example: $api = new API($service_url, $user_key)</long-description>
       <notice line="171" code="PPC:ERR-50013">Parameter $max_retries could not be found in setMillisecondsBetweenRetries()</notice>
       <error line="380" code="PPC:ERR-50008">No summary for method getResponseHeader()</error>
     </parse_markers>
-    <source>eJzVW+lvG7cS/+6/gjWMahXoSAIUKJy6rWIrjdvENmylfYVdqJRES9vs1eWuj7b5398Mj11yb1t5TZ4+xNHucDjz45wk9c130Sba2Rk/ebJDnpBJ5I7gL/73LHZ9Gt+TpUc5J9dhTNwgYfE1XbrBmty6yYYkG0bOQ86ShJHJ2bEa+P0yjO5jd71JyPOnz74awj9fk5eUu5zM2HIThF64vieHYRyFMU3cMNAzvnGXLOBsRdJgxWLBfRLRJfxRbwbkZxZzGEGej54SBwl21avd/gtyH6bEp/ckCBOScgYMYMpr12OE3S1ZlIACZBn6kefSYMlwxkwLxWVEflU8wkVCgZwSVIaE1yYVoYnQ01NfiRZzkyTR/nh8e3s7ouLJKIzXY0XGx2+OD6cnF9MhCK80fhd4DMCN2Z+pG4Pii3tCI5BvSRcgtUdvCcBO1zGDd0mI8t/GbgL4DwgPr5NbGjOycnkSu4s0sYDToroc5zFpAD0akN3JBTm+2CUvJxfHFwPyy/Hs9em7Gfllcn4+OZkdTy/I6Tk5PD05Op4dn57At1dkcvIr+en45GhAGMAG87C7KEbx0TQQVbbClSQXjFkioOngdx6xpXvtLkGvYJ3SNSPr8IbFAZpTxGLf5bi0HKRbEc/13UQYBy8rhbM8Ge8E1GccYGYkljZ4RSP3RWbKh8JuwSy1eYFtE7B1eOGyICEv3WCFUwPFC1gBVAUeizlxvamg5ywGEYVah9TzYAV4gsZDfJZswhUIFwG5MLRw8QdbJrhMYGN+GsAiglsIC4tonLjL1KOxlkPyJSxYRSG4FRczTLi7Arji0CcRSOb0BRRucB06/QHxQ55oQ9SzK8MRz5aAVRKnS1QAuQGpWidKjsJl6oN2ZzQG0MCLM3HRvgJyAk9nMQ24J/QvkY0ImW0AH+QbxeENyqnmTBDLFU0oPKAJ6AsoLRhSLcE2pE2L1QeNYfn0YqQcDYDdUTActk/2YOnIAQnYLa6Hs6eo52nsDcgeOHM8f8/u+zrCcDCxeaawg8/HOzJQAbo7f++ATxJhB/iBtQOvB83QqRTyNzKQjBSFJvz+hsYEfSVYq0dj8TeK3RtcTo4GsiR7C2k8c8UGRO89Gz17PnrWAwMsTP4OpiQgPXEyP0eXMAJnv1KMIPW8fxpkyWCpmPL8jTYVYxrioCcyMCMJQvW0TTMay1Ke9PVsdkY2jK7QbgoaVs5E45jeV0+k2JQnMUxTxxVU9s+UxfcPnQS0mEfIr2KeqfLMbJYQQpTOVo9YK54u3lWBBlEHIghHV1qxhy6HHjzHwWXeIl8H1APZZSQ1sWhFRw1qYLtMeRL6r9WKP4i5NbRhinPwGDRYGYYs7sLd63ARo8p8D2OGBBDx3vwNVvlBh7ci8MIqFPSW1ZuehXFcVD2Vg7Rz4ssJpNwUhgQJJgWMF4oKksUCQxLYGeUkG4JJQ7Nt+GBCUqrykY1EuoAiglyngUgHZG4Ey0yyga0ZhDCsXzgUMBCMRyqnjiCZjcHOkvHNs3GvL7jL8IqfPcx8w28zwQ9KQcmg0qHhQBqG0/vPUEUIQHH4E7vvkYNvcwaDHVPX3qFMNcPZfcQEYU9VSqjg+A8eBr3CiMkSi77hNADvALDloPVfblQkxAA9nKyBu5RAirtmCb4QzyH/2kNy0SN3qCoJOQFUGEX+lp6KeKgq2cKM6q166fT7ZRiB04VcNggoVqYE4jLtEVuka+eaepxVvBdRCRMvxK/SW2VbKi8rHZRHOmVmOsro9S1T5AG3gciOKgW6DyWXPmdJGsOs6JEqK+vk3ugSFWAXjDsWnME7vev9/WLG7yKOcvKUq4yf21mbZIbhVQvVyy3q7PXZuEdGDUYEL3uCBGzzRj+sU+CCJRx7BCzNY6zzdAhGDfxw+V6U6yk0b9DSVMdNHX9PzaBdrSso8RZ4aqOyR9ZEm9wsbfJGjUTVTO9cP/URw9hlsoBQ5SCExyCXtagPDJyrQa3a0LtzSemYw2pUMShQHeNruzJQaLucgeArwj3GIpK4PrgAS24ZC4gt7jYK5fPwl5J5riCfq/na9CwRCnVLT9u8yqqWSllb+Ybv3rFVm4edK06HwKjOyTJ7s6qslnVpFlHiLyQslG9t62AJbA+t9RODRnpLB0WmAe49cLLCvEEcP4T2EjxkAe5OwjSJ0qTcNkitFmHokT0xrk0ZmZQkbY30cv4DxbCUJVQxcWkn1yN2w7zebzjM4JKpWmFWYHU3mbbIB8NbN62VlaDabdYm9W02M1vUgqQ/oIZxvpWSJ/06sar6hrJgRiXRLJ3V+dW6QFcZzVK5zVbMYgeLnGpzsStZJLwE9h4L5CAyJM/ALA4ORCb8ThCQfflHZMcOSkHXQFcrF+WCzkR0nCTS7SiW8sV2G3qFls5CfJvjRhZx2Gg90rbWSH5DvVTTqyq93wYioCc6Z8eYcmAxrCvts5Lt0hgqPMwY3NFssXnKEcs2X9XGIIRE5N0VsccZfBUQzZYPg35GHV/FoT8RtaiNYRGn2srq0GMU+2RPdpHsDvoZsXmUQdLSxS2RgVaAlxwWUGZ0uSFOudqG5nLPFZ2GXGtjFH5SSApJedjlnvubUZ9/aC/npTXwMqtaUH7QeVNatWqt3YT50j6wq9wTDuIG4pWYh7jXQAMQutD6NhuMZSrylWSxZ29YNFiR2lYwzahoEcoWBMviuoCsjkQHlJlLmQsjiguiLVC8vRS0vxkLQRh0c9VD7EbuQ7tfqq6tM4iPc7tTMYvU+sHuZjmakrepf3msasVXwiTt0bUB1lRwoN2swhC+cPkc18hRJMWVt7VUS4/R1oizuQ00mpaNV6PP29OVfL4xltkoN0QuCVE5bjVvHzx8hYsWWrENWTbQQ3PXoaUWKmxetkop6dXWeLM1WjTb2KOpj6PYartU+z2ldZBUZzG7du9wO/BuqMoLGrnDXm4UaHW6uJJj+uQbYj+RXPrkn38sqwOiJYVu0o8cni7gWy7b00E1i/6AFHh+cUCeFs052cThrblPNRVHvuiTu4cm/pz4KZ6AJDROZIq52rX4X+3uViY91LrgvOTLL0nZ/TKwK6ylyg0NP7RoM737LaG/avClGlsZO6pM9gmZrFbctlWOVe3G3N9HFPBMEfMw7qNLv9Ic7PyqBtoUpk8WSOrSLRTd2i/1gLbSp3AyAdWP2J2uq38020skq0asFAo2ze5vBEgb0vY42RyKrLht29ajtlIb9kZU9GjbHRFbcCJxFwcWwSHH+YmUOk3j+qQ4jNUOY37KbZ6O50ZkbGPlhXPxjdzYrkkI5gZR9k4EEF6KHs2V4BLWV58UOoY4Ay1BXbeq992zc8GMIGY89dSOJgbhXtNBinpgeohFYh4fmFE7l1Ss21uY0YWuIlGHLA6EqW/LMXZPH/cfkHYOL+yheA1HlPHlsa/gFV5AcExp8YOHOnOGxzfM0XMPyI8XpyfzV6fnh9P56csfp4ez4rDxmCzlOZ+PUuHli4IaXnwNcuxexVfBbkFOMUThbr1YhGmwwvtQB8RffeXgZqs4nqkYPYLhw6HYk89GjeS0tfTm8dY+KR1twfgGcU0GRy74IBe7FPvS0l+ItvpgV3nqbs6slau1VJzFLvXcv1ihauxr5cioWccyJh11kqAk0DGPI4+6HwcOZVC7L4i2zQMBTW6qI9J7EFjaPVqFKwOBjwpmXNzotA5AMUn1MvMeC8VKDNReWHmDbGTHoYKchQikSAHF5HWSRGI/bVCQbqC0a61UHilSKxQlh/koOnWy/spiUedIc966UiHLJj59r49XixlvGixpBKwgqsntkh+ms/HZ6cWsJjOmWfLLHtn1R/YYr24Vn8nrZTXZ02r4O6bP5ixq6K1XIl8DlG+gRarqqIt1SHduVZt3Yo9YnpZ37zAaSqFpHIddC/jSKU89W3lsVUg/BholUmiaDsjzp6Wc/njNnP5lz4fCja7BBwekbuKCjB+sb+2lpNNhM+IioRhHV+gUUGZ7kbixuaVf1GweWU5A9kU1so1LkO+zu065iMAX2lNAATeKawl1GbivWgtiuHL9zqUZ72q6KeUeGFcB0Z5dnMrDzSyENnkbtsq5674o91CaXe0eil5YjHQfbWWrIt7/92qXqcWF3H0CyVRdq+5gHMVsaEfNBiPB1Xm8lRQi/CPMBG9my6x4hsuk28Yu9wOKy3el1u9qErlXzb1goW+WN7aLIDXUOz0cUYCtokYpuGxte/eQiiMHDC+XbwXYgzCSV9kfghGO+NQYZT9XqMXJ3I6oiyEfDUQtjuriS9G7sFdd3qEAn+tpJr3608pMf7yeCl04FJ6fBwCZPFshkHHpAkESvmfB56K/FGYr5SWLLpr7YRxt5C+2HqS9foo1ALTUdMlKl+s+Ni65qLmmcuaaAw9xHicpSltdepyS4DAUP/xJ+P7+3ttsnlNxWwP60dO3Z2+ms2nPPKQth53GJcmll7c5pVjtC4SXyhP3s3FOLc5W5qmZGAZaDwD+zGodxp8PBLlAW4GQs+kapF38iddnAkImz9ZBWnDpAoHYs0vyX7G1IhFU/Ortfw5MYVKnWoqHoFXJAMDD50MDj84Yctd3PRq7SXvMR/qLjPzfQzCf06mU4aH4Fcdr+HIoOqO3Yqs024zsBOCROeLfw9Ca1qmT5KFIVrDQYFrIdMEzZtJy+caNPpfobsm0VXCzOHWqQtldMmT+gq1WTX3uEf6WGbPHakTImccodOL4c/jfOfMp/gTtZ2h7wpj/Ln7NDF3Sp61mQamp1mm7otaCp1vSlICQG4nIZ2JihXXaMoNKXnwsdayBxULlPkjo3XjFIoADWiSzstrJtatEpXjPI8cke9OESB0gQqIjQ6DtMCkr2AEWmUndRF1c+MSQFKTZznFsXl2wCCMwqU8NgRBiyz4YWXTxCVkHzFjsf2q1TVE+UmhQLHMcPuz8F/e4WuA=</source>
+    <source>eJzVXFl3G8USfvevaHx80ChHSwKXh+tgQLEVYkhsH1uBy7E5ojXTlobMxixegPz3W9XLTPfstnJJrh5wNFNdXfV1rd0tvv422kQ7O9MnT3bIEzKL3An8xX+exa5P43tiezRJyHUYEzdIWXxNbTdYk1s33ZB0w8h5mLA0ZWR2diwHfmeH0X3srjcp+eLps6/G8J9/kxc0cROyYPYmCL1wfU8OwzgKY5q6YaBmfO3aLEiYQ7LAYTHnPouoDX/kmxH5icUJjCBfTJ4SCwl25avd4XNyH2bEp/ckCFOSJQwYwJTXrscIu7NZlIICxA79yHNpYDOcMddCcpmQXySPcJVSIKcElSHhtU5FaMr19ORXosTcpGm0P53e3t5OKH8yCeP1VJIl09fHh/OTi/kYhJcavw08BuDG7I/MjUHx1T2hEchn0xVI7dFbArDTdczgXRqi/LexmwL+I5KE1+ktjRlx3CSN3VWWGsApUd0E59FpAD0akN3ZBTm+2CUvZhfHFyPy8/Hi1enbBfl5dn4+O1kczy/I6Tk5PD05Ol4cn57At5dkdvIL+fH45GhEGMAG87C7KEbx0TQQVebgSpILxgwR0HTwexIx2712bdArWGd0zcg6vGFxgOYUsdh3E1zaBKRziOf6bsqNI6kqhbM8me4E1GcJwMxILGzwikbu89yUD7ndglkq8wLbJmDr8MJlQUpeuIGDUwPFc1gBVAUe8zlxvSmnT1gMInK1DqnnwQokKRoP8Vm6CR0QLgJybmjh6ndmp7hMYGN+FsAigltwC4tonLp25tFYySH4EhY4UQhulfAZZonrAFxx6JMIJLOGHAo3uA6t4Yj4YZIqQ1SzS8Phz2zAKo0zGxVAbkAq14mSo9DOfNDujMYAGnhxLi7aV0BO4OkipkHicf0rZBNCFhvAB/lGcXiDcso5U8TSoSmFBzQFfQGlFUMqG2xD2DRffdAYlk8tRpagAbA7CobD9skeLB05IAG7xfWw9iT1Mou9EdkDZ46X79j9UEWYBExsmSts4fPpjghUgO7OXzvgk4TbAX5g7cDrQTN0Kon8jQgkE0mhCL+7oTFBXwnW8tGU/41i9waXM0EDscneShjPUrIB0QfPJs/+NflyAAZYmvwtTElAemLlfo4uoQXOYa0YQeZ5f7fIksNSM+X5a2Uq2jTEQk9kYEYChPpp22bUlqU66avF4oxsGHXQbkoa1s5E45je108k2VQn0UxTxRVU9o+MxfcPnQS0WEbIr2aeufTMfJYQQpTKVo9YqyRbva0DDaIORJAEXclhD10ONXiJg6u8eb4OqAeyi0iqY9GJjhzUwtbOkjT0X8kVfxBzY2jLFOfgMWiwIgwZ3Lm7N+HCR1X5HsYMCSDivf4LrPK9Cm9l4LlVSOgNq9c9C+M4r3pqBynnxJczSLkZDAlSTAoYLyQVJIsVhiSwM5qQfAgmDcW25YMJSaqaTEwkshUUEeQ6C3g6IEstWOaSjUzNIIRh/ZJAAQPBeCJz6gSS2RTsLJ3ePJsOhpy7CK/42cPMN/4mF/ygEpQ0KhUaDoRhWIP/jGWEABTHP7L7ATn4pmAw2tF1HRyKVDNe3EeMEw5kpYQKTn9PwmBQGjGzsegbzwPwDgBbDFr/6UZlQgzQ49kauAsJhLhrluIL/hzyrzmkED1yx7KSEBNAhVHmb+gpiceyki3NKN/Kl9ZwWIUROF2IZYOAYmRKIK7SHrFVtrauqZewmvc8KmHihfhVeSttS+ZlqYP0SKvKTEUZtb5ViiLgthCZUaVE977i0ucszWKYFT1SZmWV3FtdogbsknHHnDN4p3e9v1/O+H3EkU6eJTLjF3bWJZlmePVCDQqLOnt1Nh2QSYsRwcsBJwHbvFEPmxS4YGmCPQKW5jHWeSoEowZ+aL/j5XoGzRu0NPVxU8XfUz1o1+sKSrwBnsqozJEN0aYwS5O8VSNeNdM71898xDB2mSggZDkI4TEoZC3rAwOXclCnNvTuXFBa+rAGVTQKVEf72q0MFNpuwkBwhyQeYxFJXR9cgKW3jAXEFHcbhYp5kheCeaFgspTzdelZIeTqVp52eZVRLVWytvQN371jTpeHnUtOh8CoyclyezOqrI51aRdR4M8lLJVvXetgCGwObfQTjUZ4Sw9F5gHuPSTEwbxBLD+E9hI8ZAXuTsIsjbK02jYIrVZh6JE9Pq5LGZGUBG2D9GL+A8mwkiVkMXFpJtcjdsO8wa84TOOSq1pjVmB1N7m2yAfDWz+tpZWg2l3WJvRtNzNT1JKk36OGcbGVUiT9JrHq+oaqYFol0S6d0fk1ukBfGfVSuctW9GIHi5x6czErWSS8BPYeC8QgMibPwCwODngm/JYTkH3xh2fHHkpB10Adx0W5oDPhHSeJVDuKpXy53YZeoaOz4N+WuJFFLDZZT5SttZLfUC9T9LJKH3aBCOjxztnSphwZDJtK+7xku9SGcg/TBvc0W2yeCsTyzVe5MQghEXn3RexxBl8HRLvlw6CfUMeXcejPeC1qYljGqbGyOvQYxT7ZE10ku4N+hm8e5ZB0dHE2MlAKJBWHBZQZtTfEqlbb0FzuubzTEGutjcJPBkkhrQ673HN/1erz993lvLCGpMqqEZTvVd4UVi1bazdlvrAP7Cr3uIO4AX/F5yHuNdAAhC60vu0GY5iKeCVY7JkbFi1WJLcVdDMqW4S0Bc6yvC4gqyXQAWWWQubSiPKCKAvkby857a/aQhAG3Vz9ELORe9/tl7Jr6w3i49zulM8itH6wuxmOJuVt618eq1r5FTdJc3RjgNUVHCk3qzGEz9xkiWtkSZLyyptayqXHaKvF2cIGWk3LxKvV583pKj7fGstMlFsil4CoGrfatw8evsJlC63Zhqwa6KG+69BRC5U2LzulFPRya7zdGg2abexR18eSbJVdyv2eyjoIqrOYXbt3uB14N5blBY3c8aAwCrQ6VVyJMUPyNTGfCC5D8vffhtUBkU2hm/QjK8lW8K2Q7emonsVwREo8PzsgT8vmnG7i8Fbfp5rzI1/0yd1DHf+E+BmegKQ0TkWKudo1+F/t7tYmPdS65Lzk889J1f1ysGuspc4NNT80aHO9hx2hv27wpRxbGzvqTPYJmTlOYtpqglXtRt/fRxTwTBHzMO6jC79SHMz8KgeaFLpPlkia0i0U3cov1YCu0qd0MgHVD9+dbqp/FNtLJKtHrBIKNu3urwVIE9LuONkeioy4bdrWo7ZSW/ZGZPTo2h3hW3A8cZcHlsEhx8WJlDxNS9RJcRjLHcbilFs/HS+MSNvGKgrn8huxsd2QEPQNovwdDyBJJXq0V4I2rK86KbQ0cUZKgqZuVe275+eCOUHMksyTO5oYhAdtBynyge4hBol+fKBH7UJSvm5vYEYXuopUHrJYEKa+qcbYPXXcf0C6OTw3h+I1HF7GV8e+hFd4AcHSpcUPHuosGR7fMEvNPSI/XJyeLF+enh/Ol6cvfpgfLsrDplNii3M+H6XCyxclNbz4GuTYvYqvgt2SnHyIxN14sQqzwMH7UAfEd76ycLOVH8/UjJ7A8PGY78nnoyZi2kZ6/Xhrn1SOtmB8i7g6gyMXfDDhuxT7wtKf87b6YFd66m7BrJOrsVQJi13quX+yUtU4VMqRSbuOVUx66iRASaFjnkYedT8MHNKgdp8TZZsHHJrCVCdk8CCwlHt0ClcFAh+VzLi80WkcgGKSGuTmPeWKVRjIvbDqBtnEjEMlOUsRSJICiumrNI34ftqoJN1IatdZqTxSpE4oKg7zQXTqZf21xaLKkfq8TaVCnk18+k4dr5Yz3jywaQSsIKqJ7ZLv54vp2enFoiEzZnnyyx+Z9Uf+GK9ulZ+J62UN2dNo+Humz/YsqumtVqJYA5RvpESq66jLdUh/bnWbd3yPWJyW9+8wWkqheRyHfQv4yilPM1txbFVKPxoaFVJomg7IF08rOf3xmlnDy4EPhRtdgw+OSNPEJRnfG9+6S0mrx2bERUoxjjroFFBmexG/sbmlXzRsHhlOQPZ5NbKNS5Dv8rtOhYjAF9pTQAE3ihsJVRm4L1sLorly886lHu8auinpHhhXAdGBWZyKw808hLZ5G7bKhes+r/ZQil3jHopaWIx0H2xl6yLe//dqV6n5hdx9AslUXqvuYRzlbGhGzRYjwdV5vJWUIvwjzARvZouseIbLpNrGPvcDyst3Jdfvaha5V+29YKlvFje2yyC11DsDHFGCraZGKblsY3v3kIqjAAwvl28F2IMwElfZH4IRjvjYGOU/V2jESd+OaIohHwxEJY7s4ivRu7RXXd2hAJ8bKCaD5tPKXH+8ngpdOBSenwYAuTxbIZBz6QNBGr5jwaeivxBmK+UFiz6a+2EcbcQvth6kvXqKNQC01NRmlct1HxqXQtRCUzFzw4EHP48TFJWtLjVOSnAY8h/+pMn+/t6bfJ5TflsD+tHTN2ev54v5QD+krYad1iUppBe3OYVY3QuEl8pT95NxTiXOVuapmGgG2gwA/sxqHcafDgSFQFuBULDpG6Rd/InXJwJCLs/WQZpz6QMB37NLi1+xdSIR1Pzq7X8OTGlSq16Kh6BVywDAw+djDY/eGCau73o0dtPumI/0Fzn5P4dgMadVK8ND8SuPV/AVUPRGz2FOlm9G9gLwSB/xz2FoTGs1SfJQJGtYKDANZPrgGTNhucnGjT6V6G7ItFVwMzj1qkLZXTpm/oo5Tlufe4S/Zcbs4UwIOfMYhU4cfw7/W8J8ij9B+wnanjBOfuO/ZoYu6eNWs6DUXOm0XVFrwNMvaQpAyI1A5BMxsdI6bZlBBa9kKnRsgMVA5T5I6d3UYRHAAS2SXlntFNrVolK+51Fgkr9pQ6QJEC7RkSbQdphUFewBi8ikbiovLnxkSErSbOc4Jq8+WIQRmNTHhoALsWUfjCz6+ISoAxYs9j+22rooHyg0SJY9cKCOg//Lj4tqhfhxwKjIsxUikltt1fd+5798GKzs</source>
   </file>
   <file path="CustomException.php" generated-path="CustomException.html" hash="eacaf5559f9608db869ded258fda9975" package="Default">
     <docblock line="0">
@@ -1067,7 +1772,7 @@ exception classes.</description>
     </class>
     <source>eJyVVW1v2zYQ/u5fcRMC+AWOnRXrF2db67oZJqxzgMhZUSxDQEtniZhEqiQV1Q3833dHS35NN4wfbJN3vOee5+7oH9+UWdnpjAeDDgxgVlmni5svMZZOagVxLqyF0ugnmaAFlyHIosyxQOWE99ArCPf+QiXeaSkswkobuNMWncNjD6HWsKpcZZAx8RgN7YhO2fA21uXayDRz8Orq+x8u6eM1vBNWWlhgnCmd63QNM21KbXwy7cUPMkZlMYFKJWh8QtNSxPTVWIbwBxrLkK9GV9Bjh6AxBf1rWOsKCrEGpR1URMRlBLmSOTa5gqRcNekghYo9h1q6zOM0UUbwqYmhl06QuwAmw2odeIFwnmfebDPnysl4XNf1SPh8R9qk48Zqxx/C2c08urmknBui9ypHqo/Bz5U0xHe5BlFSWrFYUrK5qIFKIFKDZHOa066NdFKlQ7B65WphEBJpnZHLyh3p1WYoLeMc+vgaQjCNIIwCeDeNwmgIH8PFr7f3C/g4vbubzhfhTQS3dzC7nb8PF+HtnHa/wHT+CX4L5++HgKQW4eCX0nD6lCM3lcSECwgR4lEK3Ea8tyXGciVj4qXSSqQIqX5Co4gOlGgKabmi1ndYLgu5bVB7TopRBuOOEgVakhnBbJv0QZTyej8KvvVPBoKvjjvxSyai41AlFh72R7tZsQdD0nnuAC0Pw2sA+wuUkSVmo8bSOrx9Ega4BCptjsb+mwbTYcxVuWhuwk/QvVd/K12r/WB1r08R7y2aywRXUtHdgwHUycvYUrlvAfMdQr06w4h0ZUhcnhuWmnsfD3T8vwQ5zrcwcuLx3/H/hQQHoNKfRJ9R+zhTxU6bs4ClMKIAVeX5TvsTG8HBVp5j1GpJA0rvn4q95o+PcQvTO6giRx7u1e37u9vO4SVX0Puude8fGHi5zOgaFNZwwU9Xb9cRXRhBiu7RN3DPG/v9693dze5Xiyvto6oKNDLu+aM+vGlsk7binhM9JMpNJodcgj8vntlz89cELp6bTDdBw6lB3Zxp/rtISZ0CXab9m2WQ/ifU9gHw/SG/UsHoTSi44OfjeVyl5vZLnXVWBqcj79Y71boJciocaRlA99lvLn9uCXb5lW0PuWc3vXbHTbbpP6hgF5kitEaKvjD0GE1tm8UmaDXadP4BqV9U7w==</source>
   </file>
-  <file path="DocumentParameters.php" generated-path="DocumentParameters.html" hash="b4050140a9230756882045ca8473cf97" package="Default">
+  <file path="DocumentParameters.php" generated-path="DocumentParameters.html" hash="17f16805beda4b97da81563af9575575" package="Default">
     <docblock line="0">
       <description>class DocumentParameters.</description>
       <long-description>Parameter class for the standard Rosette API endpoints.  Does not include Name Translation</long-description>
@@ -1092,7 +1797,7 @@ exception classes.</description>
         <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="28" description="&lt;p&gt;ontent is the text to be analyzed (required if no contentUri)&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;content is the text to be analyzed (required if no contentUri)&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
@@ -1381,7 +2086,7 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
         <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
       </method>
     </class>
-    <source>eJzFV2FzGjcQ/c6v2Ho8Y/AQSDPtF7tOS7DbMHWwx+CkmemMR9wJUHNIV0kHIRn/9z4J3XHAgdM20/IhDkjaffv27Wr1w4/pNK3V2qenNTqlKGHG0KWKshmX9pZpNuOWa9PColsvfgk7x0qTnXIylsmY6ZjulOHWcurc9ojLOFVCWtMimOSGpLIkZJRkMac+7NBQM2kSZoWSwcFPkUqXWkymll48//a7Z/jne3rFjDA05NFUqkRNltRVOlXan8uRXYuIS8NjymTMV6A6KYvwJ6w06S0CwQl60XpOdbfhKCwdNc5pqTKasaXHmBkOA3A5Fgkn/jHiqQNOkZqliWAy4s7jQtip9xOstOh9sKFGlmE7IxcMqXF5FzHr40zC16m16Vm7vVgsWszjbSk9aYdV077uda/6g6tnwBwCvZcJB/Oa/5kJjXhHS2IpYEVsBLAJWxBywiaaY80qB3uhhRVy0iSjxnbBNKdYGKvFKLMbfOUIhXF+yntAGpN01BlQb3BErzqD3qBJ73rD1zf3Q3rXubvr9Ie9qwHd3FH3pn/ZG/Zu+vj2M3X67+nXXv+ySRxswQ//mGoHHxiFI5PHLoE04HwDQqGrlEdiLCLEJScZm3CaqDnXEuFQyvVMGJdRA3QxJWImrNeE2Q3KeTlt1yRUZ0AzJ70S6u8sFeeF/LsH5N+u7SsOBGWhdZOL36+YAbfQLa99rhE+3oH7IPVzpslxixiUxEloy3isFoZczkZQiWTJ8hOorxeJFmOIE5LyR+61aASDbf83zUbQAB2HdcR0wO3aiHPN6P7u2vkNPwMLs5B3knwJkoMw4OEwkiKvgYLie6iaHFJdpS6zLKl2lx877GyWJVYgO7YbrDrrqFRTuHG687tS7CII5QOb4CQa2K0Wc4bGBpqg4Dk25x5SrSJI2jlALXrVci1YIj5xvQk2mDjexnEYtWtCvlsGipyGc3p8gwpRlBK7JaJqFLndw94nXGofdYRDE6URlfcsZJpZiplllQnxx3YtI2DYzSKrdCv8Vji1U60WRRFd+a7rL4Zd8+NMRm6NHh6i3GJ9pYxVubnPsWvhz17mlFzQycn5nkVXCJXrhRwrV3f0VLlrxeB66XGHlYELWK/FVzLZQk/iTJuNYnDdroQcAkQvtAI3LCpTrGWd2y9lqWA7dU2KjsHdQzB1kGjk5M0WtHr58B7yKxiCrGabR9eMAX4dKwmXmzvoJT1vlKw/md4vSfHjnmz8sj8b2yRqbjMtQ6kc5G9Swd82Z8HaHur2iacEN6/ofwXz52DkCXjr7lEN6y0aIHQHTabla3QT2D8p+XkwvIPPiYfPUrusryRWTWOjsS2k6nPRvu1PHnFXc+Up9/ERk+SLnaDrlfvd5+RNZiyZDFMepknpm39eT8h6t3B70txrY9vb2dlxr/+2c927fLjsDDvD97dXlWcb5zs/P2788kg8wcBWzdE3/yFJXSbd7B5oGikM591Sv/yfWXqy61wrFrtRzN/oeDQp3/HV6A8e2e26GeY3fz6jac5iYgbzBwru3J/EmwDXAuYQ6++NeXj75CdiV5AzIVcPiDC0YNNOiYZ7ImXg8wzvPzvN54+AlUWOLP/4CKC7n3EfycfcRF65X6X6E9CUT+CuU9U9sj23T3nzwDe/uoP8gC6XXy0mGGjiXsp4Y+fyLoavixUH+9pdnr4wNX1BAsPOPCGWfeCyyKF/wxm89USkYpctEBo7KWcpSBAWb2m8dOY4tky517dz5u758Iv5gMziTjjPXYrVwOhXMUi+Hr65dk5+c/9pBqfuaYgHGgDzuOm3cwn/DuZqoPy7qlnFeLkeP4qVoi1/bVGEPJdcN0vekMYxQ7+qujvKuy4uVnqonjn2DUPBYUlFld1xZ3Ipna0cYZ6YM/OW8lj7CzeNRNg=</source>
+    <source>eJzFV2FzGjcQ/c6v2Ho8Y/AQSDPtF7tOS7CTMHWwx+CkmemMR9wJUHNIV0kHIRn/9z4J3fmAA7ttpuVDHJC0+/bt29Xqp5/TaVqrtY+Pa3RMUcKMoXMVZTMu7TXTbMYt16aFRbde/BJ2jpUmO+VkLJMx0zHdKMOt5dS57hGXcaqEtKZFMMkNSWVJyCjJYk592KGhZtIkzAolg4NfIpUutZhMLb14/v0Pz/DPj/SKGWFoyKOpVImaLKmrdKq0P5cjuxQRl4bHlMmYr0B1UhbhT1hp0nsEghP0ovWc6m7DQVg6aJzSUmU0Y0uPMTMcBuByLBJO/HPEUwecIjVLE8FkxJ3HhbBT7ydYadHHYEONLMN2Ri4YUuPyLmLWx5mEr1Nr05N2e7FYtJjH21J60g6rpn3Z6170BxfPgDkEeisTDuY1/zMTGvGOlsRSwIrYCGATtiDkhE00x5pVDvZCCyvkpElGje2CaU6xMFaLUWbX+MoRCuP8lPeANCbpoDOg3uCAXnUGvUGTPvSGb69uh/Shc3PT6Q97FwO6uqHuVf+8N+xd9fHtNXX6H+nXXv+8SRxswQ//nGoHHxiFI5PHLoE04HwNQqGrlEdiLCLEJScZm3CaqDnXEuFQyvVMGJdRA3QxJWImrNeE2Q7KeTlu1yRUZ0AzJ70S6u8sFaeF/Lt75N+u7SoOBGWhdZOL36+YAbfQLa99rRE+3oH7IPVzpslxixgiJXEU4jIerIUll7QRZCJZsvwC7utFpsUY6syP3GrRCBbb/m+ajSACOgzrCOpxvzDiXDO6vbl0fnM4dsos9J0kT0GyFwY87EdSJDZQUHwPZZNDqqvUpZYl1e7yY/udzbLECqTHdoNVZx2lago3Tnh+V4pdBKV8YhOcRAe71mLO0NlAEyQ8x+bcQ6pVBE07ByhGL1uuBUvEF67XwQYTh5s49qN2Xci3y0CRE3FOj+9QIYqyoNZFVI0it7vf+4RL7aOOcGiiNKLynoVMM0sxs6wyIf7YtmUEDLtZZJVuhd8Kp3aq1aKoogvfdv3NsG1+nMnIrdHdXZRbrK+Usao39zl0PfzZy5ySMzo6Ot2x6Aqhcr2QY+Xqlp4qd60YfFi632Jl4ALWD+IrmWyhKXGmzVoxuHZXQg4BohlagSsWlSkeZJ3bL2WpYDt1XYoOwd1dMLWXaOTk3Qa0evnwDvIrGIKsZutHHxgD/DpWEi7Xd9BLet4oWX80vU9J8f2ObLzZnY1NEjW3mZahVPbyN6ngb5OzYG0HdbvEU4KbV/S/gvk6GHkE3kP3qIb1Hg0QuoMm0/I9ug7sn5T8PBjewufEw2epXdZXEqumsdHYFFL1uWjX9kePuKu58pT7+IhJ8sVW0PXK/e5z9C4zlkyGMQ/jpPTNP68nZL1buD1q7rSx6e3k5LDXf9+57J3fnXeGneHH64vKs43TrZ/v1365J55gYqvm6Lv/kKQuk254DzSNFKbzbqlf/s8sPdp1LhWL3Sjmb3S8mpTv+Gr0B4/sZt0M85s/n9E0ZzExg/kDBXfqT+JRgGsBc4j198Y8PH7yE7EryJmQqxdEGFqwaatEwz2RMvB5ggegnebzR8DKIkeWf30E0N2vuI/kfW4ir9xvUv0JaMpHcNep6h7ZjtunvHngm1/dQb5Dl8uvFhMMNHEvZbyxdXkXw9fZioNd7S5PX5ianpDAsDNPiGWfuCxy6B9xBo89EanYZQuExk7KWQoShMVjGk+dOY4tU+717Zy5ez78Yj4hs7gTTnOXYjUw+lUMkm+H7y6dk9/cf5rBqXsb4oUGwDxu+u1cwr+DuRoo/65qVjGeP4wfxUrRlr+1KEKeS66bJW9I45ihX1XdHeVdZ2crPVTPHLuGoeCwpKLK7rg1uZTOVo4wj8yZeUu5r/0F6k9FOw==</source>
   </file>
   <file path="IException.php" generated-path="IException.html" hash="b07b2f70de3043392f2c526baa6720c6" package="Default">
     <docblock line="0">
@@ -1949,10 +2654,10 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
     </class>
     <source>eJy1VG1v2zYQ/q5fcTOC1g78ln7ZkDTdHMdFjXX2ZjktChQIaOlkc6BJlqSiem3+e4+U7Mov6Pqh5QfL0h3v7nnuuXv+u17pKOqdn0dwDolg1sKErfEW01wLnjDHlfybGfrk0NgueXnHr1/ArZgDZhAkJmgtMxvIlAFJdkjrUUBpNOHfLswfidIbw5crB8/6F7926Oc3uGGWW5hjspJKqOUGhspoVd7cXnzNE5QWU8hlioZqQBholtCjsrThDRXnsz7r9qHpHRqVqdG6go3KYc02IJWD3CIFoJQZFwj4MUHtgEtI1JpqZzJBn7HgbhXyVFG68K6KoRaOkTsDDwZUVvcC5gJOUb2unNOXvV5RFF0W6u0qs+xVVtt7PR6OJvGoQzVXQO+kIFLB4IecG8K72ADTgdIFFStYAcQ1Wxokm1O+7MJwx+WyDVZlrvCNSbl1hi9yt8fXtkJufZ66D5HGJDQGMYzjBtwM4nHchrfj+avp3RzeDmazwWQ+HsUwncFwOrkdz8fTCb29hMHkHfw5nty2AYktyoMftfHlU43ck4mpbyDEiHsleL34d6sx4RlPCJdc5myJsFQPaCTBAdLOmlvfUUvVpSD4mrtSTcegfJbzXuQ1aIlmBKMsOofvmeZXO7UPv0ftveh/h4JgOpSphVmZJVhsjI6UjNGnCOiElP6QGB4YtcwYko4g1r1ifHDS0b+YOFu59cJT5wvKB2cBydXJSJlQNIBuRUSvlEihDx24AEMMlsQmIrdUJVj+H4l2SJ1d0KzmQni9eO2nmLFcuO7JxLu4R8kTYt6ZPHHKbK/u6tKegQpj51sot64liE4NxgMTOfr60kMUpIZTpWa5TMKaub/fldYsiWvXcMB1AN8KV8ve+HPmN0DnRXAnlzrhNXM9yiE1j9EhQ2+Y4ClzFFDXJbVPFUVRxU46o7B9CMU3ET5UgZuHKHgGTVxrt2nW8bRaNRd/Qk7a18VR2uaenz9WGy5d1nw6266gE5t9hy8sVJvrMOuXwdU+bbWPoh7mvbw8uxnc3s9G/9yN4vn9y+nsr8F871brazMe9/AeteaXssPw5MkJ4/NrGpDPn48b+uIaLrr9H0JVY76LuibV+nmjvezXUzmVNAp9P3yUr/FzuHmMHqMvqYho8Q==</source>
   </file>
-  <file path="NameSimilarityParameters.php" generated-path="NameSimilarityParameters.html" hash="bcc7c5a5121057c6c243c14017239c61" package="Default">
+  <file path="NameSimilarityParameters.php" generated-path="NameSimilarityParameters.html" hash="bc86948a79187920d99431af0972d6b2" package="Default">
     <docblock line="0">
       <description>class NameSimilarityParameters.</description>
-      <long-description>Parameters that are necessary for name translation operations.</long-description>
+      <long-description>Parameters that are necessary for name similarity operations.</long-description>
       <tag name="copyright" line="0" description="2014-2015 Basis Technology Corporation.&#10;&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance&#10;with the License. You may obtain a copy of the License at"/>
       <tag name="license" line="0" description="http://www.apache.org/licenses/LICENSE-2.0&#10;&#10;Unless required by applicable law or agreed to in writing, software distributed under the License is&#10;distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#10;See the License for the specific language governing permissions and limitations under the License."/>
       <tag name="package" line="0" description="Default"/>
@@ -2161,7 +2866,7 @@ if the type is HTML or XHTML, bytes are expected, the encoding to be determined 
         <inherited_from>\rosette\api\RosetteParamsSetBase</inherited_from>
       </method>
     </class>
-    <source>eJzFVd9vIjcQft+/YhQhBSICd6h9SXptScKp6K7QsuROJ1WKjBkWS4vt2rPZo1X+9469G1gClz5V9QO73vn1fTOfzQ8/2bVNkv7FRQIXIHPhPUzEBlO1Ublwira/Ccd7Qud77BK89l+A1oJAOASNEr0Xbgsr40CzHcgJ7XNBymgwFl182yX5WRq7dSpbEwzevP3ukn++hxvhlYc5yrU2ucm2cGucNVXkc+BHJVF7XEKhl+gYAcLQCsmP2tKFTwwtVB303kA7OJzVprPONWxNARuxBW0ICs8w11xypXIE/CrREigN0mxsroSWGCqWitaxTp2lB1/qHGZBgt0FBDJgVk0vEBR55vV2TWSv+v2yLHsi4u0Zl/Vrq+9/HN+OJunokjHXRO91zi0Fh38WyjHfxRaEZVhSLBhsLkrgTovMIdvIBNglz0vprAverKgMY1kqT04tCjro1zNC5UOdpg83TWg4G6YwTs/gZpiO0y58Hs9/md7P4fNwNhtO5uNRCtMZ3E4nd+P5eDrh3XsYTr7Ah/HkrgvI3eI6+NW6AJ8xqtBMXIYBQop4ACGoJey9RalWSjIvnRUiQ8jMIzrNdIC1s1E+TNQzuiXkrE2q1HRMKlS56CdBgZ7bjOCMRyL8Q1h1vRP67b8KvZ+8fhiYIKFeephV+aPFp0isYUz+ToBXLBYWy+BRuJiLZ1M4iY3XeFpqv3582mLBY4ZWMLy9/nYqEi5Dary+nmpwOlWYPnc5Q82CYSFJQZgZp/6qJqW0LQiWgsTJxDHsKLHk2ZArJBnXq7/tatrQqYrA5Te6EWAsMB5DVvHydOhp9qdDDzCvCi3jrfTwsMPZjnlaezjdqkxrX6UTc1STDasVbo7LH+OQ4F0z9vqUzyD47LMd+VT9fwfn55XpKXnZ1E8iVzwH9GCbUj3sLq2dKXeqHMUrjbm+2ofHOnH7JUW1gjZuLG3bTbKdTsMlrFiT/wLKo7LtA7+wvGW10ap9Pnu+1+LU/O6I7cnFK9oXNt4eVw2pnHe6R3lfVr66at0M7x5mo9/vR+n84f109utwfhDV2Y/g6XXGg/+J8V4t/xHjp+Qp+Qf9KHJq</source>
+    <source>eJzFVe9v2jAQ/Z6/4lQhFSoKLdq+tPtFW6ahdbAR2qrSpMqYI1gKtmc7zdjU/31nJ4VQaPdpmj9AEt+9e+/uxXnzXs91FLUPDiI4AJ4ya2HAFhiLhUiZEW75lRm6d2hsi0J81PoJuDlzwAyCRI7WMrOEmTIgaR/sCgKURsOcUHKF8YErvTQimTvoHB2/OqSf13DGrLAwRj6XKlXJEs6V0arIfEy8FBylxSlkcoqGCCB0NeP0V+404ZqYUQZ0WkdQ9wF75dZe4xSWKoMFW4JUDjKLBEAlZyJFwJ8ctQMhgauFTgWTHH3FXLh5qFOitOC2xFATxyicgRcDalaNAuaCzrS8nTunT9rtPM9bLPBtKZO0y13bvuyf9wZx75A4l0KvZEodBYM/MmFI72QJTBMtziZENmU5UKNZYpD2nPK0c+q1kEkTrJq53E9lKqwzYpK5jX49MhTW16nGUNOYhL1uDP14D866cT9uwk1//Gl4NYab7mjUHYz7vRiGIzgfDi764/5wQHcfoTu4hc/9wUUTkLpFdfCnNp4+cRS+mTj1A4QYcYOCN4u/txq5mAlOumSSsQQhUfdoJMkB8s5CWD9RS+ymkJKvXOGmbVG+ykE78ga01GYEoyw6h9+ZFqcrn5//1eft6OV3gQQ6lFMLowI/7NgYHXkYo98R0ArF/CIb3DMTsGg2meFYuQwvSxnXDv86m9CYoeY3jk+fh3LMJOgqly9DdXZD+elTlxOUZBgyEmcOE2XEr2JSQurMwZQ5thM4pG0Bc5qNMxl3yrTKZ6ua2neqEHD4TDc8jQmG15BcPN2dulv97tQNzrNMcu8euLtb8awHnNqaTrMoU1tXaQSMYrJ+1fzJcfguDAneVnNPd8V0fMwabSum6P9b2N8vth6ip029ZqmgOaAFXbXqZnfd3Kh85cpeONJI64t9uC+B608lihnUcaHdsl4V22hUQvwKNekLkG+VrW/E+WU1uc3N6vujx3Pt6bdiJS4c0TbT4fQ4qVhlv9Hcwn1a+eSkdta9uBv1vl314vHdx+HoS3e8kdVYj+DhZcWd/6R47ZZ/pPgheoj+AMKHcgI=</source>
   </file>
   <file path="NameTranslationParameters.php" generated-path="NameTranslationParameters.html" hash="2d8bd1ae1bfee8ca72e73c03b5f0ea61" package="Default">
     <docblock line="0">

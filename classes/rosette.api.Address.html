@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>API Documentation » \rosette\api\Name</title>
+<title>API Documentation » \rosette\api\Address</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -81,16 +81,30 @@
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
                     <ul>
-<li class="property public "><a href="#property_entityType" title="$entityType() :: Entity type of the name."><span class="description"></span><pre>$entityType</pre></a></li>
-<li class="property public "><a href="#property_language" title="$language() :: Language of the name."><span class="description"></span><pre>$language</pre></a></li>
-<li class="property public "><a href="#property_script" title="$script() :: Script in which the name is written."><span class="description"></span><pre>$script</pre></a></li>
-<li class="property public "><a href="#property_text" title="$text() :: Textual form of the name."><span class="description"></span><pre>$text</pre></a></li>
+<li class="property public "><a href="#property_city" title="$city() :: The address city."><span class="description"></span><pre>$city</pre></a></li>
+<li class="property public "><a href="#property_cityDistrict" title="$cityDistrict() :: The address city district."><span class="description"></span><pre>$cityDistrict</pre></a></li>
+<li class="property public "><a href="#property_country" title="$country() :: The address country."><span class="description"></span><pre>$country</pre></a></li>
+<li class="property public "><a href="#property_countryRegion" title="$countryRegion() :: The address country region."><span class="description"></span><pre>$countryRegion</pre></a></li>
+<li class="property public "><a href="#property_entrance" title="$entrance() :: The address entrance."><span class="description"></span><pre>$entrance</pre></a></li>
+<li class="property public "><a href="#property_house" title="$house() :: The address house."><span class="description"></span><pre>$house</pre></a></li>
+<li class="property public "><a href="#property_houseNumber" title="$houseNumber() :: The address house number."><span class="description"></span><pre>$houseNumber</pre></a></li>
+<li class="property public "><a href="#property_island" title="$island() :: The address island."><span class="description"></span><pre>$island</pre></a></li>
+<li class="property public "><a href="#property_level" title="$level() :: The address level."><span class="description"></span><pre>$level</pre></a></li>
+<li class="property public "><a href="#property_poBox" title="$poBox() :: The address P.O. Box."><span class="description"></span><pre>$poBox</pre></a></li>
+<li class="property public "><a href="#property_postCode" title="$postCode() :: The address post code."><span class="description"></span><pre>$postCode</pre></a></li>
+<li class="property public "><a href="#property_road" title="$road() :: The address road."><span class="description"></span><pre>$road</pre></a></li>
+<li class="property public "><a href="#property_staircase" title="$staircase() :: The address staircase."><span class="description"></span><pre>$staircase</pre></a></li>
+<li class="property public "><a href="#property_state" title="$state() :: The address state."><span class="description"></span><pre>$state</pre></a></li>
+<li class="property public "><a href="#property_stateDistrict" title="$stateDistrict() :: The address state district."><span class="description"></span><pre>$stateDistrict</pre></a></li>
+<li class="property public "><a href="#property_suburb" title="$suburb() :: The address suburb."><span class="description"></span><pre>$suburb</pre></a></li>
+<li class="property public "><a href="#property_unit" title="$unit() :: The address unit."><span class="description"></span><pre>$unit</pre></a></li>
+<li class="property public "><a href="#property_worldRegion" title="$worldRegion() :: The address world region."><span class="description"></span><pre>$worldRegion</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\rosette\api\Name"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\rosette\api\Address"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
@@ -99,11 +113,11 @@
 <span class="divider">\</span><a href="../namespaces/rosette.api.html">api</a>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/rosette.api.Name.html">Name</a>
+<span class="divider">\</span><a href="../classes/rosette.api.Address.html">Address</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">Class that represents a Name.</p>
+<p class="short_description">Class that represents an Address.</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -120,7 +134,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Constructor.</h2>
-<pre>__construct($text, $entityType<code> = null</code>, $language<code> = null</code>, $script<code> = null</code>) </pre>
+<pre>__construct($house<code> = null</code>, $houseNumber<code> = null</code>, $road<code> = null</code>, $unit<code> = null</code>, $level<code> = null</code>, $staircase<code> = null</code>, $entrance<code> = null</code>, $suburb<code> = null</code>, $cityDistrict<code> = null</code>, $city<code> = null</code>, $island<code> = null</code>, $stateDistrict<code> = null</code>, $state<code> = null</code>, $countryRegion<code> = null</code>, $country<code> = null</code>, $worldRegion<code> = null</code>, $postCode<code> = null</code>, $poBox<code> = null</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -129,15 +143,24 @@
 <td>\rosette\api\RosetteParamsSetBase::__construct()</td>
 </tr></table>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$text</h4></div>
-<div class="subelement argument"><h4>$entityType</h4></div>
-<div class="subelement argument"><h4>$language</h4></div>
-<div class="subelement argument"><h4>$script</h4></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\rosette\api\RosetteException</code></th>
-<td></td>
-</tr></table>
+<div class="subelement argument"><h4>$house</h4></div>
+<div class="subelement argument"><h4>$houseNumber</h4></div>
+<div class="subelement argument"><h4>$road</h4></div>
+<div class="subelement argument"><h4>$unit</h4></div>
+<div class="subelement argument"><h4>$level</h4></div>
+<div class="subelement argument"><h4>$staircase</h4></div>
+<div class="subelement argument"><h4>$entrance</h4></div>
+<div class="subelement argument"><h4>$suburb</h4></div>
+<div class="subelement argument"><h4>$cityDistrict</h4></div>
+<div class="subelement argument"><h4>$city</h4></div>
+<div class="subelement argument"><h4>$island</h4></div>
+<div class="subelement argument"><h4>$stateDistrict</h4></div>
+<div class="subelement argument"><h4>$state</h4></div>
+<div class="subelement argument"><h4>$countryRegion</h4></div>
+<div class="subelement argument"><h4>$country</h4></div>
+<div class="subelement argument"><h4>$worldRegion</h4></div>
+<div class="subelement argument"><h4>$postCode</h4></div>
+<div class="subelement argument"><h4>$poBox</h4></div>
 </div></div>
 </div>
 <a id="method_get"></a><div class="element clickable method public method_get inherited" data-toggle="collapse" data-target=".method_get .collapse" title="public">
@@ -246,9 +269,9 @@
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_entityType"> </a><div class="element clickable property public property_entityType" data-toggle="collapse" data-target=".property_entityType .collapse" title="public">
-<h2>Entity type of the name.</h2>
-<pre>$entityType : string</pre>
+<a id="property_city"> </a><div class="element clickable property public property_city" data-toggle="collapse" data-target=".property_city .collapse" title="public">
+<h2>The address city.</h2>
+<pre>$city : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -256,9 +279,9 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_language"> </a><div class="element clickable property public property_language" data-toggle="collapse" data-target=".property_language .collapse" title="public">
-<h2>Language of the name.</h2>
-<pre>$language : string</pre>
+<a id="property_cityDistrict"> </a><div class="element clickable property public property_cityDistrict" data-toggle="collapse" data-target=".property_cityDistrict .collapse" title="public">
+<h2>The address city district.</h2>
+<pre>$cityDistrict : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -266,9 +289,9 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_script"> </a><div class="element clickable property public property_script" data-toggle="collapse" data-target=".property_script .collapse" title="public">
-<h2>Script in which the name is written.</h2>
-<pre>$script : string</pre>
+<a id="property_country"> </a><div class="element clickable property public property_country" data-toggle="collapse" data-target=".property_country .collapse" title="public">
+<h2>The address country.</h2>
+<pre>$country : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -276,9 +299,149 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_text"> </a><div class="element clickable property public property_text" data-toggle="collapse" data-target=".property_text .collapse" title="public">
-<h2>Textual form of the name.</h2>
-<pre>$text : string</pre>
+<a id="property_countryRegion"> </a><div class="element clickable property public property_countryRegion" data-toggle="collapse" data-target=".property_countryRegion .collapse" title="public">
+<h2>The address country region.</h2>
+<pre>$countryRegion : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_entrance"> </a><div class="element clickable property public property_entrance" data-toggle="collapse" data-target=".property_entrance .collapse" title="public">
+<h2>The address entrance.</h2>
+<pre>$entrance : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_house"> </a><div class="element clickable property public property_house" data-toggle="collapse" data-target=".property_house .collapse" title="public">
+<h2>The address house.</h2>
+<pre>$house : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_houseNumber"> </a><div class="element clickable property public property_houseNumber" data-toggle="collapse" data-target=".property_houseNumber .collapse" title="public">
+<h2>The address house number.</h2>
+<pre>$houseNumber : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_island"> </a><div class="element clickable property public property_island" data-toggle="collapse" data-target=".property_island .collapse" title="public">
+<h2>The address island.</h2>
+<pre>$island : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_level"> </a><div class="element clickable property public property_level" data-toggle="collapse" data-target=".property_level .collapse" title="public">
+<h2>The address level.</h2>
+<pre>$level : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_poBox"> </a><div class="element clickable property public property_poBox" data-toggle="collapse" data-target=".property_poBox .collapse" title="public">
+<h2>The address P.O. Box.</h2>
+<pre>$poBox : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_postCode"> </a><div class="element clickable property public property_postCode" data-toggle="collapse" data-target=".property_postCode .collapse" title="public">
+<h2>The address post code.</h2>
+<pre>$postCode : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_road"> </a><div class="element clickable property public property_road" data-toggle="collapse" data-target=".property_road .collapse" title="public">
+<h2>The address road.</h2>
+<pre>$road : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_staircase"> </a><div class="element clickable property public property_staircase" data-toggle="collapse" data-target=".property_staircase .collapse" title="public">
+<h2>The address staircase.</h2>
+<pre>$staircase : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_state"> </a><div class="element clickable property public property_state" data-toggle="collapse" data-target=".property_state .collapse" title="public">
+<h2>The address state.</h2>
+<pre>$state : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_stateDistrict"> </a><div class="element clickable property public property_stateDistrict" data-toggle="collapse" data-target=".property_stateDistrict .collapse" title="public">
+<h2>The address state district.</h2>
+<pre>$stateDistrict : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_suburb"> </a><div class="element clickable property public property_suburb" data-toggle="collapse" data-target=".property_suburb .collapse" title="public">
+<h2>The address suburb.</h2>
+<pre>$suburb : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_unit"> </a><div class="element clickable property public property_unit" data-toggle="collapse" data-target=".property_unit .collapse" title="public">
+<h2>The address unit.</h2>
+<pre>$unit : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_worldRegion"> </a><div class="element clickable property public property_worldRegion" data-toggle="collapse" data-target=".property_worldRegion .collapse" title="public">
+<h2>The address world region.</h2>
+<pre>$worldRegion : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
