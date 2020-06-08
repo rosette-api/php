@@ -16,10 +16,9 @@
 namespace rosette\api;
 
 /**
- * Class that represents a fielded address.
- * @deprecated
+ * Class that represents an FieldedAddress.
  */
-class Address extends RosetteParamsSetBase implements IAddress
+class FieldedAddress extends RosetteParamsSetBase implements IAddress
 {
     /**
      * The address house.
@@ -190,7 +189,7 @@ class Address extends RosetteParamsSetBase implements IAddress
         $poBox = null
     )
     {
-        if ($house === null && 
+        if ($house === null &&
             $houseNumber === null &&
             $road === null &&
             $unit === null &&
@@ -213,7 +212,7 @@ class Address extends RosetteParamsSetBase implements IAddress
                 sprintf('At least one address field is required'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
-        }    
+        }
         $this->house = $house;
         $this->houseNumber = $houseNumber;
         $this->road = $road;
