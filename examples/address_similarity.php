@@ -21,27 +21,19 @@ $addressSimilarityCity1 = "Washington";
 $addressSimilarityState1 = "DC";
 $addressSimilarityPostcode1 = "20500";
 
-$addressSimilarityHouseno2 = "160";
-$addressSimilarityRoad2 = "Pennsilvana Ave";
-$addressSimilarityCity2 = "Washington";
-$addressSimilarityState2 = "D.C.";
-$addressSimilarityPostcode2 = "20500";
+$addressSimilarityAddress2 = "160 Pennsilvana Ave, Washington, D.C., 20500";
 
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new AddressSimilarityParameters(
-    new Address(
+    new FieldedAddress(
         $addressSimilarityHouseno1,
         $addressSimilarityRoad1,
         $addressSimilarityCity1,
         $addressSimilarityState1,
         $addressSimilarityPostcode1
     ),
-    new Address(
-        $addressSimilarityHouseno2,
-        $addressSimilarityRoad2,
-        $addressSimilarityCity2,
-        $addressSimilarityState2,
-        $addressSimilarityPostcode2
+    new UnfieldedAddress(
+        $addressSimilarityAddress2
     )
 );
 
