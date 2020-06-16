@@ -25,7 +25,7 @@ class UnfieldedAddress extends RosetteParamsSetBase implements IAddress
      *
      * @var string
      */
-    public $address
+    public $address;
 
     /**
      * Constructor.
