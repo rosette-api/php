@@ -5,7 +5,7 @@
  *
  * Parameters that are necessary for address similarity operations.
  *
- * @copyright 2019 Basis Technology Corporation.
+ * @copyright 2020 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -23,20 +23,20 @@ namespace rosette\api;
 class AddressSimilarityParameters extends RosetteParamsSetBase
 {
     /**
-     * @var Address Address1 address 1
+     * @var IAddress Address1 address 1
      */
     public $address1;
     /**
-     * @var Address Address2 address 2
+     * @var IAddress Address2 address 2
      */
     public $address2;
     /**
      * constructor.
      *
-     * @param Address - Address1 to be compared
-     * @param Address - Address2 to be compared
+     * @param IAddress - Address1 to be compared
+     * @param IAddress - Address2 to be compared
      */
-    public function __construct(Address $Address1, Address $Address2)
+    public function __construct(IAddress $Address1, IAddress $Address2)
     {
         $this->address1 = $Address1;
         $this->address2 = $Address2;

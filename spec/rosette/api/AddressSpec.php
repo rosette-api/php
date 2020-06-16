@@ -15,7 +15,6 @@ class AddressSpec extends ObjectBehavior
 
     public function it_validates_arguments()
     {
-    
         $house = 'house';
         $houseNumber = 'houseNumber';
         $road = 'road';
