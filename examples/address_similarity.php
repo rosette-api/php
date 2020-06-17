@@ -5,7 +5,8 @@
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
-use rosette\api\Address;
+use rosette\api\FieldedAddress;
+use rosette\api\UnfieldedAddress;
 use rosette\api\AddressSimilarityParameters;
 use rosette\api\RosetteException;
 
