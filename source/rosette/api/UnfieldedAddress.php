@@ -34,10 +34,8 @@ class UnfieldedAddress extends RosetteParamsSetBase implements IAddress
      */
     public function __construct(
         $address = null
-    )
-    {
-        if ($address === null)
-        {
+    ) {
+        if ($address === null) {
             throw new RosetteException(
                 sprintf('Address cannot be null'),
                 RosetteException::$BAD_REQUEST_FORMAT
