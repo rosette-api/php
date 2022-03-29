@@ -1,18 +1,30 @@
+// These are Debian images.
+//php_versions = ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1']
+php_versions = ['7.4', '8.0']
+
 node ("docker-light") {
     def SOURCEDIR = pwd()
     try {
+        stage("Test PHP Versions") {
+            php_versions.each { item ->
+                echo "Testing PHP version ${item}"
+                step([$class: 'WsCleanup'])
+                checkout scm
+                sh "docker run --rm -v ${SOURCEDIR}:/source php:${item}-cli /source/CI.sh"
+            }
+        }
         stage("Clean up") {
             step([$class: 'WsCleanup'])
         }
         stage("Checkout Code") {
             checkout scm
         }
-        stage("Test with Docker") {
-            echo "${env.ALT_URL}"
-            def useUrl = ("${env.ALT_URL}" == "null") ? "${env.BINDING_TEST_URL}" : "${env.ALT_URL}"
-            withEnv(["API_KEY=${env.ROSETTE_API_KEY}", "ALT_URL=${useUrl}"]) {
-                sh "docker run --rm -e API_KEY=${API_KEY} -e ALT_URL=${ALT_URL} -v ${SOURCEDIR}:/source rosetteapi/docker-php"
-            }
+//        stage("Test with Docker") {
+//            echo "${env.ALT_URL}"
+//            def useUrl = ("${env.ALT_URL}" == "null") ? "${env.BINDING_TEST_URL}" : "${env.ALT_URL}"
+//            withEnv(["API_KEY=${env.ROSETTE_API_KEY}", "ALT_URL=${useUrl}"]) {
+//                sh "docker run --rm -e API_KEY=${API_KEY} -e ALT_URL=${ALT_URL} -v ${SOURCEDIR}:/source rosetteapi/docker-php"
+//            }
         }
         slack(true)
     } catch (e) {
