@@ -17,6 +17,11 @@
  **/
 namespace rosette\api;
 
+use WpOrg\Requests\Requests;
+use WpOrg\Requests\Exception as RequestsException;
+
+define('REQUESTS_SILENCE_PSR0_DEPRECATIONS', true);
+
 /**
  * Class RosetteRequest.
  *
@@ -76,12 +81,12 @@ class RosetteRequest
         }
         try {
             if ($method === 'POST') {
-                $this->response = \Requests::post($url, $headers, $data);
+                $this->response = Requests::post($url, $headers, $data);
             } elseif ($method === 'GET') {
-                $this->response = \Requests::get($url, $headers);
+                $this->response = Requests::get($url, $headers);
             }
             return true;
-        } catch (Requests_Exception $e) {
+        } catch (RequestsException $e) {
             throw new RosetteException($e->getMessage(), $e->getCode());
         }
     }

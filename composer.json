@@ -20,11 +20,13 @@
       "name": "Basis Technology Corp",
       "homepage": "https://developer.rosette.com"
     }
-  ],
+  ],    
+  "require": {
+    "rmccue/requests": ">=1.0"
+  },
   "require-dev": {
     "friendsofphp/php-cs-fixer": ">=1.9",
-    "phpspec/phpspec": "~2.5",
-    "rmccue/requests": ">=1.0"
+    "phpspec/phpspec": "~2.5"
   },
   "config": {
     "bin-dir": "bin"
