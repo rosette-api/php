@@ -31,6 +31,7 @@ class NameSimilarityParameters extends RosetteParamsSetBase
      */
     public $name2;
     /**
+     * @deprecated
      * @var string genre to categorize the input data
      */
     public $genre;

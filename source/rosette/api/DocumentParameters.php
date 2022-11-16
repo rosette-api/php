@@ -49,6 +49,7 @@ class DocumentParameters extends RosetteParamsSetBase
     private $fileName;
 
     /**
+     * @deprecated
      * @var string genre to categorize the input data
      */
     public $genre;
