@@ -55,6 +55,7 @@ class NameTranslationParameters extends RosetteParamsSetBase
      */
     public $targetScheme;
     /**
+     * @deprecated
      * @var string genre to categorize the input data
      */
     public $genre;
@@ -83,6 +84,9 @@ class NameTranslationParameters extends RosetteParamsSetBase
                 sprintf('Required name translation parameter not supplied: targetLanguage'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
+        }
+        if (!empty(trim($this->genre))) {
+            error_log("Deprecated: The option 'genre' is deprecated and will be removed in the next release.", 0);
         }
     }
 }

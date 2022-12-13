@@ -49,6 +49,7 @@ class DocumentParameters extends RosetteParamsSetBase
     private $fileName;
 
     /**
+     * @deprecated
      * @var string genre to categorize the input data
      */
     public $genre;
@@ -125,6 +126,9 @@ class DocumentParameters extends RosetteParamsSetBase
                     );
                 }
             }
+        }
+        if (!empty(trim($this->genre))) {
+            error_log("Deprecated: The option 'genre' is deprecated and will be removed in the next release.", 0);
         }
     }
 

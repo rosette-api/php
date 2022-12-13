@@ -18,7 +18,6 @@ $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new 
 $params = new DocumentParameters();
 $content = $entities_text_data;
 $params->set('content', $content);
-$params->set('genre', 'social-media');
 
 try {
     $result = $api->entities($params);
