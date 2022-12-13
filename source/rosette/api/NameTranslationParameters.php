@@ -85,5 +85,8 @@ class NameTranslationParameters extends RosetteParamsSetBase
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
+        if (!empty(trim($this->genre))) {
+            error_log("Deprecated: The option 'genre' is deprecated and will be removed in the next release.", 0);
+        }
     }
 }
