@@ -31,6 +31,7 @@ class NameSimilarityParameters extends RosetteParamsSetBase
      */
     public $name2;
     /**
+     * @deprecated
      * @var string genre to categorize the input data
      */
     public $genre;
@@ -65,6 +66,9 @@ class NameSimilarityParameters extends RosetteParamsSetBase
                 sprintf('Required name similarity parameter not supplied: targetName'),
                 RosetteException::$BAD_REQUEST_FORMAT
             );
+        }
+        if (!empty(trim($this->genre))) {
+            error_log("Deprecated: The option 'genre' is deprecated and will be removed in the next release.", 0);
         }
     }
 }
