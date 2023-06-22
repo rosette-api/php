@@ -34,7 +34,7 @@
     "email": "support@rosette.com",
     "issues": "https://github.com/rosette-api/php/issues",
     "source": "https://github.com/rosette-api/php"
-  ],
+  },
   "require": {
     "rmccue/requests": ">=1.0"
   },
