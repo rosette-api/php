@@ -2,14 +2,22 @@
   "name": "rosette/api",
   "version": "1.14.4",
   "description": "PHP Interface for Rosette Text Analytics",
-  "license": "Apache",
+  "type": "library",
+  "license": "Apache-2.0",
   "keywords": [
-    "basis",
+    "address similarity",
+    "basis technology",
+    "cateogories",
     "entity extraction",
+    "lemmas",
     "morphology",
+    "name deduplication",
     "name similarity",
+    "name translation",
     "ner",
     "nlp",
+    "parts of speech",
+    "relationships",
     "rosette",
     "sentiment",
     "text analytics",
@@ -18,9 +26,15 @@
   "authors": [
     {
       "name": "Basis Technology Corp",
+      "email": "php@rosette.com",
       "homepage": "https://developer.rosette.com"
     }
-  ],    
+  ],
+  "support": {
+    "email": "support@rosette.com",
+    "issues": "https://github.com/rosette-api/php/issues",
+    "source": "https://github.com/rosette-api/php"
+  },
   "require": {
     "rmccue/requests": ">=1.0"
   },
