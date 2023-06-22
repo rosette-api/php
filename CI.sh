@@ -6,7 +6,7 @@ this_script=$(basename "$0")
 # Install some tools
 echo "*** [${this_script}] Installing some OS packages"
 apt-get update
-apt-get install -y git zip
+apt-get install -y git wget zip
 
 # The composer installation steps via https://getcomposer.org/download/
 # and https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
