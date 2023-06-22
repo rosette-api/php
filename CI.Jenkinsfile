@@ -12,8 +12,8 @@ def runVersion(sourceDir, ver) {
         mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}"
     }
 
-    // Only run Sonar once.
-    if (ver == 8.2) {
+    // Only run Sonar once.  Use 7.4 until we get our 8.x ducks in a row.
+    if (ver == 7.4) {
         sonarExec = "cd /root/ && \
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
