@@ -30,6 +30,10 @@ php -r "unlink('composer-setup.php');"
 echo "*** [${this_script}] Changing to binding source directory"
 pushd /source
 
+# TODO:  Review if we should be using a compose.lock file instead.
+echo "*** [${this_script}] Running composer update"
+composer update
+
 echo "*** [${this_script}] Running composer install"
 composer install --prefer-source --no-interaction
 
@@ -41,6 +45,7 @@ pushd examples
 for example in $(ls *.php); do
     echo "*** [${this_script}] Running ${example}"
     php ${example} --key ${ROSETTE_API_KEY}
+    # TODO:  Capture output in a file and only print it for errors.
 done
 
 echo "*** [${this_script}] Finished!"
