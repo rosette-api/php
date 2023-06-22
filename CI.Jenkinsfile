@@ -1,5 +1,5 @@
 // These are Debian images.
-def php_versions = ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+def php_versions = ['7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
 
 def runVersion(sourceDir, ver) {
     mySonarOpts = "-Dsonar.sources=/source -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
