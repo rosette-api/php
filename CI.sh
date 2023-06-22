@@ -9,11 +9,17 @@ apt-get update
 apt-get install -y git zip
 
 # The composer installation steps via https://getcomposer.org/download/
+# and https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
 echo "*** [${this_script}] Downloading composer-setup.php"
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+actual_checksum="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
 echo "*** [${this_script}] Verifying composer-setup.php checksum"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+expected_checksum="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"
+if [ "${expected_checksum}" != "${actual_checksum}" ]; then
+    >&2 echo '*** [${this_script}] ERROR: Invalid installer checksum'
+    exit 1
+fi
 
 echo "*** [${this_script}] Installing composer to /usr/local/bin"
 php composer-setup.php --install-dir=/usr/local/bin --filename=composer
