@@ -2,7 +2,7 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/rosette-api/php.svg?branch=develop)](https://travis-ci.org/rosette-api/php) [![Packagist](https://img.shields.io/packagist/v/rosette/api.svg?colorB=bright%20green&style=flat)](https://packagist.org/packages/rosette/api)
+[![Packagist](https://img.shields.io/packagist/v/rosette/api.svg?colorB=bright%20green&style=flat)](https://packagist.org/packages/rosette/api)
 
 ## Rosette API
 The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
