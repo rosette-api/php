@@ -99,6 +99,12 @@ class Api
      * @var class
      */
     private $request;
+    
+    /**
+     * TODO
+     * @var boolean
+     */
+    private $debug;
 
     /**
      * Create an L{API} object.
