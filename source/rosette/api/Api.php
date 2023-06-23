@@ -404,7 +404,7 @@ class Api
 
         $this->headers = $this->addHeaders($this->headers);
 
-        if (strlen($parameters->getMultiPartContent()) > 0) {
+        if (!empty($parameters->getMultiPartContent())) {
             $content = $parameters->getMultiPartContent();
             $filename = $parameters->getFileName();
 
