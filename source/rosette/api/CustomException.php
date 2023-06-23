@@ -33,18 +33,6 @@ class CustomException extends \Exception implements IException
      * @var int
      */
     protected $code = 0;
-    /**
-     * Source filename of exception.
-     *
-     * @var string
-     */
-    protected $file;
-    /**
-     * Source line of exception.
-     *
-     * @var int
-     */
-    protected $line;
 
     /**
      * Constructor.
