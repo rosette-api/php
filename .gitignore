@@ -19,3 +19,7 @@ composer.lock
 vendor/
 bin/
 *.cache
+
+# Code coverage
+coverage.xml
+coverage/

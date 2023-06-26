@@ -37,8 +37,31 @@ composer update
 echo "*** [${this_script}] Running composer install"
 composer install --prefer-source --no-interaction
 
-echo "*** [${this_script}] Running phpspec"
-bin/phpspec run --config=phpspec.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
+#Install Xdebug coverage tool
+version=$(php -v | awk 'match($0, /PHP [78]\.[0-4]/) { print substr($0, RSTART, RLENGTH) } ' | awk '{print $2}')
+echo "*** [${this_script}] PHP version: $version"
+if [ "$version" == "7.4" ]
+then
+    # Installation according to https://xdebug.org/docs/install#source
+    echo "*** [${this_script}] Installing Xdebug coverage tool"
+    cd /
+    git clone https://github.com/xdebug/xdebug.git
+    cd xdebug
+    git checkout 3.1.5
+    phpize
+    ./configure --enable-xdebug
+    make
+    make install
+    echo "zend_extension=xdebug" > /usr/local/etc/php/conf.d/99-xdebug.ini
+    export XDEBUG_MODE=coverage
+    cd /source
+    echo "*** [${this_script}] Running phpspec"
+    bin/phpspec run --config=phpspec.coverage.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
+else 
+    echo "*** [${this_script}] Skipping test coverage generation for this version"
+    echo "*** [${this_script}] Running phpspec"
+    bin/phpspec run --config=phpspec.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
+fi
 
 echo "*** [${this_script}] Running examples"
 pushd examples

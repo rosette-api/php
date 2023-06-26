@@ -40,7 +40,8 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": ">=1.9",
-    "phpspec/phpspec": ">=2.5"
+    "phpspec/phpspec": ">=2.5",
+    "friends-of-phpspec/phpspec-code-coverage": "*"
   },
   "config": {
     "bin-dir": "bin"
@@ -51,4 +52,3 @@
     }
   }
 }
-

@@ -18,7 +18,7 @@ def runVersion(sourceDir, ver) {
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
                cd /source && \
-               /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts}"
+               /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts} -Dsonar.php.coverage.reportPaths=coverage.xml"
     } else {
         sonarExec = "echo Skipping Sonar for this version."
     }

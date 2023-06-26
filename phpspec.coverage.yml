@@ -1,0 +1,16 @@
+suites:
+    rosette_suite:
+        namespace: rosette\api
+        src_path: '%paths.config%/source'
+        spec_path: '%paths.config%'
+extensions:
+  # friends-of-phpspec/phpspec-code-coverage
+    FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - html
+            - clover
+        output:
+            html: coverage
+            clover: coverage.xml
+        whitelist:
+            - source
