@@ -4,6 +4,7 @@ namespace spec\rosette\api;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use rosette\api\RosetteConstants;
 
 class DocumentParametersSpec extends ObjectBehavior
 {
@@ -16,14 +17,14 @@ class DocumentParametersSpec extends ObjectBehavior
 
     public function it_validates_no_content_or_content_uri()
     {
-        $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
+        $this->shouldThrow(RosetteConstants::$RosetteExceptionFullClassName)->duringValidate();
     }
 
     public function it_validates_no_content_and_content_uri()
     {
         $this->content = 'content';
         $this->contentUri = 'contentUri';
-        $this->shouldThrow('rosette\api\RosetteException')->duringValidate();
+        $this->shouldThrow(RosetteConstants::$RosetteExceptionFullClassName)->duringValidate();
     }
 
     public function it_loads_document_file()
@@ -52,7 +53,7 @@ class DocumentParametersSpec extends ObjectBehavior
 
     public function it_throws_if_invalid_property()
     {
-        $this->shouldThrow('rosette\api\RosetteException')->duringGet('bogus');
+        $this->shouldThrow(RosetteConstants::$RosetteExceptionFullClassName)->duringGet('bogus');
     }
 
     public function it_serialized()

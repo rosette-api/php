@@ -45,4 +45,6 @@ class RosetteConstants
         'HAN_READINGS' => 'han-readings',
         'COMPLETE' => 'complete',
     );
+
+    public static $RosetteExceptionFullClassName = 'rosette\api\RosetteException';
 }
