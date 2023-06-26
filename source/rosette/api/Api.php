@@ -96,7 +96,7 @@ class Api
 
     /**
      * internal Request object
-     * @var class
+     * @var RosetteRequest
      */
     private $request;
     
@@ -469,7 +469,7 @@ class Api
     private function makeRequest($url, $headers, $data, $method)
     {
         if ($this->request->makeRequest($url, $headers, $data, $method, $this->url_params) === false) {
-            throw new RosetteException($this->request->getResponseError);
+            throw new RosetteException($this->request->getResponseError());
         } else {
             $this->setResponseCode($this->request->getResponseCode());
             if ($this->getResponseCode() !== 200) {
@@ -601,7 +601,7 @@ class Api
      * Calls the morphology endpoint.
      *
      * @param $params
-     * @param null $facet
+     * @param string|null $facet
      *
      * @return mixed
      *
