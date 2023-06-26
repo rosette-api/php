@@ -101,10 +101,25 @@ class Api
     private $request;
     
     /**
-     * TODO
-     * @var boolean
+     * More verbose output).
+     *
+     * @var bool
      */
     private $debug;
+
+    /**
+     * The maximum retries for server connect
+     *
+     * @var int
+     */
+    private $max_retries;
+
+    /**
+     * The millisecond sleep time between retries
+     *
+     * @var int
+     */
+    private $ms_between_retries;
 
     /**
      * Create an L{API} object.
