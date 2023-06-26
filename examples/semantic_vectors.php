@@ -20,7 +20,7 @@ $content = $semantic_vectors_data;
 $params->set('content', $content);
 
 try {
-    $result = $api->semanticVectors($params, false);
+    $result = $api->semanticVectors($params);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);

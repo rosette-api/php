@@ -20,7 +20,7 @@ $content = $syntax_dependencies_data;
 $params->set('content', $content);
 
 try {
-    $result = $api->syntaxDependencies($params, false);
+    $result = $api->syntaxDependencies($params);
     var_dump($result);
 } catch (RosetteException $e) {
     error_log($e);
