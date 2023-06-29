@@ -6,7 +6,6 @@
   "license": "Apache-2.0",
   "keywords": [
     "address similarity",
-    "basis technology",
     "cateogories",
     "entity extraction",
     "lemmas",
@@ -25,7 +24,7 @@
   ],
   "authors": [
     {
-      "name": "Basis Technology Corp",
+      "name": "Babel Street Rosette Ltd",
       "email": "php@rosette.com",
       "homepage": "https://developer.rosette.com"
     }
