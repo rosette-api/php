@@ -1,5 +1,6 @@
 // These are Debian images.
-def php_versions = [7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
+//def php_versions = [7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
+def php_versions = [7.4]
 
 def runVersion(sourceDir, ver) {
     mySonarOpts = "-Dsonar.sources=/source -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -17,7 +18,7 @@ def runVersion(sourceDir, ver) {
         sonarExec = "cd /root/ && \
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
-               cd /source && \
+               cd /php-source && \
                /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts}"
     } else {
         sonarExec = "echo Skipping Sonar for this version."
@@ -27,7 +28,7 @@ def runVersion(sourceDir, ver) {
     sh "docker run --rm \
             --pull always \
             -e ROSETTE_API_KEY=${env.ROSETTE_API_KEY} \
-            -v ${sourceDir}:/source \
+            -v ${sourceDir}:/php-source \
             php:${ver}-cli \
             bash -c \"cd /source && \
                       ./CI.sh && \
