@@ -30,7 +30,7 @@ def runVersion(sourceDir, ver) {
             -e ROSETTE_API_KEY=${env.ROSETTE_API_KEY} \
             -v ${sourceDir}:/php-source \
             php:${ver}-cli \
-            bash -c \"cd /source && \
+            bash -c \"cd /php-source && \
                       ./CI.sh && \
                       ${sonarExec}\""
 }
