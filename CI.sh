@@ -28,7 +28,7 @@ echo "*** [${this_script}] Removing composer-setup.php"
 php -r "unlink('composer-setup.php');"
 
 echo "*** [${this_script}] Changing to binding source directory"
-pushd /source
+pushd /php-source
 
 # TODO:  Review if we should be using a compose.lock file instead.
 echo "*** [${this_script}] Running composer update"
@@ -54,7 +54,7 @@ then
     make install
     echo "zend_extension=xdebug" > /usr/local/etc/php/conf.d/99-xdebug.ini
     export XDEBUG_MODE=coverage
-    cd /source
+    cd /php-source
     echo "*** [${this_script}] Running phpspec"
     bin/phpspec run --config=phpspec.coverage.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
 else 
