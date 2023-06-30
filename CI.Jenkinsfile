@@ -3,7 +3,7 @@
 def php_versions = [7.4]
 
 def runVersion(sourceDir, ver) {
-    mySonarOpts = "-Dsonar.sources=/php-source/source/** -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
+    mySonarOpts = "-Dsonar.sources=source/** -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
     if ("${env.CHANGE_ID}" != "null") {
         mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.key=${env.CHANGE_ID} -Dsonar.pullrequest.branch=${env.BRANCH_NAME}"
     } else {
