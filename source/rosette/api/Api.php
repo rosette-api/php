@@ -5,7 +5,7 @@
  *
  * Primary class for interfacing with the Rosette API
  *
- * @copyright 2015-2019 Basis Technology Corporation.
+ * @copyright 2015-2023 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -96,9 +96,30 @@ class Api
 
     /**
      * internal Request object
-     * @var class
+     * @var RosetteRequest
      */
     private $request;
+    
+    /**
+     * More verbose output).
+     *
+     * @var bool
+     */
+    private $debug;
+
+    /**
+     * The maximum retries for server connect
+     *
+     * @var int
+     */
+    private $max_retries;
+
+    /**
+     * The millisecond sleep time between retries
+     *
+     * @var int
+     */
+    private $ms_between_retries;
 
     /**
      * Create an L{API} object.
@@ -398,7 +419,7 @@ class Api
 
         $this->headers = $this->addHeaders($this->headers);
 
-        if (strlen($parameters->getMultiPartContent()) > 0) {
+        if (!empty($parameters->getMultiPartContent())) {
             $content = $parameters->getMultiPartContent();
             $filename = $parameters->getFileName();
 
@@ -448,7 +469,7 @@ class Api
     private function makeRequest($url, $headers, $data, $method)
     {
         if ($this->request->makeRequest($url, $headers, $data, $method, $this->url_params) === false) {
-            throw new RosetteException($this->request->getResponseError);
+            throw new RosetteException($this->request->getResponseError());
         } else {
             $this->setResponseCode($this->request->getResponseCode());
             if ($this->getResponseCode() !== 200) {
@@ -580,7 +601,7 @@ class Api
      * Calls the morphology endpoint.
      *
      * @param $params
-     * @param null $facet
+     * @param string|null $facet
      *
      * @return mixed
      *

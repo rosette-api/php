@@ -5,7 +5,7 @@
  *
  * Provides a base exception for the RosetteException and any future exceptions.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2023 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -75,7 +75,7 @@ interface IException
     /**
      * Constructor.
      *
-     * @param null $message
+     * @param string|null $message
      * @param int  $code
      */
     public function __construct($message = null, $code = 0);

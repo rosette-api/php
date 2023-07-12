@@ -17,7 +17,7 @@ class CustomExceptionSpec extends ObjectBehavior
         $message = 'test exception message';
         $code = 99;
         $this->beConstructedWith($message, $code);
-        $this->getMessage()->shouldBeLike("[${code}]: ${message}");
+        $this->getMessage()->shouldBeLike("[{$code}]: {$message}");
         $this->getCode()->shouldBeLike($code);
     }
 

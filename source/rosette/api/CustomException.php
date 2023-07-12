@@ -4,7 +4,7 @@
  * CustomException class provides the implementation of IException and the base for RosetteException and any future
  * exception classes.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2023 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -33,23 +33,11 @@ class CustomException extends \Exception implements IException
      * @var int
      */
     protected $code = 0;
-    /**
-     * Source filename of exception.
-     *
-     * @var string
-     */
-    protected $file;
-    /**
-     * Source line of exception.
-     *
-     * @var int
-     */
-    protected $line;
 
     /**
      * Constructor.
      *
-     * @param null $message
+     * @param string|null $message
      * @param int  $code
      */
     public function __construct($message = null, $code = 0)
@@ -58,7 +46,7 @@ class CustomException extends \Exception implements IException
             throw new $this('Unknown ' . get_class($this));
         }
         $code = is_numeric($code) ? $code : 0;
-        parent::__construct("[${code}]: ${message}", $code);
+        parent::__construct("[{$code}]: {$message}", $code);
     }
 
     /**
