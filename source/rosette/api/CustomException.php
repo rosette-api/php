@@ -4,7 +4,7 @@
  * CustomException class provides the implementation of IException and the base for RosetteException and any future
  * exception classes.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2023 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
