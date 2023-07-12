@@ -1,6 +1,5 @@
 // These are Debian images.
-//def php_versions = [7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
-def php_versions = [7.4]
+def php_versions = [7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
 
 def runVersion(sourceDir, ver) {
     mySonarOpts = "-Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -13,8 +12,9 @@ def runVersion(sourceDir, ver) {
         mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}"
     }
 
-    // Only run Sonar once.  Use 7.4 until we get our 8.x ducks in a row.
-    if (ver == 7.4) {
+    // Only run Sonar once.
+    // There is an equivalent check in CI.sh.  Update both!!!!
+    if (ver == 8.2) {
         sonarExec = "cd /root/ && \
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
