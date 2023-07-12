@@ -14,8 +14,9 @@ def runVersion(sourceDir, ver) {
 
     // Only run Sonar once.
     // There is an equivalent check in CI.sh.  Update both!!!!
+    // The coverage tool version we are using doesn't like 8.2.
     // TODO:  Add CS Fixer Execution somewhere in CI.sh during the 8.2 extras.
-    if (ver == 8.2) {
+    if (ver == 8.1) {
         sonarExec = "cd /root/ && \
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
                unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \

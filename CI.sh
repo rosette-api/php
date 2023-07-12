@@ -40,7 +40,7 @@ composer install --prefer-source --no-interaction
 #Install Xdebug coverage tool
 version=$(php -v | awk 'match($0, /PHP [78]\.[0-4]/) { print substr($0, RSTART, RLENGTH) } ' | awk '{print $2}')
 echo "*** [${this_script}] PHP version: $version"
-if [ "${version}" == "8.2" ]; then
+if [ "${version}" == "8.1" ]; then
     # Installation according to https://xdebug.org/docs/install#source
     echo "*** [${this_script}] Installing Xdebug coverage tool"
     cd /
