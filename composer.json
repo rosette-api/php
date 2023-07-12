@@ -38,7 +38,6 @@
     "rmccue/requests": ">=1.8"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": ">=v3.20.0",
     "phpspec/phpspec": ">=7.0.0",
     "friends-of-phpspec/phpspec-code-coverage": ">=v6.0.0"
   },

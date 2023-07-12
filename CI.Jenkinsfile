@@ -14,6 +14,7 @@ def runVersion(sourceDir, ver) {
 
     // Only run Sonar once.
     // There is an equivalent check in CI.sh.  Update both!!!!
+    // TODO:  Add CS Fixer Execution somewhere in CI.sh during the 8.2 extras.
     if (ver == 8.2) {
         sonarExec = "cd /root/ && \
                wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
