@@ -18,10 +18,10 @@ def runVersion(sourceDir, ver) {
     // TODO:  Add CS Fixer Execution somewhere in CI.sh during the 8.2 extras.
     if (ver == 8.1) {
         sonarExec = "cd /root/ && \
-               wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip && \
-               unzip -q sonar-scanner-cli-4.8.0.2856-linux.zip && \
+               wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.1.3023-linux.zip && \
+               unzip -q sonar-scanner-cli-4.8.1.3023-linux.zip && \
                cd /php-source && \
-               /root/sonar-scanner-4.8.0.2856-linux/bin/sonar-scanner ${mySonarOpts}"
+               /root/sonar-scanner-4.8.1.3023-linux/bin/sonar-scanner ${mySonarOpts}"
     } else {
         sonarExec = "echo Skipping Sonar for this version."
     }
