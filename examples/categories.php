@@ -13,10 +13,10 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$categories_url_data = "https://www.babelstreet.com/rosette/";
+$categories_text_data = "If you are a fan of the British television series Downton Abbey and you are planning to be in New York anytime before April 2nd, there is a perfect stop for you while in town.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
-$params->set('contentUri', $categories_url_data);
+$params->set('content', $categories_text_data);
 
 try {
     $result = $api->categories($params);
