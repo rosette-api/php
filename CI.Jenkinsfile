@@ -34,7 +34,10 @@ def runVersion(sourceDir, ver) {
             php:${ver}-cli \
             bash -c \"cd /php-source && \
                       ./CI.sh && \
-                      ${sonarExec}\""
+                      ${sonarExec} && \
+                      echo && \
+                      echo [INFO] Re-permission files for cleanup. && \
+                      chown -R jenkins:jenkins /source\""
 }
 
 node ("docker-light") {
