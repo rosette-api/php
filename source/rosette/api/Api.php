@@ -702,6 +702,21 @@ class Api
     }
 
     /**
+     * Calls the record similarity endpoint.
+     *
+     * @param $recordSimilarityParams
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function recordSimilarity($recordSimilarityParams)
+    {
+        return $this->callEndpoint($recordSimilarityParams, 'record-similarity');
+    }
+
+
+    /**
      * Calls the relationships endpoint.
      *
      * @param $params
