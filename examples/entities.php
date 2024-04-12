@@ -19,6 +19,11 @@ $params = new DocumentParameters();
 $content = $entities_text_data;
 $params->set('content', $content);
 
+// Within a document, there may be multiple references to a single entity.
+// indoc-coref server chains together all mentions to an entity.
+// Uncomment the next line to enable the entity extraction to use the indoc-coref server
+// $api->setOption('useIndocServer', true);
+
 try {
     $result = $api->entities($params);
     var_dump($result);
