@@ -20,7 +20,8 @@
     "rosette",
     "sentiment",
     "text analytics",
-    "text embeddings"
+    "text embeddings",
+    "record-similarity"
   ],
   "authors": [
     {
