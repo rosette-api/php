@@ -48,7 +48,7 @@ $records = array(
             "dob" => array("date" => "1993-04-16"),
             "primaryName" => "Ivan R",
             "addr" => array("address" => "123 Roadlane Ave"),
-            "dob2" => array("date" => "1994304/16")
+            "dob2" => array("date" => "1993/04/16")
         )
 
     )
