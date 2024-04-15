@@ -157,6 +157,17 @@ class ApiSpec extends ObjectBehavior
         $this->setMockRequest($request);
         $this->entities($params)->shouldHaveKeyWithValue('name', ApiSpec::$ResponseNameField);
     }
+    public function it_calls_the_events_endpoint($params, $request)
+    {
+        $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
+        $params->content = ApiSpec::$SampleContent;
+        $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
+        $this->setMockRequest($request);
+        $this->events($params)->shouldHaveKeyWithValue('name', ApiSpec::$ResponseNameField);
+    }
     public function it_calls_the_categories_endpoint($params, $request)
     {
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
@@ -220,6 +231,16 @@ class ApiSpec extends ObjectBehavior
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
         $this->nameDeduplication($params)->shouldHaveKeyWithValue('name', ApiSpec::$ResponseNameField);
+    }
+    public function it_calls_the_record_similarity_endpoint($params, $request)
+    {
+        $params->beADoubleOf('\rosette\api\RecordSimilarityParameters');
+        $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->getResponseCode()->willReturn(200);
+        $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
+        $this->setMockRequest($request);
+        $this->recordSimilarity($params)->shouldHaveKeyWithValue('name', ApiSpec::$ResponseNameField);
     }
     public function it_calls_the_relationships_endpoint($params, $request)
     {
