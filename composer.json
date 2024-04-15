@@ -6,9 +6,17 @@
   "license": "Apache-2.0",
   "keywords": [
     "address similarity",
-    "cateogories",
+    "analyze language",
+    "babel street",
+    "categories",
+    "coreference",
     "entity extraction",
-    "lemmas",
+    "entity linking",
+    "event extraction",
+    "fuzzy matching",
+    "langauge identification",
+    "lemmatization",
+    "match identity",
     "morphology",
     "name deduplication",
     "name similarity",
@@ -16,23 +24,26 @@
     "ner",
     "nlp",
     "parts of speech",
+    "record similarity",
     "relationships",
     "rosette",
-    "sentiment",
+    "semantic similarity",
+    "semantic vectors",
+    "sentiment analysis",
     "text analytics",
     "text embeddings",
-    "record-similarity"
+    "tokenization"
   ],
   "authors": [
     {
       "name": "Babel Street Rosette Ltd",
-      "email": "php@rosette.com",
-      "homepage": "https://developer.rosette.com"
+      "email": "rosette-php@babelstreet.com",
+      "homepage": "https://babelstreet.com/rosette"
     }
   ],
   "support": {
-    "email": "support@rosette.com",
-    "issues": "https://github.com/rosette-api/php/issues",
+    "email": "helpdesk@babelstreet.com",
+    "issues": "https://babelstreet.my.site.com/support/s/",
     "source": "https://github.com/rosette-api/php"
   },
   "require": {

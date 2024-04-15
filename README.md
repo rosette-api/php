@@ -1,14 +1,11 @@
-<a href="https://www.babelstreet.com/rosette"><img src="https://s3.amazonaws.com/styleguide.basistech.com/logos/rosette-logo.png" width="181" height="47" /></a>
+<a href="https://www.babelstreet.com/rosette"><img src="https://charts.babelstreet.com/icon.png" width="181" height="47" /></a>
 
 ---
 
 [![Packagist](https://img.shields.io/packagist/v/rosette/api.svg?colorB=bright%20green&style=flat)](https://packagist.org/packages/rosette/api)
 
 ## Rosette API
-The Rosette Text Analytics Platform uses natural language processing, statistical modeling, and machine learning to
-analyze unstructured and semi-structured text across 364 language-encoding-script combinations, revealing valuable
-information and actionable data. Rosette provides endpoints for extracting entities and relationships, translating and
-comparing the similarity of names, categorizing and adding linguistic tags to text and more.
+Rosette uses natural language processing, statistical modeling, and machine learning to analyze unstructured and semi-structured text across hundreds of language-script combinations, revealing valuable information and actionable data. Rosette provides endpoints for extracting entities and relationships, translating and comparing the similarity of names, categorizing and adding linguistic tags to text and more. Rosette Server is the on-premises installation of Rosette, with access to Rosette's functions as RESTful web service endpoints. This solves cloud security worries and allows customization (models/indexes) as needed for your business.
 
 ## Rosette API Access
 - Rosette Cloud [Sign Up](https://developer.rosette.com/signup)
