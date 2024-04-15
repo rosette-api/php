@@ -1,9 +1,9 @@
 <?php
 
 /**
- * class NameSimilarityParameters.
+ * class RecordSimilarityParameters.
  *
- * Parameters that are necessary for name similarity operations.
+ * Parameters that are necessary for record similarity operations.
  *
  * @copyright 2024 Basis Technology Corporation.
  *
