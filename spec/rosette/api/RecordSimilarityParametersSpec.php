@@ -6,7 +6,7 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use rosette\api\RosetteConstants;
 
-class RecordSimilarityParameterSpec extends ObjectBehavior
+class RecordSimilarityParametersSpec extends ObjectBehavior
 {
     public function it_passes_validation($fields, $properties, $records)
     {
