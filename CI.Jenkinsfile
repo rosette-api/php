@@ -37,7 +37,7 @@ def runVersion(sourceDir, ver) {
                       ${sonarExec} && \
                       echo && \
                       echo [INFO] Re-permission files for cleanup. && \
-                      chown -R 9960:9960 /source\""
+                      chown -R 9960:9960 /php-source\""
 }
 
 node ("docker-light") {
