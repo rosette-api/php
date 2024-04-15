@@ -630,6 +630,20 @@ class Api
         return $this->callEndpoint($params, 'entities');
     }
 
+    /**
+     * Calls the events endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function events($params)
+    {
+        return $this->callEndpoint($params, 'events');
+    }
+
 
     /**
      * Calls the categories endpoint.
