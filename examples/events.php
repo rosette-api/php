@@ -13,7 +13,8 @@ if (!isset($options['key'])) {
     echo 'Usage: php ' . __FILE__ . " --key <api_key> --url=<alternate_url>\n";
     exit();
 }
-$events_text_data = "I am looking for a flight to Los Angeles.";
+
+$events_text_data = "Alice has a flight to Budapest. She has not booked a hotel.";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
 $params = new DocumentParameters();
 $content = $events_text_data;
@@ -26,11 +27,11 @@ try {
     error_log($e);
 }
 
-// $api->setOption('negation', 'ONLY_NEGATIVE');
-// try {
-//     $result = $api->events($params);
-//     var_dump($result);
-// } catch (RosetteException $e) {
-//     error_log($e);
-// }
+$api->setOption('negation', 'BOTH');
+try {
+    $result = $api->events($params);
+    var_dump($result);
+} catch (RosetteException $e) {
+    error_log($e);
+}
 
