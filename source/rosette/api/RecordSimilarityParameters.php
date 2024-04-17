@@ -26,17 +26,17 @@ class RecordSimilarityParameters extends RosetteParamsSetBase
     /**
     * @var array
     */
-    public $fields;
+    public array $fields;
 
     /**
     * @var array
     */
-    public $properties;
+    public array $properties;
 
     /**
     * @var array
     */
-    public $records;
+    public array $records;
 
     /**
      * constructor
@@ -45,7 +45,7 @@ class RecordSimilarityParameters extends RosetteParamsSetBase
      * @param array $properties - the properties of the comparison
      * @param array $records - the records to compare
      */
-    public function __construct($fields, $properties, $records)
+    public function __construct(array $fields, array $properties, array $records)
     {
         $this->fields = $fields;
         $this->properties = $properties;
@@ -59,23 +59,23 @@ class RecordSimilarityParameters extends RosetteParamsSetBase
      *
      * @throws RosetteException
      */
-    public function validate()
+    public function validate(): void
     {
         if (empty($this->fields)) {
             throw new RosetteException(
-                sprintf('Required record similarity parameter not supplied: fields'),
+                'Required record similarity parameter not supplied: fields',
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
         if (empty($this->properties)) {
             throw new RosetteException(
-                sprintf('Required record similarity parameter not supplied: properties'),
+                'Required record similarity parameter not supplied: properties',
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
         if (empty($this->records)) {
             throw new RosetteException(
-                sprintf('Required record similarity parameter not supplied: records'),
+                'Required record similarity parameter not supplied: records',
                 RosetteException::$BAD_REQUEST_FORMAT
             );
         }
