@@ -38,7 +38,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.26.0';
+    private static $binding_version = '1.29.0';
 
     /**
      * User key (required for Rosette API).
@@ -428,7 +428,7 @@ class Api
             // create multipart
             $clrf = "\r\n";
             $multi = '';
-            $boundary = md5(time());
+            $boundary = hash('sha256', (time()));
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
@@ -496,9 +496,7 @@ class Api
     private function getHttp($url, $headers)
     {
         $method = 'GET';
-        $response = $this->makeRequest($url, $headers, null, $method);
-
-        return $response;
+        return $this->makeRequest($url, $headers, null, $method);
     }
 
     /**
@@ -520,9 +518,7 @@ class Api
     private function postHttp($url, $headers, $data)
     {
         $method = 'POST';
-        $response = $this->makeRequest($url, $headers, $data, $method);
-
-        return $response;
+        return $this->makeRequest($url, $headers, $data, $method);
     }
 
     /**
@@ -535,9 +531,7 @@ class Api
     public function ping()
     {
         $url = $this->service_url . 'ping';
-        $resultObject = $this->getHttp($url, $this->headers);
-
-        return $resultObject;
+        return $this->getHttp($url, $this->headers);
     }
 
     /**
@@ -630,6 +624,20 @@ class Api
         return $this->callEndpoint($params, 'entities');
     }
 
+    /**
+     * Calls the events endpoint.
+     *
+     * @param $params
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function events($params)
+    {
+        return $this->callEndpoint($params, 'events');
+    }
+
 
     /**
      * Calls the categories endpoint.
@@ -700,6 +708,21 @@ class Api
     {
         return $this->callEndpoint($nameDeduplicationParams, 'name-deduplication');
     }
+
+    /**
+     * Calls the record similarity endpoint.
+     *
+     * @param $recordSimilarityParams
+     *
+     * @return mixed
+     *
+     * @throws RosetteException
+     */
+    public function recordSimilarity($recordSimilarityParams)
+    {
+        return $this->callEndpoint($recordSimilarityParams, 'record-similarity');
+    }
+
 
     /**
      * Calls the relationships endpoint.

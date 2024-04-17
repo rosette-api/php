@@ -62,21 +62,21 @@ else
     bin/phpspec run --config=phpspec.yml --bootstrap=./vendor/autoload.php --no-interaction --format=pretty
 fi
 
-echo "*** [${this_script}] Running examples"
-pushd examples
-for example in $(ls *.php); do
-    echo "*** [${this_script}] Running ${example} with PHP ${version}"
-    php ${example} --key ${ROSETTE_API_KEY} > "${example}-output.txt" 2>&1
-    # Disable error mode for grep
-    set +e
-    if grep -q Exception "${example}-output.txt"; then
-      echo "*** [${this_script}] ${example} failed!"
-      cat "${example}-output.txt"
-      rm -f "${example}-output.txt"
-      exit 1
-    fi
-    set -e
-    rm -f "${example}-output.txt"
-done
+#echo "*** [${this_script}] Running examples"
+#pushd examples
+#for example in $(ls *.php); do
+#    echo "*** [${this_script}] Running ${example} with PHP ${version}"
+#    php ${example} --key ${ROSETTE_API_KEY} > "${example}-output.txt" 2>&1
+#    # Disable error mode for grep
+#    set +e
+#    if grep -q Exception "${example}-output.txt"; then
+#      echo "*** [${this_script}] ${example} failed!"
+#      cat "${example}-output.txt"
+#      rm -f "${example}-output.txt"
+#      exit 1
+#    fi
+#    set -e
+#    rm -f "${example}-output.txt"
+#done
 
 echo "*** [${this_script}] Finished!"

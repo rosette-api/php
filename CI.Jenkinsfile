@@ -1,5 +1,5 @@
 // These are Debian images.
-def php_versions = [7.3, 7.4, 8.0, 8.1, 8.2]
+def php_versions = [7.4, 8.0, 8.1, 8.2, 8.3]
 
 def runVersion(sourceDir, ver) {
     mySonarOpts = "-Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -37,7 +37,7 @@ def runVersion(sourceDir, ver) {
                       ${sonarExec} && \
                       echo && \
                       echo [INFO] Re-permission files for cleanup. && \
-                      chown -R jenkins:jenkins /source\""
+                      chown -R 9960:9960 /php-source\""
 }
 
 node ("docker-light") {

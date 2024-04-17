@@ -19,6 +19,10 @@ $params = new DocumentParameters();
 $content = $entities_text_data;
 $params->set('content', $content);
 
+// Starting with 1.29.0, an alternate, in-document coreference server was added.  It can be accessed
+// using the option below.  See the documentation for more information.
+// $api->setOption('useIndocServer', true);
+
 try {
     $result = $api->entities($params);
     var_dump($result);
