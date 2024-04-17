@@ -37,7 +37,7 @@ php ping.php --key $API_KEY
 ```
 git clone git@github.com:rosette-api/php.git
 cd php
-docker run -it -v $(pwd):/source --entrypoint bash php:78.2-cli
+docker run -it -v $(pwd):/source --entrypoint bash php:8.2-cli
 
 apt-get update
 apt-get install -y git zip
