@@ -531,7 +531,7 @@ class Api
     public function ping()
     {
         $url = $this->service_url . 'ping';
-        return $resultObject = $this->getHttp($url, $this->headers);
+        return $this->getHttp($url, $this->headers);
     }
 
     /**
