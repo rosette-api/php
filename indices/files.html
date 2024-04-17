@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -76,7 +77,6 @@
             
     <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
-                <h3 class="phpdocumentor-sidebar__root-package"><a href="graphs/classes.html">Class Diagram</a></h3>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
@@ -88,52 +88,56 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    
-    <h2 class="phpdocumentor-content__title">Files</h2>
-                            <h3>A</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-address.html"><abbr title="source/rosette/api/Address.php">Address.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-addresssimilarityparameters.html"><abbr title="source/rosette/api/AddressSimilarityParameters.php">AddressSimilarityParameters.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></li>
-                </ul>
-                                                        <h3>C</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-customexception.html"><abbr title="source/rosette/api/CustomException.php">CustomException.php</abbr></a></li>
-                </ul>
-                                    <h3>D</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-documentparameters.html"><abbr title="source/rosette/api/DocumentParameters.php">DocumentParameters.php</abbr></a></li>
-                </ul>
-                                                        <h3>F</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-fieldedaddress.html"><abbr title="source/rosette/api/FieldedAddress.php">FieldedAddress.php</abbr></a></li>
-                </ul>
-                                                                            <h3>I</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-iaddress.html"><abbr title="source/rosette/api/IAddress.php">IAddress.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-iexception.html"><abbr title="source/rosette/api/IException.php">IException.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-include.html"><abbr title="source/rosette/api/Include.php">Include.php</abbr></a></li>
-                </ul>
-                                                                                                                    <h3>N</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-name.html"><abbr title="source/rosette/api/Name.php">Name.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-namededuplicationparameters.html"><abbr title="source/rosette/api/NameDeduplicationParameters.php">NameDeduplicationParameters.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-namesimilarityparameters.html"><abbr title="source/rosette/api/NameSimilarityParameters.php">NameSimilarityParameters.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-nametranslationparameters.html"><abbr title="source/rosette/api/NameTranslationParameters.php">NameTranslationParameters.php</abbr></a></li>
-                </ul>
-                                                                                                <h3>R</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-rosetteconstants.html"><abbr title="source/rosette/api/RosetteConstants.php">RosetteConstants.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-rosetteexception.html"><abbr title="source/rosette/api/RosetteException.php">RosetteException.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-rosetteparamssetbase.html"><abbr title="source/rosette/api/RosetteParamsSetBase.php">RosetteParamsSetBase.php</abbr></a></li>
-                    <li><a href="files/source-rosette-api-rosetterequest.html"><abbr title="source/rosette/api/RosetteRequest.php">RosetteRequest.php</abbr></a></li>
-                </ul>
-                                                                            <h3>U</h3>
-        <ul class="phpdocumentor-list">
-                    <li><a href="files/source-rosette-api-unfieldedaddress.html"><abbr title="source/rosette/api/UnfieldedAddress.php">UnfieldedAddress.php</abbr></a></li>
-                </ul>
-                                                                                                                                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                        <section>
+        
+        <h2 class="phpdocumentor-content__title">Files</h2>
+                                            <h3>A</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-address.html"><abbr title="source/rosette/api/Address.php">Address.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-addresssimilarityparameters.html"><abbr title="source/rosette/api/AddressSimilarityParameters.php">AddressSimilarityParameters.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></li>
+                        </ul>
+                                                                                        <h3>C</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-customexception.html"><abbr title="source/rosette/api/CustomException.php">CustomException.php</abbr></a></li>
+                        </ul>
+                                                        <h3>D</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-documentparameters.html"><abbr title="source/rosette/api/DocumentParameters.php">DocumentParameters.php</abbr></a></li>
+                        </ul>
+                                                                                        <h3>F</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-fieldedaddress.html"><abbr title="source/rosette/api/FieldedAddress.php">FieldedAddress.php</abbr></a></li>
+                        </ul>
+                                                                                                                        <h3>I</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-iaddress.html"><abbr title="source/rosette/api/IAddress.php">IAddress.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-iexception.html"><abbr title="source/rosette/api/IException.php">IException.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-include.html"><abbr title="source/rosette/api/Include.php">Include.php</abbr></a></li>
+                        </ul>
+                                                                                                                                                                                        <h3>N</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-name.html"><abbr title="source/rosette/api/Name.php">Name.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-namededuplicationparameters.html"><abbr title="source/rosette/api/NameDeduplicationParameters.php">NameDeduplicationParameters.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-namesimilarityparameters.html"><abbr title="source/rosette/api/NameSimilarityParameters.php">NameSimilarityParameters.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-nametranslationparameters.html"><abbr title="source/rosette/api/NameTranslationParameters.php">NameTranslationParameters.php</abbr></a></li>
+                        </ul>
+                                                                                                                                                        <h3>R</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-recordsimilarityparameters.html"><abbr title="source/rosette/api/RecordSimilarityParameters.php">RecordSimilarityParameters.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-rosetteconstants.html"><abbr title="source/rosette/api/RosetteConstants.php">RosetteConstants.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-rosetteexception.html"><abbr title="source/rosette/api/RosetteException.php">RosetteException.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-rosetteparamssetbase.html"><abbr title="source/rosette/api/RosetteParamsSetBase.php">RosetteParamsSetBase.php</abbr></a></li>
+                            <li><a href="files/source-rosette-api-rosetterequest.html"><abbr title="source/rosette/api/RosetteRequest.php">RosetteRequest.php</abbr></a></li>
+                        </ul>
+                                                                                                                        <h3>U</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/source-rosette-api-unfieldedaddress.html"><abbr title="source/rosette/api/UnfieldedAddress.php">UnfieldedAddress.php</abbr></a></li>
+                        </ul>
+                                                                                                                                                                                        </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -144,7 +148,6 @@
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="indices/files.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

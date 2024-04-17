@@ -306,6 +306,11 @@ Search.appendIndex(
             "summary": "Calls\u0020the\u0020entities\u0020endpoint.",
             "url": "classes/rosette-api-Api.html#method_entities"
         },                {
+            "fqsen": "\\rosette\\api\\Api\u003A\u003Aevents\u0028\u0029",
+            "name": "events",
+            "summary": "Calls\u0020the\u0020events\u0020endpoint.",
+            "url": "classes/rosette-api-Api.html#method_events"
+        },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003Acategories\u0028\u0029",
             "name": "categories",
             "summary": "Calls\u0020the\u0020categories\u0020endpoint.",
@@ -330,6 +335,11 @@ Search.appendIndex(
             "name": "nameDeduplication",
             "summary": "Calls\u0020the\u0020name\u0020deduplication\u0020endpoint.",
             "url": "classes/rosette-api-Api.html#method_nameDeduplication"
+        },                {
+            "fqsen": "\\rosette\\api\\Api\u003A\u003ArecordSimilarity\u0028\u0029",
+            "name": "recordSimilarity",
+            "summary": "Calls\u0020the\u0020record\u0020similarity\u0020endpoint.",
+            "url": "classes/rosette-api-Api.html#method_recordSimilarity"
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003Arelationships\u0028\u0029",
             "name": "relationships",
@@ -845,6 +855,36 @@ Search.appendIndex(
             "name": "genre",
             "summary": "",
             "url": "classes/rosette-api-NameTranslationParameters.html#property_genre"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters",
+            "name": "RecordSimilarityParameters",
+            "summary": "Class\u0020RecordSimilarityParameters.",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "constructor",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#method___construct"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003Avalidate\u0028\u0029",
+            "name": "validate",
+            "summary": "Validates\u0020parameters.",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#method_validate"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003A\u0024fields",
+            "name": "fields",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#property_fields"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003A\u0024properties",
+            "name": "properties",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#property_properties"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003A\u0024records",
+            "name": "records",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#property_records"
         },                {
             "fqsen": "\\rosette\\api\\RosetteConstants",
             "name": "RosetteConstants",
