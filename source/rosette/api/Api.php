@@ -428,7 +428,7 @@ class Api
             // create multipart
             $clrf = "\r\n";
             $multi = '';
-            $boundary = md5(time());
+            $boundary = hash('sha256', (time()));
             $multi .= '--' . $boundary . $clrf;
             $multi .= 'Content-Type: application/json' . "\r\n";
             $multi .= 'Content-Disposition: mixed; name="request"' . "\r\n" . "\r\n";
@@ -496,9 +496,7 @@ class Api
     private function getHttp($url, $headers)
     {
         $method = 'GET';
-        $response = $this->makeRequest($url, $headers, null, $method);
-
-        return $response;
+        return $this->makeRequest($url, $headers, null, $method);
     }
 
     /**
@@ -520,9 +518,7 @@ class Api
     private function postHttp($url, $headers, $data)
     {
         $method = 'POST';
-        $response = $this->makeRequest($url, $headers, $data, $method);
-
-        return $response;
+        return $this->makeRequest($url, $headers, $data, $method);
     }
 
     /**
@@ -535,9 +531,7 @@ class Api
     public function ping()
     {
         $url = $this->service_url . 'ping';
-        $resultObject = $this->getHttp($url, $this->headers);
-
-        return $resultObject;
+        return $resultObject = $this->getHttp($url, $this->headers);
     }
 
     /**
