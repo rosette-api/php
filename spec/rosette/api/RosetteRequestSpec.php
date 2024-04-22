@@ -1,4 +1,5 @@
 <?php
+
 namespace spec\rosette\api;
 
 use PhpSpec\ObjectBehavior;
