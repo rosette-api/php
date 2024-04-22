@@ -34,4 +34,3 @@ try {
 } catch (RosetteException $e) {
     error_log($e);
 }
-
