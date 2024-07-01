@@ -32,7 +32,7 @@ $records = array(
             "primaryName" => array("text" => "Ethan R", "language" => "eng", "script" => "Latn", "entityType" => "PERSON", "languageOfOrigin" => "eng"),
             "dob" => "1993-04-16",
             "addr" => "123 Roadlane Ave",
-            "dob2" => array("date" => "1993/04/16")
+            "dob2" => array("date" => "04161993", "format" => "MMddyyyy")
         ),
         array(
             "dob" => array("date" => "1993-04-16"),
@@ -47,7 +47,7 @@ $records = array(
         array(
             "dob" => array("date" => "1993-04-16"),
             "primaryName" => "Ivan R",
-            "addr" => array("address" => "123 Roadlane Ave"),
+            "addr" => array("houseNumber" => "123", "road" => "Roadlane Ave"),
             "dob2" => array("date" => "1993/04/16")
         )
 

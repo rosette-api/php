@@ -61,18 +61,6 @@ class RecordSimilarityParameters extends RosetteParamsSetBase
      */
     public function validate(): void
     {
-        if (empty($this->fields)) {
-            throw new RosetteException(
-                'Required record similarity parameter not supplied: fields',
-                RosetteException::$BAD_REQUEST_FORMAT
-            );
-        }
-        if (empty($this->properties)) {
-            throw new RosetteException(
-                'Required record similarity parameter not supplied: properties',
-                RosetteException::$BAD_REQUEST_FORMAT
-            );
-        }
         if (empty($this->records)) {
             throw new RosetteException(
                 'Required record similarity parameter not supplied: records',
