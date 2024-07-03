@@ -123,6 +123,13 @@ class Api
     private $ms_between_retries;
 
     /**
+     * The maximum time in seconds to wait for the response to arrive
+     *
+     * @var null|int
+     */
+    private $timeout;
+
+    /**
      * Create an L{API} object.
      *
      * @param string $service_url URL of the Api API
@@ -147,6 +154,7 @@ class Api
         $this->options = array();
         $this->url_params = array();
         $this->customHeaders = array();
+        $this->timeout = null;
     }
 
     /**
@@ -194,6 +202,15 @@ class Api
     {
         $this->ms_between_retries = $ms_between_retries;
     }
+    /**
+      * Sets the maximum time in seconds to wait for the response to arrive
+      *
+      * @param int $timeout
+      */
+     public function setTimeout($timeout)
+     {
+         $this->timeout = $timeout;
+     }
 
     /**
      * Returns response code.
@@ -469,7 +486,7 @@ class Api
      */
     private function makeRequest($url, $headers, $data, $method)
     {
-        if ($this->request->makeRequest($url, $headers, $data, $method, $this->url_params) === false) {
+        if ($this->request->makeRequest($url, $headers, $data, $method, $this->timeout, $this->url_params) === false) {
             throw new RosetteException($this->request->getResponseError());
         } else {
             $this->setResponseCode($this->request->getResponseCode());

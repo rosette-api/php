@@ -80,7 +80,7 @@ class ApiSpec extends ObjectBehavior
     public function it_can_ping($request)
     {
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField ]);
         $this->setMockRequest($request);
@@ -89,7 +89,7 @@ class ApiSpec extends ObjectBehavior
     public function it_gets_info($request)
     {
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField ]);
         $this->setMockRequest($request);
@@ -100,7 +100,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -111,7 +111,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -122,7 +122,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -133,7 +133,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -152,7 +152,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -163,7 +163,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -174,7 +174,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -185,7 +185,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -197,7 +197,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->loadDocumentFile('fakefile');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -207,7 +207,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\NameTranslationParameters');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -217,7 +217,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\NameSimilarityParameters');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -227,7 +227,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\NameDeduplicationParameters');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -237,7 +237,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\RecordSimilarityParameters');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -248,7 +248,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->contentUri = ApiSpec::$DummyUri;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -259,7 +259,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->contentUri = ApiSpec::$DummyUri;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -270,7 +270,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->contentUri = ApiSpec::$DummyUri;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -280,7 +280,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -291,7 +291,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -302,7 +302,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->content = ApiSpec::$SampleContent;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -312,7 +312,7 @@ class ApiSpec extends ObjectBehavior
     {
         $params->beADoubleOf('\rosette\api\AddressSimilarityParameters');
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(200);
         $request->getResponse()->willReturn([ 'name' => ApiSpec::$ResponseNameField]);
         $this->setMockRequest($request);
@@ -323,7 +323,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->contentUri = ApiSpec::$DummyUri;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(403);
         $request->getResponse()->willReturn([ 'message' => 'access to this resource denied', 'code' => 'forbidden' ]);
         $this->setMockRequest($request);
@@ -345,7 +345,7 @@ class ApiSpec extends ObjectBehavior
         $params->beADoubleOf(ApiSpec::$DocumentParametersFullClassName);
         $params->contentUri = ApiSpec::$DummyUri;
         $request->beADoubleOf(ApiSpec::$RosetteRequestFullClassName);
-        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
+        $request->makeRequest(Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any(), Argument::any())->willReturn(true);
         $request->getResponseCode()->willReturn(409);
         $request->getResponse()->willReturn([ 'code' => 'incompatible version', 'message' => 'the version of client library used is not compatible with this server' ]);
         $this->setMockRequest($request);
