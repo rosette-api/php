@@ -72,18 +72,22 @@ class RosetteRequest
      *
      * @return bool
      */
-    public function makeRequest($url, $headers, $data, $method, $url_params = null)
+    public function makeRequest($url, $headers, $data, $method, $timeout, $url_params = null)
     {
         // Unfortunately, the 'options' argument for post and get is NOT for
         // query parameters (as it is in Python). Hence, the construction.
         if (!is_null($url_params)) {
             $url = $url . '?' . http_build_query($url_params);
         }
+        if (is_null($timeout)) {
+            $timeout = 30;
+        }
+        $options = ['timeout' => $timeout]; // Set the timeout here
         try {
             if ($method === 'POST') {
-                $this->response = Requests::post($url, $headers, $data);
+                $this->response = Requests::post($url, $headers, $data, $options);
             } elseif ($method === 'GET') {
-                $this->response = Requests::get($url, $headers);
+                $this->response = Requests::get($url, $headers, $options);
             }
             return true;
         } catch (RequestsException $e) {
