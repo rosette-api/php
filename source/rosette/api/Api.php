@@ -207,10 +207,10 @@ class Api
       *
       * @param int $timeout
       */
-     public function setTimeout($timeout)
-     {
-         $this->timeout = $timeout;
-     }
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+    }
 
     /**
      * Returns response code.
