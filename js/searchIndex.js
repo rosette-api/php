@@ -171,6 +171,11 @@ Search.appendIndex(
             "summary": "Sets\u0020the\u0020millisecond\u0020sleep\u0020time\u0020between\u0020retries",
             "url": "classes/rosette-api-Api.html#method_setMillisecondsBetweenRetries"
         },                {
+            "fqsen": "\\rosette\\api\\Api\u003A\u003AsetTimeout\u0028\u0029",
+            "name": "setTimeout",
+            "summary": "Sets\u0020the\u0020maximum\u0020time\u0020in\u0020seconds\u0020to\u0020wait\u0020for\u0020the\u0020response\u0020to\u0020arrive",
+            "url": "classes/rosette-api-Api.html#method_setTimeout"
+        },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003AgetResponseCode\u0028\u0029",
             "name": "getResponseCode",
             "summary": "Returns\u0020response\u0020code.",
@@ -445,6 +450,11 @@ Search.appendIndex(
             "name": "ms_between_retries",
             "summary": "The\u0020millisecond\u0020sleep\u0020time\u0020between\u0020retries",
             "url": "classes/rosette-api-Api.html#property_ms_between_retries"
+        },                {
+            "fqsen": "\\rosette\\api\\Api\u003A\u003A\u0024timeout",
+            "name": "timeout",
+            "summary": "The\u0020maximum\u0020time\u0020in\u0020seconds\u0020to\u0020wait\u0020for\u0020the\u0020response\u0020to\u0020arrive",
+            "url": "classes/rosette-api-Api.html#property_timeout"
         },                {
             "fqsen": "\\rosette\\api\\CustomException",
             "name": "CustomException",

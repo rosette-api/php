@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/rosette.html" class="">rosette</a>
@@ -67,7 +67,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -75,14 +75,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -118,11 +118,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">Class API.</p>
+
 
     <section class="phpdocumentor-description"><p>Api php Client Binding API; representation of a Api server.
 Call instance methods upon this object to communicate with particular
@@ -152,6 +153,8 @@ provide the content data that will be processed by the service.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/rosette-api-Api.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -173,91 +176,98 @@ provide the content data that will be processed by the service.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_binding_version">$binding_version</a>
+    <a class="" href="classes/rosette-api-Api.html#property_binding_version">$binding_version</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>Compatible server version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_customHeaders">$customHeaders</a>
+    <a class="" href="classes/rosette-api-Api.html#property_customHeaders">$customHeaders</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>internal customHeaders array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_debug">$debug</a>
+    <a class="" href="classes/rosette-api-Api.html#property_debug">$debug</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 <dd>More verbose output).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_headers">$headers</a>
+    <a class="" href="classes/rosette-api-Api.html#property_headers">$headers</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>HTTP headers for Rosette API.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_max_retries">$max_retries</a>
+    <a class="" href="classes/rosette-api-Api.html#property_max_retries">$max_retries</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 <dd>The maximum retries for server connect</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_ms_between_retries">$ms_between_retries</a>
+    <a class="" href="classes/rosette-api-Api.html#property_ms_between_retries">$ms_between_retries</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 <dd>The millisecond sleep time between retries</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_options">$options</a>
+    <a class="" href="classes/rosette-api-Api.html#property_options">$options</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>internal options array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_request">$request</a>
+    <a class="" href="classes/rosette-api-Api.html#property_request">$request</a>
     <span>
                         &nbsp;: <a href="classes/rosette-api-RosetteRequest.html"><abbr title="\rosette\api\RosetteRequest">RosetteRequest</abbr></a>            </span>
 </dt>
 <dd>internal Request object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_response_code">$response_code</a>
+    <a class="" href="classes/rosette-api-Api.html#property_response_code">$response_code</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>response code</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_service_url">$service_url</a>
+    <a class="" href="classes/rosette-api-Api.html#property_service_url">$service_url</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>URL of the Rosette API (or test server).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_subUrl">$subUrl</a>
+    <a class="" href="classes/rosette-api-Api.html#property_subUrl">$subUrl</a>
     <span>
                         &nbsp;: null|string            </span>
 </dt>
 <dd>Endpoint for the operation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_url_params">$url_params</a>
+    <a class="" href="classes/rosette-api-Api.html#property_timeout">$timeout</a>
+    <span>
+                        &nbsp;: null|int            </span>
+</dt>
+<dd>The maximum time in seconds to wait for the response to arrive</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/rosette-api-Api.html#property_url_params">$url_params</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>Parameters for the URL query.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/rosette-api-Api.html#property_user_key">$user_key</a>
+    <a class="" href="classes/rosette-api-Api.html#property_user_key">$user_key</a>
     <span>
                         &nbsp;: null|string            </span>
 </dt>
@@ -272,342 +282,348 @@ provide the content data that will be processed by the service.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method___construct">__construct()</a>
+    <a class="" href="classes/rosette-api-Api.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create an L{API} object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_addressSimilarity">addressSimilarity()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_addressSimilarity">addressSimilarity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the addressSimilarity endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_categories">categories()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_categories">categories()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the categories endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_clearCustomHeaders">clearCustomHeaders()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_clearCustomHeaders">clearCustomHeaders()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clears all custom headers</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_clearOptions">clearOptions()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_clearOptions">clearOptions()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clears all options</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_clearUrlParams">clearUrlParams()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_clearUrlParams">clearUrlParams()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clears all URL extension parameters.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_entities">entities()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_entities">entities()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the entities endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_events">events()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_events">events()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the events endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getBindingVersion">getBindingVersion()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getBindingVersion">getBindingVersion()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Returns the binding version</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getCustomHeaders">getCustomHeaders()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getCustomHeaders">getCustomHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Setter for options</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getDebug">getDebug()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getDebug">getDebug()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Retrieves debug setting (more verbose output).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getOption">getOption()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getOption">getOption()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Getter for options</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getResponseCode">getResponseCode()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getResponseCode">getResponseCode()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Returns response code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getResponseHeader">getResponseHeader()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getResponseHeader">getResponseHeader()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getServiceUrl">getServiceUrl()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getServiceUrl">getServiceUrl()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Getter for the service_url.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getUrlParam">getUrlParam()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getUrlParam">getUrlParam()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Getter for the URL parameter with the specified name</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_getUserAgent">getUserAgent()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getUserAgent">getUserAgent()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Returns the string used for User-Agent</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_info">info()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_info">info()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the info endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_language">language()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_language">language()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the language endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_morphology">morphology()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_morphology">morphology()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the morphology endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_nameDeduplication">nameDeduplication()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_nameDeduplication">nameDeduplication()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the name deduplication endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_nameSimilarity">nameSimilarity()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_nameSimilarity">nameSimilarity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the name similarity endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_nameTranslation">nameTranslation()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_nameTranslation">nameTranslation()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the name translation endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_ping">ping()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_ping">ping()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the Ping endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_recordSimilarity">recordSimilarity()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_recordSimilarity">recordSimilarity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the record similarity endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_relationships">relationships()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_relationships">relationships()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the relationships endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_semanticVectors">semanticVectors()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_semanticVectors">semanticVectors()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the semantic vectors endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_sentences">sentences()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_sentences">sentences()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the sentences endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_sentiment">sentiment()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_sentiment">sentiment()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the sentiment endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setCustomHeader">setCustomHeader()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setCustomHeader">setCustomHeader()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Setter for custom header</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setDebug">setDebug()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setDebug">setDebug()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Enables debug (more verbose output).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setMaxRetries">setMaxRetries()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setMaxRetries">setMaxRetries()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the maximum retries for server connect</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setMillisecondsBetweenRetries">setMillisecondsBetweenRetries()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setMillisecondsBetweenRetries">setMillisecondsBetweenRetries()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the millisecond sleep time between retries</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setMockRequest">setMockRequest()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setMockRequest">setMockRequest()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets on override Request for mocking purposes</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setOption">setOption()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setOption">setOption()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Setter for options</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setResponseCode">setResponseCode()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setResponseCode">setResponseCode()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the response code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setServiceUrl">setServiceUrl()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setServiceUrl">setServiceUrl()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Setter for the service_url.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_setUrlParam">setUrlParam()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_setTimeout">setTimeout()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Sets the maximum time in seconds to wait for the response to arrive</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/rosette-api-Api.html#method_setUrlParam">setUrlParam()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Setter for an additional query parameter to the Rosette API URL.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_similarTerms">similarTerms()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_similarTerms">similarTerms()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the similarTerms endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_syntaxDependencies">syntaxDependencies()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_syntaxDependencies">syntaxDependencies()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the syntax/dependencies endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_textEmbedding">textEmbedding()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_textEmbedding">textEmbedding()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the text-embedding endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_tokens">tokens()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_tokens">tokens()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the tokens endpoint.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_topics">topics()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_topics">topics()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the topics endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rosette-api-Api.html#method_transliteration">transliteration()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_transliteration">transliteration()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Calls the transliteration endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/rosette-api-Api.html#method_addHeaders">addHeaders()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_addHeaders">addHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Adds custom headers to headers array if there are any</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/rosette-api-Api.html#method_callEndpoint">callEndpoint()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_callEndpoint">callEndpoint()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Internal operations processor for most of the endpoints.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/rosette-api-Api.html#method_getValueFromArray">getValueFromArray()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_getValueFromArray">getValueFromArray()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the value of the item with key $name in the array if it exists</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/rosette-api-Api.html#method_makeRequest">makeRequest()</a>
+    <a class="" href="classes/rosette-api-Api.html#method_makeRequest">makeRequest()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>function makeRequest.</dd>
 
     </dl>
-
 
 
 
@@ -637,20 +653,23 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Compatible server version.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$binding_version</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;1.29.0&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;1.30.0&#039;</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -671,12 +690,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">internal customHeaders array</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -685,6 +705,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -705,12 +727,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">More verbose output).</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">bool</span>
@@ -719,6 +742,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -739,12 +764,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">HTTP headers for Rosette API.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -753,6 +779,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -773,12 +801,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The maximum retries for server connect</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -787,6 +816,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -807,12 +838,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">The millisecond sleep time between retries</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -821,6 +853,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -841,12 +875,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">internal options array</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -855,6 +890,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -875,12 +912,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">internal Request object</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/rosette-api-RosetteRequest.html"><abbr title="\rosette\api\RosetteRequest">RosetteRequest</abbr></a></span>
@@ -889,6 +927,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -909,12 +949,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">response code</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -923,6 +964,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -943,12 +986,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">URL of the Rosette API (or test server).</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -957,6 +1001,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -977,12 +1023,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Endpoint for the operation.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">null|string</span>
@@ -991,6 +1038,45 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_timeout">
+        $timeout
+        <a href="classes/rosette-api-Api.html#property_timeout" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The maximum time in seconds to wait for the response to arrive</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">null|int</span>
+    <span class="phpdocumentor-signature__name">$timeout</span>
+    </code>
+
+    
+    
+    
+
     
 
 </article>
@@ -1011,12 +1097,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Parameters for the URL query.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -1025,6 +1112,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1045,12 +1134,13 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">User key (required for Rosette API).</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">null|string</span>
@@ -1059,6 +1149,8 @@ provide the content data that will be processed by the service.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1084,7 +1176,7 @@ provide the content data that will be processed by the service.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
@@ -1096,6 +1188,7 @@ provide the content data that will be processed by the service.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1123,6 +1216,8 @@ all requests.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1138,7 +1233,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">836</span>
+    <span class="phpdocumentor-element-found-in__line">854</span>
 
     </aside>
 
@@ -1146,16 +1241,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addressSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">addressSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1180,6 +1276,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1195,7 +1293,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">651</span>
+    <span class="phpdocumentor-element-found-in__line">669</span>
 
     </aside>
 
@@ -1203,16 +1301,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">categories</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">categories</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1237,6 +1336,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1252,7 +1353,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">395</span>
+    <span class="phpdocumentor-element-found-in__line">413</span>
 
     </aside>
 
@@ -1266,6 +1367,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1284,7 +1388,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">339</span>
+    <span class="phpdocumentor-element-found-in__line">357</span>
 
     </aside>
 
@@ -1298,6 +1402,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1316,7 +1423,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">302</span>
 
     </aside>
 
@@ -1330,6 +1437,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1348,7 +1458,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">622</span>
+    <span class="phpdocumentor-element-found-in__line">640</span>
 
     </aside>
 
@@ -1356,16 +1466,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">entities</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">entities</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1390,6 +1501,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1405,7 +1518,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">636</span>
+    <span class="phpdocumentor-element-found-in__line">654</span>
 
     </aside>
 
@@ -1413,16 +1526,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">events</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">events</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1447,6 +1561,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1462,7 +1578,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">163</span>
 
     </aside>
 
@@ -1476,6 +1592,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1494,7 +1613,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">350</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 
     </aside>
 
@@ -1508,6 +1627,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1530,7 +1652,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">234</span>
+    <span class="phpdocumentor-element-found-in__line">252</span>
 
     </aside>
 
@@ -1544,6 +1666,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1566,7 +1691,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">315</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 
     </aside>
 
@@ -1579,6 +1704,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1589,6 +1715,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1612,7 +1740,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">202</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 
     </aside>
 
@@ -1626,6 +1754,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1644,7 +1775,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">401</span>
+    <span class="phpdocumentor-element-found-in__line">419</span>
 
     </aside>
 
@@ -1657,6 +1788,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1675,7 +1809,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">244</span>
+    <span class="phpdocumentor-element-found-in__line">262</span>
 
     </aside>
 
@@ -1689,6 +1823,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1711,7 +1848,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">276</span>
+    <span class="phpdocumentor-element-found-in__line">294</span>
 
     </aside>
 
@@ -1724,6 +1861,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1734,6 +1872,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1757,7 +1897,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">162</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
@@ -1771,6 +1911,9 @@ all requests.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1789,7 +1932,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">544</span>
+    <span class="phpdocumentor-element-found-in__line">562</span>
 
     </aside>
 
@@ -1801,6 +1944,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -1821,6 +1965,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1836,7 +1982,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">561</span>
+    <span class="phpdocumentor-element-found-in__line">579</span>
 
     </aside>
 
@@ -1844,16 +1990,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">language</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">language</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1878,6 +2025,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1893,7 +2042,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">604</span>
+    <span class="phpdocumentor-element-found-in__line">622</span>
 
     </aside>
 
@@ -1901,16 +2050,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">morphology</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$facet</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">morphology</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$facet</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1942,6 +2092,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1957,7 +2109,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">707</span>
+    <span class="phpdocumentor-element-found-in__line">725</span>
 
     </aside>
 
@@ -1965,16 +2117,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">nameDeduplication</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameDeduplicationParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">nameDeduplication</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameDeduplicationParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$nameDeduplicationParams</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1999,6 +2152,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2014,7 +2169,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">693</span>
+    <span class="phpdocumentor-element-found-in__line">711</span>
 
     </aside>
 
@@ -2022,16 +2177,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">nameSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameSimilarityParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">nameSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameSimilarityParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$nameSimilarityParams</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2056,6 +2212,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2071,7 +2229,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">679</span>
+    <span class="phpdocumentor-element-found-in__line">697</span>
 
     </aside>
 
@@ -2079,16 +2237,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">nameTranslation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameTranslationParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">nameTranslation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nameTranslationParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$nameTranslationParams</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2113,6 +2272,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2128,7 +2289,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">531</span>
+    <span class="phpdocumentor-element-found-in__line">549</span>
 
     </aside>
 
@@ -2140,6 +2301,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2160,6 +2322,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2175,7 +2339,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">721</span>
+    <span class="phpdocumentor-element-found-in__line">739</span>
 
     </aside>
 
@@ -2183,16 +2347,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">recordSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$recordSimilarityParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">recordSimilarity</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$recordSimilarityParams</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$recordSimilarityParams</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2217,6 +2382,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2232,7 +2399,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">736</span>
+    <span class="phpdocumentor-element-found-in__line">754</span>
 
     </aside>
 
@@ -2240,16 +2407,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">relationships</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">relationships</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2274,6 +2442,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2289,7 +2459,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">766</span>
+    <span class="phpdocumentor-element-found-in__line">784</span>
 
     </aside>
 
@@ -2297,16 +2467,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">semanticVectors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">semanticVectors</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2331,6 +2502,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2346,7 +2519,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">575</span>
+    <span class="phpdocumentor-element-found-in__line">593</span>
 
     </aside>
 
@@ -2354,16 +2527,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">sentences</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">sentences</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2388,6 +2562,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2403,7 +2579,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">665</span>
+    <span class="phpdocumentor-element-found-in__line">683</span>
 
     </aside>
 
@@ -2411,16 +2587,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">sentiment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">sentiment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2445,6 +2622,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2460,7 +2639,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">362</span>
+    <span class="phpdocumentor-element-found-in__line">380</span>
 
     </aside>
 
@@ -2472,6 +2651,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2494,6 +2674,8 @@ all requests.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2509,7 +2691,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">240</span>
 
     </aside>
 
@@ -2522,6 +2704,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2532,6 +2715,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2551,7 +2736,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">191</span>
 
     </aside>
 
@@ -2559,21 +2744,24 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setMaxRetries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$max_retries</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setMaxRetries</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$max_retries</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$max_retries</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2593,7 +2781,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">192</span>
+    <span class="phpdocumentor-element-found-in__line">201</span>
 
     </aside>
 
@@ -2606,6 +2794,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2616,6 +2805,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2635,7 +2826,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 
     </aside>
 
@@ -2643,21 +2834,24 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setMockRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestObject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setMockRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestObject</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$requestObject</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2677,7 +2871,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">327</span>
+    <span class="phpdocumentor-element-found-in__line">345</span>
 
     </aside>
 
@@ -2689,6 +2883,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2711,6 +2906,8 @@ all requests.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2726,7 +2923,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -2739,6 +2936,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2749,6 +2947,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2768,7 +2968,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">254</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 
     </aside>
 
@@ -2781,6 +2981,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2791,6 +2992,53 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setTimeout">
+        setTimeout()
+        <a href="classes/rosette-api-Api.html#method_setTimeout" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">210</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sets the maximum time in seconds to wait for the response to arrive</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setTimeout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$timeout</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
 
     
 
@@ -2810,7 +3058,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">283</span>
 
     </aside>
 
@@ -2822,6 +3070,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2848,6 +3097,8 @@ all requests.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2863,7 +3114,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">822</span>
+    <span class="phpdocumentor-element-found-in__line">840</span>
 
     </aside>
 
@@ -2871,16 +3122,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">similarTerms</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">similarTerms</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2905,6 +3157,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2920,7 +3174,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">780</span>
+    <span class="phpdocumentor-element-found-in__line">798</span>
 
     </aside>
 
@@ -2928,16 +3182,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">syntaxDependencies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">syntaxDependencies</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2962,6 +3217,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2977,7 +3234,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">752</span>
+    <span class="phpdocumentor-element-found-in__line">770</span>
 
     </aside>
 
@@ -2985,10 +3242,11 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">textEmbedding</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">textEmbedding</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Deprecated.  Please use <code class="prettyprint">semanticVectors</code> instead</p>
 </section>
 
@@ -2996,7 +3254,7 @@ all requests.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3021,6 +3279,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -3036,7 +3296,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">589</span>
+    <span class="phpdocumentor-element-found-in__line">607</span>
 
     </aside>
 
@@ -3044,16 +3304,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">tokens</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">tokens</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3078,6 +3339,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -3093,7 +3356,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">808</span>
+    <span class="phpdocumentor-element-found-in__line">826</span>
 
     </aside>
 
@@ -3101,16 +3364,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">topics</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">topics</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3135,6 +3399,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -3150,7 +3416,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">794</span>
+    <span class="phpdocumentor-element-found-in__line">812</span>
 
     </aside>
 
@@ -3158,16 +3424,17 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">transliteration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">transliteration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3192,6 +3459,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -3207,7 +3476,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">383</span>
+    <span class="phpdocumentor-element-found-in__line">401</span>
 
     </aside>
 
@@ -3220,6 +3489,7 @@ all requests.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -3230,6 +3500,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -3257,7 +3529,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">415</span>
+    <span class="phpdocumentor-element-found-in__line">433</span>
 
     </aside>
 
@@ -3265,23 +3537,24 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">callEndpoint</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subUrl</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">callEndpoint</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parameters</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subUrl</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$parameters</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$subUrl</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3306,6 +3579,8 @@ all requests.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -3321,7 +3596,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">317</span>
 
     </aside>
 
@@ -3333,6 +3608,7 @@ all requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -3351,6 +3627,8 @@ all requests.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -3374,7 +3652,7 @@ all requests.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="source/rosette/api/Api.php"><a href="files/source-rosette-api-api.html"><abbr title="source/rosette/api/Api.php">Api.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">469</span>
+    <span class="phpdocumentor-element-found-in__line">487</span>
 
     </aside>
 
@@ -3382,10 +3660,11 @@ all requests.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">makeRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">makeRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Encapsulates the GET/POST</p>
 </section>
 
@@ -3393,28 +3672,28 @@ all requests.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$headers</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$method</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -3437,6 +3716,8 @@ all requests.</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3557,73 +3838,75 @@ all requests.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/rosette-api-Api.html#property_binding_version">$binding_version<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_customHeaders">$customHeaders<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_debug">$debug<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_headers">$headers<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_max_retries">$max_retries<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_ms_between_retries">$ms_between_retries<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_options">$options<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_request">$request<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_response_code">$response_code<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_service_url">$service_url<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_subUrl">$subUrl<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_url_params">$url_params<a href="classes/rosette-api-Api.html"></li>
-                                                    <li><a href="classes/rosette-api-Api.html#property_user_key">$user_key<a href="classes/rosette-api-Api.html"></li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_binding_version">$binding_version</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_customHeaders">$customHeaders</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_debug">$debug</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_headers">$headers</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_max_retries">$max_retries</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_ms_between_retries">$ms_between_retries</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_options">$options</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_request">$request</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_response_code">$response_code</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_service_url">$service_url</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_subUrl">$subUrl</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_timeout">$timeout</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_url_params">$url_params</li>
+                                                    <li class=""><a href="classes/rosette-api-Api.html#property_user_key">$user_key</li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/rosette-api-Api.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_addressSimilarity">addressSimilarity()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_categories">categories()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_clearCustomHeaders">clearCustomHeaders()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_clearOptions">clearOptions()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_clearUrlParams">clearUrlParams()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_entities">entities()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_events">events()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getBindingVersion">getBindingVersion()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getCustomHeaders">getCustomHeaders()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getDebug">getDebug()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getOption">getOption()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getResponseCode">getResponseCode()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getResponseHeader">getResponseHeader()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getServiceUrl">getServiceUrl()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getUrlParam">getUrlParam()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getUserAgent">getUserAgent()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_info">info()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_language">language()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_morphology">morphology()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_nameDeduplication">nameDeduplication()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_nameSimilarity">nameSimilarity()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_nameTranslation">nameTranslation()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_ping">ping()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_recordSimilarity">recordSimilarity()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_relationships">relationships()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_semanticVectors">semanticVectors()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_sentences">sentences()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_sentiment">sentiment()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setCustomHeader">setCustomHeader()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setDebug">setDebug()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setMaxRetries">setMaxRetries()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setMillisecondsBetweenRetries">setMillisecondsBetweenRetries()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setMockRequest">setMockRequest()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setOption">setOption()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setResponseCode">setResponseCode()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setServiceUrl">setServiceUrl()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_setUrlParam">setUrlParam()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_similarTerms">similarTerms()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_syntaxDependencies">syntaxDependencies()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_textEmbedding">textEmbedding()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_tokens">tokens()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_topics">topics()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_transliteration">transliteration()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_addHeaders">addHeaders()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_callEndpoint">callEndpoint()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_getValueFromArray">getValueFromArray()</a></li>
-                                            <li><a href="classes/rosette-api-Api.html#method_makeRequest">makeRequest()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_addressSimilarity">addressSimilarity()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_categories">categories()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_clearCustomHeaders">clearCustomHeaders()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_clearOptions">clearOptions()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_clearUrlParams">clearUrlParams()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_entities">entities()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_events">events()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getBindingVersion">getBindingVersion()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getCustomHeaders">getCustomHeaders()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getDebug">getDebug()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getOption">getOption()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getResponseCode">getResponseCode()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getResponseHeader">getResponseHeader()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getServiceUrl">getServiceUrl()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getUrlParam">getUrlParam()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getUserAgent">getUserAgent()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_info">info()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_language">language()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_morphology">morphology()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_nameDeduplication">nameDeduplication()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_nameSimilarity">nameSimilarity()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_nameTranslation">nameTranslation()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_ping">ping()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_recordSimilarity">recordSimilarity()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_relationships">relationships()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_semanticVectors">semanticVectors()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_sentences">sentences()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_sentiment">sentiment()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setCustomHeader">setCustomHeader()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setDebug">setDebug()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setMaxRetries">setMaxRetries()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setMillisecondsBetweenRetries">setMillisecondsBetweenRetries()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setMockRequest">setMockRequest()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setOption">setOption()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setResponseCode">setResponseCode()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setServiceUrl">setServiceUrl()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setTimeout">setTimeout()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_setUrlParam">setUrlParam()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_similarTerms">similarTerms()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_syntaxDependencies">syntaxDependencies()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_textEmbedding">textEmbedding()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_tokens">tokens()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_topics">topics()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_transliteration">transliteration()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_addHeaders">addHeaders()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_callEndpoint">callEndpoint()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_getValueFromArray">getValueFromArray()</a></li>
+                                            <li class=""><a href="classes/rosette-api-Api.html#method_makeRequest">makeRequest()</a></li>
                                     </ul>
             </li>
                     </ul>
