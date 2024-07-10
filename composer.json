@@ -1,6 +1,6 @@
 {
   "name": "rosette/api",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "description": "PHP Interface for Rosette Text Analytics",
   "type": "library",
   "license": "Apache-2.0",
