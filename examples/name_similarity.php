@@ -17,7 +17,7 @@ if (!isset($options['key'])) {
 $name_similarity_data1 = "Michael Jackson";
 $name_similarity_data2 = "迈克尔·杰克逊";
 $api = isset($options['url']) ? new Api($options['key'], $options['url']) : new Api($options['key']);
-$params = new NameSimilarityParameters(new Name($name_similarity_data1, gender: 'male'), new Name($name_similarity_data2, gender: 'female'));
+$params = new NameSimilarityParameters(new Name($name_similarity_data1), new Name($name_similarity_data2));
 
 try {
     $result = $api->nameSimilarity($params);
