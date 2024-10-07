@@ -3,7 +3,7 @@
 /**
  * Name represents an entity name in Rosette API.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2024 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -50,9 +50,9 @@ class Name extends RosetteParamsSetBase
     /**
      * Gender of the name. Can be MALE, FEMALE and NONBINARY
      *
-     * @var string
+     * @var Gender
      */
-     public $gender;
+     public ?Gender $gender;
 
     /**
      * Constructor.
