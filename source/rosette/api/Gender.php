@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Name represents an entity name in Rosette API.
- *
  * @copyright 2024 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
