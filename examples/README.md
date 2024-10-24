@@ -1,14 +1,14 @@
 ## Endpoint Examples
-These examples are scripts that can be run independently to demonstrate the Rosette API functionality.
+These examples are scripts that can be run independently to demonstrate the Babel Street Analytics API functionality.
 
-Each example file demonstrates one of the capabilities of the Rosette Platform. Each example, when run, prints its output to the console.
+Each example file demonstrates one of the capabilities of the Analytics Platform. Each example, when run, prints its output to the console.
 
 Here are some methods for running the examples.  Each example will also accept an optional `--url=` parameter for
 overriding the default URL.
 
 Also, the examples are dual purpose in that they're used to test both source and packagist.  The instructions include steps to address this depending on what you are testing.
 
-A note on prerequisites.  Rosette API only supports TLS 1.2 so ensure your toolchain also supports it.
+A note on prerequisites.  Analytics API only supports TLS 1.2 so ensure your toolchain also supports it.
 
 #### Docker/Latest Version From Packagist
 

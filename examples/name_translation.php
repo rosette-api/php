@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to translate a name from language to another.
+ * Example code to call Analytics API to translate a name from language to another.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

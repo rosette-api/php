@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get the complete set of morphological analysis
+ * Example code to call Analytics API to get the complete set of morphological analysis
  * results for a piece of text.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';

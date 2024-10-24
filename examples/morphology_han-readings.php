@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get Chinese readings for words in a piece of text.
+ * Example code to call Analytics API to get Chinese readings for words in a piece of text.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
