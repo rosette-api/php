@@ -3,7 +3,7 @@
 /**
  * Name represents an entity name in Rosette API.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2024 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -48,16 +48,24 @@ class Name extends RosetteParamsSetBase
     public $script;
 
     /**
+     * Gender of the name. Can be MALE, FEMALE and NONBINARY
+     *
+     * @var Gender
+     */
+     public ?Gender $gender;
+
+    /**
      * Constructor.
      *
      * @param $text
      * @param $entityType
      * @param $language
      * @param $script
+     * @param $gender
      *
      * @throws RosetteException
      */
-    public function __construct($text, $entityType = null, $language = null, $script = null)
+    public function __construct($text, $entityType = null, $language = null, $script = null, $gender = null)
     {
         if ($text === null) {
             throw new RosetteException(
@@ -69,6 +77,7 @@ class Name extends RosetteParamsSetBase
         $this->entityType = $entityType;
         $this->language = $language;
         $this->script = $script;
+        $this->gender = $gender;
     }
 
     /**
