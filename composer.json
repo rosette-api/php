@@ -1,7 +1,7 @@
 {
   "name": "rosette/api",
   "version": "1.30.0",
-  "description": "PHP Interface for Rosette Text Analytics",
+  "description": "PHP Interface for Babel Street Text Analytics",
   "type": "library",
   "license": "Apache-2.0",
   "keywords": [
@@ -26,7 +26,6 @@
     "parts of speech",
     "record similarity",
     "relationships",
-    "rosette",
     "semantic similarity",
     "semantic vectors",
     "sentiment analysis",
@@ -38,7 +37,7 @@
     {
       "name": "Babel Street Rosette Ltd",
       "email": "rosette-php@babelstreet.com",
-      "homepage": "https://babelstreet.com/rosette"
+      "homepage": "https://www.babelstreet.com/rosette"
     }
   ],
   "support": {
