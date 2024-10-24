@@ -3,7 +3,7 @@
 /**
  * Api.
  *
- * Primary class for interfacing with the Rosette API
+ * Primary class for interfacing with the Analytics API
  *
  * @copyright 2015-2023 Basis Technology Corporation.
  *
@@ -42,21 +42,21 @@ class Api
     private static $binding_version = '1.30.0';
 
     /**
-     * User key (required for Rosette API).
+     * User key (required for Analytics API).
      *
      * @var null|string
      */
     private $user_key;
 
     /**
-     * URL of the Rosette API (or test server).
+     * URL of the Analytics API (or test server).
      *
      * @var string
      */
     private $service_url;
 
     /**
-     * HTTP headers for Rosette API.
+     * HTTP headers for Analytics API.
      *
      * @var array
      */
@@ -136,11 +136,11 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url = 'https://analytics.babelstreet.com/rest/v1/')
     {
         $this->user_key = $user_key;
 
-        $this->headers = array('X-RosetteAPI-Key' => $user_key,
+        $this->headers = array('X-BabelStreetAPI-Key' => $user_key,
             'Content-Type' => 'application/json',
             'Accept-Encoding' => 'gzip',
             'User-Agent' => $this->getUserAgent(),
@@ -275,7 +275,7 @@ class Api
     }
 
     /**
-     * Setter for an additional query parameter to the Rosette API URL.
+     * Setter for an additional query parameter to the Analytics API URL.
      *
      * @param string $param_name (e.g. output)
      * @param string $param_value (e.g. rosette)

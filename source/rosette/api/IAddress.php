@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Address represents an address in Rosette API.
+ * Address represents an address in Analytics API.
  *
  * @copyright 2020 Basis Technology Corporation.
  *

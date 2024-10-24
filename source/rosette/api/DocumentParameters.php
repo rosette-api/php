@@ -3,7 +3,7 @@
 /**
  * class DocumentParameters.
  *
- * Parameter class for the standard Rosette API endpoints.  Does not include Name Translation
+ * Parameter class for the standard Analytics API endpoints.  Does not include Name Translation
  *
  * @copyright 2014-2015 Basis Technology Corporation.
  *

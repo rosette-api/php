@@ -3,7 +3,7 @@
 /**
  * abstract class RosetteParamsSetBase.
  *
- * The base class for the parameter classes that are used for Rosette API operations.
+ * The base class for the parameter classes that are used for Analytics API operations.
  *
  * @copyright 2014-2015 Basis Technology Corporation.
  *

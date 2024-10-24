@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Address represents an unfielded address in Rosette API.
+ * Address represents an unfielded address in Analytics API.
  *
  * @copyright 2020 Basis Technology Corporation.
  *

@@ -2,7 +2,7 @@
 /**
  * Api.
  *
- * Primary class for interfacing with the Rosette API
+ * Primary class for interfacing with the Analytics API
  *
  * @copyright 2015-2016 Basis Technology Corporation.
  *
