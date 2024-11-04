@@ -52,7 +52,7 @@ class Name extends RosetteParamsSetBase
      *
      * @var Gender
      */
-     public ?Gender $gender;
+    public ?Gender $gender;
 
     /**
      * Constructor.
