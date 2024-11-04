@@ -144,6 +144,9 @@ class Api
             'Content-Type' => 'application/json',
             'Accept-Encoding' => 'gzip',
             'User-Agent' => $this->getUserAgent(),
+            'X-BabelStreetAPI-Binding' => 'php',
+            'X-BabelStreetAPI-Binding-Version' => $this->getBindingVersion(),
+            // TODO remove this in future release
             'X-RosetteApi-Binding' => 'php',
             'X-RosetteAPI-Binding-Version' => $this->getBindingVersion());
 
@@ -170,7 +173,7 @@ class Api
      */
     public function getUserAgent()
     {
-        return 'RosetteAPIPHP/' . $this->getBindingVersion() . '/' . phpversion();
+        return 'Babel-Street-Analytics-API-PHP/' . $this->getBindingVersion() . '/' . phpversion();
     }
 
     /**
@@ -379,10 +382,12 @@ class Api
      */
     public function setCustomHeader($header, $value = null)
     {
-        $headerPrefix = 'x-rosetteapi-';
-        if (strlen($header) < strlen($headerPrefix) ||
-            strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0) {
-            throw new RosetteException("Custom headers must start with \"$headerPrefix\"");
+        $legacyHeaderPrefix = 'x-rosetteapi-';
+        $headerPrefix = 'x-babelstreetapi-';
+        if (strlen($header) < strlen($legacyHeaderPrefix) ||
+            (strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0 &&
+            strcasecmp(substr($header, 0, strlen($legacyHeaderPrefix)), $legacyHeaderPrefix) != 0)) {
+            throw new RosetteException("Custom headers must start with \"$headerPrefix\" or \"$legacyHeaderPrefix\"");
         }
         if (is_null($value) && array_key_exists($header, $this->customHeaders)) {
             unsset($this->customHeaders, $header);

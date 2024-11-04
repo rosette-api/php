@@ -34,7 +34,7 @@ class ApiSpec extends ObjectBehavior
     public function it_constructs_user_agent()
     {
         $version = $this->getWrappedObject()->getBindingVersion();
-        $uaString = 'RosetteAPIPHP/' . $version . '/' . phpversion();
+        $uaString = 'Babel-Street-Analytics-API-PHP/' . $version . '/' . phpversion();
         $this->getUserAgent()->shouldBe($uaString);
     }
     public function it_sets_gets_clears_url_params()
@@ -333,10 +333,17 @@ class ApiSpec extends ObjectBehavior
     {
         $this->shouldThrow(RosetteConstants::$RosetteExceptionFullClassName)->duringSetCustomHeader("test");
     }
-    public function it_sets_gets_clears_customHeaders()
+    public function it_sets_gets_clears_customHeaders_rosette()
     {
         $this->setCustomHeader('X-RosetteAPI-test', 'true');
         $this->getCustomHeaders()->shouldBe(array('X-RosetteAPI-test' => 'true'));
+        $this->clearCustomHeaders();
+        $this->getCustomHeaders()->shouldBe(array());
+    }
+    public function it_sets_gets_clears_customHeaders_babelstreet()
+    {
+        $this->setCustomHeader('X-BabelStreetAPI-test', 'true');
+        $this->getCustomHeaders()->shouldBe(array('X-BabelStreetAPI-test' => 'true'));
         $this->clearCustomHeaders();
         $this->getCustomHeaders()->shouldBe(array());
     }
