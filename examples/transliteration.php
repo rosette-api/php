@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to transliterate content.
+ * Example code to call Analytics API to transliterate content.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

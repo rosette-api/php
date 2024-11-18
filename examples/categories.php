@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get a document's (located at given URL) category.
+ * Example code to call Analytics API to get a document's (located at given URL) category.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Name represents an entity name in Rosette API.
+ * Name represents an entity name in Analytics API.
  *
  * @copyright 2014-2024 Basis Technology Corporation.
  *

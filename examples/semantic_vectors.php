@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get text vectors from sample text
+ * Example code to call Analytics API to get text vectors from sample text
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

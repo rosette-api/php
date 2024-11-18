@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to compare two lists of records and return a similarity score for each pair of records
+ * Example code to call Analytics API to compare two lists of records and return a similarity score for each pair of records
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

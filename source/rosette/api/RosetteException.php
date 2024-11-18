@@ -5,7 +5,7 @@
  *
  * Encapsulates the common exceptions that could occur.
  *
- * @copyright 2014-2015 Basis Technology Corporation.
+ * @copyright 2014-2024 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -24,7 +24,7 @@ namespace rosette\api;
 class RosetteException extends CustomException
 {
     /**
-     * The general error returned from Rosette API, indicating unrecognized format.
+     * The general error returned from Analytics API, indicating unrecognized format.
      *
      * @var int
      */
@@ -36,7 +36,7 @@ class RosetteException extends CustomException
      */
     public static $INVALID_DATATYPE = -3; // api error
     /**
-     * Internal error that throws if the Rosette API server version does not match the Api version.
+     * Internal error that throws if the Analytics API server version does not match the Api version.
      *
      * @var int
      */

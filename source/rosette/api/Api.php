@@ -3,9 +3,9 @@
 /**
  * Api.
  *
- * Primary class for interfacing with the Rosette API
+ * Primary class for interfacing with the Analytics API
  *
- * @copyright 2015-2023 Basis Technology Corporation.
+ * @copyright 2015-2024 Basis Technology Corporation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance
  * with the License. You may obtain a copy of the License at
@@ -42,21 +42,21 @@ class Api
     private static $binding_version = '1.30.0';
 
     /**
-     * User key (required for Rosette API).
+     * User key (required for Analytics API).
      *
      * @var null|string
      */
     private $user_key;
 
     /**
-     * URL of the Rosette API (or test server).
+     * URL of the Analytics API (or test server).
      *
      * @var string
      */
     private $service_url;
 
     /**
-     * HTTP headers for Rosette API.
+     * HTTP headers for Analytics API.
      *
      * @var array
      */
@@ -136,14 +136,17 @@ class Api
      * @param string $user_key    An authentication string to be sent as user_key with
      *                            all requests.
      */
-    public function __construct($user_key, $service_url = 'https://api.rosette.com/rest/v1/')
+    public function __construct($user_key, $service_url = 'https://analytics.babelstreet.com/rest/v1/')
     {
         $this->user_key = $user_key;
 
-        $this->headers = array('X-RosetteAPI-Key' => $user_key,
+        $this->headers = array('X-BabelStreetAPI-Key' => $user_key,
             'Content-Type' => 'application/json',
             'Accept-Encoding' => 'gzip',
             'User-Agent' => $this->getUserAgent(),
+            'X-BabelStreetAPI-Binding' => 'php',
+            'X-BabelStreetAPI-Binding-Version' => $this->getBindingVersion(),
+            // TODO remove this in future release
             'X-RosetteApi-Binding' => 'php',
             'X-RosetteAPI-Binding-Version' => $this->getBindingVersion());
 
@@ -170,7 +173,7 @@ class Api
      */
     public function getUserAgent()
     {
-        return 'RosetteAPIPHP/' . $this->getBindingVersion() . '/' . phpversion();
+        return 'Babel-Street-Analytics-API-PHP/' . $this->getBindingVersion() . '/' . phpversion();
     }
 
     /**
@@ -275,7 +278,7 @@ class Api
     }
 
     /**
-     * Setter for an additional query parameter to the Rosette API URL.
+     * Setter for an additional query parameter to the Analytics API URL.
      *
      * @param string $param_name (e.g. output)
      * @param string $param_value (e.g. rosette)
@@ -379,10 +382,12 @@ class Api
      */
     public function setCustomHeader($header, $value = null)
     {
-        $headerPrefix = 'x-rosetteapi-';
-        if (strlen($header) < strlen($headerPrefix) ||
-            strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0) {
-            throw new RosetteException("Custom headers must start with \"$headerPrefix\"");
+        $legacyHeaderPrefix = 'x-rosetteapi-';
+        $headerPrefix = 'x-babelstreetapi-';
+        if (strlen($header) < strlen($legacyHeaderPrefix) ||
+            (strcasecmp(substr($header, 0, strlen($headerPrefix)), $headerPrefix) != 0 &&
+            strcasecmp(substr($header, 0, strlen($legacyHeaderPrefix)), $legacyHeaderPrefix) != 0)) {
+            throw new RosetteException("Custom headers must start with \"$headerPrefix\" or \"$legacyHeaderPrefix\"");
         }
         if (is_null($value) && array_key_exists($header, $this->customHeaders)) {
             unsset($this->customHeaders, $header);

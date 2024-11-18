@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get a document's sentiment from a local file.
+ * Example code to call Analytics API to get a document's sentiment from a local file.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

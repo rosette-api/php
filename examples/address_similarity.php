@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to get similarity score for two addresses.
+ * Example code to call Analytics API to get similarity score for two addresses.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

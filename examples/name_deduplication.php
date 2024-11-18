@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to call Rosette API to deduplicate a list of names.
+ * Example code to call Analytics API to deduplicate a list of names.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;

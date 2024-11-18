@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Example code to send Rosette API a ping to check its reachability.
+ * Example code to send Analytics API a ping to check its reachability.
  **/
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 use rosette\api\Api;
