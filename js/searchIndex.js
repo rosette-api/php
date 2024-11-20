@@ -208,7 +208,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003AsetUrlParam\u0028\u0029",
             "name": "setUrlParam",
-            "summary": "Setter\u0020for\u0020an\u0020additional\u0020query\u0020parameter\u0020to\u0020the\u0020Rosette\u0020API\u0020URL.",
+            "summary": "Setter\u0020for\u0020an\u0020additional\u0020query\u0020parameter\u0020to\u0020the\u0020Analytics\u0020API\u0020URL.",
             "url": "classes/rosette-api-Api.html#method_setUrlParam"
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003AgetUrlParam\u0028\u0029",
@@ -393,17 +393,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003A\u0024user_key",
             "name": "user_key",
-            "summary": "User\u0020key\u0020\u0028required\u0020for\u0020Rosette\u0020API\u0029.",
+            "summary": "User\u0020key\u0020\u0028required\u0020for\u0020Analytics\u0020API\u0029.",
             "url": "classes/rosette-api-Api.html#property_user_key"
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003A\u0024service_url",
             "name": "service_url",
-            "summary": "URL\u0020of\u0020the\u0020Rosette\u0020API\u0020\u0028or\u0020test\u0020server\u0029.",
+            "summary": "URL\u0020of\u0020the\u0020Analytics\u0020API\u0020\u0028or\u0020test\u0020server\u0029.",
             "url": "classes/rosette-api-Api.html#property_service_url"
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003A\u0024headers",
             "name": "headers",
-            "summary": "HTTP\u0020headers\u0020for\u0020Rosette\u0020API.",
+            "summary": "HTTP\u0020headers\u0020for\u0020Analytics\u0020API.",
             "url": "classes/rosette-api-Api.html#property_headers"
         },                {
             "fqsen": "\\rosette\\api\\Api\u003A\u003A\u0024url_params",
@@ -661,6 +661,26 @@ Search.appendIndex(
             "summary": "The\u0020address\u0020P.O.\u0020Box.",
             "url": "classes/rosette-api-FieldedAddress.html#property_poBox"
         },                {
+            "fqsen": "\\rosette\\api\\Gender",
+            "name": "Gender",
+            "summary": "Class\u0020that\u0020represents\u0020the\u0020Gender\u0020of\u0020a\u0020Name.",
+            "url": "classes/rosette-api-Gender.html"
+        },                {
+            "fqsen": "\\rosette\\api\\Gender\u003A\u003AMALE",
+            "name": "MALE",
+            "summary": "",
+            "url": "classes/rosette-api-Gender.html#enumcase_MALE"
+        },                {
+            "fqsen": "\\rosette\\api\\Gender\u003A\u003AFEMALE",
+            "name": "FEMALE",
+            "summary": "",
+            "url": "classes/rosette-api-Gender.html#enumcase_FEMALE"
+        },                {
+            "fqsen": "\\rosette\\api\\Gender\u003A\u003ANONBINARY",
+            "name": "NONBINARY",
+            "summary": "",
+            "url": "classes/rosette-api-Gender.html#enumcase_NONBINARY"
+        },                {
             "fqsen": "\\rosette\\api\\IAddress",
             "name": "IAddress",
             "summary": "Interface\u0020implemented\u0020by\u0020all\u0020Addresses",
@@ -750,6 +770,11 @@ Search.appendIndex(
             "name": "script",
             "summary": "Script\u0020in\u0020which\u0020the\u0020name\u0020is\u0020written.",
             "url": "classes/rosette-api-Name.html#property_script"
+        },                {
+            "fqsen": "\\rosette\\api\\Name\u003A\u003A\u0024gender",
+            "name": "gender",
+            "summary": "Gender\u0020of\u0020the\u0020name.\u0020Can\u0020be\u0020MALE,\u0020FEMALE\u0020and\u0020NONBINARY",
+            "url": "classes/rosette-api-Name.html#property_gender"
         },                {
             "fqsen": "\\rosette\\api\\NameDeduplicationParameters",
             "name": "NameDeduplicationParameters",
@@ -923,7 +948,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\rosette\\api\\RosetteException\u003A\u003A\u0024BAD_REQUEST_FORMAT",
             "name": "BAD_REQUEST_FORMAT",
-            "summary": "The\u0020general\u0020error\u0020returned\u0020from\u0020Rosette\u0020API,\u0020indicating\u0020unrecognized\u0020format.",
+            "summary": "The\u0020general\u0020error\u0020returned\u0020from\u0020Analytics\u0020API,\u0020indicating\u0020unrecognized\u0020format.",
             "url": "classes/rosette-api-RosetteException.html#property_BAD_REQUEST_FORMAT"
         },                {
             "fqsen": "\\rosette\\api\\RosetteException\u003A\u003A\u0024INVALID_DATATYPE",
@@ -933,7 +958,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\rosette\\api\\RosetteException\u003A\u003A\u0024INCOMPATIBLE_VERSION",
             "name": "INCOMPATIBLE_VERSION",
-            "summary": "Internal\u0020error\u0020that\u0020throws\u0020if\u0020the\u0020Rosette\u0020API\u0020server\u0020version\u0020does\u0020not\u0020match\u0020the\u0020Api\u0020version.",
+            "summary": "Internal\u0020error\u0020that\u0020throws\u0020if\u0020the\u0020Analytics\u0020API\u0020server\u0020version\u0020does\u0020not\u0020match\u0020the\u0020Api\u0020version.",
             "url": "classes/rosette-api-RosetteException.html#property_INCOMPATIBLE_VERSION"
         },                {
             "fqsen": "\\rosette\\api\\RosetteException\u003A\u003A\u0024INVALID_PROPERTY_NAME",
