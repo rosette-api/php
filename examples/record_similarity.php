@@ -18,7 +18,10 @@ $fields = array(
     "primaryName" => array("type" => "rni_name", "weight" => 0.5),
     "dob" => array("type" => "rni_date", "weight" => 0.2),
     "addr" => array("type" => "rni_address", "weight" => 0.5),
-    "dob2" => array("type" => "rni_date", "weight" => 0.1)
+    "dob2" => array("type" => "rni_date", "weight" => 0.1),
+    "jobTitle" => array("type" => "rni_string", "weight" => 0.2),
+    "age" => array("type" => "rni_number", "weight" => 0.4),
+    "isRetired" => array("type" => "rni_boolean", "weight" => 0.05),
 );
 
 $properties = array(
@@ -32,23 +35,30 @@ $records = array(
             "primaryName" => array("text" => "Ethan R", "language" => "eng", "script" => "Latn", "entityType" => "PERSON", "languageOfOrigin" => "eng"),
             "dob" => "1993-04-16",
             "addr" => "123 Roadlane Ave",
-            "dob2" => array("date" => "04161993", "format" => "MMddyyyy")
+            "dob2" => array("date" => "04161993", "format" => "MMddyyyy"),
+            "jobTitle" => "software engineer"
         ),
         array(
             "dob" => array("date" => "1993-04-16"),
-            "primaryName" => array("text" => "Evan R")
+            "primaryName" => array("text" => "Evan R"),
+            "age" => 47,
+            "isRetired" => false
         )
     ),
     "right" => array(
         array(
             "dob" => array("date" => "1993-04-16"),
             "primaryName" => array("text" => "Seth R", "language" => "eng"),
+            "jobTitle" => "manager",
+            "isRetired" => true
         ),
         array(
             "dob" => array("date" => "1993-04-16"),
             "primaryName" => "Ivan R",
             "addr" => array("houseNumber" => "123", "road" => "Roadlane Ave"),
-            "dob2" => array("date" => "1993/04/16")
+            "dob2" => array("date" => "1993/04/16"),
+            "age" => 72,
+            "isRetired" => true
         )
 
     )
