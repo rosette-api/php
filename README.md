@@ -35,10 +35,10 @@ in the [examples](https://github.com/rosette-api/php/tree/develop/examples) dire
 
 #### Documentation & Support
 - [Binding API](https://rosette-api.github.io/php/)
-- [Analytics Platform API](https://docs.babelstreet.com/API/en/index-en.html)
+- [Analytics Platform API](https://documentation.babelstreet.com/analytics)
 - [Binding Release Notes](https://github.com/rosette-api/php/wiki/Release-Notes)
-- [Analytics Platform Release Notes](https://docs.babelstreet.com/Release/en/rosette-cloud.html)
-- [Support](https://babelstreet.my.site.com/support/s/)
+- [Analytics Platform Release Notes](https://docs.babelstreet.com/r/Hosted-Services-Release-Notes)
+- [Support](https://babelstreet.my.site.com/support/s/contactsupport)
 - [Binding License: Apache 2.0](https://github.com/rosette-api/php/blob/develop/LICENSE.txt)
 
 ## Binding Developer Information
