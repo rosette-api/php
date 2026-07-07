@@ -1,5 +1,5 @@
 // These are Debian images.
-def php_versions = [8.1, 8.2, 8.3]
+def php_versions = [8.1, 8.2, 8.3, 8.4, 8.5]
 
 def runVersion(sourceDir, ver) {
     mySonarOpts = "-Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
@@ -12,16 +12,18 @@ def runVersion(sourceDir, ver) {
         mySonarOpts = "$mySonarOpts -Dsonar.pullrequest.base=${env.CHANGE_TARGET} -Dsonar.pullrequest.branch=${env.CHANGE_BRANCH}"
     }
 
+    def sonarScannerVersion = "8.1.0.6389-linux-x64"
+
     // Only run Sonar once.
     // There is an equivalent check in CI.sh.  Update both!!!!
     // The coverage tool version we are using doesn't like 8.2.
     // TODO:  Add CS Fixer Execution somewhere in CI.sh during the 8.2 extras.
     if (ver == 8.1) {
         sonarExec = "cd /root/ && \
-               wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.1.3023-linux.zip && \
-               unzip -q sonar-scanner-cli-4.8.1.3023-linux.zip && \
+               wget -q https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${sonarScannerVersion}.zip && \
+               unzip -q sonar-scanner-cli-${sonarScannerVersion}.zip && \
                cd /php-source && \
-               /root/sonar-scanner-4.8.1.3023-linux/bin/sonar-scanner ${mySonarOpts}"
+               /root/sonar-scanner-${sonarScannerVersion}/bin/sonar-scanner ${mySonarOpts}"
     } else {
         sonarExec = "echo Skipping Sonar for this version."
     }
