@@ -39,17 +39,24 @@ class RecordSimilarityParameters extends RosetteParamsSetBase
     public array $records;
 
     /**
+    * @var RecordSimilarityComparisonMethod
+    */
+    public RecordSimilarityComparisonMethod $comparisonMethod;
+
+    /**
      * constructor
      *
      * @param array $fields - the fields of the records to compare
      * @param array $properties - the properties of the comparison
      * @param array $records - the records to compare
+     * @param RecordSimilarityComparisonMethod $comparisonMethod - the comparison method to use
      */
-    public function __construct(array $fields, array $properties, array $records)
+    public function __construct(array $fields, array $properties, array $records, RecordSimilarityComparisonMethod $comparisonMethod = RecordSimilarityComparisonMethod::ONE_TO_ONE)
     {
         $this->fields = $fields;
         $this->properties = $properties;
         $this->records = $records;
+        $this->comparisonMethod = $comparisonMethod;
     }
 
 
