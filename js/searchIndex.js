@@ -891,6 +891,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/rosette-api-NameTranslationParameters.html#property_genre"
         },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityComparisonMethod",
+            "name": "RecordSimilarityComparisonMethod",
+            "summary": "Class\u0020that\u0020represents\u0020the\u0020Record\u0020Similarity\u0020Comparison\u0020Method.",
+            "url": "classes/rosette-api-RecordSimilarityComparisonMethod.html"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityComparisonMethod\u003A\u003AONE_TO_ONE",
+            "name": "ONE_TO_ONE",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityComparisonMethod.html#enumcase_ONE_TO_ONE"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityComparisonMethod\u003A\u003AONE_TO_N",
+            "name": "ONE_TO_N",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityComparisonMethod.html#enumcase_ONE_TO_N"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityComparisonMethod\u003A\u003AN_TO_M",
+            "name": "N_TO_M",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityComparisonMethod.html#enumcase_N_TO_M"
+        },                {
             "fqsen": "\\rosette\\api\\RecordSimilarityParameters",
             "name": "RecordSimilarityParameters",
             "summary": "Class\u0020RecordSimilarityParameters.",
@@ -920,6 +940,11 @@ Search.appendIndex(
             "name": "records",
             "summary": "",
             "url": "classes/rosette-api-RecordSimilarityParameters.html#property_records"
+        },                {
+            "fqsen": "\\rosette\\api\\RecordSimilarityParameters\u003A\u003A\u0024comparisonMethod",
+            "name": "comparisonMethod",
+            "summary": "",
+            "url": "classes/rosette-api-RecordSimilarityParameters.html#property_comparisonMethod"
         },                {
             "fqsen": "\\rosette\\api\\RosetteConstants",
             "name": "RosetteConstants",
