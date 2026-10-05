@@ -39,7 +39,7 @@ class Api
      *
      * @var string
      */
-    private static $binding_version = '1.39.0';
+    private static $binding_version = '1.39.1';
 
     /**
      * User key (required for Analytics API).
